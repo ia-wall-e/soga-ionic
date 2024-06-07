@@ -1,0 +1,74 @@
+/*#region //!PALETA DE COLORES*/
+$bg-body: rgb(240, 240, 240);
+$white:#fff;
+// $bg-body: #e3e3e3;
+$primary: rgb(26, 115, 233);
+$black-1st: rgb(77, 77, 77);
+$black-2nd: rgb(39, 39, 39);
+$gray-soft: #d1d1d1;
+$gray-hard: gray;
+$gray-minor: rgb(204, 204, 204);
+// $gray-minor:#828282;
+$red:red;
+$palette: (
+  //#COLORES PRINCIPALES
+  "primary": $primary,
+  "bg-primary": $primary,
+  "bg-white": $white,
+  //#FONTS
+  "tl-one": $black-1st,
+  "tl-two": rgb(39, 39, 39),
+  "lt-one": $black-1st,
+  "lt-white": $white,
+  "lt-primary": $primary,
+  //#INPUT
+  "inp-focus": $primary,
+  //#BOTONES
+  //BOTON PRINCIPAL
+  "bt-main": $primary,
+  "bt-mainHv": #548aff,
+  // BOTON ICON CIRCULAR
+  "bt-lt-icon": $black-1st,
+  "bt-bd-icon": $gray-soft,
+  "bt-ltHv-icon": $gray-soft,
+  "bt-bdHv-icon": $gray-soft,
+  "bt-bgHv-icon": "",
+  // BOTON SECUNDARIO
+  "bt-lt-minor": #828282,
+  "bt-lt-white":$white,
+  "bt-bd-minor": $gray-minor,
+  "bt-bg-minor": "",
+  "bt-ltHv-minor": $gray-soft,
+  "bt-bdHv-minor": $gray-soft,
+  "bt-bgHv-minor": "",
+  //BOTON MIXTO Y DE SIDEBAR
+  "bt-bgHv-sd":rgba(gray, 0.15),
+  "bt-bd-sd":$gray-soft,
+  //#INPUTS
+  //©opcion 1 soft
+  "bd-inp":#b8b8b8,
+  "lt-inp":$gray-minor,
+  //©opcion 1 hard
+  "bd-inp-line": #777777,
+  "lt-inp-line": #777777,
+  //#SIDEBAR
+  "bt-lt-sd": $black-1st,
+  "tl-sd": $black-1st,
+  "lt-sd": $black-1st,
+  //#CARD
+  "cd-line": $gray-soft,
+  "cd-bg-hv": $gray-soft,
+  "cd-bd": #e2e2e2,
+  "cd-bt-main": $primary,
+  "cd-bt-buy": #49be25,
+  "cd-bg": #fff,
+  "bg-promo": #fd292f,
+  "bg-combo": #fd292f,
+  //#IMG
+  "img-lt-white": #fff,
+  //#ALERTS
+  "warning":$red,
+  //#SKELETON
+  "bg-skeleton":#eeeeee
+);
+/*#endregion*/

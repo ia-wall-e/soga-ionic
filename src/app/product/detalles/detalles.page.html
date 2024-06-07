@@ -1,0 +1,9 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>detalles</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<app-header-minor></app-header-minor>
+<ion-content [fullscreen]="true">
+     <app-product-detail [product]="product" *ngIf="product"></app-product-detail>
+</ion-content>

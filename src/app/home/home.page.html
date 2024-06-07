@@ -1,0 +1,28 @@
+<app-header></app-header>
+<ion-content [fullscreen]="true">
+    <!-- # modulos de ventas -->
+    <app-md-card-mini *ngIf="items.length > 0" [headModulo]="headTaste">
+        <app-card-mini  *ngFor="let product of items" [itemCard]="product"></app-card-mini>
+        <!-- <app-card-mini  *ngFor="let product of items" [itemCard]="product"></app-card-mini> -->
+    </app-md-card-mini> 
+    <app-md-card-mini *ngIf="itemsTop.length > 0" [headModulo]="headTop">
+        <app-card-mini *ngFor="let product of itemsTop" [itemCard]="product"></app-card-mini>
+    </app-md-card-mini>
+    <!-- #region modal-stand-->
+    <!-- <ion-button id="modal-stand">Open</ion-button>
+    <ion-modal trigger="modal-stand">
+        <ng-template>
+            <ion-header>
+                <ion-toolbar>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content class="ion-padding">
+                <ion-item>
+                    <ion-input label="Enter your name" labelPlacement="stacked" type="text"
+                        placeholder="Your name"></ion-input>
+                </ion-item>
+            </ion-content>
+        </ng-template>
+    </ion-modal> -->
+    <!-- #endregion -->
+</ion-content>

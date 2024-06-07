@@ -1,0 +1,59 @@
+<!-- #region Nav-drawer -->
+<ion-menu class="io-menu-main"contentId="main-content" menuId="menuMain">
+  <ion-header class="io-header">
+    <!-- <ion-toolbar class="io-toolbar">
+      <ion-title class="io-title">Hola {{user?.name||user?.email}}</ion-title>
+    </ion-toolbar> -->
+    <ion-item>
+      <ion-avatar slot="start">
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <ion-label>Hola {{user?.name||user?.email}}</ion-label>
+    </ion-item>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <!--© common nav -->
+    <!-- <ion-list-header class="io-list-header">
+      <ion-label class="io-label">Tus Compras</ion-label>
+    </ion-list-header> -->
+    <ion-list lines="none">
+      <ion-menu-toggle *ngFor="let i of menuOpt">
+        <ion-item class="io-item" [routerLink]="i.route">
+          <ion-icon slot="start" src="{{i.icon}}" name="{{i.iconName}}"></ion-icon>
+          <ion-label class="io-label">
+            {{i.label}}
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+    <!-- ©isLogged -->
+    <ion-list lines="none">
+      <ion-menu-toggle>
+        <ion-item class="io-item" routerLink="user/perfil">
+          <ion-icon slot="start"  name="person-outline"></ion-icon>
+          <ion-label class="io-label">
+            Perfil
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+    <!--©isLogged -->
+    <ion-list lines="none">
+      <ion-menu-toggle>
+        <ion-item class="io-item" (click)="logOut()"  button>
+          <ion-icon slot="start"  name="log-out-outline"></ion-icon>
+          <ion-label class="io-label">
+            Cerrar Sesion
+          </ion-label>
+        </ion-item>
+        <ion-item class="io-item" routerLink="/login">
+          <ion-icon slot="start"  name="log-in-outline"></ion-icon>
+          <ion-label class="io-label">
+            Iniciar Sesion
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<!-- #endregion -->

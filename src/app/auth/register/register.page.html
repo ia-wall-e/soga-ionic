@@ -1,0 +1,79 @@
+<ion-content [fullscreen]="true">
+    <div class="container form">
+        <div class="modulo form">
+            <div class="body-modulo">
+                <form class="form-one" [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+                    <div class="form-step" *ngIf="step == 1">
+                        <div class="title-section">
+                            <div class="capsule-title">
+                                <div class="title-section">
+                                    <h1 class="text-center">Crear Cuenta</h1>
+                                    <h5 class="text-center">Te damos la bienvenida a SogaEats.</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-section">
+                            <div class="ctn-caps-inp caps-radius">
+                                <div class="capsule-inp">
+                                    <input type="email" class="input-radius" placeholder="Email" formControlName="email" />
+                                    <app-msg-error [forControl]="emailControl" [errorCode]="emailError"></app-msg-error>
+                                  </div>
+                                <!-- <div class="capsule-inp">
+                                    <input type="tel" class="input-radius" placeholder="Telefono"
+                                        formControlName="phone">
+                                    <app-msg-error [forControl]="phoneControl" [errorCode]="phoneError"></app-msg-error>
+                                </div> -->
+                                <ng-container [formGroup]="newPassword">
+                                    <div class="capsule-inp">
+                                        <input type="password" class="input-radius" placeholder="Pin"
+                                            formControlName="password" #inpPass>
+                                        <ion-button class="bt-icon-radius" (click)="showPass()">
+                                            <ion-icon [name]="iconEye"></ion-icon>
+                                        </ion-button>
+                                        <app-msg-error [forControl]="passControl"
+                                            [errorCode]="passError"></app-msg-error>
+                                    </div>
+                                    <div class="capsule-inp">
+                                        <input type="password" class="input-radius" placeholder="Confirmar Pin"
+                                            formControlName="confirmPass">
+                                        <app-msg-error [forControl]="confirmPassControl"
+                                            [errorCode]="confirmPassError"></app-msg-error>
+                                        <app-msg-error [forControl]="passEqualControl"
+                                            [errorCode]="passEqualError"></app-msg-error>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <!-- <div class="chkbox-section">
+                            <div class="capsule-term">
+                                <ion-checkbox id="chk-terms" FormControlName="acceptTerms">Acepto los termino y
+                                    condiciones</ion-checkbox>
+                            </div>
+                        </div> -->
+                        <div class="button-section bt-unique">
+                            <ion-button type="button" class="button-ia long-medium size-big shadow-out"
+                                shape="round" (click)="nextStep()" [disabled]="registerForm.invalid">
+                                <span>Iniciar</span>
+                            </ion-button>
+                        </div>
+                        <div class="info-section">
+                            <div class="capsule-info-bottom">
+                                <a>Leer terminos y condiciones</a>
+                                <a>Nuestra politica sobre el uso de datos</a>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-container *ngIf="registerForm.valid">
+                        <div class="form-step" *ngIf="step == 2">
+                            <app-terms-conditions (backButton)="prevStep()" [onlyRead]="onlyRead_"></app-terms-conditions>
+                        </div>
+                    </ng-container>
+                 
+                </form>
+            </div>
+        </div>
+        <!-- <pre>{{registerForm.value | json}}</pre> -->
+        <!-- <pre>{{registerForm.get('phone').value}}</pre> -->
+       
+    </div>
+</ion-content>

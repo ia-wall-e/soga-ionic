@@ -1,0 +1,35 @@
+<div class="cart-item">
+  <!-- ©NAV -->
+  <div class="nav-section">
+      <button (click)="outOfCart()"><ion-icon class="icon-close400" name="close-sharp"></ion-icon></button>
+  </div>
+  <!--©INFO  -->
+  <div class="info-section-cart">
+      <div class="bx-img">
+          <img src="{{itemCart.img}}" alt="{{itemCart.name}}">
+      </div>
+      <div class="bx-info">
+          <div class="title">
+              <h4>{{itemCart.name}}</h4>
+          </div>
+          <div class="extras">
+              <table  *ngIf="itemCart.requiredOptions">
+                  <tr>
+                      <td><ion-icon class="icon-check" name="checkmark-outline"></ion-icon>
+                          <p class="">{{itemCart.requiredOptions}}</p>
+                      </td>
+                  </tr>
+                  <!-- <tr>
+                      <td><ion-icon class="icon-check" name="checkmark-outline"></ion-icon>
+                          <p>Bebidas</p>
+                      </td>
+                  </tr> -->
+              </table>
+          </div>
+          <div class="price">
+              <h4 class="price-txt">${{itemCart.price}}</h4>
+              <h4 class="quantity-txt">Cant:{{itemCart.quantity}}</h4>
+          </div>
+      </div>
+  </div>
+</div>

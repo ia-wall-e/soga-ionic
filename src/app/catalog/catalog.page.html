@@ -1,0 +1,14 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>catalog</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<app-header-minor></app-header-minor>
+<ion-content [fullscreen]="true">
+  <!-- <a routerLink="/catalogo"  [queryParams]="{orderBy:'price'}">Ordenar por precio</a> -->
+  <!-- <a (click)="orderBy('price')">Ordenar por precio</a> -->
+  <!-- <a (click)="orderBy('category')">Ordenar por categoria</a> -->
+  <app-md-card-mini *ngIf="products.length > 0" [headModulo]="headTop">
+    <app-card-mini *ngFor="let product of products" [itemCard]="product"></app-card-mini>
+  </app-md-card-mini>
+</ion-content>

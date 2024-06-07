@@ -1,0 +1,15 @@
+@import '../../../assets/sass/ngControls';
+
+.form-step {
+    position:relative;
+    height: 100%;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    // display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    // &.active {
+      display: flex;
+    // }
+  }

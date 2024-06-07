@@ -1,0 +1,95 @@
+//#region-MIXINS
+@mixin button-icon-size($size) {
+  width: $size;
+  height: $size;
+}
+//#endregion
+//#region-VARIABLES
+//Size buttons
+$default: 3rem;
+//#endregion
+//#region-BUTTON
+.button-ia {
+  position: relative;
+  z-index: 1;
+  height: $default;
+  text-transform: none;
+  cursor: pointer;
+  .icon-ia {
+    font-size: 1.5rem;
+  }
+  span {
+    @include ft-primary($color: null, $size: 0.92rem);
+    cursor: pointer;
+  }
+  &.notification{
+    .badge-ia {
+      background-color: red;
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      border-radius: 100%;
+    }
+  }
+  &.menu {
+    --color: var(--bt-color-gray);
+  }
+  &.shadow-out {
+    --box-shadow: none;
+  }
+  &.style {
+    &-dinamic {
+      --color: var(--bt-color-dinamic);
+      --background: var(--bt-bg-dinamic);
+    }
+    &-secondary {
+      --color: var(--ion-color-primary);
+      --background: var(--bt-bg-gray);
+    }
+    &-gray {
+      --color: var(--bt-color-gray);
+      --background: var(--bt-bg-gray);
+    }
+    &-none {
+      --color: var(--bt-color-gray);
+      --background: none;
+    }
+    &-icon{
+      --border-radius: 100%;
+      --padding-bottom: 0%;
+      --padding-end:0%;
+      --padding-start: 0%;
+      --padding-top: 0%;
+      height: unset;
+      --width:$default;
+    }
+  }
+  &.long {
+    &-full {
+      width: 100%;
+    }
+    &-medium {
+      width: 100%;
+      max-width: 18.75rem;
+    }
+  }
+  &.size {
+    &-big {
+      height: 3.5rem;
+    }
+  }
+}
+//#endregion
+//#region-TIPO DE BUTTONS
+.button-ia {
+  //©ICON
+  &.icon {
+    --border-radius: 100%;
+    --padding-bottom: 5%;
+    --padding-end: 5%;
+    --padding-start: 5%;
+    --padding-top: 5%;
+    @include button-icon-size($default);
+  }
+}
+//#endregion

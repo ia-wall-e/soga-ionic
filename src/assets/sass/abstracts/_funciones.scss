@@ -1,0 +1,12 @@
+////FUNCIONES PALETT
+@function color($color) {
+  @return map-get($map: $palette, $key: $color);
+}
+
+// @function fonts($family){
+//   @return map-get($map: $fontsMap, $key: $family);
+// }
+
+
+
+

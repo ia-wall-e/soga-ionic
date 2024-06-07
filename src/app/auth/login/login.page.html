@@ -1,0 +1,43 @@
+<ion-content [fullscreen]="true">
+  <div class="container form">
+    <div class="modulo form">
+      <div class="body-modulo">
+        <form class="form-one" [formGroup]="loginForm">
+          <div class="title-section">
+            <div class="capsule-title">
+              <div class="title-section">
+                <h1 class="text-center">Iniciar Sesion</h1>
+                <h5 class="text-center">Bienvenido de vuelta a SogaEats.</h5>
+              </div>
+            </div>
+          </div>
+          <div class="input-section">
+            <div class="ctn-caps-inp caps-radius">
+              <div class="capsule-inp">
+                <input type="email" class="input-radius" placeholder="Email" formControlName="email" />
+                <app-msg-error [forControl]="emailControl" [errorCode]="emailError"></app-msg-error>
+              </div>
+              <div class="capsule-inp">
+                <input type="password" class="input-radius" placeholder="Pin" formControlName="password"/>
+                <ion-button class="bt-icon-radius">
+                  <ion-icon name="eye-outline"></ion-icon>
+                </ion-button>
+                <app-msg-error [forControl]="passwordControl" [errorCode]="pinError"></app-msg-error>
+              </div>
+            </div>
+          </div>
+          <div class="button-section bt-unique">
+            <ion-button  class="button-ia long-medium size-big shadow-out" shape="round" (click)="signIn()" [disabled]="loginForm.invalid">
+              <span>Iniciar</span>
+            </ion-button>
+          </div>
+          <div class="info-section">
+            <div class="capsule-info-bottom">
+              <a>¿Olvidaste tu contraseña?</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</ion-content>

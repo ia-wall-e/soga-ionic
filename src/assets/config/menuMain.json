@@ -1,0 +1,22 @@
+[
+    {
+      "route": "/cart",
+      "icon": "../assets/icon/bag.svg",
+      "label": "Carrito"
+    },
+    {
+      "route": "/login",
+      "icon": "../assets/icon/bell.svg",
+      "label": "Notificaciones"
+    },
+    {
+      "route": "/login",
+      "iconName": "options-outline",
+      "label": "Filtros"
+    },
+    {
+      "route": "/Detalles",
+      "iconName": "pricetag-outline",
+      "label": "Detalles Producto"
+    }
+  ]

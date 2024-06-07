@@ -1,0 +1,322 @@
+
+//#region-EXTENDS*/
+//*Styles buttons y hover
+%line-gray {
+  color: --ion-color-primary;
+  border: 1px solid --ion-color-primary;
+}
+%line-blue {
+  border: 1px solid transparent;
+  color: --ion-color-primary;
+  outline: 2px solid --ion-color-primary;
+}
+%bg-gray {
+  background-color: --ion-color-primary;
+  border: 1px solid --ion-color-primary;
+}
+%bg-color {
+  background-color: --ion-color-primary;
+}
+%bg-none {
+  background-color: --ion-color-primary;
+  color: white;
+}
+//#endregion*/
+//*#region-BOTON STYLES*/
+.bt-one {
+  //¡
+  height: min(3.5rem, 3.5rem);
+  //¡
+  position: relative;
+  z-index: 1;
+  background: none;
+  border: none;
+  border-radius: 30px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  &.unique {
+    width: 100%;
+    max-width: 300px;
+  }
+  //*Clases de botones
+  //©primario
+  &.main {
+    font-family: "ubuntu", sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: var(--ion-color-primary);
+    font-size: 1em;
+    padding: 0 20px;
+    // transition: all 0.3s ease-in-out;
+    transition: color 0.3s ease-in, background-color 0.4s ease-in;
+    p {
+      color: white;
+    }
+    > span {
+      font-size: 1.5rem;
+    }
+    &:hover {
+      @extend %bg-color;
+    }
+    &.middle {
+      height: 3rem;
+    }
+    &.small {
+      font-size: 0.95rem;
+      height: 2.5rem;
+      // font-weight:lighter;
+    }
+    &.shadow {
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+        rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    }
+  }
+  //©secundario
+  &.minor {
+    background: white;
+    font-family: "open sans", sans-serif;
+    border: 1px solid --ion-color-primary;
+    color: --ion-color-primary;
+    font-size: 1em;
+    padding: 0 20px;
+    // width: content;
+    // width:10rem;
+    &:hover {
+      @extend %line-gray;
+    }
+    > span {
+      font-size: 1.5rem;
+      margin-right: 10px;
+    }
+    &.middle {
+      height: 3rem;
+    }
+    &.small {
+      font-size: 0.95rem;
+      height: 2.5rem;
+    }
+    //*opcines de color bt minor
+    &.primary{
+      border:1px solid --ion-color-primary;
+      color:--ion-color-primary;
+      &:hover {
+        background:--ion-color-primary;
+        color:color(bt-lt-white)
+        
+      }
+    }
+    &.warning{
+      border:1px solid --ion-color-primary;
+      color:color(warning);
+      &:hover {
+        background:--ion-color-primary;
+        color:--ion-color-primary;
+        
+      }
+    }
+    &.shadow {
+      border: 1px solid transparent;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    }
+  }
+  //©secundario fuerte
+  &.minor-strong {
+    background: white;
+    font-family: "open sans", sans-serif;
+    // border: 2px solid color(bt-bd-minor);
+    // background: color(bt-bd-minor);
+    border: 2px solid gray;
+    background:gray;
+    color: white;
+    font-size: 1em;
+    padding: 0 20px;
+    // width: content;
+    // width:10rem;
+    &:hover {
+      background: --ion-color-primary;
+      border: 2px solid --ion-color-primary;
+    }
+    &.active {
+       border: 2px solid --ion-color-primary;
+      background: --ion-color-primary;
+      color: white;
+    }
+    > span {
+      font-size: 1.5rem;
+      margin-right: 10px;
+    }
+    &.middle {
+      height: 3rem;
+    }
+    &.small {
+      font-size: 0.95rem;
+      height: 2.5rem;
+    }
+    &.shadow {
+      border: 1px solid transparent;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    }
+  }
+  //©icon
+  &.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.5rem;
+    color: color(bt-lt-icon);
+    border-radius: 100%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    transition: all 0.3s ease-in-out;
+    > span{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      font-size: 1.7rem;
+      &.icon-arrow-back400 {
+        padding:2px 0 0 10px;
+      }
+    }
+    //®tamaños 
+    &.big {
+      // background-color:yellow;
+      height: 3.5rem;
+      width: 3.5rem;
+      min-width: 3.5rem;
+    }
+    &.middle {
+      // background-color:yellow;
+      height: 3rem;
+      width: 3rem;
+      min-width: 3rem;
+      .icon-user200 {
+        font-size: 3rem;
+      }
+    }
+
+    &.small {
+      height: 2.5rem;
+      width: 2.5rem;
+      > span {
+        font-size: 1.4rem;
+      }
+    }
+    //®Opciones style
+    &.line {
+      color: --ion-color-primary;
+      border: 2px solid --ion-color-primary;
+      box-shadow: none;
+      &:hover {
+        @extend %line-gray;
+      }
+    }
+    &.oval {
+      box-shadow: none;
+      background-color: --ion-color-primary;
+      color: white;
+      border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+      &:hover {
+        @extend %bg-gray;
+      }
+    }
+    &.fill {
+      box-shadow: none;
+      background:var(--ion-color-primary);
+      color: white;
+      &:hover {
+        @extend %bg-gray;
+      }
+    }
+    &.none {
+      box-shadow: none;
+      color:var(--bt-color-gray)
+    }
+    &.gray{
+      background: rgba(#d1d1d1, 0.25);
+      box-shadow: none;
+      color: rgb(77, 77, 77);
+    }
+  }
+  //©user
+  &.user {
+    // background-color:yellow;
+    padding: unset;
+    width: 3.5rem;
+    color: color(bt-lt-icon);
+    border-radius: 100%;
+    &:hover {
+      color: --ion-color-primary;
+    }
+    > span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 4.5rem;
+    }
+    // ®tamaños
+    &.big {
+      height: 3.5rem;
+      width: 3.5rem;
+      min-width: 3.5rem;
+    }
+    &.middle {
+      // background-color:yellow;
+      height: 3rem;
+      width: 3rem;
+      min-width: 3rem;
+      > span {
+        font-size: 3.8rem;
+      }
+    }
+    &.small {
+      height: 2.5rem;
+      width: 2.5rem;
+      > span {
+        font-size: 2.7rem;
+      }
+    }
+    //©Opciones button USER
+    &.line {
+      color: --ion-color-primary;
+    }
+    &.fill {
+    }
+  }
+  //*Opciones button MAIN - MINOR
+  &.square {
+    border-radius: 8px;
+  }
+  &.blue {
+    border: 1px solid --ion-color-primary;
+    color: --ion-color-primary;
+  }
+  //*estilos click
+  &:active {
+    background-color: rgba(gray, 0.1);
+  }
+}
+//#endregion*/
+//#region-AGREGAR ICON*/
+.add-icon {
+  &.right {
+    > span {
+      font-size: 1.5rem;
+      margin-left: 10px;
+    }
+  }
+  &.left {
+    > span {
+      font-size: 1.5rem;
+      margin-right: 10px;
+    }
+  }
+}
+//#endregion*/
