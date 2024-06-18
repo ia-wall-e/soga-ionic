@@ -1,5 +1,17 @@
 import { Injectable, inject } from '@angular/core';
-import { Observable, map, from, BehaviorSubject, catchError } from 'rxjs';
+import {
+  Observable,
+  map,
+  from,
+  BehaviorSubject,
+  throwError,
+  catchError,
+  switchMap,
+  filter,
+  of,
+  tap,
+  takeWhile,
+} from 'rxjs';
 import {
   LoginCredentials,
   UserCredentials,
@@ -12,21 +24,63 @@ import { User } from 'firebase/auth';
 })
 export class AuthService {
   private fireSvc = inject(FirebaseService);
-  //#region PROPIEDADES
+  //#PROPIEDADES
   private logState = new BehaviorSubject<any>(false);
   authState$ = this.logState.asObservable();
-  //#endregion
-  //#region METODOS CRUD-USER
+  //#METODOS CRUD-USER
+  // signIn(credentials: LoginCredentials): Observable<any> {
+  //   return from(Promise.resolve(this.fireSvc.signInEmail(credentials))).pipe(
+  //     map((x) => {
+  //       return x;
+  //     }),
+  //     catchError((error) => {
+  //       throw error;
+  //     })
+  //   );
+  // }
+  //!refactor
+  // signIn(credentials: LoginCredentials): Observable<any> {
+  //     return this.authState().pipe(
+  //       switchMap((x: UserCredentials | null) => {
+  //         if (!x) {
+  //           return this.handlerFalse(credentials,x);
+  //         } else {
+  //           throw 'four!';
+  //         }
+  //       }),
+  //       catchError(err => {throw 'error in source. Details: ' + err})
+  //     );
+  // }
+
+  //!refactor
   signIn(credentials: LoginCredentials): Observable<any> {
-    return from(Promise.resolve(this.fireSvc.signInEmail(credentials))).pipe(
-      map((x) => {
-        return x;
+    return this.authState().pipe(
+      switchMap((x: UserCredentials | null) => {
+        if (!x) {
+          return this.handlerFalse(credentials, x).pipe(
+            catchError(err => {
+              throw 'Error in handlerFalse. Details: ' + err;
+            })
+          );
+        } else {
+        return of(new Error("error"))
+        }
       }),
-      catchError((error) => {
-        throw error;
+      catchError(err => {
+        throw 'Error in signIn. Details: ' + err;
       })
     );
   }
+  //!
+  private handlerFalse(credentials: LoginCredentials, uid) {
+    return from(Promise.resolve(this.fireSvc.signInEmail(credentials))).pipe(
+      map((x) => {
+        console.log('Se ejecuto');
+        return x;
+      })
+    );
+  }
+  //#
   signOut(): void {
     try {
       localStorage.removeItem('user');
@@ -46,14 +100,12 @@ export class AuthService {
   updateName(name: string) {
     return from(Promise.resolve(this.fireSvc.updateUser(name)));
   }
-  //#endregion
-  //#region METODOS
+  //#METODOS
   getUserInfo(uid: string): Observable<any> {
     return from(this.fireSvc.getDataUser(uid));
   }
   getUID(): Observable<string | null> {
-    return this.authState$.pipe(map((v)=> (v?v.uid:null)))
-    
+    return this.authState$.pipe(map((v) => (v ? v.uid : null)));
   }
   authState(): Observable<UserCredentials | null> {
     return (this.authState$ = this.fireSvc
@@ -63,20 +115,7 @@ export class AuthService {
   setPersistence() {
     this.fireSvc.persistenceSession();
   }
-  //#endregion
-  //#region METODOS PRIVADOS
-  /*
-  private createLocalSesion(key: string, data: any) {
-    try {
-      if (typeof data == 'object') {
-        data = JSON.stringify(data);
-      }
-      return localStorage.setItem(key, data);
-    } catch (err) {
-      throw new Error('file user error');
-    }
-  }
-  */
+  //#utils
   private createCredentials(user): UserCredentials {
     return {
       uid: user.uid,
@@ -86,5 +125,4 @@ export class AuthService {
       img: user.photoUrl,
     };
   }
-  //#endregion
 }

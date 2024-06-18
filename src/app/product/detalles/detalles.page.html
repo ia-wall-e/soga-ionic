@@ -1,9 +1,31 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>detalles</ion-title>
-  </ion-toolbar>
-</ion-header> -->
+
 <app-header-minor></app-header-minor>
 <ion-content [fullscreen]="true">
-     <app-product-detail [product]="product" *ngIf="product"></app-product-detail>
+  <div class="container">
+    <div class="modulo center" style="background:rgb(248, 248, 248)">
+      <!-- #skeleton -->
+    <div class="stand-component" *ngIf="!product">
+      <div class="description-section">
+          <div class="image">
+              <ion-skeleton-text [animated]="true" style="width: 100%;height: 100%;"></ion-skeleton-text>
+          </div>
+          <div class="data" style="border:none;">
+              <div class="info">
+                  <ion-skeleton-text [animated]="true" style="width: 100%;height: 1.5rem;"></ion-skeleton-text>
+                  <ion-skeleton-text [animated]="true" style="width: 100%;height: 0.9rem;"></ion-skeleton-text>
+                  <ion-skeleton-text [animated]="true" style="width: 100%;height: 0.9rem;"></ion-skeleton-text>
+                  <ion-skeleton-text [animated]="true" style="width: 100%;height: 0.9rem;"></ion-skeleton-text>
+              </div>
+              <div class="price">
+                  <div class="price-current">
+                      <ion-skeleton-text [animated]="true" style="width: 30%;height: 2rem"></ion-skeleton-text>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- # -->
+      <app-product-detail [product]="product" *ngIf="product"></app-product-detail>
+    </div>
+  </div>
 </ion-content>

@@ -1,10 +1,12 @@
 .ng-touched.ng-invalid:is(input,textarea),
 .ng-dirty.ng-invalid:is(input,textarea){
     border:2px solid red;
+    box-shadow:none;
 }
 .ng-touched.ng-valid:is(input,textarea),
 .ng-dirty.ng-valid:is(input,textarea){
     border:2px solid rgb(130, 204, 238);
+    box-shadow:none;
 }
 .errors{
     // background:gray;

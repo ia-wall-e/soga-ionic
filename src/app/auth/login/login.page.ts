@@ -48,17 +48,22 @@ export class LoginPage implements OnInit, OnDestroy {
        });
   }
   private handleSignInSuccess(response: any) {
+    console.log(response)
     this.authSvc.setPersistence();
-    this.utilSvc.myRouterLink('/home');
+    // this.utilSvc.myRouterLink('/home');
     this.loginForm.reset();
   }
   private handleSignInError(error: any) {
     console.error(error);
     this.utilSvc.alert({
       header: 'Error al loguearte',
-      message: 'Se ha presentado un problema al ingresar',
+      message: error.message,
       buttons: ['Cerrar'],
     })
   }
   //#endregion
+  signOut(){
+    this.authSvc.signOut();
+    this.loginForm.reset();
+  }
 }

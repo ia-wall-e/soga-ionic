@@ -1,20 +1,20 @@
 
 <div class="order-options">
     <h5>Que deseas con tu compra?</h5>
-    <ion-list *ngFor="let item of optItem">
+    <ion-list>
         <ion-item class="option-item" [button]="false">
             <ion-checkbox class="option-name" value="grapes" labelPlacement="end" [button]="false">
                 <ion-label>
                     <h2>
-                        {{item.name}}
+                        Sabor de Prueba
                     </h2>
                     <p>
-                        {{item.size}}
+                        300ml
                     </p>
                 </ion-label>
             </ion-checkbox>
-            <div class="quantity-control" slot="end">
-                {{item.price | currency :"USD": "symbol" : "4.0-2"}}
+            <div class="quantity-control" slot="end">$4500
+                <!-- {{"$300" | currency :"USD": "symbol" : "4.0-2"}} -->
             </div>
         </ion-item>
     </ion-list>

@@ -1,4 +1,5 @@
-import { Component,inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ShoppingCartService } from '@myServices/shopping-cart.service';
 import { AuthService } from 'src/services/auth.service';
 
 @Component({
@@ -7,10 +8,9 @@ import { AuthService } from 'src/services/auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  private authSvc= inject(AuthService);
+  private authSvc = inject(AuthService);
+  private cartSvc = inject(ShoppingCartService);
   //#propiedades
-  $logState= this.authSvc.authState$;
-
- 
-
+  $logState = this.authSvc.authState$;
+  $itemsCart = this.cartSvc.itemsCount$;
 }

@@ -24,13 +24,12 @@
     grid-template-columns: 1fr 1fr;
     justify-content: space-evenly;
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
   }
-  .stand-section {
-    background: var(--ion-color-step-150);
+  .options-section {
     border-radius: 20px;
-    padding: 0.625rem 1.25rem;
-    margin-bottom: 1rem;
+    padding: 0.625rem 20px;
+    // border: 1px solid rgb(224, 224, 224);
   }
 }
 //#region-SECTIONS-BOX
@@ -38,10 +37,10 @@
   .description-section {
     .image,
     .data {
-      background: var(--ion-color-step-150);
       width: 100%;
       border-radius: 20px;
       position: relative;
+
       max-height: 19em;
       min-height: 19rem;
     }
@@ -62,7 +61,7 @@
       }
       img {
         // object-fit: cover;
-        background: white;
+        background:white;
         object-fit: contain;
         height: 100%;
         width: 100%;
@@ -70,19 +69,19 @@
     }
     .data {
       display: flex;
-      // background: white;
+      background:white;
       flex-direction: column;
       padding: 0 1.25rem 1.25rem;
       // border: 1px solid rgb(224, 224, 224);
       // border: 1px solid rgb(121, 121, 121);
-      border: 1px solid rgb(228, 228, 228);
+      border: 1px solid rgb(228,228,228);
       overflow: hidden;
       > .info {
         display: block;
         justify-content: flex-start;
         flex: 1;
         h3 {
-          @include font-primary();
+          @include ft-primary();
           margin: 15px 0 10px;
         }
         p {
@@ -110,30 +109,37 @@
             @include ft-secundary(
               $color: var(--lt-color-static),
               $size: 1.5rem,
-              $weight: bolder
-            );
+              $weight: bolder,)
           }
         }
       }
     }
   }
-  .stand-section {
+  .options-section {
     .order-options {
-      // background:violet;
+      // background:red;
       position: relative;
+      // margin-bottom: 0.5em;
       padding: 0.625rem 0 15px 0;
+      > h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        padding: unset;
+        margin: unset;
+        @include ft-primary($weight:bolder);
+        // font-family:"Ubuntu",sans-serif;
+        // font-weight:bolder;
+        padding-bottom: 0.9em;
+      }
       ion-list {
+        // border-radius: 10px;
+        border-radius:6px;
         overflow: hidden;
         background: none;
         padding: unset;
-      }
-      ion-list-header {
-        // background:violet;
-        > .title {
-          padding: unset;
-          margin: unset;
-          @include font-primary();
-        }
       }
       .option-item {
         --background: none;
@@ -155,30 +161,6 @@
         @include ft-secundary();
       }
     }
-    ion-grid {
-      overflow:hidden;
-      border:1px solid rgb(228, 228, 228);
-      border-radius:16px;
-      padding:0;
-      margin-bottom:1rem;
-      .row-feature{
-        padding:10px;
-      }
-      .row-feature:nth-child(odd) {
-        background: rgb(228, 228, 228);
-      }
-      .feature {
-        // background:red;
-        display:flex;
-        align-items:center;
-        @include ft-primary($size:0.75rem);
-      }
-      .value-feature {
-        display: flex;
-        flex-direction: row-reverse;
-        @include ft-secundary($size:0.75rem);
-      }
-    }
   }
 }
 //#region-OPTIONS
@@ -186,7 +168,7 @@
   display: flex;
   .size-item {
     $sizeColor: 2rem;
-    @include ft-primary($weight: lighter);
+    @include ft-primary($weight:lighter);
     position: relative;
     border-radius: 8px;
     border: 1px solid gray;
@@ -205,11 +187,11 @@
     }
     &::part(label) {
       width: 100%;
-
+     
       margin: unset;
       text-align: center;
       // margin-left: 0.3125rem;
-    }
+    }   
   }
 }
 // .active{
@@ -217,20 +199,21 @@
 // }
 //#----------
 //!RESPONSIVE
-@include mediaQuery(600px) {
-  .stand-component {
-    .description-section {
+@include mediaQuery(600px){
+  .stand-component{
+    .description-section{
       grid-template-columns: 1fr;
-      .image {
-        border-radius: 20px 20px 0 0;
+      .image{
+        border-radius:20px 20px 0 0;
       }
-      .data {
-        border: none;
-        border-radius: 0 0 20px 20px;
-        .info {
-          flex: unset;
+      .data{
+        border:none;
+        border-radius:0 0 20px 20px;
+        .info{
+          flex:unset;
         }
       }
     }
   }
+
 }

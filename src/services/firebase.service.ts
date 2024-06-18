@@ -7,10 +7,11 @@ import {
   updateProfile,
   sendPasswordResetEmail,
   User,
+  onAuthStateChanged,
 } from 'firebase/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { getFirestore, setDoc, getDoc, doc } from '@angular/fire/firestore';
-import { Observable, map } from 'rxjs';
+import { Observable, Observer, map } from 'rxjs';
 import { UtilsService } from './utils.service';
 import {
   LoginCredentials,
@@ -23,29 +24,30 @@ export class FirebaseService {
   fireStore = inject(AngularFirestore);
   afAuth = inject(AngularFireAuth);
   utilSvc = inject(UtilsService);
-  //#===Autenticacion===//
+  data:User;
+  //#---Autenticacion---//
   getAuth() {
     return getAuth();
   }
-  //#===Acceder====//
+  //#---Acceder=---//
   signInEmail(user: LoginCredentials) {
     return signInWithEmailAndPassword(getAuth(), user.email, user.password);
   }
 
-  //#===Cerrar sesion===//
+  //#---Cerrar sesion---//
   signOut() {
     getAuth().signOut();
   }
-  //#====Crear====//
+  //#---=Crear---//
   signUpEmail(user: RegisterCredentials) {
     return createUserWithEmailAndPassword(getAuth(), user.email, user.password);
   }
-  //#===Actualizar Data Usuario===//
+  //#---Actualizar Data Usuario---//
   //¡set alias user
   updateUser(displayName: string) {
     return updateProfile(getAuth().currentUser, { displayName });
   }
-  //#===DataBase===¡//
+  //#---DataBase---//
   //¡Guardar data
   setDataUser(path: string, data: any) {
     const dataUser = setDoc(doc(getFirestore(), path), data);
@@ -65,11 +67,11 @@ export class FirebaseService {
       throw Error('No data found');
     }
   }
-  //#===Recovery Credentials===¡//
+  //#---Recovery Credentials---//
   sendRecoveryEmail(email: string) {
     return sendPasswordResetEmail(getAuth(), email);
   }
-  //#===persistencia sesion===//
+  //#---persistencia sesion---//
   //¡local
   persistenceSession() {
     this.afAuth
@@ -81,7 +83,7 @@ export class FirebaseService {
         console.error('Error en la configuracion del a persistencia de sesion');
       });
   }
-  //#===estado de usuario===//
+  //#---estado de usuario---//
   authState(): Observable<any> {
     return this.afAuth.authState;
   }

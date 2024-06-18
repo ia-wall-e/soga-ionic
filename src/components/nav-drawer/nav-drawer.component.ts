@@ -23,7 +23,7 @@ export class NavDrawerComponent implements OnInit {
       {
         route: '/cart',
         icon: '../assets/icon/bag.svg',
-        label: 'Carrito',
+        label: 'Bolsa De Compras',
       },
       {
         route: '/notificaciones',
@@ -35,11 +35,11 @@ export class NavDrawerComponent implements OnInit {
         iconName: 'pricetags-outline',
         label: 'Catalogo',
       },
-      {
-        route: '/exercise',
-        iconName: 'construct-outline',
-        label: 'Ejemplo Y Practica',
-      },
+      // {
+      //   route: '/exercise',
+      //   iconName: 'construct-outline',
+      //   label: 'Ejemplo Y Practica',
+      // },
     ];
   }
 

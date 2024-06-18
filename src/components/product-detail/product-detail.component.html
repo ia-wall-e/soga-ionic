@@ -1,4 +1,5 @@
 <div class="stand-component">
+   
     <div class="description-section">
         <!-- #imagen -->
         <div class="image" *ngIf="product.image; else noImage">
@@ -45,14 +46,37 @@
             </div>
         </ng-template>
     </div>
-    <div class="options-section">
+    <div class="stand-section">
+        <div class="capsule-title">
+            <div class="title-section">
+                <h5 class="title">Opciones de Compra</h5>
+            </div>
+        </div>
         <!-- <ng-container *ngIf="product.addOns.length > 0"> -->
         <!-- <app-select-standard [optItem]="product.addOns"></app-select-standard> -->
         <!-- </ng-container> -->
-        <!-- <ng-container *ngIf="product.type!=='food'"> -->
-        <!-- <app-select-size></app-select-size> -->
-        <!-- <app-select-color></app-select-color> -->
-        <!-- </ng-container> -->
+        <ng-container *ngIf="product.type!=='food'">
+            <app-select-size></app-select-size>
+            <!-- <app-select-color></app-select-color> -->
+            <!-- <app-select-standard></app-select-standard> -->
+        </ng-container>
+    </div>
+    <div class="stand-section">
+        <div class="capsule-title">
+            <div class="title-section">
+                <h5 class="title">Caracteristicas del producto</h5>
+            </div>
+        </div>
+        <ion-grid>
+            <ion-row class="row-feature">
+              <ion-col class="feature">Marca</ion-col>
+              <ion-col class="value-feature">25</ion-col>
+            </ion-row>
+            <ion-row class="row-feature">
+              <ion-col class="feature">Temporada</ion-col>
+              <ion-col class="value-feature">30</ion-col>
+            </ion-row>
+        </ion-grid>
     </div>
     <!-- <ion-fab  slot="fixed" vertical="bottom" horizontal="end">
         <ion-fab-button size="small">
@@ -84,7 +108,6 @@
             <ion-fab-button (click)="addCart()">
                 <ion-icon name="bag-handle"></ion-icon>
             </ion-fab-button>
-          </ion-fab-list>
+        </ion-fab-list>
     </ion-fab>
 </div>
-<!-- </div> -->

@@ -16,11 +16,32 @@
     top: 0;
     right: 0;
   }
-  span {
+  label {
+    cursor:pointer;
     @include ft-primary($color: null, $size: 0.92rem);
   }
 }
 //#endregion
+//#SIZE Y EXPAND
+.button-ia{
+  &.size{
+    &-large{
+     height:3.5rem;
+    }
+    &-small{
+      height: 2.5rem;
+      label{
+        font-size:0.85rem;
+      }
+    }
+  }
+  &.expand{
+    &-large{
+      width:18.75rem;
+      max-width:18.75rem ;
+    }
+  }
+}
 //#region-TIPO/ESTILOS - BUTTONS
 .button-ia {
   &.type {

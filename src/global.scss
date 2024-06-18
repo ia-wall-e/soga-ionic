@@ -57,3 +57,8 @@ ion-modal ion-toolbar {
   --background: rgb(14 116 144);
   --color: white;
 }
+@media(max-width:768px){
+  ion-modal{
+    --border-radius: 16px 16px 0 0;
+  }
+}

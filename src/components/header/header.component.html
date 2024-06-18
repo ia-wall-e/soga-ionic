@@ -1,17 +1,16 @@
 <!-- #region Header -->
-<ion-header>
+<ion-header class="io-header-main">
     <header class="main">
         <!--©head one  -->
         <div class="head hd-top">
             <!-- ®buttons left -->
             <div class="wrapper-head">
-                <ion-menu-button menu="menuMain" class="button-ia type-icon"></ion-menu-button>
+                <ion-menu-button menu="menu-main" class="button-ia type-icon"></ion-menu-button>
             </div>
-            <!-- <ion-title>Mi página</ion-title> -->
             <!-- ®buttons right -->
             <div class="wrapper-head">
                 <ion-button class="button-ia style-secondary" shape="round" slot="icon-only" routerLink="/registro" *ngIf="!($logState | async)">
-                    <span>Registrate</span>
+                    <label>Registrate</label>
                 </ion-button>
                 <ion-button class="button-ia type-icon shadow-none" slot="icon-only">
                     <ion-icon class="icon-ia" src="../../assets/icon/bell.svg"></ion-icon>

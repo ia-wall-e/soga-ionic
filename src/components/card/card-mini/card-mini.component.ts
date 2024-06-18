@@ -55,9 +55,9 @@ export class CardMiniComponent {
 async openModal(eventData){
 const modal= await this.modalController.create({
   component:ModalProductComponent,
-  componentProps:{productID:eventData}
+  componentProps:{productID:eventData},
+  handle:true
 });
 await modal.present();
-
 }
 }

@@ -1,23 +1,61 @@
 .io-menu-main {
-    .io-header {
-      .io-title {
-        font-family: "ubuntu", sans-serif;
-        color:var(--lt-color-primary);
+  ion-header {
+    box-shadow: none;
+  }
+  .io-label {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    color: var(--lt-color-primary);
+    &.size {
+      &-accordion-head {
+        font-size: 0.85rem;
       }
-    }
-    .io-list-header {
-      .io-label {
-        font-family: "ubuntu", sans-serif;
-        font-size:1.3rem;
-        color:var(--lt-color-primary);
-      }
-    }
-    .io-item {
-      >.io-label {
-          font-family: "Open sans", sans-serif;
-        font-size:1rem;
-        font-weight: bolder;
-        color:var(--lt-color-primary);
+      &-accordion-content{
+        font-size:0.8rem;;
       }
     }
   }
+  .io-h {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    color: var(--lt-color-primary);
+  }
+  .io-p {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    color: var(--lt-color-primary);
+  }
+  .io-note {
+    font-family: "Open-sans", sans-serif;
+    font-weight: bold;
+    color: var(--lt-color-primary);
+  }
+  .io-item-acordion{
+    all:unset;
+  }
+  ion-footer{
+    box-shadow:none;
+  }
+}
+.io-list-accordion{
+  background:rgb(241, 241, 241);
+  padding:none;
+  --padding:none;
+  .io-item-accordion{
+    background:none;
+    --background:none;
+    margin:none;
+    --margin:none;
+  }
+}
+ion-accordion.accordion-collapsing ion-item[slot='header'],
+.ion-list-accordion.accordion-collapsed[slot='header'] {
+  --background: var(--ion-color-light);
+  --color: var(--ion-color-light-contrast);
+}
+// ion-accordion.accordion-expanding,
+// ion-accordion.accordion-expanded {}
+
+
+
+

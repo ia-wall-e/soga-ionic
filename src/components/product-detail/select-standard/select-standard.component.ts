@@ -6,10 +6,7 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./select-standard.component.scss'],
 })
 export class SelectStandardComponent  implements OnInit {
-  @Input() optItem:{name:string, size:string, price:string}[]=[] ;
-  constructor() { 
-    console.log("SI SE ESTA EJECUTANDOI")
-  }
+  // @Input() optItem:{name:string, size:string, price:string}[]=[] ;
 
   ngOnInit() {}
 

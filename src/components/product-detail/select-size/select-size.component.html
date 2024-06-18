@@ -1,26 +1,28 @@
-<!-- <div class="order-options">
-    <h5>Talla:</h5>
-    <ion-radio-group class="option-box option-size" (ionChange)="radioChanged($event)">
-        <ion-radio class="size-item" value="s">S</ion-radio>
-        <ion-radio class="size-item" value="m">M</ion-radio>
-        <ion-radio class="size-item" value="l">L</ion-radio>
-        <ion-radio class="size-item" value="xl">XL</ion-radio>
-    </ion-radio-group>
-</div>
 <div class="order-options">
-  <h5>Color</h5>
-  <ion-button (click)="onButtonClick()">
-    <ion-radio ngModel="selectedValue" value="s">S</ion-radio>
-  </ion-button>
-</div> -->
-<div class="order-options">
-  <h5>Talla:</h5>
-  <ion-list>
+  <ion-list lines="none">
+    <ion-list-header>
+      <h6 class="title">Talla:</h6>
+    </ion-list-header>
+    <ion-item style="background:none;">
+      <ion-select aria-label="fruit" placeholder="Selecciona">
+        <ion-select-option value="apples">Apples</ion-select-option>
+        <ion-select-option value="oranges">Oranges</ion-select-option>
+        <ion-select-option value="bananas">Bananas</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-list-header>
+      <h6 class="title">Color:</h6>
+    </ion-list-header>
     <ion-item style="background:none;">
       <ion-select aria-label="talla" interface="action-sheet" placeholder="Selecciona una">
-        <ion-select-option value="S">S</ion-select-option>
-        <ion-select-option value="L">L</ion-select-option>
-        <ion-select-option value="M">M</ion-select-option>
+        <ion-select-option value="S">Azul</ion-select-option>
+        <ion-select-option value="L">Rojo</ion-select-option>
+        <ion-select-option value="M">Verde</ion-select-option>
+        <ion-select-option value="S">Azul</ion-select-option>
+        <ion-select-option value="L">Rojo</ion-select-option>
+        <ion-select-option value="M">Verde</ion-select-option>
+        <ion-select-option value="S">Azul</ion-select-option>
+        <ion-select-option value="L">Rojo</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>

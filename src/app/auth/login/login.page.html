@@ -27,13 +27,17 @@
             </div>
           </div>
           <div class="button-section bt-unique">
-            <ion-button  class="button-ia long-medium size-big shadow-out" shape="round" (click)="signIn()" [disabled]="loginForm.invalid">
-              <span>Iniciar</span>
+            <ion-button  class="button-ia size-large expand-large" shape="round" (click)="signIn()" [disabled]="loginForm.invalid">
+             <label>Iniciar</label> 
             </ion-button>
           </div>
+
+            
+          
           <div class="info-section">
             <div class="capsule-info-bottom">
               <a>¿Olvidaste tu contraseña?</a>
+              <a (click)="signOut()">cerrar sesion</a>
             </div>
           </div>
         </form>

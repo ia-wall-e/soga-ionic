@@ -18,24 +18,16 @@
     "importHelpers": true,
     "target": "es2022",
     "module": "es2020",
-    "lib": [
-      "es2018", 
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
     "useDefineForClassFields": false,
     "paths": {
-      "@myServices/*": [
-        "src/services/*"
-      ],
-      "@myComponents/*": [
-        "src/components/*"
-      ],
-      "@myGuards/*": [
-        "src/guards/*"
-      ],
-      "@myInterfaces/*": [
-        "src/interfaces/*"
-      ]
+      "@myServices/*": ["src/services/*"],
+      "@myComponents/*": ["src/components/*"],
+      "@myGuards/*": ["src/guards/*"],
+      "@myInterfaces/*": ["src/interfaces/*"],
+      "crypto": ["node_modules/crypto-browserify"],
+      "stream": ["node_modules/stream-browserify"],
+      "vm": ["node_modules/vm-browserify"]
     }
   },
   "angularCompilerOptions": {
@@ -43,6 +35,5 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  },
-
+  }
 }

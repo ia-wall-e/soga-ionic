@@ -7,6 +7,11 @@
 //#endregion */
 //#region-TEXT-FONTS*/
 //*fonts
+@mixin font-primary(){
+  font-family: "Ubuntu", sans-serif;
+  color: var(--lt-color-primary);
+  font-weight: bolder;
+}
 //©generales
 @mixin ft_primary(
   $color: var(--lt-color-primary),
@@ -18,8 +23,9 @@
   color: $color;
   font-family: "Ubuntu", sans-serif;
   font-weight: $weight;
+  font-size: $size;
+  
   @if ($size) {
-    font-size: $size;
   }
 }
 @mixin ft_secundary(

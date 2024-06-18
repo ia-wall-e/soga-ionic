@@ -676,14 +676,18 @@
         </div>
     </div>
     <div class="button-section flex-one bt-unique" *ngIf="onlyRead===false">
-        <ion-button type="submit" class="button-ia long-medium size-big shadow-out" shape="round">
-            <span>Acepto los terminos y condiciones</span>
-          </ion-button>
+        <ion-button type="submit" class="button-ia size-big shadow-out" shape="round">
+            <label>Acepto los terminos y condiciones</label>
+        </ion-button>
     </div>
     <div class="info-section">
         <div class="capsule-info-bottom info-double">
-            <button class="bt-one minor small">Leer los terminos y condiciones</button>
-            <button type="button" class="bt-one minor small bt-prev bt-prev" (click)="prevElement()">Volver</button>
+            <ion-button type="button" class="button-ia size-small style-gray" fill="clear" shape="round">
+                <label>Leer los terminos y condiciones</label>
+            </ion-button>
+            <ion-button type="button" class="button-ia size-small style-gray" fill="clear" shape="round" (click)="prevElement()">
+                <label>Volver</label>
+            </ion-button>
         </div>
     </div>
 </section>

@@ -12,22 +12,9 @@
     flex-direction: column;
     justify-content: center;
     color: var(--lt-color-primary);
-    > h1 {
-      @include margin-none;
-      @include ft-primary;
-      font-weight: bold;
-      width: 100%;
-    }
-    > h2 {
-      @include margin-none;
-      @include ft-primary;
-      width: 100%;
-      font-weight: 400;
-    }
-    > h3,h5,h6 {
-      @include margin-none;
-      @include ft-secundary;
-      width: 100%;
+    >.title{
+      width:100%;
+      @include font-primary();
     }
     > p {
       @include ft-secundary();

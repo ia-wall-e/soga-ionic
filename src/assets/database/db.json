@@ -1,0 +1,18 @@
+{
+    "database":"cart.db",
+    "version":1,
+    "encrypted":false,
+    "mode":"full",
+    "tables":[
+        {
+            "name":"cart",
+            "schema":[
+                {
+                    "column":"item",
+                    "value":"TEXT NO NULL PRIMARY KEY"
+                }
+            ]
+        }
+    ]
+
+}

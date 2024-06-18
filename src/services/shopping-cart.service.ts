@@ -1,19 +1,22 @@
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, Observable, Subscriber, Subscription } from 'rxjs';
+import{ModalController}from'@ionic/angular';
+import { BehaviorSubject, Observable,firstValueFrom } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CartItem } from '@myInterfaces/cart-item';
-import { Product } from '@myInterfaces/product-interface';
 import { AuthService } from './auth.service';
 import { UtilsService } from './utils.service';
+import { StorageService } from './storage.service';
+import { CartItem } from '@myInterfaces/cart-item';
+import { Product } from '@myInterfaces/product-interface';
 @Injectable({ providedIn: 'root' })
 export class ShoppingCartService {
-  authSvc = inject(AuthService);
+  private authSvc = inject(AuthService);
+  private storageSvc = inject(StorageService);
+  modalController= inject(ModalController);
   utilSvc = inject(UtilsService);
   //#PROPIEDADES
   private items = new BehaviorSubject<CartItem[]>([]);
   items$ = this.items.asObservable();
-  private subscription: Subscription;
-
+  private cart: CartItem[];
   //#Cantidad de elementos en el cart
   itemsCount$: Observable<number> = this.items$.pipe(
     map((items) => items.length)
@@ -23,36 +26,58 @@ export class ShoppingCartService {
     map((items) => items.reduce((acc, { price }) => (acc += price), 0))
   );
   //#Agrega-cart
-  addToCart(item: CartItem) {
-
+ async addToCart(item: CartItem) {
+    const key = await firstValueFrom(this.authSvc.getUID());
+    this.cart = [...this.items.value, item];
+    this.storageSvc
+      .set(`@soga${key}`, this.cart)
+      .then(() => {
+        this.items.next(this.cart);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-  private handlerAddToCart(key: string, data: CartItem) {
-    // if (key) {
-    //   this.utilSvc.saveStorage(key, data);
-    //   this.utilSvc.presentToast({
-    //     message: 'Producto agregado a tu bolsa de compras',
-    //     duration: 3000,
-    //     color: 'primary',
-    //     position: 'bottom',
-    //     icon: 'alert-circle-outline',
-    //   });
-    // }
-    this.items.next([...this.items.value, data]);
-  }
-  private handlerError(err) {
-    console.log(err);
-    this.utilSvc.presentToast({
-      message: 'No se guardo el elemento',
-      duration: 3000,
-      color: 'primary',
-      position: 'bottom',
-      icon: 'alert-circle-outline',
-    });
+  handlerSuccess(x:string){
+   
   }
   //#remover-cart
-  removeItem(item: CartItem) {
-    this.items.next(this.items.value.filter((elem) => item !== elem));
+ async removeItem(item: CartItem) {
+    try {
+      const key = await firstValueFrom(this.authSvc.getUID());
+      this.cart = this.items.value.filter((elem) => item !== elem);
+      this.storageSvc
+        .set(`@soga${key}`, this.cart)
+        .then(() => {
+          this.items.next(this.cart);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (err) {
+      throw Error('No se pudo eliminar el elmento del carro de compras');
+    }
   }
+  //#Iniciar carrito de compras
+  async initCart() {
+    try {
+      this.closeCart()
+      const key = await this.storageSvc.keyExist();
+      if (key.includes(`@soga${key}`)) {
+        this.cart = await this.storageSvc.get(`@soga${key}`);
+        this.items.next(this.cart);
+        console.log('Cart Iniciado');
+      } else {
+        console.log('Cart no existe');
+      }
+    } catch (err) {
+      throw Error('no se obtuvieron los datos del cart');
+    }
+  }
+  closeCart(){
+    this.items.next([])
+  }
+  //#commons/utils
   mapProductToCartItem(product: Product): CartItem {
     //¡ ↑ Conversor de interfaces producto -> cartItem
     return {
