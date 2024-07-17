@@ -22,7 +22,13 @@
       "es2018", 
       "dom"
     ],
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "paths": {
+      "@myServices/*": ["src/app/services/*"],
+      "@myComponents/*": ["src/app/components/*"],
+      "@myGuards/*": ["src/app/guards/*"],
+      "@myInterfaces/*": ["src/app/interfaces/*"],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

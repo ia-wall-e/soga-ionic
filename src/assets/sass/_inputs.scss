@@ -1,0 +1,140 @@
+//#contenedores
+.input-component {
+  position: relative;
+  background: white;
+  background:none;
+  width: 100%;
+  max-width: 18.75rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  input {
+    @include font-third;
+    outline:none;
+    background: none;
+    border:2px solid transparent;
+    font-size: 1.1rem;
+    font-weight: bold;
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 3.5rem;
+    min-height: 3.5rem;
+    max-height: 3.5rem;
+    padding: 13px 10px 10px 10px;
+    text-align: center;
+    &:focus ~ {
+      label {
+        z-index: 3;
+        color: $primary;
+      }
+    }
+  }
+  input::placeholder {
+    color:$placeholder;
+    font-family:"Open sans", sans-serif;
+    font-size: 0.85rem;
+    font-weight:light;
+    text-align:left;
+  }
+  label {
+    @include font-secondary;
+    color: var(--io-label-input);
+    font-weight: light;
+    font-size:0.95rem;
+    position: absolute;
+    z-index: 2;
+    // left: 1rem;
+    transition:top 0.3s ease;
+  }
+  .button-io{
+      position: absolute;
+      z-index: 4;
+      top: 0;
+      bottom: 0;
+      right: 0.3em;
+      margin: auto;
+  }
+}
+//#atributos
+.input-component {
+  &.shape {
+    &-round {
+      background:transparent;
+      border-radius: 30px;
+      input {
+        border-color:var(--io-border-input);
+        border-radius: 30px;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        &:focus {
+          border-color:$primary;
+          box-shadow: none;
+        }
+      }
+      label {
+        left: 1.7rem;
+      }
+    }
+    &-line {
+      input {
+        border-bottom: 1px solid $border;
+        padding-top:25px;
+        &:focus {
+          outline: none;
+          border-bottom: 2px solid $primary;
+        }
+      }
+      label {
+        left:0;
+        bottom:3px;
+      }
+    }
+    &-square {
+      border-radius: 8px;
+      input {
+        border: 1px solid $border;
+        border-radius: 8px;
+        &:focus {
+          border: 2px solid $primary;
+          box-shadow: none;
+          outline: none;
+        }
+      }
+    }
+  }
+  &.shadow {
+    input {
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    }
+  }
+  &text {
+    &-center {
+      input {
+        text-align: left;
+      }
+    }
+    &-big {
+      input {
+        font-size: 1.4rem;
+      }
+    }
+  }
+&.label-static{
+  label{
+    top: 3px;
+    font-size: 0.8rem;
+  }
+}
+}
+/***
+.label-active{
+  // background:red;
+  // label{
+  //   top: 3px;
+  //   font-size: 0.8rem;
+  // }
+}
+  ***/
+

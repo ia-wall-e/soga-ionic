@@ -1,0 +1,43 @@
+@import"./fonts";
+@mixin font-primary(){
+  font-family: "Ubuntu", sans-serif;
+  color:var(--ion-text-color);
+  font-weight: bolder;
+}
+@mixin font-secondary($type:null){
+  font-family: "Open sans", sans-serif;
+  color:var(--ion-text-color);
+  @if($type=="parrafo"){
+    font-size: 0.85rem;
+    a{
+      cursor:pointer;
+      @include font-primary();
+      color:$primary;
+    }
+  }
+}
+@mixin font-third($color:null){
+  font-family: "Asap", sans-serif;
+  font-weight:bold;
+  @if($color=="static"){
+    color:var(--ion-text-color-static);
+  }@else{
+    color:var(--ion-text-color);
+  }
+}
+// @mixin font-fourth(){
+//   font-family: "Roboto", sans-serif;
+//   font-weight:bold;
+//   color:var(--ion-text-color);
+// }
+@mixin borderRadius($type){
+ @if $type=='primary'{
+  border-radius:20px;
+}@else if$type=='secundary'{
+  border-radius:15px;
+}@else{
+  border-radius:20px;
+} 
+}
+
+

@@ -1,0 +1,56 @@
+<ion-content [fullscreen]="true">
+  <!--*** component ***-->
+  <div class="container">
+    <div class="modulo type-form shadow">
+      <div class="body-modulo">
+        <form class="form-io" [formGroup]="registerForm">
+          <div class="head-component text-center">
+            <div class="title-section">
+              <h4 class="title">Registrarse con el correo electronico</h4>
+              <p class="subtitle">Hola te damos la bienvenida a Soga</p>
+            </div>
+          </div>
+          <div class="inputs-section">
+            <div class="input-component shape-round label-static"
+              [ngClass]="{'isInvalid':controlState(phoneControl)}">
+              <input type="text" formControlName="phone" />
+              <label>Telefono</label>
+              <app-msg-error [forControl]="phoneControl"></app-msg-error>
+            </div>
+            <ng-container formGroupName="passGroup">
+              <div class="input-component shape-round label-static"
+                [ngClass]="{'isInvalid':controlState(passControl)}">
+                <input type="password" formControlName="password" #inputPass />
+                <label>Contraseña</label>
+                <ion-button class="button-io shape-icon fill-none" (click)="toggle(inputRef)">
+                  <ion-icon slot="icon-only" [name]="iconEye"></ion-icon>
+                </ion-button>
+                <app-msg-error [forControl]="passControl"></app-msg-error>
+              </div>
+              <div class="input-component shape-round label-static"
+                [ngClass]="{'isInvalid':controlState(passConfirmControl)}">
+                <input type="password" formControlName="passConfirm"/>
+                <label>Confirmar Contraseña</label>
+                <app-msg-error [forControl]="passConfirmControl"></app-msg-error>
+              </div>
+            </ng-container>
+          </div>
+          <div class="buttons-section">
+            <ion-button class="button-io fill-main size-large shape-round expand-medium" [disabled]="registerForm.invalid">Crear Cuenta</ion-button>
+          </div>
+        </form>
+      </div>
+      <div class="footer-modulo">
+        <div class="buttons-section button-double">
+          <ion-button class="button-io fill-none shape-round size-medium" (click)="prueba()">
+            Iniciar sesion</ion-button>
+          <ion-button class="button-io fill-none shape-round size-medium">
+            <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+            Volver</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- *** *** -->
+  <pre>{{registerForm.value | json}}</pre>
+</ion-content>
