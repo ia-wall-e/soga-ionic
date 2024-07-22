@@ -7,10 +7,6 @@ const routes: Routes = [
     redirectTo: 'register',
     pathMatch: 'full'
   },
-  // {
-  //   path: 'folder/:id',
-  //   loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  // },
   {
     path: 'login',
     loadChildren: () => import('./pages/auth/sign-in/sign-in.module').then( m => m.SignInPageModule)
@@ -18,6 +14,10 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./pages/auth/sign-up/sign-up.module').then( m => m.SignUpPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home/home.module').then( m => m.HomePageModule)
   }
 ];
 

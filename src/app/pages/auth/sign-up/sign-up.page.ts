@@ -1,78 +1,71 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup,  Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { AuthService } from '@myServices/auth.service';
 import { FormValidatorService } from '@myServices/form-validator.service';
+import { UtilsService } from '@myServices/utils.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
   styleUrls: ['./sign-up.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignUpPage implements OnInit {
-  /*** propiedades ***/
-  @ViewChild('inputPass') inputRef?: ElementRef;
-  @ViewChild('inputconfirm') confirmRef?: ElementRef;
-  iconEye: string = 'eye-outline';
-  registerForm: FormGroup;
-  /*** formulario ***/
-  get phoneControl() {
-   const data= this.registerForm.get('phone') as FormControl;
-  //  console.log(data)
-    return this.registerForm.get('phone') as FormControl;
-  }
-  get passGroupControl() {
-    return this.registerForm.get('passGroup') as FormGroup;
-  }
-  get passControl() {
-    const data = this.registerForm.get('passGroup') as FormGroup;
-    return data.get('password') as FormControl;
-  }
-  get passConfirmControl() {
-    const data = this.registerForm.get('passGroup') as FormControl;
-    return data.get('passConfirm') as FormControl;
+export class SignUpPage implements OnDestroy {
+  private register$ = new Subscription();
+  /*** formulario***/
+  registerForm = this.fb.group({
+    email: [
+      '',
+      [this.validateSvc.sequential([Validators.required, Validators.email])],
+    ],
+    newPass: {
+      password: '',
+      passConfirm: '',
+    },
+  });
+  get emailControl() {
+    return this.registerForm.get('email') as FormControl;
   }
   /*** ***/
-  constructor(private validatorSvc: FormValidatorService) {
-    this.registerForm = new FormGroup({
-      phone: new FormControl(
-        '',
-        this.validatorSvc.sequential([
-          Validators.required,
-          this.validatorSvc.phoneRegex,
-          this.validatorSvc.phoneLength,
-        ])
-      ),
-      passGroup: new FormGroup(
-        {
-          password: new FormControl(
-            '',
-            this.validatorSvc.sequential([
-              Validators.required,
-              this.validatorSvc.passRegex,
-              this.validatorSvc.passLength,
-            ])
-          ),
-          passConfirm: new FormControl('',this.validatorSvc.sequential([Validators.required])),
-        },
-        { validators: this.validatorSvc.sequential([Validators.required,this.validatorSvc.passMatch()]) }
-      ),
+  constructor(
+    private validateSvc: FormValidatorService,
+    private fb: FormBuilder,
+    private authSvc: AuthService,
+    private utilSvc:UtilsService
+  ) {}
+  /*** ***/
+  ngOnDestroy() {
+    this.register$.unsubscribe;
+  }
+  controlState(control: any): boolean {
+    return control.invalid && (control.touched || control.dirty);
+  }
+  /*** ***/
+  onSubmit(form: FormGroup) {
+    const user = this.authSvc.parseAuthCredentials(form.value);
+    this.register$ = this.authSvc.signUp(user).subscribe({
+      next: (v) => this.handlerNext(v),
+      error: (e) => this.handlerError(e),
     });
   }
-  /*** ***/
-  ngOnInit() {}
-  toggle(elem_:any) {
-   const elem =elem_.nativeElement
-    if (elem.type === 'password') {
-      elem.type="text";
-      this.iconEye = 'eye-off-outline';
-    } else {
-      elem.type="password";
-      this.iconEye = 'eye-outline';
-    }
+  handlerNext(v: any) {
+    console.log(v);
   }
-  controlState(control:any):boolean{
-    return control.invalid && (control.touched || control.dirty)
+  handlerError(e: any) {
+   const msg= this.authSvc.errorCode(e);
+    this.utilSvc.presentToast({
+      message: msg,
+      duration: 3000,
+      color: 'primary',
+      position: 'bottom',
+      icon: 'alert-circle-outline',
+    })
+    console.error(e);
   }
-  prueba() {
-    // console.log(this.passGroupControl.errors);
-    // console.log(this.phoneControl.errors);
-  }
+
 }

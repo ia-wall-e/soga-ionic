@@ -50,7 +50,6 @@ export class FormValidatorService {
     return (group: AbstractControl): ValidationErrors | null => {
       const passOne = group?.get('password');
       const passTwo = group?.get('passConfirm');
-      console.log(passOne?.value + ' ' + passTwo?.value);
       if(passOne?.value !== passTwo?.value){
         (!passTwo?.errors)? passTwo?.setErrors({ passMatch: true }):null;
         return {passMatch:true}

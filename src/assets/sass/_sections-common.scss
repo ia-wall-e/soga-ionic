@@ -6,7 +6,10 @@
     grid-template-columns: 1fr;
     grid-row-gap: 1rem;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
+    &.component{
+        padding:0;   
+    }
 }
 .buttons-section{
     // background:violet;
