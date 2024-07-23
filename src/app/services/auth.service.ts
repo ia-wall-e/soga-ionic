@@ -35,7 +35,7 @@ export class AuthService {
     return this.authState();
   }
    /*** ***/
-  private parseUser(auth): UserCredentials {
+  private parseUser(auth:any): UserCredentials {
     return {
       uid: auth.user.uid,
       name: auth.user.displayName,
@@ -54,6 +54,8 @@ export class AuthService {
    let errorMsg = 'Error desconocido al iniciar sesión.';
     if (error.code === 'auth/email-already-in-use') {
      errorMsg = 'el correo electronico ya se encuentra registrado.';
+    }else if(error.code==="auth/network-request-failed"){
+      errorMsg = 'No hay conexion a internet'
     } else if (error.code === 'auth/wrong-password') {
      errorMsg = 'Contraseña incorrecta. Por favor, inténtelo de nuevo.';
     }
