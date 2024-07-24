@@ -1,7 +1,7 @@
 <div class="errors container" *ngIf="forControl.invalid && (forControl.touched || forControl.dirty)">
-  <ng-continer *ngFor="let error of errorCode">
+  <ng-container *ngFor="let error of errorCode">
     <p class="error msg" *ngIf="forControl.hasError(error)">
       {{ msgError(error) }}
     </p>
-  </ng-continer>
+  </ng-container>
 </div>
