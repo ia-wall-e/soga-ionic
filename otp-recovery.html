@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no,
+    initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <title>Ingreso de codigo</title>
+    <link rel="stylesheet" href="./assets/sass/components/shared.css">
+    <style>
+        /* body{
+            background:rgb(199, 199, 199)
+          } */
+        /* .modulo{
+            margin:4rem auto;
+            max-width:720px;
+          } */
+    </style>
+</head>
+
+<body>
+    <!-- component -->
+    <div class="container ">
+        <div class="modulo type-form shadow">
+            <div class="body-modulo">
+                <form class="form-io">
+                    <div class="head-component text-left">
+                        <div class="title-section">
+                            <h1 class="title">Verificaciòn</h1>
+                            <p class="subtitle">Hemos enviado el codigo de verificacion a tu correo electronico</p>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <div class="wrapper-otp">
+                            <input type="text" class="otp" maxlength="1">
+                            <input type="text" class="otp" maxlength="1">
+                            <input type="text" class="otp" maxlength="1">
+                            <input type="text" class="otp" maxlength="1">
+                        </div>
+                    </div>
+                    <div class="buttons-section button-unique">
+                        <button class="button-io style-main size-large shape-round expand-medium">Verificar</button>
+                    </div>
+                    <div class="info-section">
+                       <p>¿No recibiste el codigo? <a>Enviar de nuevo</a></p> 
+                    </div>
+                </form>
+          
+            </div>
+            <div class="footer-modulo">
+                <div class="buttons-section">
+                    <button class="button-io style-none shape-round size-medium">Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+    <script>
+        const otp = document.querySelectorAll('.otp')
+        otp.forEach((e, i) => {
+            e.dataset.id = i;
+            let key =parseInt(e.dataset.id);
+            e.addEventListener('keyup', () => {
+                let last=otp.length-1;
+                let next = key + 1;
+                let before = key -1;
+                (key==last)?otp[last].blur():otp[next].focus();
+                
+            })
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no,
+    initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+        <title>Seleccion De Registro</title>
+        <link rel="stylesheet" href="./assets/sass/components/shared.css">
+        <style>
+          /* body{
+            background:rgb(199, 199, 199)
+          } */
+          /* .modulo{
+            margin:4rem auto;
+            max-width:720px;
+          } */
+        </style>
+    </head>
+    <body>
+        <!-- component -->
+        <div class="container ">
+            <div class="modulo type-form shadow">
+                <div class="wrapper-logo">
+                    <img src="./assets/logo.png" alt="">
+                </div>
+                <div class="wrapper-center">
+                    <div class="head-component text-left">
+                        <div class="title-section">
+                            <h1 class="title">Unete</h1>
+                            <p class="subtitle">Todo lo que necesitas a un click</p>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="buttons-section button-column">
+                        <button class="button-io style-gray size-large shape-round expand-medium">
+                            <img src="../assets/img/google-thumbnail.png" alt="">
+                            Registrarse con Google
+                        </button>
+                        <button class="button-io style-gray size-large shape-round expand-medium">
+                            <img src="../assets/img/facebook-thumbnail.png" alt="">
+                            Registrarse con Facebook
+                        </button>
+                        <div class="separator">
+                            <div class="line"></div>
+                            <div class="circle">o</div>
+                            <div class="line"></div>
+                        </div>
+                        <button class="button-io style-main size-large shape-round expand-medium">Crear una cuenta</button>
+                        <p class="subtitle-wrapper">¿Ya tienes una cuenta? <a href="#">Iniciar Sesion</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <script>
+            const inputs = document.querySelectorAll(".input-component");
+            inputs.forEach(function(input) {
+                input.addEventListener('click', function() {
+                    input.classList.add('label-active');
+                });
+            });
+        </script>
+    </body>
+</html>

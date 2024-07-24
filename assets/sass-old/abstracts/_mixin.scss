@@ -1,0 +1,100 @@
+//#region-BREAKPOINTS*/
+@mixin mediaQuery($size) {
+  @media screen and (max-width:#{$size}) {
+    @content;
+  }
+}
+//#endregion */
+//#region-TEXT-FONTS*/
+//*fonts
+@mixin font-primary(){
+  font-family: "Ubuntu", sans-serif;
+  color: var(--lt-color-primary);
+  font-weight: bolder;
+}
+//©generales
+@mixin ft_primary(
+  $color: var(--lt-color-primary),
+  $size: null,
+  $weight: bolder
+) {
+  margin: unset;
+  padding: unset;
+  color: $color;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+  
+  @if ($size) {
+  }
+}
+@mixin ft_secundary(
+  $color: var(--lt-color-primary),
+  $weight: 200,
+  $size: "inherit"
+) {
+  margin: unset;
+  padding: unset;
+  font-family: "Open sans", sans-serif;
+  color: $color;
+  font-weight: $weight;
+  @if $size== "big" {
+    font-size: 1.3rem;
+  }
+  @if $size== "large" {
+    font-size: 1.2rem;
+  } @else if $size== "medium" {
+    font-size: 1rem;
+  } @else if $size== "small" {
+    font-size: 0.9rem;
+  } @else if $size== "tiny" {
+    font-size: 0.8rem;
+  } @else {
+    font-size: $size;
+  }
+}
+//©inputs - rubika
+@mixin ft-input($color: var(--lt-color-primary)) {
+  color: $color;
+  font-family: "Rubika", sans-serif;
+}
+@mixin paragraph(
+  $type: "medium",
+  $sz: null,
+  $ft: null,
+  $color: var(--lt-color-primary)
+) {
+  color: $color;
+  @include ft-primary();
+  @if $type == "big" {
+    font-size: 2rem;
+  }
+  @if $type == "medium" {
+    font-size: 1rem;
+  }
+  @if $type == "small" {
+    font-size: 0.9rem;
+  }
+  @if $type == "tiny" {
+    font-size: $sz;
+  }
+  @if $type == "test" {
+    font-size: $sz;
+  } @else {
+    color: violet;
+    font-family: "Open sans", sans-serif;
+    font-size: $sz;
+  }
+}
+//©ellipsis in text
+@mixin text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+//#endregion */
+//#region-OTROS*/
+@mixin margin-none {
+  margin: unset;
+}
+//#endregion*/

@@ -1,0 +1,39 @@
+@import"./fonts";
+@mixin font-primary(){
+  font-family: "Ubuntu", sans-serif;
+  color:$color-primary;
+  font-weight: bolder;
+}
+@mixin font-secondary($type:null){
+  font-family: "Open sans", sans-serif;
+  color:$color-primary;
+  @if($type=="parrafo"){
+    font-size: 0.85rem;
+    a{
+      cursor:pointer;
+      @include font-primary();
+      color:$primary;
+    }
+  }
+}
+@mixin font-third(){
+  font-family: "Asap", sans-serif;
+  font-weight:bold;
+  color:$color-primary;
+}
+@mixin font-fourth(){
+  font-family: "Roboto", sans-serif;
+  font-weight:bold;
+  color:$color-primary;
+}
+@mixin borderRadius($type){
+ @if $type=='primary'{
+  border-radius:20px;
+}@else if$type=='secundary'{
+  border-radius:15px;
+}@else{
+  border-radius:20px;
+} 
+}
+
+

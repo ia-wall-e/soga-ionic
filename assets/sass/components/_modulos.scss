@@ -1,0 +1,44 @@
+//#Contenedores
+.modulo {
+  // background: violet;
+  background: white;
+  border-radius:$radius-primary ;
+  display:flex;
+  flex-direction:column;
+  .head-modulo {
+    // background:rgb(175, 255, 186);
+    padding: 1.875rem 1.875rem 0;
+    overflow: hidden;
+  }
+  .body-modulo {
+    // background:rgb(255, 216, 255);
+    width: 100%;
+    flex:1;
+  }
+  .footer-modulo {
+    // background:violet;
+    width: 100%;
+    padding:0 1.857rem;
+  }
+}
+//#atributos
+.modulo {
+  &.type {
+    &-full {
+    }
+    &-form {
+      // background:violet;
+      box-sizing: border-box;
+      height:95vh;
+      width: 95%;
+      max-width:28.125rem;
+      // max-width: 67.5rem;
+      margin:auto;
+    }
+  }
+  &.shadow {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; //5
+  }
+}
+//#Pages
+
