@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
-import{AngularFireAuth}from'@angular/fire/compat/auth';
-import { getAuth,createUserWithEmailAndPassword} from '@firebase/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { getAuth, createUserWithEmailAndPassword } from '@firebase/auth';
 import { RegisterCredentials } from '@myInterfaces/user-credentials';
-import{Observable}from'rxjs';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class FirebaseService {
-  constructor(private fbAuth: AngularFireAuth){} 
+  constructor(private fbAuth: AngularFireAuth) {}
   signUp(user: RegisterCredentials) {
     return createUserWithEmailAndPassword(getAuth(), user.email, user.password);
   }
-  signOut(){
+  signIn(user: RegisterCredentials) {
+    return this.fbAuth.signInWithEmailAndPassword(user.email, user.password);
+  }
+  signOut() {
     getAuth().signOut();
   }
   authState(): Observable<any> {

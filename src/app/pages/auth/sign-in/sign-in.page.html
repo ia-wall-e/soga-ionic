@@ -17,14 +17,14 @@
               <app-msg-error [forControl]="emailControl"></app-msg-error>
             </div>
             <div class="input-component shape-round label-static" [ngClass]="{'isInvalid':controlState(passControl)}">
-              <input type="text" formControlName="pass" />
+              <input type="text" formControlName="password" />
               <label>Contraseña</label>
               <app-msg-error [forControl]="passControl"></app-msg-error>
             </div>
           </div>
           <div class="buttons-section">
             <ion-button type="submit" class="button-io fill-main size-large shape-round expand-medium"
-              [disabled]="loginForm.invalid">Crear Cuenta</ion-button>
+              [disabled]="loginForm.invalid">Iniciar Sesion</ion-button>
           </div>
         </form>
       </div>

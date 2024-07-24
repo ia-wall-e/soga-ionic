@@ -10,38 +10,50 @@ import { from, map, Observable, catchError, BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
   /*** ***/
-  private userState= new BehaviorSubject<any>(false);
-  private authState$= this.userState.asObservable();
+  private userState = new BehaviorSubject<any>(false);
+  private authState$ = this.userState.asObservable();
   constructor(private fireSvc: FirebaseService) {}
   /*** ***/
-  signUp(user: RegisterCredentials){
+  signUp(user: RegisterCredentials) {
     try {
       return from(Promise.resolve(this.fireSvc.signUp(user))).pipe(
         map((auth: any) => {
           auth = this.parseUser(auth);
-         return (auth)?this.handlerSuccess(auth):this.handlerError();
+          return auth ? this.handlerSuccess(auth) : this.handlerError();
         })
       );
     } catch (err) {
       throw err;
     }
   }
-  signOut():void{
+  signIn(user: RegisterCredentials) {
+    try {
+      return from(Promise.resolve(this.fireSvc.signIn(user))).pipe(
+        map((auth:any)=>{
+          auth = this.parseUser(auth);
+          return auth ? this.handlerSuccess(auth) : this.handlerError();
+        })
+      );
+    } catch (err) {
+      throw err;
+    }
+  }
+  signOut(): void {
     return this.fireSvc.signOut();
   }
-   /*** ***/
+  /*** ***/
   private handlerSuccess(auth: UserCredentials): UserCredentials {
     return auth;
   }
   private handlerError() {
     throw new Error('Error al crear usuario');
   }
-   /*** ***/
+  /*** ***/
   authState(): Observable<UserCredentials | null> {
-    return (this.authState$= this.fireSvc.authState())
+    return (this.authState$ = this.fireSvc.authState());
   }
-   /*** ***/
-  private parseUser(auth:any): UserCredentials {
+  /*** ***/
+  private parseUser(auth: any): UserCredentials {
     return {
       uid: auth.user.uid,
       name: auth.user.displayName,
@@ -57,14 +69,17 @@ export class AuthService {
     };
   }
   errorCode(error: any): string {
-   let errorMsg = 'Error desconocido al iniciar sesión.';
+    let errorMsg = 'Error desconocido al iniciar sesión.';
     if (error.code === 'auth/email-already-in-use') {
-     errorMsg = 'el correo electronico ya se encuentra registrado.';
-    }else if(error.code==="auth/network-request-failed"){
-      errorMsg = 'No hay conexion a internet'
+      errorMsg = 'el correo electronico ya se encuentra registrado.';
+    } else if (error.code === 'auth/network-request-failed') {
+      errorMsg = 'No hay conexion a internet';
     } else if (error.code === 'auth/wrong-password') {
-     errorMsg = 'Contraseña incorrecta. Por favor, inténtelo de nuevo.';
+      errorMsg = 'Contraseña incorrecta. Por favor, inténtelo de nuevo.';
+    } else if (error.code === 'auth/invalid-credential') {
+      errorMsg = 'Tu email o la contraseña no coinciden. Por favor, inténtelo de nuevo.';
+      
     }
-    return errorMsg
+    return errorMsg;
   }
 }
