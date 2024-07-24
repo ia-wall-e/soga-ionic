@@ -47,7 +47,7 @@ export class SignUpPage implements OnDestroy {
   }
   /*** ***/
   onSubmit(form: FormGroup) {
-    const user = this.authSvc.parseAuthCredentials(form.value);
+    const user = this.authSvc.parseRegister(form.value);
     this.register$ = this.authSvc.signUp(user).subscribe({
       next: (v) => this.handlerNext(v),
       error: (e) => this.handlerError(e),
@@ -67,5 +67,7 @@ export class SignUpPage implements OnDestroy {
     })
     console.error(e);
   }
-
+signOut(){
+  this.authSvc.signOut();
+}
 }

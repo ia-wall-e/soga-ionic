@@ -11,8 +11,8 @@ export class FirebaseService {
   signUp(user: RegisterCredentials) {
     return createUserWithEmailAndPassword(getAuth(), user.email, user.password);
   }
-  signIn(){
-
+  signOut(){
+    getAuth().signOut();
   }
   authState(): Observable<any> {
     return this.fbAuth.authState;

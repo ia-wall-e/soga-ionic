@@ -4,11 +4,14 @@ import {
   RegisterCredentials,
   UserCredentials,
 } from '@myInterfaces/user-credentials';
-import { from, map, Observable, catchError } from 'rxjs';
+import { from, map, Observable, catchError, BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  /*** ***/
+  private userState= new BehaviorSubject<any>(false);
+  private authState$= this.userState.asObservable();
   constructor(private fireSvc: FirebaseService) {}
   /*** ***/
   signUp(user: RegisterCredentials){
@@ -23,6 +26,9 @@ export class AuthService {
       throw err;
     }
   }
+  signOut():void{
+    return this.fireSvc.signOut();
+  }
    /*** ***/
   private handlerSuccess(auth: UserCredentials): UserCredentials {
     return auth;
@@ -32,7 +38,7 @@ export class AuthService {
   }
    /*** ***/
   authState(): Observable<UserCredentials | null> {
-    return this.authState();
+    return (this.authState$= this.fireSvc.authState())
   }
    /*** ***/
   private parseUser(auth:any): UserCredentials {
@@ -44,7 +50,7 @@ export class AuthService {
       img: auth.user.photoUrl,
     };
   }
-  parseAuthCredentials(data: any): RegisterCredentials {
+  parseRegister(data: any): RegisterCredentials {
     return {
       email: data.email,
       password: data.newPass['password'],
