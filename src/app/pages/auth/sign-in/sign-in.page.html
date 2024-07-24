@@ -1,22 +1,32 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>signIn</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <div class="modulo">
-    <div class="body-modulo">
-      <div class="head-component">
-        <div class="title-section"></div>
-        <div class="icon-section"></div>
+  <!--*** component ***-->
+  <div class="container">
+    <div class="modulo type-form shadow">
+      <div class="body-modulo">
+        <form class="form-io" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+          <div class="head-component text-center">
+            <div class="title-section">
+              <h4 class="title">Registrarse con el correo electronico</h4>
+              <p class="subtitle">Hola te damos la bienvenida a Soga</p>
+            </div>
+          </div>
+          <div class="inputs-section">
+            <div class="input-component shape-round label-static"
+              [ngClass]="{'isInvalid':controlState(emailControl)}">
+              <input type="text" formControlName="email" />
+              <label>Correo Electronico</label>
+              <!-- <app-msg-error [forControl]="emailControl"></app-msg-error> -->
+            </div>
+    <!-- <div class="input-component"></div> -->
+          </div>
+          <div class="buttons-section">
+            <ion-button type="submit" class="button-io fill-main size-large shape-round expand-medium" [disabled]="loginForm.invalid">Crear Cuenta</ion-button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+  <!-- *** *** -->
+  <!-- <pre>{{loginForm.value | json}}</pre> -->
+  <!-- <pre>{{loginForm.status}}</pre> -->
 </ion-content>
-
-<!-- <ion-header collapse="condense">
-  <ion-toolbar>
-    <ion-title size="large">signIn</ion-title>
-  </ion-toolbar>
-</ion-header> -->

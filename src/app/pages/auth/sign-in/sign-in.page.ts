@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl,FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-in.page.scss'],
 })
 export class SignInPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  loginForm = this.fb.group({
+    email: '',
+    // pass: '',
+  });
+  get emailControl() {
+    return this.loginForm.get('email') as FormControl;
   }
 
+  ngOnInit() {}
+  constructor(private fb: FormBuilder) {}
+  controlState(control: any): boolean {
+    return control.invalid && (control.touched || control.dirty);
+  } 
+  onSubmit(form: FormGroup){}
 }
