@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { getAuth, createUserWithEmailAndPassword } from '@firebase/auth';
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from '@firebase/auth';
 import { RegisterCredentials } from '@myInterfaces/user-credentials';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -12,7 +12,7 @@ export class FirebaseService {
     return createUserWithEmailAndPassword(getAuth(), user.email, user.password);
   }
   signIn(user: RegisterCredentials) {
-    return this.fbAuth.signInWithEmailAndPassword(user.email, user.password);
+    return signInWithEmailAndPassword(getAuth(),user.email, user.password);
   }
   signOut() {
     getAuth().signOut();

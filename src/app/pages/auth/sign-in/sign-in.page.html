@@ -3,34 +3,33 @@
   <div class="container">
     <div class="modulo type-form shadow">
       <div class="body-modulo">
-        <form class="form-io" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+        <form
+          class="form-io"
+          [formGroup]="loginForm"
+          (ngSubmit)="onSubmit(loginForm)"
+        >
           <div class="head-component text-center">
             <div class="title-section">
-              <h4 class="title">Registrarse con el correo electronico</h4>
+              <h1 class="title">Bienvenido de vuelta</h1>
               <p class="subtitle">Hola te damos la bienvenida a Soga</p>
             </div>
           </div>
           <div class="inputs-section">
-            <div class="input-component shape-round label-static" [ngClass]="{'isInvalid':controlState(emailControl)}">
-              <input type="text" formControlName="email" />
-              <label>Correo Electronico</label>
-              <app-msg-error [forControl]="emailControl"></app-msg-error>
-            </div>
-            <div class="input-component shape-round label-static" [ngClass]="{'isInvalid':controlState(passControl)}">
-              <input type="text" formControlName="password" />
-              <label>Contraseña</label>
-              <app-msg-error [forControl]="passControl"></app-msg-error>
-            </div>
+            <app-signin formControlName="signInComp"></app-signin>
           </div>
           <div class="buttons-section">
-            <ion-button type="submit" class="button-io fill-main size-large shape-round expand-medium"
-              [disabled]="loginForm.invalid">Iniciar Sesion</ion-button>
+            <ion-button
+              type="submit"
+              class="button-io fill-main size-large shape-round expand-medium"
+              [disabled]="loginForm.invalid"
+              >Iniciar Sesion</ion-button
+            >
           </div>
         </form>
       </div>
     </div>
   </div>
   <!-- *** *** -->
-  <!-- <pre>{{loginForm.value | json}}</pre> -->
-  <!-- <pre>{{loginForm.status}}</pre> -->
+  <pre>{{loginForm.value | json}}</pre>
+  <pre>{{loginForm.status}}</pre>
 </ion-content>

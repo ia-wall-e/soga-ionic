@@ -59,4 +59,8 @@ export class FormValidatorService {
       }
     };
   }
+
+  controlState(control:any):boolean{
+    return control.invalid && (control.touched || control.dirty);
+  }
 }

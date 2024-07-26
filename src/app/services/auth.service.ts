@@ -5,6 +5,7 @@ import {
   UserCredentials,
 } from '@myInterfaces/user-credentials';
 import { from, map, Observable, catchError, BehaviorSubject } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 @Injectable({
   providedIn: 'root',
 })
@@ -26,10 +27,11 @@ export class AuthService {
       throw err;
     }
   }
-  signIn(user: RegisterCredentials) {
+  signIn(form:FormGroup) {
     try {
+      const user = form.value.signInComp;
       return from(Promise.resolve(this.fireSvc.signIn(user))).pipe(
-        map((auth:any)=>{
+        map((auth: any) => {
           auth = this.parseUser(auth);
           return auth ? this.handlerSuccess(auth) : this.handlerError();
         })
@@ -77,8 +79,10 @@ export class AuthService {
     } else if (error.code === 'auth/wrong-password') {
       errorMsg = 'Contraseña incorrecta. Por favor, inténtelo de nuevo.';
     } else if (error.code === 'auth/invalid-credential') {
-      errorMsg = 'Tu email o la contraseña no coinciden. Por favor, inténtelo de nuevo.';
-      
+      errorMsg =
+        'Tu email o la contraseña no coinciden. Por favor, inténtelo de nuevo.';
+    } else if (error.code == 'auth/missing-email') {
+      errorMsg = 'No hay cuentas registradas con este email';
     }
     return errorMsg;
   }

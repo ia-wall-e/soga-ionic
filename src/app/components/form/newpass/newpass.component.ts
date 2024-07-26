@@ -22,21 +22,38 @@ import { FormValidatorService } from '@myServices/form-validator.service';
 @Component({
   selector: 'app-newpass',
   template: `<div class="inputs-section component" [formGroup]="form">
-  <div class="input-component shape-round label-static" [ngClass]="{'isInvalid':controlState(passControl)}">
-    <input type="password" formControlName="password" #inputPass (blur)="onTouched()" />
-    <label>Contraseña</label>
-    <ion-button class="button-io shape-icon fill-none"
-      (click)="toggle(inputRef)">
-      <ion-icon slot="icon-only" [name]="iconEye"></ion-icon>
-    </ion-button>
-    <app-msg-error [forControl]="passControl"></app-msg-error>
-  </div>
-  <div class="input-component shape-round label-static" [ngClass]="{'isInvalid':controlState(passConfirmControl)}">
-    <input type="password" formControlName="passConfirm" (blur)="onTouched()"/>
-    <label>Confirmar Contraseña</label>
-    <app-msg-error [forControl]="passConfirmControl"></app-msg-error>
-  </div>
-</div>`,
+    <div
+      class="input-component shape-round label-static"
+      [ngClass]="{ isInvalid: controlState(passControl) }"
+    >
+      <input
+        type="password"
+        formControlName="password"
+        #inputPass
+        (blur)="onTouched()"
+      />
+      <label>Contraseña</label>
+      <ion-button
+        class="button-io shape-icon fill-none"
+        (click)="toggle(inputRef)"
+      >
+        <ion-icon slot="icon-only" [name]="iconEye"></ion-icon>
+      </ion-button>
+      <app-msg-error [forControl]="passControl"></app-msg-error>
+    </div>
+    <div
+      class="input-component shape-round label-static"
+      [ngClass]="{ isInvalid: controlState(passConfirmControl) }"
+    >
+      <input
+        type="password"
+        formControlName="passConfirm"
+        (blur)="onTouched()"
+      />
+      <label>Confirmar Contraseña</label>
+      <app-msg-error [forControl]="passConfirmControl"></app-msg-error>
+    </div>
+  </div>`,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -56,8 +73,7 @@ export class NewpassComponent
   @ViewChild('inputPass') inputRef?: ElementRef;
   @ViewChild('inputconfirm') confirmRef?: ElementRef;
   iconEye: string = 'eye-outline';
-  private sub?: Subscription;
-  onTouched = () => {};
+  private sub$?: Subscription;
   /*** ***/
   form = this.fb.group(
     {
@@ -88,14 +104,15 @@ export class NewpassComponent
   ) {}
   /*** ***/
   ngOnDestroy() {
-    this.sub?.unsubscribe;
+    this.sub$?.unsubscribe;
   }
-
+  /*** ***/
+  onTouched = () => {};
   writeValue(obj: any): void {
     obj && this.form.setValue(obj, { emitEvent: false });
   }
   registerOnChange(fn: any): void {
-    this.sub = this.form.valueChanges.subscribe(fn);
+    this.sub$ = this.form.valueChanges.subscribe(fn);
   }
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
@@ -115,6 +132,6 @@ export class NewpassComponent
     }
   }
   controlState(control: any): boolean {
-    return control.invalid && (control.touched || control.dirty);
+    return this.validateSvc.controlState(control);
   }
 }

@@ -1,14 +1,14 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
-  Validators,
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { RegisterCredentials } from '@myInterfaces/user-credentials';
 import { AuthService } from '@myServices/auth.service';
-import { FormValidatorService } from '@myServices/form-validator.service';
+import { UtilsService } from '@myServices/utils.service';
+
 
 @Component({
   selector: 'app-sign-in',
@@ -16,41 +16,40 @@ import { FormValidatorService } from '@myServices/form-validator.service';
   styleUrls: ['./sign-in.page.scss'],
 })
 export class SignInPage implements OnDestroy {
-  /** **/
+  /*** ***/
+
   log$?: Subscription;
-  /** **/
+  /*** ***/
   loginForm = this.fb.group({
-    email: [
-      '',
-      [this.validateSvc.sequential([Validators.required, Validators.email])],
-    ],
-    password: ['', [Validators.required]],
+    signInComp: {
+      email: '',
+      password: '',
+    },
   });
-  get emailControl() {
-    return this.loginForm.get('email') as FormControl;
-  }
-  get passControl() {
-    return this.loginForm.get('password') as FormControl;
-  }
   ngOnDestroy() {
     this.log$?.unsubscribe();
   }
-  constructor(
-    private fb: FormBuilder,
-    private validateSvc: FormValidatorService,
-    private authSvc: AuthService
-  ) {}
-  controlState(control: any): boolean {
-    return control.invalid && (control.touched || control.dirty);
-  }
+  constructor(private fb: FormBuilder, private authSvc: AuthService,private utilSvc:UtilsService) {}
+  /*** ***/
   onSubmit(form: FormGroup) {
-    const user = form.value as RegisterCredentials;
-    console.log(user)
-    this.log$ = this.authSvc.signIn(user).subscribe({
-      next: () => this.handlerNext(),
-      error: () => this.handlerError(),
+    this.log$ = this.authSvc.signIn(form).subscribe({
+      next: (r) => this.handlerNext(r),
+      error: (e) => this.handlerError(e),
     });
   }
-  handlerNext() {}
-  handlerError() {}
+  handlerNext(r:any) {
+    console.log(r)
+  }
+  handlerError(e:any) {
+    const msg= this.authSvc.errorCode(e);
+    this.utilSvc.presentToast({
+      message: msg,
+      duration: 3000,
+      color: 'primary',
+      position: 'bottom',
+      icon: 'alert-circle-outline',
+    })
+    console.error(e);
+  }
+
 }
