@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from '@myServices/auth.service';
 import { FormValidatorService } from '@myServices/form-validator.service';
 import { UtilsService } from '@myServices/utils.service';
+import { RegisterCredentials,UserCredentials } from '@myInterfaces/user-credentials';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
@@ -36,7 +37,7 @@ export class SignUpPage implements OnDestroy {
     private validateSvc: FormValidatorService,
     private fb: FormBuilder,
     private authSvc: AuthService,
-    private utilSvc:UtilsService
+    private utilSvc: UtilsService
   ) {}
   /*** ***/
   ngOnDestroy() {
@@ -47,27 +48,28 @@ export class SignUpPage implements OnDestroy {
   }
   /*** ***/
   onSubmit(form: FormGroup) {
-    const user = this.authSvc.parseRegister(form.value);
-    this.register$ = this.authSvc.signUp(user).subscribe({
-      next: (v) => this.handlerNext(v),
-      error: (e) => this.handlerError(e),
-    });
+    this.register$ = this.utilSvc
+      .withLoading(this.authSvc.signUp(form))
+      .subscribe({
+        next: (r) => this.handlerNext(r),
+        error: (e) => this.handlerError(e),
+      });
   }
-  handlerNext(v: any) {
-    console.log(v);
+  handlerNext(r:any) {
+    console.log(r);
   }
   handlerError(e: any) {
-   const msg= this.authSvc.errorCode(e);
+    const msg = this.authSvc.errorCode(e);
     this.utilSvc.presentToast({
       message: msg,
       duration: 3000,
       color: 'primary',
       position: 'bottom',
       icon: 'alert-circle-outline',
-    })
+    });
     console.error(e);
   }
-signOut(){
-  this.authSvc.signOut();
-}
+  signOut() {
+    this.authSvc.signOut();
+  }
 }

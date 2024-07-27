@@ -15,8 +15,9 @@ export class AuthService {
   private authState$ = this.userState.asObservable();
   constructor(private fireSvc: FirebaseService) {}
   /*** ***/
-  signUp(user: RegisterCredentials) {
+  signUp(form: FormGroup){
     try {
+      const user = this.parseRegister(form.value);
       return from(Promise.resolve(this.fireSvc.signUp(user))).pipe(
         map((auth: any) => {
           auth = this.parseUser(auth);
