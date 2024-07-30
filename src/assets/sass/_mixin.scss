@@ -25,11 +25,6 @@
     color:var(--ion-text-color);
   }
 }
-// @mixin font-fourth(){
-//   font-family: "Roboto", sans-serif;
-//   font-weight:bold;
-//   color:var(--ion-text-color);
-// }
 @mixin borderRadius($type){
  @if $type=='primary'{
   border-radius:20px;

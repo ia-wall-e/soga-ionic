@@ -7,9 +7,13 @@
     --ion-text-black-static: #323232;
     --text-white-static:white;
     /*personalizados*/
-    --io-border-input: white;
+    --io-input-border: white;
     // --io-label-input:#B8B8B8;
-    --io-label-input:rgb(145, 145, 145);
+    --io-input-label:rgb(145, 145, 145);
+    /*** ***/
+    // --io-button-border:rgb(196, 196, 196);
+    --io-button-border:rgb(207, 207, 207);
+    --io-border-soft-gray:rgb(234,234,234);
 }
 @media (prefers-color-scheme: dark) {
   // :root {
@@ -119,7 +123,9 @@
     // --ion-tab-bar-background: #1f1f1f;
     // --ion-card-background: #1e1e1e;
     /*personalizados*/
-    --io-border-input: gray;
-    --io-label-input:gray;
+    --io-input-border: gray;
+    --io-input-label:gray;
+    --io-button-border:gray;
+    --io-border-soft-gray:gray;
   }
 }

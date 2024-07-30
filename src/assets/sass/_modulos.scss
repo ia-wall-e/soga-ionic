@@ -1,27 +1,28 @@
 //#Contenedores
 .modulo {
-  // background: violet;
-  
   border-radius:$radius-primary ;
   display:flex;
   flex-direction:column;
   .head-modulo {
-    // background:rgb(175, 255, 186);
-    padding: 1.875rem 1.875rem 0;
+    // background:violet;
+    // padding: 1.875rem 1.875rem 0;
     overflow: hidden;
+    ion-toolbar{
+      --background: none;
+    }
   }
   .body-modulo {
-    // background:rgb(255, 216, 255);
+    // background:yellowgreen;
     width: 100%;
     flex:1;
   }
   .footer-modulo {
-    // background:violet;
+    // background:gray;
     width: 100%;
     padding:0 1.857rem;
   }
 }
-//#atributos
+//*atributos
 .modulo {
   &.type {
     &-full {

@@ -2,6 +2,20 @@
   <!--*** component ***-->
   <div class="container">
     <div class="modulo type-form shadow">
+      <div class="head-modulo">
+        <ion-toolbar>
+          <ion-buttons slot="star">
+            <ion-button>
+              <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button>
+              <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </div>
       <div class="body-modulo">
         <form class="form-io" [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
           <div class="head-component text-center">
@@ -26,9 +40,9 @@
       </div>
       <div class="footer-modulo">
         <div class="buttons-section button-double">
-          <ion-button class="button-io fill-none shape-round size-medium">
+          <ion-button class="button-io fill-none shape-round size-medium" [routerLink]="['/login']">
             Iniciar sesion</ion-button>
-          <ion-button class="button-io fill-none shape-round size-medium" (click)="signOut()">
+          <ion-button class="button-io fill-none shape-round size-medium" (click)="signOut()"[routerLink]="['/entry']">
             <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
             Volver</ion-button>
         </div>
@@ -36,6 +50,6 @@
     </div>
   </div>
   <!-- *** *** -->
-  <pre>{{registerForm.value | json}}</pre>
-  <pre>{{registerForm.status}}</pre>
+  <!-- <pre>{{registerForm.value | json}}</pre>
+  <pre>{{registerForm.status}}</pre> -->
 </ion-content>

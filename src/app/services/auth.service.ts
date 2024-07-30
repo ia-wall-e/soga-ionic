@@ -1,22 +1,41 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from './firebase.service';
+import { from, map, Observable, throwError, BehaviorSubject } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 import {
   RegisterCredentials,
   UserCredentials,
 } from '@myInterfaces/user-credentials';
-import { from, map, Observable, catchError, BehaviorSubject } from 'rxjs';
-import { FormGroup } from '@angular/forms';
+import { CustomErrorService } from './custom-error.service';
+// export class CustomError extends Error {
+//   code: string;
+
+//   constructor(message: string, code: string) {
+//     super(message);
+//     this.code = code;
+//     this.name = 'CustomError'; // Opcional: Cambiar el nombre del error si lo deseas
+//   }
+// }
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   /*** ***/
-  private userState = new BehaviorSubject<any>(false);
-  private authState$ = this.userState.asObservable();
-  constructor(private fireSvc: FirebaseService) {}
+  private userState_ = new BehaviorSubject<any>(false);
+  private authState$ = this.userState_.asObservable();
+  private userOnline: UserCredentials | null = null;
+  constructor(
+    private fireSvc: FirebaseService,
+    private errorHandler: CustomErrorService
+  ) {}
   /*** ***/
-  signUp(form: FormGroup){
+  signUp(form: FormGroup): Observable<any | null> {
     try {
+      if (this.userOnline) {
+        return throwError(
+          this.errorHandler.customError('User is already online', 'USER_ONLINE')
+        );
+      }
       const user = this.parseRegister(form.value);
       return from(Promise.resolve(this.fireSvc.signUp(user))).pipe(
         map((auth: any) => {
@@ -28,7 +47,12 @@ export class AuthService {
       throw err;
     }
   }
-  signIn(form:FormGroup) {
+  signIn(form: FormGroup): Observable<any | null> {
+    if (this.userOnline) {
+      return throwError(
+        this.errorHandler.customError('User is already online', 'USER_ONLINE')
+      );
+    }
     try {
       const user = form.value.signInComp;
       return from(Promise.resolve(this.fireSvc.signIn(user))).pipe(
@@ -41,6 +65,15 @@ export class AuthService {
       throw err;
     }
   }
+  signInGoogle(){
+    try {
+      return(this.userOnline)?this.errorHandler.customError('User is already online', 'USER_ONLINE'):this.fireSvc.signInGoogle();
+    } catch (err) {
+      console.log(err)
+      throw err;
+    }
+  }
+
   signOut(): void {
     return this.fireSvc.signOut();
   }
@@ -52,8 +85,19 @@ export class AuthService {
     throw new Error('Error al crear usuario');
   }
   /*** ***/
+  sessionState(): void {
+    if (this.userOnline) {
+      this.errorHandler.customError('User is already online', 'USER_ONLINE');
+      throw new Error('User is already online');
+    }
+  }
   authState(): Observable<UserCredentials | null> {
-    return (this.authState$ = this.fireSvc.authState());
+    return (this.authState$ = this.fireSvc.authState().pipe(
+      map((auth) => {
+        this.userOnline = auth;
+        return auth;
+      })
+    ));
   }
   /*** ***/
   private parseUser(auth: any): UserCredentials {
@@ -84,6 +128,8 @@ export class AuthService {
         'Tu email o la contraseña no coinciden. Por favor, inténtelo de nuevo.';
     } else if (error.code == 'auth/missing-email') {
       errorMsg = 'No hay cuentas registradas con este email';
+    } else if (error.code == 'USER_ONLINE') {
+      errorMsg = 'Ya hay una sesion abierta';
     }
     return errorMsg;
   }

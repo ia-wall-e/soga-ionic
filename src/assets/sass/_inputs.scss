@@ -39,7 +39,7 @@
   }
   label {
     @include font-secondary;
-    color: var(--io-label-input);
+    color: var(--io-input-label);
     font-weight: light;
     font-size:0.95rem;
     position: absolute;
@@ -63,7 +63,7 @@
       background:transparent;
       border-radius: 30px;
       input {
-        border-color:var(--io-border-input);
+        border-color:var(--io-input-border);
         border-radius: 30px;
         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
         rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;

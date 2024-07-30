@@ -41,10 +41,11 @@ export class SignUpPage implements OnDestroy {
   ) {}
   /*** ***/
   ngOnDestroy() {
+    this.registerForm.reset();
     this.register$.unsubscribe;
   }
   controlState(control: any): boolean {
-    return control.invalid && (control.touched || control.dirty);
+    return this.validateSvc.controlState(control)
   }
   /*** ***/
   onSubmit(form: FormGroup) {
@@ -56,7 +57,7 @@ export class SignUpPage implements OnDestroy {
       });
   }
   handlerNext(r:any) {
-    console.log(r);
+    console.log('hola');
   }
   handlerError(e: any) {
     const msg = this.authSvc.errorCode(e);

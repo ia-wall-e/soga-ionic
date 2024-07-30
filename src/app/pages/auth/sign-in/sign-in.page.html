@@ -2,6 +2,23 @@
   <!--*** component ***-->
   <div class="container">
     <div class="modulo type-form shadow">
+      <div class="head-modulo">
+        <ion-toolbar>
+          <!-- <ion-buttons slot="secondary">
+            <ion-button>
+              <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+            </ion-button>
+            <ion-button>
+              <ion-icon slot="icon-only" name="search"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-buttons slot="primary">
+            <ion-button>
+              <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+            </ion-button>
+          </ion-buttons> -->
+        </ion-toolbar>
+      </div>
       <div class="body-modulo">
         <form
           class="form-io"
@@ -27,9 +44,18 @@
           </div>
         </form>
       </div>
+      <div class="footer-modulo">
+        <div class="buttons-section button-double">
+          <ion-button class="button-io fill-none shape-round size-medium"[routerLink]="['/registro']">
+            Registrate</ion-button>
+          <ion-button class="button-io fill-none shape-round size-medium" [routerLink]="['/entry']">
+            <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+            Volver</ion-button>
+        </div>
+      </div>
     </div>
   </div>
   <!-- *** *** -->
-  <pre>{{loginForm.value | json}}</pre>
-  <pre>{{loginForm.status}}</pre>
+  <!-- <pre>{{loginForm.value | json}}</pre>
+  <pre>{{loginForm.status}}</pre> -->
 </ion-content>

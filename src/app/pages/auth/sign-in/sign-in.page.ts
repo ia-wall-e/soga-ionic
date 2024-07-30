@@ -12,7 +12,6 @@ import { UtilsService } from '@myServices/utils.service';
 })
 export class SignInPage implements OnDestroy {
   /*** ***/
-
   log$?: Subscription;
   /*** ***/
   loginForm = this.fb.group({
@@ -23,6 +22,7 @@ export class SignInPage implements OnDestroy {
   });
   ngOnDestroy() {
     this.log$?.unsubscribe();
+    this.loginForm.reset();
   }
   constructor(
     private fb: FormBuilder,

@@ -11,19 +11,18 @@
   align-items: center;
   overflow: hidden;
   justify-content: center;
-  // padding:0 20px;
   --padding: 0 20px;
   font-size: 0.95rem;
   width:fit-content;
   img {
-    cursor: pointer;
-    background: $border;
-    border: none;
     position: absolute;
     z-index: 4;
     top: 0;
     bottom: 0;
     left: 0.3em;
+    cursor: pointer;
+    // background: $border;
+    border: none;
     margin: auto;
     height: min(2.5rem, 2.5rem);
     width: min(2.5rem, 2.5rem);
@@ -52,9 +51,11 @@
       color: gray;
     }
     &-gray {
-      background: none;
-      color: rgb(80, 80, 80);
-      border: 2px solid $border-button-gray;
+      // background: none;
+      --background:none;
+      color: var(--io-button-border);
+      --color:var(--io-button-border);
+      border: 2px solid var(--io-button-border);
     }
   }
   &.shape {
