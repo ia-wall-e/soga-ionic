@@ -13,7 +13,8 @@
               </div>
           </div>
           <div class="buttons-section button-column">
-            <ion-button class="button-io fill-main size-large shape-round expand-medium" [routerLink]="['/registro']">Crear una cuenta</ion-button>
+            <ion-button class="button-io fill-main size-large shape-round expand-medium" routerLink="/auth/registro">Crear una cuenta</ion-button>
+            <ion-button class="button-io fill-main size-large shape-round expand-medium" (click)="stopTestObs()">Stop Observablea</ion-button>
               <div class="separator">
                   <div class="line"></div>
                   <div class="circle">o</div>
@@ -27,8 +28,7 @@
                 <img src="../assets/img/facebook-thumbnail.png" alt="">
                 Unirte con Facebook
             </ion-button>
-             
-              <p class="textDown-wrapper">¿Ya tienes una cuenta?   <a [routerLink]="['/login']">Iniciar Sesion</a> </p>
+              <p class="textDown-wrapper">¿Ya tienes una cuenta?   <a routerLink="/auth/login">Iniciar Sesion</a> </p>
           </div>
       </div>
   </div>

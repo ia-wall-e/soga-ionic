@@ -31,7 +31,7 @@
               <label>Correo Electronico</label>
               <app-msg-error [forControl]="emailControl"></app-msg-error>
             </div>
-            <app-newpass formControlName="newPass"></app-newpass>
+            <app-newpass formControlName="newpass"></app-newpass>
           </div>
           <div class="buttons-section">
             <ion-button type="submit" class="button-io fill-main size-large shape-round expand-medium" [disabled]="registerForm.invalid">Crear Cuenta</ion-button>
@@ -40,9 +40,9 @@
       </div>
       <div class="footer-modulo">
         <div class="buttons-section button-double">
-          <ion-button class="button-io fill-none shape-round size-medium" [routerLink]="['/login']">
+          <ion-button class="button-io fill-none shape-round size-medium" (click)="goLogin()">
             Iniciar sesion</ion-button>
-          <ion-button class="button-io fill-none shape-round size-medium" (click)="signOut()"[routerLink]="['/entry']">
+          <ion-button class="button-io fill-none shape-round size-medium" (click)="goEntry()">
             <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
             Volver</ion-button>
         </div>
@@ -50,6 +50,6 @@
     </div>
   </div>
   <!-- *** *** -->
-  <!-- <pre>{{registerForm.value | json}}</pre>
-  <pre>{{registerForm.status}}</pre> -->
+  <pre>{{registerForm.value | json}}</pre>
+  <pre>{{registerForm.status}}</pre>
 </ion-content>

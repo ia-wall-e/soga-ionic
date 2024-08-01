@@ -7,6 +7,7 @@ import {
   AlertController
 } from '@ionic/angular';
 import { Observable, finalize, from, switchMap, catchError } from 'rxjs';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
@@ -17,7 +18,8 @@ export class UtilsService {
   constructor(
     private toastCtrl: ToastController,
     private alertCtrl: AlertController,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private router : Router
   ) {}
   /*** ***/
   async presentToast(opts: ToastOptions) {
@@ -49,5 +51,20 @@ export class UtilsService {
       })
     );
   }
+  /*** Router ***/
+  route(path:string){
+    this.router.navigate([path]);
+  }
   /*** ***/
+  testObs():Observable<any>{
+  return new Observable(subscriber=>{
+      let contador = 0;
+      let tiemoutId:any;
+    tiemoutId=  setInterval(() => {
+        contador++;
+        subscriber.next(contador)
+      }, 1000);
+      return () => clearTimeout(tiemoutId);
+    });
+   }
 }

@@ -7,6 +7,7 @@ import {
   UserCredentials,
 } from '@myInterfaces/user-credentials';
 import { CustomErrorService } from './custom-error.service';
+import { UtilsService } from './utils.service';
 // export class CustomError extends Error {
 //   code: string;
 
@@ -26,7 +27,8 @@ export class AuthService {
   private userOnline: UserCredentials | null = null;
   constructor(
     private fireSvc: FirebaseService,
-    private errorHandler: CustomErrorService
+    private errorHandler: CustomErrorService,
+    private utilSvc:UtilsService
   ) {}
   /*** ***/
   signUp(form: FormGroup): Observable<any | null> {
@@ -65,20 +67,69 @@ export class AuthService {
       throw err;
     }
   }
+  /*singInGoogle-promise*/
+  // signInGoogle() {
+  //   try {
+  //     if(this.userOnline){throw this.errorHandler.customError('User is already online', 'USER_ONLINE')}
+  //     this.fireSvc.signInGoogle();
+  //   } catch (err:any) {
+  //     const alertButtons = [
+  //       {
+  //         text: 'Cancel',
+  //         role: 'cancel',
+  //         // handler: () => {
+  //         //   console.log('Alert canceled');
+  //         // },
+  //       },
+  //       {
+  //         text: 'OK',
+  //         role: 'confirm',
+  //         handler: () => {
+  //           this.signOut();
+  //         },
+  //       },
+  //     ];
+  //     const msg = this.errorCode(err);
+  //     const alertDefault = (msg: string) => {
+  //       this.utilSvc.alert({
+  //         message: msg,
+  //         cssClass: 'custom-alert',
+  //         buttons: ['Cerrar'],
+  //       });
+  //     };
+  //     const alertClose = () => {
+  //       this.utilSvc.alert({
+  //         subHeader: 'Hay una sesion abierta',
+  //         message: '¿Deseas cerrar la sesion actual?',
+  //         cssClass: 'custom-alert',
+  //         buttons: alertButtons,
+  //       });
+  //     };
+  //     (err.code == "USER_ONLINE") ? alertClose() : alertDefault(msg); 
+  //     console.error(err.code);
+  //     throw err;
+  //   }
+  // }
+  /*singInGoogle-observable*/
   signInGoogle(){
     try {
-      return(this.userOnline)?this.errorHandler.customError('User is already online', 'USER_ONLINE'):this.fireSvc.signInGoogle();
+      if(this.userOnline){return throwError(this.errorHandler.customError('User is already online', 'USER_ONLINE'))}
+      console.log("se ejecuto signInGoogle")
+     return from(this.fireSvc.signInGoogle()).pipe(map(auth=>{
+      auth = this.parseUser(auth);
+      return auth ? this.handlerSuccess(auth) : this.handlerError();
+     }));
     } catch (err) {
       console.log(err)
       throw err;
     }
   }
-
+  /* */
   signOut(): void {
     return this.fireSvc.signOut();
   }
   /*** ***/
-  private handlerSuccess(auth: UserCredentials): UserCredentials {
+  private handlerSuccess(auth: any): UserCredentials {
     return auth;
   }
   private handlerError() {
@@ -99,21 +150,32 @@ export class AuthService {
       })
     ));
   }
-  /*** ***/
-  private parseUser(auth: any): UserCredentials {
+  /*** utils ***/
+  private parseUser(auth: any): any {
+    if (!auth) return null;
+    const name = this.capitalizeFirstLetter(auth.user.displayName);
+    const email = auth.user.email.toLowerCase();
     return {
       uid: auth.user.uid,
-      name: auth.user.displayName,
-      email: auth.user.email,
+      name: name,
+      email: email,
       phone: auth.user.phoneNumber,
-      img: auth.user.photoUrl,
+      img: auth.user.photoURL,
     };
   }
   parseRegister(data: any): RegisterCredentials {
+    console.log(data)
     return {
       email: data.email,
-      password: data.newPass['password'],
+      password: data.newpass['password'],
     };
+  }
+  capitalizeFirstLetter(str: string) {
+    if (!str) return str;
+    return str
+      .split(' ') // Divide la cadena en un array de palabras
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitaliza la primera letra de cada palabra
+      .join(' '); // Une las palabras en una sola cadena con espacios
   }
   errorCode(error: any): string {
     let errorMsg = 'Error desconocido al iniciar sesión.';
@@ -122,10 +184,12 @@ export class AuthService {
     } else if (error.code === 'auth/network-request-failed') {
       errorMsg = 'No hay conexion a internet';
     } else if (error.code === 'auth/wrong-password') {
-      errorMsg = 'Contraseña incorrecta. Por favor, inténtelo de nuevo.';
+      errorMsg = 'Contraseña incorrecta. Por favor, inténtalo de nuevo.';
+    } else if (error.code === 'auth/invalid-email') {
+      errorMsg = 'El formato del correo es invalido';
     } else if (error.code === 'auth/invalid-credential') {
       errorMsg =
-        'Tu email o la contraseña no coinciden. Por favor, inténtelo de nuevo.';
+        'Tu email o la contraseña no coinciden. Por favor, inténtalo de nuevo.';
     } else if (error.code == 'auth/missing-email') {
       errorMsg = 'No hay cuentas registradas con este email';
     } else if (error.code == 'USER_ONLINE') {

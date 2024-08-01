@@ -4,19 +4,18 @@
     <div class="modulo type-form shadow">
       <div class="head-modulo">
         <ion-toolbar>
-          <!-- <ion-buttons slot="secondary">
-            <ion-button>
-              <ion-icon slot="icon-only" name="person-circle"></ion-icon>
-            </ion-button>
-            <ion-button>
-              <ion-icon slot="icon-only" name="search"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-buttons slot="primary">
-            <ion-button>
-              <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
-            </ion-button>
-          </ion-buttons> -->
+          <ion-toolbar>
+            <ion-buttons slot="star">
+              <ion-button>
+                <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+            <ion-buttons slot="end">
+              <ion-button>
+                <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
         </ion-toolbar>
       </div>
       <div class="body-modulo">
@@ -46,9 +45,9 @@
       </div>
       <div class="footer-modulo">
         <div class="buttons-section button-double">
-          <ion-button class="button-io fill-none shape-round size-medium"[routerLink]="['/registro']">
+          <ion-button class="button-io fill-none shape-round size-medium" routerLink="/auth/registro">
             Registrate</ion-button>
-          <ion-button class="button-io fill-none shape-round size-medium" [routerLink]="['/entry']">
+          <ion-button class="button-io fill-none shape-round size-medium" routerLink="/auth/entry">
             <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
             Volver</ion-button>
         </div>

@@ -1,5 +1,6 @@
 import {
   Component,
+  OnInit,
   OnDestroy,
   ViewChild,
   ElementRef,
@@ -17,7 +18,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { ViewWillLeave } from '@ionic/angular';
 import { FormValidatorService } from '@myServices/form-validator.service';
+import { UtilsService } from '@myServices/utils.service';
 
 @Component({
   selector: 'app-newpass',
@@ -68,13 +71,15 @@ import { FormValidatorService } from '@myServices/form-validator.service';
   ],
 })
 export class NewpassComponent
-  implements OnDestroy, ControlValueAccessor, Validator
+  implements OnInit, OnDestroy, ControlValueAccessor, Validator,ViewWillLeave
 {
+  /*** Propiedades ***/
   @ViewChild('inputPass') inputRef?: ElementRef;
   @ViewChild('inputconfirm') confirmRef?: ElementRef;
   iconEye: string = 'eye-outline';
   private sub$?: Subscription;
-  /*** ***/
+  testObs$?: Subscription;
+  /*** FormReactive ***/
   form = this.fb.group(
     {
       password: [
@@ -97,30 +102,52 @@ export class NewpassComponent
   get passConfirmControl() {
     return this.form.get('passConfirm') as FormControl;
   }
-  /*** ***/
+  /*** Constructor ***/
   constructor(
     private fb: FormBuilder,
-    private validateSvc: FormValidatorService
+    private validateSvc: FormValidatorService,
+    private utilSvc: UtilsService
   ) {}
-  /*** ***/
-  ngOnDestroy() {
-    this.sub$?.unsubscribe;
+  /*** lifecircle ***/
+  ngOnInit() {
+    console.log("NEWPASS_COMPONENT")
+    this.testObs$ = this.utilSvc
+      .testObs()
+      .subscribe((r) => console.log('newpass - ' + r));
   }
-  /*** ***/
+  ngOnDestroy():void {
+  //  this.clearPage()
+   this.sub$?.unsubscribe();
+   this.testObs$?.unsubscribe();
+    console.log('newpass OnDestroy');
+  }
+  ionViewWillLeave(): void {
+    console.log('newpass ionLeave');
+  }
+  // clearPage(){
+  //   this.sub$?.unsubscribe();
+  //   this.testObs$?.unsubscribe();
+  // }
+  /***  ***/
   onTouched = () => {};
   writeValue(obj: any): void {
+    // console.log('writeValue-newpass');
     obj && this.form.setValue(obj, { emitEvent: false });
   }
   registerOnChange(fn: any): void {
+    // console.log('registerOnChange-newpass');
     this.sub$ = this.form.valueChanges.subscribe(fn);
   }
   registerOnTouched(fn: any): void {
+    // console.log('registerOnTouched-newpass');
     this.onTouched = fn;
   }
   setDisabledState(isDisabled: boolean): void {}
   validate(control: AbstractControl): ValidationErrors | null {
+    // console.log('validate-newpass');
     return this.form.valid ? null : { genericError: true };
   }
+  /*** ***/
   toggle(elem_: any) {
     const elem = elem_.nativeElement;
     if (elem.type === 'password') {
@@ -135,3 +162,9 @@ export class NewpassComponent
     return this.validateSvc.controlState(control);
   }
 }
+
+/*
+NOTAS:
+Para el lifecircle del componente no se ejecutan los metodos de ionic : ViewWillEnter y ViewWillLeave, 
+recibo los metodos originales de angular : OnInit y OnDestroy
+*/

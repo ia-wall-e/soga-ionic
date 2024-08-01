@@ -32,40 +32,41 @@
  * https://ionicframework.com/docs/theming/dark-mode
  */
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+// @import "@ionic/angular/css/palettes/dark.always.css";
+// @import "@ionic/angular/css/palettes/dark.class.css";
 // @import "@ionic/angular/css/palettes/dark.system.css";
 
 /*** Scss Personalizado***/
 @import "./assets/sass/shared.scss";
 /*** AlertController - IONIC***/
-// .custom-alert {
-//     --background:red;
-//     --border-radius:15px;
-//     border-radius:unset;
-//     border-radius:30px;
-//     // background:yellow;
-//     .alert-title {
-//       color: #4a90e2; /* Cambia el color del título */
-//       font-size: 20px; /* Cambia el tamaño del título */
-//     }
-  
-//     .alert-message {
-//       color: #ffffff; /* Cambia el color del mensaje */
-//       font-size: 16px; /* Cambia el tamaño del mensaje */
-//     }
-  
-//     .alert-button-group {
-//         background:violet;
-//       --button-border-radius: 8px; /* Cambia el radio del borde de los botones */
-//       --button-background: #4f0fff; /* Cambia el color de fondo de los botones */
-//       --button-text-color: #ffffff; /* Cambia el color del texto de los botones */
-//     }
-//     .alert-buttons{
-//         background:violet;
-//         --button-border-radius: 8px; /* Cambia el radio del borde de los botones */
-//         --button-background: #4f0fff; /* Cambia el color de fondo de los botones */
-//         --button-text-color: #ffffff; /* Cambia el color del texto de los botones */
-//     }
-//   }
-
+ion-alert.custom-alert {
+  // background:yellow;
+  --backdrop-opacity: 0.7;
+}
+.custom-alert.alert-subHeader-group{
+background:red;
+}
+.custom-alert {
+  // --background:rgb(128, 128, 128);
+  @include font-primary;
+}
+.custom-alert .alert-button-group {
+  // background:violet;
+  padding: 10px;
+}
+ion-alert.custom-alert button.alert-button {
+  border-radius: 30px;
+  padding: 10px 30px;
+  text-transform: none;
+  @include font-primary;
+  border: 2px solid gray;
+  color: gray;
+}
+// ion-alert.custom-alert button.alert-button.alert-button-confirm {
+//   border: 1px solid gray;
+//   color: gray;
+// }
+// ion-alert.custom-alert button.alert-button.alert-button-cancel {
+//   border: 1px solid gray;
+//   color: gray;
+// }
