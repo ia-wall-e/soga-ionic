@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  OnDestroy,
-} from '@angular/core';
-import { Location } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ViewWillLeave, ViewWillEnter } from '@ionic/angular';
@@ -16,56 +10,38 @@ import { UtilsService } from '@myServices/utils.service';
   styleUrls: ['./sign-in.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignInPage
-  implements OnInit, OnDestroy, ViewWillEnter, ViewWillLeave
-{
+export class SignInPage implements ViewWillEnter, ViewWillLeave {
   /*** ***/
   log$?: Subscription;
-  testObs$?: Subscription;
-  loginForm?: any;
+  // testObs$?: Subscription;
   /*** formulario ***/
-  // loginForm = this.fb.group({
-  //   signInComp: {
-  //     email: '',
-  //     password: '',
-  //   },
-  // });
+  loginForm = this.fb.group({
+    signInComp: {
+      email: '',
+      password: '',
+    },
+  });
   /*** ***/
   constructor(
     private fb: FormBuilder,
     private authSvc: AuthService,
-    private utilSvc: UtilsService,
-    private location: Location
-  ) {
-    this.loginForm = this.fb.group({
-      signInComp: {
-        email: '',
-        password: '',
-      },
-    });
-    //------
-    // let contador=0;
-    // this.proob= setInterval(() => {
-    //    contador++;
-    //    console.log('login =>'+contador)
-    //  }, 1000);
-  }
+    private utilSvc: UtilsService
+  ) {}
   /*** lifeCircle ***/
-  ngOnInit() {}
-  ngOnDestroy() {}
   ionViewWillEnter(): void {
-    console.log('SIGNIN_PAGE');
-    this.testObs$ = this.utilSvc
-      .testObs()
-      .subscribe((r) => console.log('signin - ' + r));
+    //---test observables---//
+    // console.log('SIGNIN_PAGE');
+    // this.testObs$ = this.utilSvc
+    //   .testObs()
+    //   .subscribe((r) => console.log('signin - ' + r));
   }
   ionViewWillLeave(): void {
     this.loginForm.reset();
     this.log$?.unsubscribe();
-    this.testObs$?.unsubscribe();
-    console.log('destroy login');
+    // this.testObs$?.unsubscribe();
+    // console.log('destroy login');
   }
-  /*** ***/
+  /*** Submit ***/
   onSubmit(form: FormGroup) {
     this.log$ = this.utilSvc.withLoading(this.authSvc.signIn(form)).subscribe({
       next: (r) => this.handlerNext(r),

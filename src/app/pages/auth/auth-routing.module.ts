@@ -4,10 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { EntryPage } from './entry/entry.page';
 import { SignInPage } from './sign-in/sign-in.page';
 import { SignUpPage } from './sign-up/sign-up.page';
+import { stateOn } from '@myGuards/auth.guard';
 const routes: Routes = [
   {
     path: 'entry',
     component: EntryPage,
+    canActivate:[stateOn]
   },
   {
     path:'login',
@@ -16,7 +18,7 @@ const routes: Routes = [
   {
     path:'registro',
     component:SignUpPage
-  }
+  },
 ];
 @NgModule({
   declarations: [],

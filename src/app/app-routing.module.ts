@@ -4,25 +4,14 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'auth/entry',
+    redirectTo: 'entry',
     pathMatch: 'full'
   },
   {
-    path: 'auth', //authModule
-    loadChildren: () => import('./pages/auth/auth.module').then( m => m.AuthModule)
+    path: '**',//Ruta comodin-siempre va de ultimo
+    loadChildren: () => import('./pages/error/error/error.module').then( m => m.ErrorPageModule)
   },
-  {
-    path: 'auth/entry', //authModule
-    loadChildren: () => import('./pages/auth/auth.module').then( m => m.AuthModule)
-  },
-  {
-    path: 'auth/login', //authModule
-    loadChildren: () => import('./pages/auth/auth.module').then( m => m.AuthModule)
-  },
-  {
-    path: 'auth/registro', //authModule
-    loadChildren: () => import('./pages/auth/auth.module').then( m => m.AuthModule)
-  },
+
 ];
 
 @NgModule({
@@ -32,3 +21,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+/*
+!Nota
+!paths : Entry, login, registro -> authModule, importado a appModule.
+*/

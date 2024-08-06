@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  OnDestroy,
-} from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -19,14 +14,10 @@ import { UtilsService } from '@myServices/utils.service';
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
   styleUrls: ['./sign-up.page.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignUpPage
-  implements OnInit, OnDestroy, ViewWillEnter, ViewWillLeave
-{
+export class SignUpPage implements ViewWillEnter, ViewWillLeave {
   /*** ***/
   private onsubmit$? = new Subscription();
-  testObs$?: Subscription;
   private alertButtons = [
     {
       text: 'Cancel',
@@ -42,6 +33,9 @@ export class SignUpPage
       },
     },
   ];
+  //pruebas
+  testObs$?: Subscription;
+  showNewpass: boolean = true;
   /*** formulario***/
   registerForm = this.fb.group({
     email: [
@@ -64,15 +58,15 @@ export class SignUpPage
     private utilSvc: UtilsService
   ) {}
   /*** lifecircle ***/
-  ngOnInit() {}
-  ngOnDestroy() {}
+
   ionViewWillEnter(): void {
-    console.log('SIGNUP_PAGE');
-    this.testObs$= this.utilSvc.testObs().subscribe((r) => console.log('signup - ' + r));
+    // console.log('SIGNUP_PAGE');
+    // this.testObs$= this.utilSvc.testObs().subscribe((r) => console.log('signup - ' + r));
   }
   ionViewWillLeave(): void {
+    // this.testObs$?.unsubscribe();
     this.onsubmit$?.unsubscribe();
-    this.testObs$?.unsubscribe();
+    this.registerForm.reset();
   }
   /*** ***/
   controlState(control: any): boolean {
@@ -114,7 +108,11 @@ export class SignUpPage
   goEntry(): void {
     this.utilSvc.route('/auth/entry');
   }
-  goLogin():void {
+  goLogin(): void {
     this.utilSvc.route('/auth/login/');
+  }
+  /*** ***/
+  showNewPass() {
+    this.showNewpass = !this.showNewpass;
   }
 }

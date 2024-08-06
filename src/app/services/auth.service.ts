@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from './firebase.service';
-import { from, map, Observable, throwError, BehaviorSubject } from 'rxjs';
+import { from, map, Observable, throwError, BehaviorSubject,take } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import {
   RegisterCredentials,
@@ -28,7 +28,7 @@ export class AuthService {
   constructor(
     private fireSvc: FirebaseService,
     private errorHandler: CustomErrorService,
-    private utilSvc:UtilsService
+    private utilSvc: UtilsService
   ) {}
   /*** ***/
   signUp(form: FormGroup): Observable<any | null> {
@@ -105,22 +105,28 @@ export class AuthService {
   //         buttons: alertButtons,
   //       });
   //     };
-  //     (err.code == "USER_ONLINE") ? alertClose() : alertDefault(msg); 
+  //     (err.code == "USER_ONLINE") ? alertClose() : alertDefault(msg);
   //     console.error(err.code);
   //     throw err;
   //   }
   // }
   /*singInGoogle-observable*/
-  signInGoogle(){
+  signInGoogle() {
     try {
-      if(this.userOnline){return throwError(this.errorHandler.customError('User is already online', 'USER_ONLINE'))}
-      console.log("se ejecuto signInGoogle")
-     return from(this.fireSvc.signInGoogle()).pipe(map(auth=>{
-      auth = this.parseUser(auth);
-      return auth ? this.handlerSuccess(auth) : this.handlerError();
-     }));
+      if (this.userOnline) {
+        return throwError(
+          this.errorHandler.customError('User is already online', 'USER_ONLINE')
+        );
+      }
+      console.log('se ejecuto signInGoogle');
+      return from(this.fireSvc.signInGoogle()).pipe(
+        map((auth) => {
+          auth = this.parseUser(auth);
+          return auth ? this.handlerSuccess(auth) : this.handlerError();
+        })
+      );
     } catch (err) {
-      console.log(err)
+      console.log(err);
       throw err;
     }
   }
@@ -142,11 +148,14 @@ export class AuthService {
       throw new Error('User is already online');
     }
   }
-  authState(): Observable<UserCredentials | null> {
+  authenticated(){
+    return this.authState$.pipe(map(v => v ? v.uid : null),);
+  }
+  authState(): Observable<UserCredentials | boolean> {
     return (this.authState$ = this.fireSvc.authState().pipe(
       map((auth) => {
-        this.userOnline = auth;
-        return auth;
+          this.userOnline = auth;
+          return auth;
       })
     ));
   }
@@ -164,7 +173,7 @@ export class AuthService {
     };
   }
   parseRegister(data: any): RegisterCredentials {
-    console.log(data)
+    console.log(data);
     return {
       email: data.email,
       password: data.newpass['password'],

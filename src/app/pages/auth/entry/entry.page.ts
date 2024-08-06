@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { ViewWillEnter, ViewWillLeave } from '@ionic/angular';
 import { AuthService } from '@myServices/auth.service';
 import { UtilsService } from '@myServices/utils.service';
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./entry.page.scss'],
 })
 export class EntryPage
-  implements OnInit, OnDestroy, ViewWillEnter, ViewWillLeave
+  implements ViewWillEnter, ViewWillLeave
 {
   private logProvider$?: Subscription;
   testObs$?: Subscription;
@@ -31,19 +31,17 @@ export class EntryPage
   ];
   constructor(private authSvc: AuthService, private utilSvc: UtilsService) {}
   /*** LifeCicle */
-  ngOnInit() {}
-  ngOnDestroy() {}
   ionViewWillEnter(): void {
-    console.log('ENTRY_PAGE');
-    this.testObs$ = this.utilSvc.testObs().subscribe((v) => console.log('Entry - '+v));
+    // console.log('ENTRY_PAGE');
+    // this.testObs$ = this.utilSvc.testObs().subscribe((v) => console.log('Entry - '+v));
   }
   ionViewWillLeave(): void {
     this.cleanPage();
   }
   cleanPage(){
+    // console.log('Entry destroy');
     this.logProvider$?.unsubscribe();
-    this.testObs$?.unsubscribe();
-    console.log('Entry destroy');
+    // this.testObs$?.unsubscribe();
   }
   /*** ***/
   providerAction(opt: string) {
@@ -86,7 +84,4 @@ export class EntryPage
     console.error(e);
   }
   /** ***/
-  stopTestObs() {
-    this.testObs$?.unsubscribe();
-  }
 }

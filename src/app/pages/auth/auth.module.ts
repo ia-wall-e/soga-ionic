@@ -16,7 +16,6 @@ import { FormModule } from '@myComponents/form/form.module';
     IonicModule,
     AuthRoutingModule,
     FormModule,
- 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

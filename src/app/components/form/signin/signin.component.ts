@@ -17,8 +17,9 @@ import {
   Validator,
   Validators,
 } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { FormValidatorService } from '@myServices/form-validator.service';
+import { UtilsService } from '@myServices/utils.service';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -41,12 +42,14 @@ export class SigninComponent
 {
   /*** ***/
   private sub$?: Subscription;
+  private testObs$ = new Subscription();
   @ViewChild('inputPass') inputRef?: ElementRef;
   iconEye = 'eye-outline';
   /*** ***/
   constructor(
     private fb: FormBuilder,
-    private validateSvc: FormValidatorService
+    private validateSvc: FormValidatorService,
+    private utilSvc: UtilsService
   ) {}
   form = this.fb.group({
     email: [
@@ -61,8 +64,13 @@ export class SigninComponent
   get passControl() {
     return this.form.get('password') as FormControl;
   }
-  ngOnInit() {}
-  ngOnDestroy() {}
+  ngOnInit() {
+    // this.testObs$ = this.utilSvc.testObs().subscribe((r) => console.log("singInComponent - "+r));
+  }
+  ngOnDestroy() {
+    // this.testObs$.unsubscribe();
+    console.log("singInComponentReutilizable - destroy")
+  }
   /*** ***/
   onTouched = () => {};
   writeValue(obj: any): void {

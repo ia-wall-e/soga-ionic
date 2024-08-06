@@ -17,46 +17,12 @@ import {
   Validator,
   Validators,
 } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import { ViewWillLeave } from '@ionic/angular';
+import { Subscription, tap } from 'rxjs';
 import { FormValidatorService } from '@myServices/form-validator.service';
 import { UtilsService } from '@myServices/utils.service';
-
 @Component({
   selector: 'app-newpass',
-  template: `<div class="inputs-section component" [formGroup]="form">
-    <div
-      class="input-component shape-round label-static"
-      [ngClass]="{ isInvalid: controlState(passControl) }"
-    >
-      <input
-        type="password"
-        formControlName="password"
-        #inputPass
-        (blur)="onTouched()"
-      />
-      <label>Contraseña</label>
-      <ion-button
-        class="button-io shape-icon fill-none"
-        (click)="toggle(inputRef)"
-      >
-        <ion-icon slot="icon-only" [name]="iconEye"></ion-icon>
-      </ion-button>
-      <app-msg-error [forControl]="passControl"></app-msg-error>
-    </div>
-    <div
-      class="input-component shape-round label-static"
-      [ngClass]="{ isInvalid: controlState(passConfirmControl) }"
-    >
-      <input
-        type="password"
-        formControlName="passConfirm"
-        (blur)="onTouched()"
-      />
-      <label>Confirmar Contraseña</label>
-      <app-msg-error [forControl]="passConfirmControl"></app-msg-error>
-    </div>
-  </div>`,
+  templateUrl:'./newpass.component.html',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -71,14 +37,14 @@ import { UtilsService } from '@myServices/utils.service';
   ],
 })
 export class NewpassComponent
-  implements OnInit, OnDestroy, ControlValueAccessor, Validator,ViewWillLeave
+  implements OnInit, OnDestroy, ControlValueAccessor, Validator
 {
   /*** Propiedades ***/
   @ViewChild('inputPass') inputRef?: ElementRef;
   @ViewChild('inputconfirm') confirmRef?: ElementRef;
   iconEye: string = 'eye-outline';
   private sub$?: Subscription;
-  testObs$?: Subscription;
+  private testObs$? : Subscription;
   /*** FormReactive ***/
   form = this.fb.group(
     {
@@ -106,29 +72,16 @@ export class NewpassComponent
   constructor(
     private fb: FormBuilder,
     private validateSvc: FormValidatorService,
-    private utilSvc: UtilsService
+
   ) {}
   /*** lifecircle ***/
   ngOnInit() {
-    console.log("NEWPASS_COMPONENT")
-    this.testObs$ = this.utilSvc
-      .testObs()
-      .subscribe((r) => console.log('newpass - ' + r));
   }
-  ngOnDestroy():void {
-  //  this.clearPage()
-   this.sub$?.unsubscribe();
-   this.testObs$?.unsubscribe();
-    console.log('newpass OnDestroy');
+  ngOnDestroy(): void {
+    this.sub$?.unsubscribe();
+    this.form.reset();
   }
-  ionViewWillLeave(): void {
-    console.log('newpass ionLeave');
-  }
-  // clearPage(){
-  //   this.sub$?.unsubscribe();
-  //   this.testObs$?.unsubscribe();
-  // }
-  /***  ***/
+  /*** ControlValueAccessor ***/
   onTouched = () => {};
   writeValue(obj: any): void {
     // console.log('writeValue-newpass');
@@ -163,8 +116,6 @@ export class NewpassComponent
   }
 }
 
-/*
-NOTAS:
-Para el lifecircle del componente no se ejecutan los metodos de ionic : ViewWillEnter y ViewWillLeave, 
-recibo los metodos originales de angular : OnInit y OnDestroy
+/* 
+!ERROR: Aun no logra hacerse funcionar los metodos del lifecircle ni de angular ni ionic
 */
