@@ -13,16 +13,16 @@ export const stateOn: CanActivateFn = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ):
-  | Observable< boolean | UrlTree>
-  | Promise< boolean | UrlTree>
+  | Observable<boolean | UrlTree>
+  | Promise<boolean | UrlTree>
   | boolean
   | UrlTree => {
-    const data = inject(AuthService).authenticated();
-    console.log(data)
-  // return data.pipe()
-    // ? true
-  //   : inject(Router).createUrlTree(['/auth/login']);
-  return inject(AuthService).authenticated()
- 
+  const authSvc = inject(AuthService);
+  const routeSvc = inject(Router);
+  return authSvc.authState().pipe(
+    map((auth) => {
+      console.log(auth)
+      return !auth ? true : routeSvc.createUrlTree(['/home']);
+    })
+  );
 };
-

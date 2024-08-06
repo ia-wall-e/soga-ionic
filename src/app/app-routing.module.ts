@@ -8,10 +8,13 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home/home.module').then( m => m.HomePageModule)
+  },
+  {
     path: '**',//Ruta comodin-siempre va de ultimo
     loadChildren: () => import('./pages/error/error/error.module').then( m => m.ErrorPageModule)
   },
-
 ];
 
 @NgModule({
@@ -23,5 +26,5 @@ const routes: Routes = [
 export class AppRoutingModule { }
 /*
 !Nota
-!paths : Entry, login, registro -> authModule, importado a appModule.
+!paths : entry, login, registro -> authModule, importado a appModule.
 */

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from './firebase.service';
-import { from, map, Observable, throwError, BehaviorSubject,take } from 'rxjs';
+import { from, map, Observable, throwError, BehaviorSubject, take } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import {
   RegisterCredentials,
@@ -8,15 +8,6 @@ import {
 } from '@myInterfaces/user-credentials';
 import { CustomErrorService } from './custom-error.service';
 import { UtilsService } from './utils.service';
-// export class CustomError extends Error {
-//   code: string;
-
-//   constructor(message: string, code: string) {
-//     super(message);
-//     this.code = code;
-//     this.name = 'CustomError'; // Opcional: Cambiar el nombre del error si lo deseas
-//   }
-// }
 @Injectable({
   providedIn: 'root',
 })
@@ -24,7 +15,7 @@ export class AuthService {
   /*** ***/
   private userState_ = new BehaviorSubject<any>(false);
   private authState$ = this.userState_.asObservable();
-  private userOnline: UserCredentials | null = null;
+  private userState: UserCredentials | null = null;
   constructor(
     private fireSvc: FirebaseService,
     private errorHandler: CustomErrorService,
@@ -33,7 +24,7 @@ export class AuthService {
   /*** ***/
   signUp(form: FormGroup): Observable<any | null> {
     try {
-      if (this.userOnline) {
+      if (this.userState) {
         return throwError(
           this.errorHandler.customError('User is already online', 'USER_ONLINE')
         );
@@ -50,7 +41,7 @@ export class AuthService {
     }
   }
   signIn(form: FormGroup): Observable<any | null> {
-    if (this.userOnline) {
+    if (this.userState) {
       return throwError(
         this.errorHandler.customError('User is already online', 'USER_ONLINE')
       );
@@ -67,53 +58,9 @@ export class AuthService {
       throw err;
     }
   }
-  /*singInGoogle-promise*/
-  // signInGoogle() {
-  //   try {
-  //     if(this.userOnline){throw this.errorHandler.customError('User is already online', 'USER_ONLINE')}
-  //     this.fireSvc.signInGoogle();
-  //   } catch (err:any) {
-  //     const alertButtons = [
-  //       {
-  //         text: 'Cancel',
-  //         role: 'cancel',
-  //         // handler: () => {
-  //         //   console.log('Alert canceled');
-  //         // },
-  //       },
-  //       {
-  //         text: 'OK',
-  //         role: 'confirm',
-  //         handler: () => {
-  //           this.signOut();
-  //         },
-  //       },
-  //     ];
-  //     const msg = this.errorCode(err);
-  //     const alertDefault = (msg: string) => {
-  //       this.utilSvc.alert({
-  //         message: msg,
-  //         cssClass: 'custom-alert',
-  //         buttons: ['Cerrar'],
-  //       });
-  //     };
-  //     const alertClose = () => {
-  //       this.utilSvc.alert({
-  //         subHeader: 'Hay una sesion abierta',
-  //         message: '¿Deseas cerrar la sesion actual?',
-  //         cssClass: 'custom-alert',
-  //         buttons: alertButtons,
-  //       });
-  //     };
-  //     (err.code == "USER_ONLINE") ? alertClose() : alertDefault(msg);
-  //     console.error(err.code);
-  //     throw err;
-  //   }
-  // }
-  /*singInGoogle-observable*/
   signInGoogle() {
     try {
-      if (this.userOnline) {
+      if (this.userState) {
         return throwError(
           this.errorHandler.customError('User is already online', 'USER_ONLINE')
         );
@@ -130,7 +77,6 @@ export class AuthService {
       throw err;
     }
   }
-  /* */
   signOut(): void {
     return this.fireSvc.signOut();
   }
@@ -143,19 +89,24 @@ export class AuthService {
   }
   /*** ***/
   sessionState(): void {
-    if (this.userOnline) {
+    if (this.userState) {
       this.errorHandler.customError('User is already online', 'USER_ONLINE');
       throw new Error('User is already online');
     }
   }
-  authenticated(){
-    return this.authState$.pipe(map(v => v ? v.uid : null),);
+  authenticated() {
+    return this.authState$.pipe(
+      map((v) => {
+        console.log(v.multiFactor.user);
+        return v ? v : null;
+      })
+    );
   }
   authState(): Observable<UserCredentials | boolean> {
     return (this.authState$ = this.fireSvc.authState().pipe(
       map((auth) => {
-          this.userOnline = auth;
-          return auth;
+        this.userState = auth;
+        return auth;
       })
     ));
   }

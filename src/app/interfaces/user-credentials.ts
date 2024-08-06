@@ -1,9 +1,3 @@
-// export interface LoginCredentials{
-//     uid:string,
-//     name:string,
-//     email:string,
-//     password:string,
-// }
 
 export interface RegisterCredentials{
     email:string,

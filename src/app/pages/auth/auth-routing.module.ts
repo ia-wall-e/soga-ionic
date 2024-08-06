@@ -14,10 +14,12 @@ const routes: Routes = [
   {
     path:'login',
     component:SignInPage,
+    canActivate:[stateOn]
   },
   {
     path:'registro',
-    component:SignUpPage
+    component:SignUpPage,
+    canActivate:[stateOn]
   },
 ];
 @NgModule({
