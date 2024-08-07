@@ -8,6 +8,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 /*rutas y modulos*/
 import { AuthModule } from './pages/auth/auth.module';
+import { ComponentsModule } from '@myComponents/components.module';
 /*otro*/
 import { AppRoutingModule } from './app-routing.module';
 /**/
@@ -17,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     IonicModule.forRoot(),
     AuthModule,
+    ComponentsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AppRoutingModule,
   ],
