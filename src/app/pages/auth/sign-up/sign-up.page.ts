@@ -82,7 +82,7 @@ export class SignUpPage implements ViewWillEnter, ViewWillLeave {
       });
   }
   handlerNext(r: any) {
-    console.log('hola');
+    r?this.utilSvc.route('/home'):null;
   }
   handlerError(e: any) {
     const msg = this.authSvc.errorCode(e);

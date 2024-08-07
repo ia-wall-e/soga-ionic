@@ -77,6 +77,7 @@ export class SigninComponent
     this.cleanUp();
   }
   private cleanUp(){
+    console.log('signInComponent CleanUp')
     this.testObs$.unsubscribe();
     this.form.reset();
   }

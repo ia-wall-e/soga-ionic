@@ -41,7 +41,6 @@ export class EntryPage
   cleanPage(){
     // console.log('Entry destroy');
     this.logProvider$?.unsubscribe();
-    // this.testObs$?.unsubscribe();
   }
   /*** ***/
   providerAction(opt: string) {

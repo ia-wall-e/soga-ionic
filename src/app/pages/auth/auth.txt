@@ -1,0 +1,4 @@
+Notas: 
+*se presentarn errores al limpiar los formularios de los inputs reutilizables.
+*se presentan problemas al ejecutar los hook de lifecicle de los componentes reutilizables
+*al parecer el error se dede s la deteccion de cambios que afecta los hoook de lifecicle

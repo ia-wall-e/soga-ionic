@@ -36,7 +36,7 @@ export class SignInPage implements ViewWillEnter, ViewWillLeave {
     //   .subscribe((r) => console.log('signin - ' + r));
   }
   ionViewWillLeave(): void {
-    this.loginForm.reset();
+    this.loginForm.get('signInComp')?.reset();
     this.log$?.unsubscribe();
     // this.testObs$?.unsubscribe();
     // console.log('destroy login');
@@ -49,7 +49,7 @@ export class SignInPage implements ViewWillEnter, ViewWillLeave {
     });
   }
   handlerNext(r: any) {
-    console.log(r);
+    r?this.utilSvc.route('/home'):null;
   }
   handlerError(e: any) {
     const msg = this.authSvc.errorCode(e);
