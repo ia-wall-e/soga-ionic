@@ -61,7 +61,7 @@ export class EntryPage
     }
   }
   handlerNext(r: any) {
-    console.log(r);
+    r?this.utilSvc.route('/home'):null;
   }
   handlerError(e: any) {
     const msg = this.authSvc.errorCode(e);

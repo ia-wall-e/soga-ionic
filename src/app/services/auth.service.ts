@@ -13,8 +13,8 @@ import { UtilsService } from './utils.service';
 })
 export class AuthService {
   /*** ***/
-  private userState_ = new BehaviorSubject<any>(false);
-  private authState$ = this.userState_.asObservable();
+  private authState_ = new BehaviorSubject<any>(false);
+  private authState$ = this.authState_.asObservable();
   private userState: UserCredentials | null = null;
   constructor(
     private fireSvc: FirebaseService,
@@ -68,8 +68,10 @@ export class AuthService {
       console.log('se ejecuto signInGoogle');
       return from(this.fireSvc.signInGoogle()).pipe(
         map((auth) => {
-          auth = this.parseUser(auth);
-          return auth ? this.handlerSuccess(auth) : this.handlerError();
+          if (auth) {
+            auth = this.parseUser(auth);
+            return auth ? this.handlerSuccess(auth) : this.handlerError();
+          }
         })
       );
     } catch (err) {
@@ -88,20 +90,6 @@ export class AuthService {
     throw new Error('Error al crear usuario');
   }
   /*** ***/
-  sessionState(): void {
-    if (this.userState) {
-      this.errorHandler.customError('User is already online', 'USER_ONLINE');
-      throw new Error('User is already online');
-    }
-  }
-  authenticated() {
-    return this.authState$.pipe(
-      map((v) => {
-        console.log(v.multiFactor.user);
-        return v ? v : null;
-      })
-    );
-  }
   authState(): Observable<UserCredentials | boolean> {
     return (this.authState$ = this.fireSvc.authState().pipe(
       map((auth) => {
@@ -109,6 +97,19 @@ export class AuthService {
         return auth;
       })
     ));
+  }
+  /*** Recovery ***/
+  resetPass(email: string): Observable<any | null> {
+    try {
+      if (this.userState) {
+        return throwError(
+          this.errorHandler.customError('User is already online', 'USER_ONLINE')
+        );
+      }
+      return from(this.fireSvc.resetPass(email));
+    } catch (e) {
+      throw e;
+    }
   }
   /*** utils ***/
   private parseUser(auth: any): any {
@@ -124,7 +125,6 @@ export class AuthService {
     };
   }
   parseRegister(data: any): RegisterCredentials {
-    console.log(data);
     return {
       email: data.email,
       password: data.newpass['password'],
@@ -138,7 +138,7 @@ export class AuthService {
       .join(' '); // Une las palabras en una sola cadena con espacios
   }
   errorCode(error: any): string {
-    let errorMsg = 'Error desconocido al iniciar sesión.';
+    let errorMsg = 'Error al iniciar sesión.';
     if (error.code === 'auth/email-already-in-use') {
       errorMsg = 'el correo electronico ya se encuentra registrado.';
     } else if (error.code === 'auth/network-request-failed') {

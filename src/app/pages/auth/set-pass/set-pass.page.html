@@ -1,0 +1,40 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>setPass</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="modulo type-form shadow">
+      <div class="body-modulo">
+        <form class="form-io" [formGroup]="resetForm" (ngSubmit)="onSubmit(resetForm)">
+          <div class="head-component text-left">
+            <div class="title-section">
+              <h1 class="title">Introduce tu dirección de correo electrónico.</h1>
+              <p class="subtitle">Para restablecer tu contraseña, escribe la dirección de correo electrónico que puedes
+                haber utilizado.</p>
+            </div>
+          </div>
+          <div class="inputs-section">
+            <div class="input-component shape-line label-static">
+              <input type="text" formControlName="email">
+              <label>Direccion de correo electronico</label>
+              <app-msg-error [forControl]="emailControl"></app-msg-error>
+            </div>
+          </div>
+          <div class="buttons-section button-double">
+            <ion-button type="submit" class="button-io fill-main size-medium shape-round">Continuar</ion-button>
+          </div>
+        </form>
+      </div>
+      <div class="footer-modulo">
+        <div class="buttons-section">
+          <ion-button class="button-io fill-none shape-round size-medium" routerLink="/login">
+            <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+            Volver</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

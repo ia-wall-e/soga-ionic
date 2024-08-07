@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { EntryPage } from './entry/entry.page';
 import { SignInPage } from './sign-in/sign-in.page';
 import { SignUpPage } from './sign-up/sign-up.page';
+import { SetPassPage } from './set-pass/set-pass.page';
 import { stateOn } from '@myGuards/auth.guard';
 const routes: Routes = [
   {
@@ -21,6 +22,12 @@ const routes: Routes = [
     component:SignUpPage,
     canActivate:[stateOn]
   },
+  {
+    path: 'set-pass',
+    component:SetPassPage,
+    
+  },
+
 ];
 @NgModule({
   declarations: [],

@@ -1,37 +1,32 @@
 //*** ***//
-.ng-touched.ng-invalid:is(input),.ng-dirty.ng-invalid:is(input,textarea) {
+.ng-touched.ng-invalid:is(.input-component.shape-round input),.ng-dirty.ng-invalid:is(.input-component.shape-round input) {
   border-color: $warning;
   box-shadow:none;
   &:focus {
     border-color: $warning;
   }
   &:focus ~ label {
-    color: var(--io-label-input);
+    color: gray;
   }
 }
-// .ng-touched.ng-valid:is(input),.ng-dirty.ng-valid:is(input,textarea) {
-//   border-color: gray;
-//   --background:none;
-//   &:focus {
-//     border-color: gray;
-//   }
-//   &:focus ~ label {
-//     color: var(--io-label-input);
-//   }
-// }
 //*** ***//
-// .ng-dirty.ng-valid:is(input) {
-//   border-color: rgb(130, 204, 238);
-// }
-// .ng-touched.ng-invalid ~ label{
-//     color:$warning;
-// }
+.ng-touched.ng-invalid:is(.input-component.shape-line input),.ng-dirty.ng-invalid:is(.input-component.shape-line input) {
+  border-bottom:1px solid $warning;
+  box-shadow:none;
+  &:focus {
+    border-bottom:1px solid $warning;
+  }
+  &:focus ~ label {
+    color: gray;
+  }
+}
+
 //***Error-Container ***//
-.input-component {
+.input-component.shape-round {
   .error-control {
     position: absolute;
     z-index: 5;
-    top: 100%;
+    top: calc(100% + 3px);
     left: 0;
     width: 100%;
     padding: 0 1.5rem 0;
@@ -47,8 +42,46 @@
     }
   }
 }
+.input-component.shape-line {
+  .error-control {
+    // background:violet;
+    position: absolute;
+    z-index: 5;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    padding: 0 ;
+    p {
+      @include font-primary();
+      color: $warning;
+      font-size: 0.75rem;
+      text-align: left;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
 .isInvalid {
-  margin-bottom: 0.8rem;
-
+  margin-bottom: 0.9rem;
 }
 //*** ***//
+//*** ***//
+// .ng-touched.ng-valid:is(input),.ng-dirty.ng-valid:is(input,textarea) {
+//   border-color: gray;
+//   --background:none;
+//   &:focus {
+//     border-color: gray;
+//   }
+//   &:focus ~ label {
+//     color: $warning;
+//   }
+// }
+//*** ***//
+// .ng-dirty.ng-valid:is(input) {
+//   border-color: rgb(130, 204, 238);
+// }
+// .ng-touched.ng-invalid ~ label{
+//     color:$warning;
+// }

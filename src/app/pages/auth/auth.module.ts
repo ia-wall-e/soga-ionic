@@ -6,10 +6,11 @@ import { AuthRoutingModule } from './auth-routing.module';
 import{EntryPage}from'./entry/entry.page';
 import { SignUpPage } from './sign-up/sign-up.page';
 import { SignInPage } from './sign-in/sign-in.page';
+import { SetPassPage } from './set-pass/set-pass.page';
 import { FormModule } from '@myComponents/form/form.module';
 
 @NgModule({
-  declarations: [SignUpPage, SignInPage,EntryPage],
+  declarations: [SignUpPage, SignInPage,EntryPage,SetPassPage],
   imports: [
     CommonModule,
     ReactiveFormsModule,

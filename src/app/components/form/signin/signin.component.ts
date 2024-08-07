@@ -20,6 +20,7 @@ import {
 import { Observable, Subscription } from 'rxjs';
 import { FormValidatorService } from '@myServices/form-validator.service';
 import { UtilsService } from '@myServices/utils.service';
+import { ViewWillLeave } from '@ionic/angular';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -38,7 +39,7 @@ import { UtilsService } from '@myServices/utils.service';
   ],
 })
 export class SigninComponent
-  implements OnInit, OnDestroy, ControlValueAccessor, Validator
+  implements OnInit, OnDestroy, ControlValueAccessor, Validator,ViewWillLeave
 {
   /*** ***/
   private sub$?: Subscription;
@@ -68,8 +69,16 @@ export class SigninComponent
     // this.testObs$ = this.utilSvc.testObs().subscribe((r) => console.log("singInComponent - "+r));
   }
   ngOnDestroy() {
-    // this.testObs$.unsubscribe();
-    console.log("singInComponentReutilizable - destroy")
+    console.log("singInComponentReutilizable - destroy");
+    this.cleanUp();
+  }
+  ionViewWillLeave(): void {
+    console.log("singInComponentReutilizable - leave");
+    this.cleanUp();
+  }
+  private cleanUp(){
+    this.testObs$.unsubscribe();
+    this.form.reset();
   }
   /*** ***/
   onTouched = () => {};

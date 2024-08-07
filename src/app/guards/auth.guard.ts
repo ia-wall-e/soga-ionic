@@ -21,8 +21,23 @@ export const stateOn: CanActivateFn = (
   const routeSvc = inject(Router);
   return authSvc.authState().pipe(
     map((auth) => {
-      console.log(auth)
       return !auth ? true : routeSvc.createUrlTree(['/home']);
+    })
+  );
+};
+export const stateOff: CanActivateFn = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+):
+  | Observable<boolean | UrlTree>
+  | Promise<boolean | UrlTree>
+  | boolean
+  | UrlTree => {
+  const authSvc = inject(AuthService);
+  const routeSvc = inject(Router);
+  return authSvc.authState().pipe(
+    map((auth) => {
+      return auth ? true : routeSvc.createUrlTree(['/home']);
     })
   );
 };

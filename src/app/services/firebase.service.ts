@@ -23,35 +23,6 @@ export class FirebaseService {
   signIn(user: RegisterCredentials) {
     return this.fbAuth.signInWithEmailAndPassword(user.email, user.password);
   }
-  /* signInGoogle como Promise*/
-  // signInGoogle() {
-  //   const provider = new GoogleAuthProvider();
-  //   provider.setCustomParameters({ prompt: 'select_account' });
-    /* Validacion en un popup */
-  //   return signInWithPopup(getAuth(), provider)
-  //     .then((result) => {
-  //       // Entrega un token de acceso de google. se puede usar para acceder Google API.
-  //       const credential = GoogleAuthProvider.credentialFromResult(result);
-  //       const token = credential?.accessToken;
-  //       // datos user.
-  //       const user = result.user;
-  //       console.log(user);
-  //       return result;
-  //       // IdP data available using getAdditionalUserInfo(result)
-  //       // ...
-  //     })
-  //     .catch((error) => {
-  //       // Handle Errors here.
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       // The email of the user's account used.
-  //       const email = error.customData.email;
-  //       // The AuthCredential type that was used.
-  //       const credential = GoogleAuthProvider.credentialFromError(error);
-  //       // ...
-  //     });
-  // }
-  /* signInGoogle como Observable */
   signInGoogle(): Observable<any> {
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
@@ -60,17 +31,15 @@ export class FirebaseService {
         map((auth) => {
           const credential = GoogleAuthProvider.credentialFromResult(auth);
           const token = credential?.accessToken;
-          console.log(auth)
           return auth;
         }),
         catchError((err) => {
-          console.log(err);
-          return of('Valor alternativo');
+          console.error(err);
+          return of(null);
         })
       )
     );
   }
-  /*** ***/
   signInFace() {
     const provider = new FacebookAuthProvider();
     provider.setCustomParameters({
@@ -106,6 +75,10 @@ export class FirebaseService {
       .signOut()
       .then((r) => console.log('se cerro la sesion'))
       .catch((e) => console.log(e));
+  }
+  /*** ***/
+  resetPass(email:string){
+  return this.fbAuth.sendPasswordResetEmail(email)
   }
   /*** ***/
   authState(): Observable<any> {
