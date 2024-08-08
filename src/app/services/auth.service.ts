@@ -12,6 +12,7 @@ import { UtilsService } from './utils.service';
   providedIn: 'root',
 })
 export class AuthService {
+  //#region Auth-branch
   /*** ***/
   private authState_ = new BehaviorSubject<any>(false);
   authState$ = this.authState_.asObservable();
@@ -32,7 +33,7 @@ export class AuthService {
       const user = this.parseRegister(form.value);
       return from(Promise.resolve(this.fireSvc.signUp(user))).pipe(
         map((auth: any) => {
-          auth = this.parseUser(auth);
+          auth = this.parseToUser(auth);
           return auth ? this.handlerSuccess(auth) : this.handlerError();
         })
       );
@@ -50,7 +51,7 @@ export class AuthService {
       const user = form.value.signInComp;
       return from(Promise.resolve(this.fireSvc.signIn(user))).pipe(
         map((auth: any) => {
-          auth = this.parseUser(auth);
+          auth = this.parseToUser(auth);
           return auth ? this.handlerSuccess(auth) : this.handlerError();
         })
       );
@@ -69,7 +70,7 @@ export class AuthService {
       return from(this.fireSvc.signInGoogle()).pipe(
         map((auth) => {
           if (auth) {
-            auth = this.parseUser(auth);
+            auth = this.parseToUser(auth);
             return auth ? this.handlerSuccess(auth) : this.handlerError();
           }
         })
@@ -93,7 +94,7 @@ export class AuthService {
   authState(): Observable<UserCredentials | boolean> {
     return (this.authState$ = this.fireSvc.authState().pipe(
       map((auth) => {
-        console.log(auth)
+        auth= this.parseToUser(auth);
         this.userState = auth;
         return auth;
       })
@@ -113,16 +114,16 @@ export class AuthService {
     }
   }
   /*** utils ***/
-  private parseUser(auth: any): any {
+  private parseToUser(auth: any): UserCredentials | null {
     if (!auth) return null;
-    const name = this.capitalizeFirstLetter(auth.user.displayName);
-    const email = auth.user.email.toLowerCase();
+    const name = this.capitalizeFirstLetter(auth._delegate.displayName);
+    const email = auth._delegate.email.toLowerCase();
     return {
-      uid: auth.user.uid,
+      uid: auth._delegate.uid,
       name: name,
       email: email,
-      phone: auth.user.phoneNumber,
-      img: auth.user.photoURL,
+      phone: auth._delegate.phoneNumber,
+      img: auth._delegate.photoURL,
     };
   }
   parseRegister(data: any): RegisterCredentials {
@@ -158,4 +159,6 @@ export class AuthService {
     }
     return errorMsg;
   }
+  //#endregion
+
 }

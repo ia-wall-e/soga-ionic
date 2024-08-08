@@ -9,7 +9,7 @@ export class AppComponent  implements OnDestroy {
   constructor(private authSvc: AuthService) {
   }
   ngOnInit(){
-    this.authSvc.authState().subscribe((v)=>{(v)?console.log('Online'):console.log('OffLine')})
+    this.authSvc.authState().subscribe((v)=>{(v)?console.log(v):console.log('OffLine')});
   }
     ngOnDestroy(){
       console.log("Hook Destroy App")
