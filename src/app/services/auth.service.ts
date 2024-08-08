@@ -14,7 +14,7 @@ import { UtilsService } from './utils.service';
 export class AuthService {
   /*** ***/
   private authState_ = new BehaviorSubject<any>(false);
-  private authState$ = this.authState_.asObservable();
+  authState$ = this.authState_.asObservable();
   private userState: UserCredentials | null = null;
   constructor(
     private fireSvc: FirebaseService,
@@ -93,6 +93,7 @@ export class AuthService {
   authState(): Observable<UserCredentials | boolean> {
     return (this.authState$ = this.fireSvc.authState().pipe(
       map((auth) => {
+        console.log(auth)
         this.userState = auth;
         return auth;
       })

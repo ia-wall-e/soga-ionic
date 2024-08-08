@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { NavDrawerComponent } from './nav-drawer/nav-drawer.component';
@@ -11,6 +11,7 @@ import { NavDrawerComponent } from './nav-drawer/nav-drawer.component';
     CommonModule,
     IonicModule
   ],
-  exports:[NavDrawerComponent]
+  exports:[NavDrawerComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ComponentsModule { }

@@ -25,7 +25,7 @@ const routes: Routes = [
   {
     path: 'set-pass',
     component:SetPassPage,
-    
+    canActivate:[stateOn]
   },
 
 ];
