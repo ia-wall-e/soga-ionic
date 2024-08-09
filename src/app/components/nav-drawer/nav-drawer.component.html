@@ -1,22 +1,25 @@
 <ion-menu contentId="main-content">
   <!-- *** Header online***-->
+  <!-- user on -->
   <ion-header class="nav-head" *ngIf="(user$ | async) as user, else noUser">
     <ion-list lines="none">
       <ion-item>
         <ion-avatar slot="start" button>
-          <img alt="Silhouette of a person's head" src="{{user.img}}" />
+          <img alt="Silhouette of a person's head"
+            src="{{user.img || 'https://ionicframework.com/docs/img/demos/avatar.svg'}}" />
         </ion-avatar>
       </ion-item>
       <ion-item button>
         <ion-label class="io-label">
           <h3 class="io-h">
-            {{user?.name}}
+            {{user?.name || 'Hola'}}
           </h3>
           <p class="io-p">{{user?.email}}</p>
         </ion-label>
       </ion-item>
     </ion-list>
   </ion-header>
+  <!-- user off -->
   <ng-template #noUser>
     <ion-header class="nav-head">
       <ion-list lines="none">
@@ -54,29 +57,30 @@
   </ion-content>
   <!--*** Footer *** -->
   <ion-footer>
+    <!-- **Acordion-group -->
     <ion-toolbar>
-      <!-- **Acordion-group -->
       <ion-accordion-group>
+        <!-- *Config -->
         <ion-accordion value="setup">
-          <ion-item slot="header" color="light" button>
+          <ion-item slot="header" button>
             <ion-label class="io-label">Configuracion y soporte</ion-label>
           </ion-item>
           <ion-list class="io-list-accordion" slot="content" lines="none">
             <ion-menu-toggle>
-              <ion-item class="io-item-accordion" routerLink="user/perfil" button>
-                <ion-icon slot="end"></ion-icon>
+              <ion-item class="io-item-accordion" routerLink="user/perfil" *ngIf="(user$ | async)" button>
                 <ion-label class="io-label size-accordion-content">
                   Configuracion de Cuenta
                 </ion-label>
+                <ion-icon slot="start" name="person-outline"></ion-icon>
               </ion-item>
               <ion-item class="io-item-accordion" routerLink="user/perfil" button>
-                <ion-icon slot="end"></ion-icon>
+                <ion-icon slot="start" name="help-circle-outline"></ion-icon>
                 <ion-label class="io-label size-accordion-content">
                   Centro de ayuda
                 </ion-label>
               </ion-item>
               <ion-item class="io-item-accordion" routerLink="user/perfil" button>
-                <ion-icon slot="end"></ion-icon>
+                <ion-icon slot="start" name="bug-outline"></ion-icon>
                 <ion-label class="io-label size-accordion-content">
                   Reportar un problema
                 </ion-label>
