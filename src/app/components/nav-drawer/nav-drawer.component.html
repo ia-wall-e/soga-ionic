@@ -1,6 +1,6 @@
 <ion-menu contentId="main-content">
   <!-- *** Header online***-->
-  <ion-header class="nav-head" *ngIf="(user$ | async) as user">
+  <ion-header class="nav-head" *ngIf="(user$ | async) as user, else noUser">
     <ion-list lines="none">
       <ion-item>
         <ion-avatar slot="start" button>
@@ -17,6 +17,27 @@
       </ion-item>
     </ion-list>
   </ion-header>
+  <ng-template #noUser>
+    <ion-header class="nav-head">
+      <ion-list lines="none">
+        <ion-item>
+          <ion-avatar slot="start" button>
+            <img alt="Silhouette of a person's head" src="../../../assets/img/logo.png" />
+          </ion-avatar>
+        </ion-item>
+        <ion-item button>
+          <ion-label class="io-label">
+            <h3 class="io-h">
+              Registrate
+            </h3>
+            <p class="io-p">o crea una cuenta aqui</p>
+          </ion-label>
+          <!-- <ion-icon slot="end"name="chevron-forward-outline"></ion-icon> -->
+          <ion-icon slot="end" name="caret-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-header>
+  </ng-template>
   <ion-content class="ion-padding">
     <!--*** Publics *** -->
     <ion-list class="io-list" lines="none" *ngFor="let i of userNav">
