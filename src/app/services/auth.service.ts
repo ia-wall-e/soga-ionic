@@ -91,7 +91,7 @@ export class AuthService {
     throw new Error('Error al crear usuario');
   }
   /*** ***/
-  authState(): Observable<UserCredentials | boolean> {
+  authState(): Observable<UserCredentials> {
     return (this.authState$ = this.fireSvc.authState().pipe(
       map((auth) => {
         auth= this.parseToUser(auth);

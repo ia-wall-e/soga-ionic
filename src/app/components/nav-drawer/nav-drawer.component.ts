@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserCredentials } from '@myInterfaces/user-credentials';
 import { AuthService } from '@myServices/auth.service';
-
+import{map,Observable}from'rxjs';
 @Component({
   selector: 'app-nav-drawer',
   templateUrl: './nav-drawer.component.html',
@@ -31,9 +32,14 @@ export class NavDrawerComponent implements OnInit {
     
   ];
   departments=['Electronico','Moda','Belleza y cuidado personal']
-  // authState=this.a
+  user$:Observable<UserCredentials>=this.authSvc.authState();
   constructor(private authSvc:AuthService) {
     this.authSvc.authState$.subscribe(r=>console.log(r))
   }
-  ngOnInit() {}
+  ngOnInit() {
+    // this.user$.pipe(map(value=> Object.keys(value).map(key => ({ key, value })))).subscribe(v=>console.log(v))
+  }
+  signOut(){
+    this.authSvc.signOut();
+  }
 }

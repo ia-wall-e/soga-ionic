@@ -1,16 +1,18 @@
 <ion-menu contentId="main-content">
-  <!-- *** Header ***-->
-  <ion-header class="nav-head">
+  <!-- *** Header online***-->
+  <ion-header class="nav-head" *ngIf="(user$ | async) as user">
     <ion-list lines="none">
       <ion-item>
         <ion-avatar slot="start" button>
-          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          <img alt="Silhouette of a person's head" src="{{user.img}}" />
         </ion-avatar>
       </ion-item>
       <ion-item button>
         <ion-label class="io-label">
-          <h3 class="io-h">Hugo Riaño</h3>
-          <p class="io-p">basugo&#64;gmail.com</p>
+          <h3 class="io-h">
+            {{user?.name}}
+          </h3>
+          <p class="io-p">{{user?.email}}</p>
         </ion-label>
       </ion-item>
     </ion-list>
@@ -18,7 +20,7 @@
   <ion-content class="ion-padding">
     <!--*** Publics *** -->
     <ion-list class="io-list" lines="none" *ngFor="let i of userNav">
-      <ion-menu-toggle >
+      <ion-menu-toggle>
         <ion-item class="io-item" routerLink="i.route" button>
           <ion-icon class="io-icon" slot="start" src="{{i.icon}}" name="{{i.iconName}}"></ion-icon>
           <ion-label class="io-label">
@@ -36,7 +38,7 @@
       <ion-accordion-group>
         <ion-accordion value="setup">
           <ion-item slot="header" color="light" button>
-            <ion-label class="io-label size-accordion-head">Configuracion y soporte</ion-label>
+            <ion-label class="io-label">Configuracion y soporte</ion-label>
           </ion-item>
           <ion-list class="io-list-accordion" slot="content" lines="none">
             <ion-menu-toggle>
@@ -63,20 +65,21 @@
         </ion-accordion>
       </ion-accordion-group>
     </ion-toolbar>
+    <!-- * boton signout-login -->
     <ion-toolbar>
       <ion-menu-toggle>
-        <ion-item class="io-item" button>
+        <ion-item class="io-item" *ngIf="(user$ | async)" (click)="signOut()" button>
           <ion-icon slot="end" name="log-out-outline"></ion-icon>
-          <ion-label class="io-label size-accordion-head">
+          <ion-label class="io-label">
             Cerrar Sesion
           </ion-label>
         </ion-item>
-        <!-- <ion-item class="io-item" routerLink="/login" *ngIf="!($logState | async)">
+        <ion-item class="io-item" *ngIf="!(user$ | async)" routerLink="/entry" button>
           <ion-icon slot="end" name="log-in-outline"></ion-icon>
-          <ion-label class="io-label size-accordion-head">
+          <ion-label class="io-label">
             Iniciar Sesion
           </ion-label>
-        </ion-item> -->
+        </ion-item>
       </ion-menu-toggle>
     </ion-toolbar>
   </ion-footer>
