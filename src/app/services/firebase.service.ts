@@ -12,6 +12,7 @@ import { Observable, defer, catchError, from, map,of } from 'rxjs';
   providedIn: 'root',
 })
 export class FirebaseService {
+  //#region Auth-Branch 
   constructor(private fbAuth: AngularFireAuth) {}
   /*** ***/
   signUp(user: RegisterCredentials) {
@@ -84,4 +85,5 @@ export class FirebaseService {
   authState(): Observable<any> {
     return this.fbAuth.authState;
   }
+  //#endregion
 }

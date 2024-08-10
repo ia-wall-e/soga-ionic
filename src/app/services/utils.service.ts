@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class UtilsService {
+  //#region Auth-Branch 
   /*** ***/
   private loading: HTMLIonLoadingElement | null = null;
   /*** ***/
@@ -67,4 +68,5 @@ export class UtilsService {
       return () => clearTimeout(tiemoutId);
     });
    }
+   //#endregion 
 }
