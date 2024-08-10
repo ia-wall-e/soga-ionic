@@ -5,6 +5,7 @@ import { AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
   providedIn: 'root',
 })
 export class FormValidatorService {
+  //#region Auth-Branch 
   constructor() {}
   //*** ***//
   sequential(validators: ValidatorFn[]): ValidatorFn {
@@ -64,5 +65,5 @@ export class FormValidatorService {
     return control.invalid && (control.touched || control.dirty);
   }
  /*** ***/ 
-
+//#endregion 
 }

@@ -7,10 +7,10 @@ export interface RegisterCredentials{
 
 export interface UserCredentials{
     uid:string,
-    name:string,
+    name?:string,
     email:string,
-    phone?:number,
-    img:string,
+    phone:number,
+    img?:string,
     metadata?:{},
     location?:{}
 }

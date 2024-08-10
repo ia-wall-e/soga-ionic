@@ -10,19 +10,20 @@ export class CustomError extends Error {
   }
 }
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class CustomErrorService{
-  
- // Método para crear un error personalizado
- customError(message: string, code: string): CustomError {
-  return new CustomError(message, code);
-}
+export class CustomErrorService {
+  //#region Auth-Branch
+  // Método para crear un error personalizado
+  customError(message: string, code: string): CustomError {
+    return new CustomError(message, code);
+  }
 
-// Método para manejar errores en el flujo del observable
-handleError(error: any) {
-  // Aquí puedes agregar lógica para manejar diferentes tipos de errores
-  console.error('Error:', error.message || error);
-  return throwError(error);
-}
+  // Método para manejar errores en el flujo del observable
+  handleError(error: any) {
+    // Aquí puedes agregar lógica para manejar diferentes tipos de errores
+    console.error('Error:', error.message || error);
+    return throwError(error);
+  }
+  //#endregion
 }

@@ -15,7 +15,7 @@ export class AuthService {
   //#region Auth-branch
   /*** ***/
   private authState_ = new BehaviorSubject<any>(false);
-  private authState$ = this.authState_.asObservable();
+  private authState$: any = this.authState_.asObservable;
   private userState: UserCredentials | null = null;
   constructor(
     private fireSvc: FirebaseService,
@@ -33,7 +33,6 @@ export class AuthService {
       const user = this.parseRegister(form.value);
       return from(Promise.resolve(this.fireSvc.signUp(user))).pipe(
         map((auth: any) => {
-          auth = this.parseToUser(auth);
           return auth ? this.handlerSuccess(auth) : this.handlerError();
         })
       );
@@ -51,7 +50,6 @@ export class AuthService {
       const user = form.value.signInComp;
       return from(Promise.resolve(this.fireSvc.signIn(user))).pipe(
         map((auth: any) => {
-          auth = this.parseToUser(auth);
           return auth ? this.handlerSuccess(auth) : this.handlerError();
         })
       );
@@ -66,13 +64,9 @@ export class AuthService {
           this.errorHandler.customError('User is already online', 'USER_ONLINE')
         );
       }
-      console.log('se ejecuto signInGoogle');
       return from(this.fireSvc.signInGoogle()).pipe(
         map((auth) => {
-          if (auth) {
-            auth = this.parseToUser(auth);
-            return auth ? this.handlerSuccess(auth) : this.handlerError();
-          }
+          return auth ? this.handlerSuccess(auth) : this.handlerError();
         })
       );
     } catch (err) {
@@ -84,19 +78,20 @@ export class AuthService {
     return this.fireSvc.signOut();
   }
   /*** ***/
-  private handlerSuccess(auth: any): UserCredentials {
-    return auth;
+  private handlerSuccess(auth: any): Boolean {
+    return true;
   }
   private handlerError() {
     throw new Error('Error al crear usuario');
   }
   /*** ***/
-  authState(): Observable<UserCredentials | boolean> {
+  authState(): Observable<UserCredentials | null> {
+    console.log('AuthState ejecutandose');
     return (this.authState$ = this.fireSvc.authState().pipe(
       map((auth) => {
-        auth= this.parseToUser(auth);
         this.userState = auth;
-        return auth;
+        const data = this.createUser(auth);
+        return data;
       })
     ));
   }
@@ -114,17 +109,22 @@ export class AuthService {
     }
   }
   /*** utils ***/
-  private parseToUser(auth: any): UserCredentials | null {
+  createUser(auth: any): UserCredentials | null {
     if (!auth) return null;
     const name = this.capitalizeFirstLetter(auth._delegate.displayName);
     const email = auth._delegate.email.toLowerCase();
-    return {
+    const user = {
       uid: auth._delegate.uid,
       name: name,
       email: email,
       phone: auth._delegate.phoneNumber,
       img: auth._delegate.photoURL,
     };
+    if (user.uid && user.email) {
+      return user;
+    } else {
+      return null;
+    }
   }
   parseRegister(data: any): RegisterCredentials {
     return {
@@ -134,10 +134,11 @@ export class AuthService {
   }
   capitalizeFirstLetter(str: string) {
     if (!str) return str;
-    return str
+    const strDat = str
       .split(' ') // Divide la cadena en un array de palabras
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitaliza la primera letra de cada palabra
       .join(' '); // Une las palabras en una sola cadena con espacios
+    return strDat;
   }
   errorCode(error: any): string {
     let errorMsg = 'Error al iniciar sesión.';
@@ -160,5 +161,5 @@ export class AuthService {
     return errorMsg;
   }
   //#endregion
-
 }
+/*** Notas: */
