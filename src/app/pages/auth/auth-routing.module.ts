@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'entry',
     component: EntryPage,
-    // canActivate:[stateOn]
+    canActivate:[stateOn]
   },
   {
     path:'login',
