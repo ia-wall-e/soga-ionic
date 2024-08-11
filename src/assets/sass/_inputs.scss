@@ -1,7 +1,6 @@
 //#contenedores
 .input-component {
   position: relative;
-  background: white;
   background:none;
   width: 100%;
   max-width: 18.75rem;
@@ -26,22 +25,21 @@
     &:focus ~ {
       label {
         z-index: 3;
-        color: $primary;
+        color: var(--ion-color-primary);
       }
     }
   }
   input::placeholder {
-    color:$placeholder;
-    font-family:"Open sans", sans-serif;
+    color:var(--input-label);
     font-size: 0.85rem;
     font-weight:light;
     text-align:left;
   }
   label {
-    @include font-secondary;
-    color: var(--io-input-label);
-    font-weight: light;
-    font-size:0.95rem;
+    @include font-primary(
+      $color:var(--input-label),
+      $fw:500,
+      );
     position: absolute;
     z-index: 2;
     // left: 1rem;
@@ -63,12 +61,13 @@
       background:transparent;
       border-radius: 30px;
       input {
-        border-color:var(--io-input-border);
+        // border-color:none;
+        border:2px solid var(--input-border); 
         border-radius: 30px;
-        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        // box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        // rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
         &:focus {
-          border-color:$primary;
+          border-color:var(--ion-color-primary);
           box-shadow: none;
         }
       }
@@ -78,11 +77,11 @@
     }
     &-line {
       input {
-        border-bottom: 1px solid $border;
+        border-bottom: 2px solid var(--input-border);
         padding-top:25px;
         &:focus {
           outline: none;
-          border-bottom: 2px solid $primary;
+          border-bottom: 2px solid var(--ion-color-primary);
         }
       }
       label {
@@ -96,7 +95,7 @@
         border: 1px solid $border;
         border-radius: 8px;
         &:focus {
-          border: 2px solid $primary;
+          border: 2px solid var(--ion-color-primary);
           box-shadow: none;
           outline: none;
         }

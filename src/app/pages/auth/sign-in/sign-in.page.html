@@ -19,11 +19,7 @@
         </ion-toolbar>
       </div>
       <div class="body-modulo">
-        <form
-          class="form-io"
-          [formGroup]="loginForm"
-          (ngSubmit)="onSubmit(loginForm)"
-        >
+        <form class="form-io" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
           <div class="head-component text-center">
             <div class="title-section">
               <h1 class="title">Bienvenido de vuelta</h1>
@@ -32,18 +28,12 @@
           </div>
           <div class="inputs-section">
             <app-signin formControlName="signInComp"></app-signin>
+            <ion-button type="submit" class="button-io fill-main size-large shape-round expand-medium"
+              [disabled]="loginForm.invalid">Iniciar Sesion</ion-button>
           </div>
-          <div class="buttons-section">
-            <ion-button
-              type="submit"
-              class="button-io fill-main size-large shape-round expand-medium"
-              [disabled]="loginForm.invalid"
-              >Iniciar Sesion</ion-button
-            >
-          </div>
-          <div class="info-section">
-            <p routerLink="/set-pass">¿Olvidaste tu contraseña?</p> 
-         </div>
+          <div class="footer-form">
+            <p class="textDown-wrapper" routerLink="/set-pass">¿Olvidaste tu contraseña?</p>
+        </div>
         </form>
       </div>
       <div class="footer-modulo">

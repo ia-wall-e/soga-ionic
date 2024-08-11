@@ -1,3 +1,37 @@
-<p>
-  notification works!
-</p>
+<ion-menu side="end" contentId="main-content" menuId="menu-notification">
+  <ion-header >
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label class="io-label">
+          <h3 class="io-h">
+            Notificaciones
+          </h3>
+          <p class="io-p">Todas tus notificaciones</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <!-- ***Example -->
+    <ion-list class="io-list-notif" [inset]="true"  *ngFor="let not of notifications">
+      <ion-item  class="io-item-not"[button]="true" detail="false">
+        <div class="unread-indicator-wrapper" slot="start">
+          <div class="unread-indicator"></div>
+        </div>
+        <ion-label>
+          <strong>{{not.title}}</strong>
+          <!-- <ion-text *ngIf="not.subtitle">{{not.subtitle}}</ion-text><br /> -->
+          <ion-note color="medium" class="ion-text-wrap">
+            {{not.mss}}
+          </ion-note>
+        </ion-label>
+        <div class="metadata-end-wrapper" slot="end">
+          <ion-note color="medium">{{not.time}}</ion-note>
+          <ion-icon color="medium" name="chevron-forward"></ion-icon>
+        </div>
+      </ion-item>
+
+    </ion-list>
+    <!-- ***fin example -->
+  </ion-content>
+</ion-menu>

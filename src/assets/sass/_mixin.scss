@@ -1,38 +1,39 @@
-@import"./fonts";
-@mixin font-primary(){
-  font-family: "Ubuntu", sans-serif;
-  color:var(--ion-text-color);
-  font-weight: bolder;
+@import "./fonts";
+
+@mixin font-primary($color: var(--font-color1), $fw:800, $fs: "") {
+  font-family: "primary", sans-serif;
+  color: $color;
+  font-weight: $fw;
+  font-size: $fs;
 }
-@mixin font-secondary($type:null){
-  font-family: "Open sans", sans-serif;
-  color:var(--ion-text-color);
-  @if($type=="parrafo"){
-    font-size: 0.85rem;
-    a{
-      cursor:pointer;
+@mixin font-secondary($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
+  font-family: "secondary", sans-serif;
+  color:$color;
+  font-size:$fs;
+  font-weight:$fw;
+  @if ($type== "parrafo") {
+    a {
+      cursor: pointer;
       @include font-primary();
-      color:$primary;
     }
   }
 }
-@mixin font-third($color:null){
-  font-family: "Asap", sans-serif;
-  font-weight:bold;
-  @if($color=="static"){
-    color:var(--ion-text-color-static);
-  }@else{
-    color:var(--ion-text-color);
+@mixin font-third($color: null) {
+  font-family: "third", sans-serif;
+  font-weight: bold;
+  @if ($color== "static") {
+    color: var(--font-color);
+  } @else {
+    color: var(--font-color);
   }
 }
-@mixin borderRadius($type){
- @if $type=='primary'{
-  border-radius:20px;
-}@else if$type=='secundary'{
-  border-radius:15px;
-}@else{
-  border-radius:20px;
-} 
+@mixin font-fourth(){}
+@mixin borderRadius($type) {
+  @if $type== "primary" {
+    border-radius: 20px;
+  } @else if$type== "secundary" {
+    border-radius: 15px;
+  } @else {
+    border-radius: 20px;
+  }
 }
-
-

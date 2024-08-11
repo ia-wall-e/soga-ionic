@@ -9,3 +9,45 @@
     justify-content: center;
     align-items: center;
 }
+
+.separator {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    .line {
+      flex: 1;
+      height: 1px;
+      background-color: var(--button-color3);
+    }
+    .circle {
+      margin: 0 15px;
+      width: 20px;
+      height: 15px;
+      border-radius: 50%;
+      color: var(--button-color3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+
+  .footer-form{
+    margin:1rem 0 0 0;
+    .textDown-wrapper {
+      cursor:pointer;
+      @include font-primary();
+      color: var(--font-color1);
+      width: 100%;
+      font-size: 0.85rem;
+      text-align: center;
+      a {
+        @include font-primary($color: var(--ion-color-primary));
+      }
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }

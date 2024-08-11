@@ -2,7 +2,7 @@
 .button-io {
   cursor: pointer;
   text-transform: none;
-  letter-spacing:unset;
+  letter-spacing: unset;
   @include font-primary();
   position: relative;
   border: none;
@@ -12,8 +12,8 @@
   overflow: hidden;
   justify-content: center;
   --padding: 0 20px;
-  font-size: 0.95rem;
-  width:fit-content;
+  // font-size: 0.95rem;
+  width: fit-content;
   img {
     position: absolute;
     z-index: 4;
@@ -28,57 +28,62 @@
     width: min(2.5rem, 2.5rem);
     border-radius: 30px;
   }
-.icon{
-  &-start{margin-right:5px;}
-  &-end{margin-left: 5px;}
-}
-ion-icon{
-  // font-size: 2rem;
-}
+  .icon {
+    &-start {
+      margin-right: 5px;
+    }
+    &-end {
+      margin-left: 5px;
+    }
+  }
+  ion-icon {
+    // font-size: 2rem;
+  }
 }
 //#Atributos
 .button-io {
   &.fill {
     &-main {
-      background: $primary;
-      color: var(--text-white-static);
+      background: var(--ion-color-primary);
+      color: var(--font-white);
     }
     &-line {
-      color: $primary;
+      color: var(--ion-color-primary);
       background: none;
-      border: 2px solid $primary;
+      border: 2px solid var(--ion-color-primary);
     }
     &-none {
-      background:none;
+      background: none;
       --background: none;
-      color: gray;
+      color: var(--button-color2);
     }
     &-gray {
       // background: none;
-      --background:none;
-      color: var(--io-button-border);
-      --color:var(--io-button-border);
-      border: 2px solid var(--io-button-border);
+      --background: none;
+      color: var(--button-color2);
+      --color: var(--button-color2);
+      border: 2px solid var(--button-color5);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+      &:hover {
+        border-color: var(--button-color3);
+      }
     }
     &-icon-gray {
-      // background: none;
-      // --background:none;
-      color: var(--io-button-border);
-      --color: var(--io-button-border);
-      // border: 2px solid var(--io-button-border);
+      color: var(--io-button-secondary);
+      --color: var(--io-button-secondary);
     }
   }
   &.shape {
     &-round {
       border-radius: $radius-button;
-      --border-radius:$radius-button;
+      --border-radius: $radius-button;
     }
     &-square {
       border-radius: 8px;
     }
-    &-icon{
+    &-icon {
       // cursor: pointer;
-      padding:unset;
+      padding: unset;
       // --background: $border;
       // color: $border;
       height: 3rem;
@@ -109,6 +114,14 @@ ion-icon{
     &-medium {
       width: min(18.75rem, 18.75rem);
     }
-
   }
+  &.text {
+    &-medium {
+      font-size: 0.8rem;
+    }
+    &-normal{
+      font-size:0.95rem;
+    }
+  }
+
 }

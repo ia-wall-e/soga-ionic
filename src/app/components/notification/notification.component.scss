@@ -1,0 +1,71 @@
+@import "../../../assets/sass/mixin";
+.io-label {
+  @include font-secondary();
+  @include font-primary($fs: 0.85rem);
+
+  //   color: gray;
+  .io-h {
+    @include font-primary($fs: 1rem);
+  }
+  .io-p {
+    @include font-primary();
+    font-size: 0.8rem;
+  }
+}
+
+.io-list-notif {
+  // background:violet;
+  all: unset;
+  ion-item {
+    // --background:violet;
+    // --inner-padding-top:10px;
+    // --inner-padding-bottom:10px;
+    // --border-radius: 8px;
+    --padding-bottom:10px;
+    border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+  }
+  /*** ***/
+  //*Indicador
+  .unread-indicator {
+    background: var(--ion-color-primary);
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    position: absolute;
+    inset-inline-start: 2px;
+    top: 2px;
+  }
+  
+  //*Texto
+  //titulo
+  ion-label strong {
+    @include font-primary($color: white,$fs:0.85rem);
+    display: block;
+    max-width: calc(100% - 60px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  //subtitulo
+  ion-text {
+    @include font-primary($color: white,$fs:0.85rem,$fw:'');
+  }
+  //mensaje
+  ion-label ion-note {
+    @include font-secondary($fs:0.85rem);
+    // color:red;
+
+  }
+  //*Hora
+  .metadata-end-wrapper {
+      position: absolute;
+      top: 2px;
+      inset-inline-end: 10px;
+      display: flex;
+      align-items: center;
+      ion-note{
+        @include font-secondary($fs:0.75rem);
+      }
+    }
+}
+

@@ -1,36 +1,46 @@
 <ion-content [fullscreen]="true">
- <!-- component -->
- <div class="container ">
-  <div class="modulo type-form shadow">
-      <div class="wrapper-logo">
-          <img src="../../../../assets/img/logo.png" alt="">
-      </div>
-      <div class="wrapper-center">
-          <div class="head-component text-left">
-              <div class="title-section">
-                  <h1 class="title margin-unset">Unete</h1>
-                  <p class="subtitle">Todo lo que necesitas a un click</p>
-              </div>
-          </div>
-          <div class="buttons-section button-column">
-            <ion-button class="button-io fill-main size-large shape-round expand-medium" routerLink="/registro">Crear una cuenta</ion-button>
-              <div class="separator">
-                  <div class="line"></div>
-                  <div class="circle">o</div>
-                  <div class="line"></div>
-              </div>
-              <ion-button class="button-io fill-gray size-large shape-round expand-medium" (click)="providerAction('google')">
-                <img src="../assets/img/google-thumbnail.png" alt="">
-                Unirte con Google
-            </ion-button>
-            <ion-button class="button-io fill-gray size-large shape-round expand-medium" (click)="providerAction('facebook')">
-                <img src="../assets/img/facebook-thumbnail.png" alt="">
-                Unirte con Facebook
-            </ion-button>
-              <p class="textDown-wrapper">¿Ya tienes una cuenta?   <a routerLink="/login">Iniciar Sesion</a> </p>
-          </div>
-      </div>
-  </div>
-</div>
-<!--  -->
+    <!-- component -->
+    <div class="container ">
+        <div class="modulo type-form shadow">
+            <div class="wrapper-entry-logo">
+                <!-- <img class="wallpaper" src="../assets/img/entry/fondo-entry.jpg" alt=""> -->
+                <img class="logo" src="../assets/img/logo/logo-test-2.png" alt="">
+            </div>
+            <div class="wrapper-entry-center">
+                <div class="content">
+                    <div class="head-component text-left">
+                        <div class="title-section">
+                            <h1 class="title margin-unset">Unete</h1>
+                            <p class="subtitle">Todo lo que necesitas a un click</p>
+                        </div>
+                    </div>
+                    <div class="buttons-section button-column">
+                        <ion-button class="button-io fill-main size-large shape-round expand-medium"
+                            routerLink="/registro">Crear una cuenta</ion-button>
+                        <div class="separator">
+                            <div class="line"></div>
+                            <div class="circle">o</div>
+                            <div class="line"></div>
+                        </div>
+                        <ion-button class="button-io fill-gray size-large shape-round expand-medium"
+                            (click)="providerAction('google')">
+                            <img src="../assets/img/utils/google-thumbnail.png" alt="">
+                            Unirte con Google
+                        </ion-button>
+                        <ion-button class="button-io fill-gray size-large shape-round expand-medium"
+                            (click)="providerAction('facebook')">
+                            <img src="../assets/img/utils/facebook-thumbnail.png" alt="">
+                            Unirte con Facebook
+                        </ion-button>
+                    </div>
+                    <div class="footer-wrapper">
+                        <p class="textDown-wrapper" routerLink="/login">¿Ya tienes una cuenta? <a>Iniciar Sesion</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--  -->
 </ion-content>

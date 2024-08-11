@@ -1,17 +1,171 @@
+//#region PRIMARY UBUNTU MAIN
 @font-face {
-    font-family: "Ubuntu";
-    src: url("../fonts/Ubuntu/4iCs6KVjbNBYlgoKfw72.woff2") format('woff2');
-  }
-
-  @font-face{
-    font-family:"Open sans";
-    src:url("../fonts/Open-sans/opensans.woff2")format('woff2');
-  }
-  @font-face{
-    font-family:"Asap";
-    src:url("../fonts/Asap/KFO9CniXp96a4Tc2DaTeuDAoKsE615hJW34.woff2")format('woff2');
-  }
+  font-family: "primary";
+  src: url("../fonts/Ubuntu_/4iCs6KVjbNBYlgoKfw72.woff2") format('woff2');
+}
+//#endregion
+//#region PRIMARY UBUNTU-SANS
 // @font-face {
-//   font-family:"Roboto";
-//   src: url("../fonts/Roboto/Roboto-Regular.ttf")format('truetype');
+//   font-family: "primary";
+//   src: url("../fonts/UbuntuSans/UbuntuSans-ExtraBold.ttf") format('woff2');
+//   font-weight: 800; 
+//   font-style: bold;
 // }
+// @font-face {
+//   font-family: "primary";
+//   src: url("../fonts/UbuntuSans/UbuntuSans-Bold.ttf") format('woff2');
+//   font-weight: 700; 
+//   font-style: bold;
+// }
+// @font-face {
+//   font-family: "primary";
+//   src: url("../fonts/UbuntuSans/UbuntuSans-Medium.ttf") format('woff2');
+//   font-weight: 500;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: "primary";
+//   src: url("../fonts/UbuntuSans/UbuntuSans-Regular.ttf") format('woff2');
+//   font-weight: 400; 
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: "primary";
+//   src: url("../fonts/UbuntuSans/UbuntuSans-Light.ttf") format('woff2');
+//   font-weight: 300; 
+//   font-style: medium;
+// }
+//#endregion
+//#region PRIMARY UBUNTU
+// @font-face {
+//   font-family: "primary";
+//   src: url("../fonts/Ubuntu/Ubuntu-Bold.ttf") format('woff2');
+//   font-weight: 700; 
+//   font-style: bold;
+// }
+// @font-face {
+//   font-family: "primary";
+//   src: url("../fonts/Ubuntu/Ubuntu-Medium.ttf") format('woff2');
+//   font-weight: 500;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: "primary";
+//   src: url("../fonts/Ubuntu/Ubuntu-Regular.ttf") format('woff2');
+//   font-weight: 400; 
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: "primary";
+//   src: url("../fonts/Ubuntu/Ubuntu-Light.ttf") format('woff2');
+//   font-weight: 300; 
+//   font-style: medium;
+// }
+//#endregion
+//#region PRIMARY ROBOTO
+// @font-face {
+//   font-family: "primary";
+//   src: url("../fonts/Roboto/Roboto-Bold.ttf") format('woff2');
+//   font-weight: 700; 
+//   font-style: bold;
+// }
+// @font-face {
+//   font-family: "primary";
+//   src: url("../fonts/Roboto/Roboto-Medium.ttf") format('woff2');
+//   font-weight: 500; 
+//   font-style: medium;
+// }
+// @font-face {
+//   font-family: "primary";
+//   src: url("../fonts/Roboto/Roboto-Regular.ttf") format('woff2');
+//   font-weight: 400;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: "primary";
+//   src: url("../fonts/Roboto/Roboto-Light.ttf") format('woff2');
+//   font-weight: 300; 
+//   font-style: light;
+// }
+// @font-face {
+//   font-family: "primary";
+//   src: url("../fonts/Roboto/Roboto-Thin.ttf") format('woff2');
+//   font-weight: 100; 
+//   font-style: thin;
+// }
+//#endregion
+//#region SECONDARY ROBOTO
+// @font-face {
+//   font-family: "secondary";
+//   src: url("../fonts/Roboto/Roboto-Bold.ttf") format('woff2');
+//   font-weight: 700; 
+//   font-style: bold;
+// }
+// @font-face {
+//   font-family: "secondary";
+//   src: url("../fonts/Roboto/Roboto-Medium.ttf") format('woff2');
+//   font-weight: 500; 
+//   font-style: medium;
+// }
+// @font-face {
+//   font-family: "secondary";
+//   src: url("../fonts/Roboto/Roboto-Regular.ttf") format('woff2');
+//   font-weight: 400;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: "secondary";
+//   src: url("../fonts/Roboto/Roboto-Light.ttf") format('woff2');
+//   font-weight: 300; 
+//   font-style: light;
+// }
+// @font-face {
+//   font-family: "secondary";
+//   src: url("../fonts/Roboto/Roboto-Thin.ttf") format('woff2');
+//   font-weight: 100; 
+//   font-style: thin;
+// }
+//#endregion
+//#region SECONDARY OPEN-SANS
+@font-face {
+  font-family: "secondary";
+  src: url("../fonts/OpenSans/OpenSans-ExtraBold.ttf") format('woff2');
+  font-weight: 800; 
+  font-style: bold;
+}
+@font-face {
+  font-family: "secondary";
+  src: url("../fonts/OpenSans/OpenSans-Bold.ttf") format('woff2');
+  font-weight: 700; 
+  font-style: bold;
+}
+@font-face {
+  font-family: "secondary";
+  src: url("../fonts/OpenSans/OpenSans-SemiBold.ttf") format('woff2');
+  font-weight: 600; 
+  font-style: thin;
+}
+@font-face {
+  font-family: "secondary";
+  src: url("../fonts/OpenSans/OpenSans-Medium.ttf") format('woff2');
+  font-weight: 500; 
+  font-style: medium;
+}
+@font-face {
+  font-family: "secondary";
+  src: url("../fonts/OpenSans/OpenSans-Regular.ttf") format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "secondary";
+  src: url("../fonts/OpenSans/OpenSans-Light.ttf") format('woff2');
+  font-weight: 300; 
+  font-style: light;
+}
+//#endregion
+//#region THIRD ASAP
+@font-face {
+  font-family:'third' ;
+  src: url('../fonts/Asap/KFO9CniXp96a4Tc2DaTeuDAoKsE615hJW34.woff2') format('woff2');
+}

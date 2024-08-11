@@ -5,15 +5,16 @@ import { RouterModule } from '@angular/router';
 /*Components*/
 import { NavDrawerComponent } from './nav-drawer/nav-drawer.component';
 import { HeaderComponent } from './header/header.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
-  declarations: [NavDrawerComponent,HeaderComponent],
+  declarations: [NavDrawerComponent,HeaderComponent,NotificationComponent],
   imports: [
     CommonModule,
     IonicModule,
     RouterModule
   ],
-  exports:[NavDrawerComponent,HeaderComponent],
+  exports:[NavDrawerComponent,HeaderComponent,NotificationComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ComponentsModule { }

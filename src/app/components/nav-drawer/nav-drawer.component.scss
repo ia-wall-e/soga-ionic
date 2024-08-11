@@ -8,7 +8,7 @@ ion-header {
 }
 .ion-padding {
   .io-list {
-    @extend %test;
+    // @extend %test;
     padding: unset;
   }
 }
@@ -19,17 +19,17 @@ ion-header {
   @include font-secondary();
   @include font-primary();
   font-size: 0.85rem;
-  color: gray;
+  color:var(--io-button-secondary);
   .io-h {
     @include font-primary();
     font-size: 1rem;
     font-weight: bold;
-    color: gray;
+    color:var(--io-button-secondary);
   }
   .io-p {
     @include font-primary();
     font-size: 0.8rem;
-    color: gray;
+    color:var(--io-button-secondary);
   }
 }
 /***Acordion***/
@@ -37,6 +37,7 @@ ion-header {
   ion-icon{
     margin-right: 20px;
     font-size:1rem;
+    color:var(-io-boton-secondary)
   }
 }
 ion-accordion ion-list {

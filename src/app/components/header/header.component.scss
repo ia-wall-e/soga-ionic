@@ -1,5 +1,4 @@
 ion-toolbar{
-//   min-height: 4.5rem;
 padding: 0 10px;
 }
 ion-avatar{
@@ -7,5 +6,5 @@ ion-avatar{
     width:3rem;
 }
 ion-menu-button{
-    color:gray;
+    color:var(--io-button-secondary);
 }
