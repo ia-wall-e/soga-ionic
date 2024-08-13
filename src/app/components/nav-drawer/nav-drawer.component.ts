@@ -11,12 +11,12 @@ export class NavDrawerComponent implements OnInit {
   userNav = [
     {
       route: '/cart',
-      icon: '../assets/icon/bag.svg',
+      iconName: 'bag-handle-outline',
       label: 'Bolsa De Compras',
     },
     {
       route: '/notificaciones',
-      icon: '../assets/icon/bell.svg',
+      iconName: 'notifications-outline',
       label: 'Notificaciones',
     },
     {

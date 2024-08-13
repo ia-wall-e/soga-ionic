@@ -6,7 +6,7 @@
       <ion-item>
         <ion-avatar slot="start" button>
           <img alt="Silhouette of a person's head"
-            src="{{user.img || 'https://ionicframework.com/docs/img/demos/avatar.svg'}}" />
+            src="{{user.img || '../../../assets/img/logo/logo.png'}}" />
         </ion-avatar>
       </ion-item>
       <ion-item button>
@@ -25,7 +25,7 @@
       <ion-list lines="none">
         <ion-item>
           <ion-avatar slot="start" button>
-            <img alt="Silhouette of a person's head" src="../../../assets/img/logo.png" />
+            <img alt="Silhouette of a person's head" src="../../../assets/img/logo/logo.png" />
           </ion-avatar>
         </ion-item>
         <ion-item button>
@@ -46,7 +46,7 @@
     <ion-list class="io-list" lines="none" *ngFor="let i of userNav">
       <ion-menu-toggle>
         <ion-item class="io-item" routerLink="i.route" button>
-          <ion-icon class="io-icon" slot="start" src="{{i.icon}}" name="{{i.iconName}}"></ion-icon>
+          <ion-icon class="io-icon" slot="start" name="{{i.iconName}}"></ion-icon>
           <ion-label class="io-label">
             {{i.label}}
           </ion-label>

@@ -1,26 +1,28 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
 :root {
-  --ion-background-color: rgb(240,244,249);
+  --ion-background-color: rgb(255, 255, 255);
   --ion-background-color-step-150: white;
+  --ion-background-color-step-250:white;
   // --ion-text-color: #323232;
   // --ion-text-black-static: #323232;
   // --text-white-static:white;
   //***Colores Base***/
-  --background-color1:rgb(240,244,249);
-  // --background-color2:white;
   --ion-color-primary: rgb(0, 84, 233);
   --gray-hard: gray;
   --gray-medium: rgb(199, 199, 199);
   --gray-soft: rgb(218, 221, 225);
-  --gray-tiny:rgb(234,234,234);
+  --gray-tiny: rgb(232, 234, 237);
   --white: white;
   // --black: rgb(77, 77, 77);
-  --black:rgb(50,50,50);
+  --black: rgb(50, 50, 50);
+  //*** Text size Base ***//
+  --text-sz-primary:0.85rem
+  --text-sz-secondary:1rem
   //***iuputs***/
   // --io-input-border: white;
   // --io-input-label:rgb(145, 145, 145);
-  --input-label:rgb(145, 145, 145);
+  --input-label: rgb(145, 145, 145);
   // --input-border: rgb(145, 145, 145);
   --input-border: var(--gray-soft);
   //***Fonts***/
@@ -34,9 +36,12 @@
   --button-color2: var(--gray-hard);
   --button-color3: var(--gray-medium);
   --button-color4: var(--gray-soft);
-  --button-color5:var(--gray-tiny);
-  //*Radius**//
-  // --radius-base
+  --button-color5: var(--gray-tiny);
+  --button-text-sz: 1rem;
+  //***Radius***//
+  //***Icon***//
+  --icon-color:var(--black);
+  
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -107,7 +112,7 @@
     // --ion-background-color-step-100: #2a2a2a;
     --ion-background-color-step-150: #363636;
     // --ion-background-color-step-200: #414141;
-    // --ion-background-color-step-250: #4d4d4d;
+    --ion-background-color-step-250: #4d4d4d;
     // --ion-background-color-step-300: #595959;
     // --ion-background-color-step-350: #656565;
     // --ion-background-color-step-400: #717171;
@@ -145,5 +150,23 @@
     // --ion-toolbar-background: #1f1f1f;
     // --ion-tab-bar-background: #1f1f1f;
     // --ion-card-background: #1e1e1e;
+    //**Custom
+    //***inputs***/
+    --input-label: var(--gray-hard);
+    --input-border: var(--gray-hard);
+    //***text***//
+    --font-white: white;
+    --font-color1: var(--white);
+    --font-color2: var(--white);
+    --font-color3: var(--white);
+    --font-color4: var(--white);
+    //***Buttons***//
+    --button-color1: var(--gray-hard);
+    --button-color2: var(--gray-hard);
+    --button-color3: var(--gray-hard);
+    --button-color4: var(--gray-hard);
+    --button-color5: var(--gray-hard);
+    //***Icon***//
+    --icon-color:var(--gray-tiny);
   }
 }

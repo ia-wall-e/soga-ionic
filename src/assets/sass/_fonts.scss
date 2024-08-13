@@ -94,70 +94,70 @@
 //   font-style: thin;
 // }
 //#endregion
-//#region SECONDARY ROBOTO
-// @font-face {
-//   font-family: "secondary";
-//   src: url("../fonts/Roboto/Roboto-Bold.ttf") format('woff2');
-//   font-weight: 700; 
-//   font-style: bold;
-// }
-// @font-face {
-//   font-family: "secondary";
-//   src: url("../fonts/Roboto/Roboto-Medium.ttf") format('woff2');
-//   font-weight: 500; 
-//   font-style: medium;
-// }
-// @font-face {
-//   font-family: "secondary";
-//   src: url("../fonts/Roboto/Roboto-Regular.ttf") format('woff2');
-//   font-weight: 400;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: "secondary";
-//   src: url("../fonts/Roboto/Roboto-Light.ttf") format('woff2');
-//   font-weight: 300; 
-//   font-style: light;
-// }
-// @font-face {
-//   font-family: "secondary";
-//   src: url("../fonts/Roboto/Roboto-Thin.ttf") format('woff2');
-//   font-weight: 100; 
-//   font-style: thin;
-// }
-//#endregion
-//#region SECONDARY OPEN-SANS
+//#region FOUTH ROBOTO
 @font-face {
   font-family: "secondary";
-  src: url("../fonts/OpenSans/OpenSans-ExtraBold.ttf") format('woff2');
-  font-weight: 800; 
-  font-style: bold;
-}
-@font-face {
-  font-family: "secondary";
-  src: url("../fonts/OpenSans/OpenSans-Bold.ttf") format('woff2');
+  src: url("../fonts/Roboto/Roboto-Bold.ttf") format('woff2');
   font-weight: 700; 
   font-style: bold;
 }
 @font-face {
   font-family: "secondary";
-  src: url("../fonts/OpenSans/OpenSans-SemiBold.ttf") format('woff2');
-  font-weight: 600; 
-  font-style: thin;
-}
-@font-face {
-  font-family: "secondary";
-  src: url("../fonts/OpenSans/OpenSans-Medium.ttf") format('woff2');
+  src: url("../fonts/Roboto/Roboto-Medium.ttf") format('woff2');
   font-weight: 500; 
   font-style: medium;
 }
 @font-face {
   font-family: "secondary";
-  src: url("../fonts/OpenSans/OpenSans-Regular.ttf") format('woff2');
+  src: url("../fonts/Roboto/Roboto-Regular.ttf") format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
+  font-family: "secondary";
+  src: url("../fonts/Roboto/Roboto-Light.ttf") format('woff2');
+  font-weight: 300; 
+  font-style: light;
+}
+@font-face {
+  font-family: "secondary";
+  src: url("../fonts/Roboto/Roboto-Thin.ttf") format('woff2');
+  font-weight: 100; 
+  font-style: thin;
+}
+//#endregion
+//#region SECONDARY OPEN-SANS
+@font-face {
+//   font-family: "secondary";
+//   src: url("../fonts/OpenSans/OpenSans-ExtraBold.ttf") format('woff2');
+//   font-weight: 800; 
+//   font-style: bold;
+// }
+// @font-face {
+//   font-family: "secondary";
+//   src: url("../fonts/OpenSans/OpenSans-Bold.ttf") format('woff2');
+//   font-weight: 700; 
+//   font-style: bold;
+// }
+// @font-face {
+//   font-family: "secondary";
+//   src: url("../fonts/OpenSans/OpenSans-SemiBold.ttf") format('woff2');
+//   font-weight: 600; 
+//   font-style: thin;
+// }
+// @font-face {
+//   font-family: "secondary";
+//   src: url("../fonts/OpenSans/OpenSans-Medium.ttf") format('woff2');
+//   font-weight: 500; 
+//   font-style: medium;
+// }
+// @font-face {
+//   font-family: "secondary";
+//   src: url("../fonts/OpenSans/OpenSans-Regular.ttf") format('woff2');
+//   font-weight: 400;
+//   font-style: normal;
+// }
+// @font-face {
   font-family: "secondary";
   src: url("../fonts/OpenSans/OpenSans-Light.ttf") format('woff2');
   font-weight: 300; 

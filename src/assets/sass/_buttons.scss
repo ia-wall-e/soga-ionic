@@ -69,8 +69,8 @@
       }
     }
     &-icon-gray {
-      color: var(--io-button-secondary);
-      --color: var(--io-button-secondary);
+      color: var(--icon-color);
+      --color: var(--icon-color);
     }
   }
   &.shape {
@@ -121,6 +121,9 @@
     }
     &-normal{
       font-size:0.95rem;
+    }
+    &-test{
+      font-size: 1rem;
     }
   }
 
