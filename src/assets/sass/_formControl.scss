@@ -1,10 +1,10 @@
 //*** ***//
 .ng-touched.ng-invalid:is(.input-component.shape-round input),
 .ng-dirty.ng-invalid:is(.input-component.shape-round input) {
-  border-color: $warning;
+  border-color: var(--ion-color-warning);
   box-shadow: none;
   &:focus {
-    border-color: $warning;
+    border-color: var(--ion-color-warning);
   }
   &:focus ~ label {
     color: var(--input-label);
@@ -24,12 +24,12 @@
 //*** ***//
 .ng-touched.ng-invalid:is(.input-component.shape-line input),
 .ng-dirty.ng-invalid:is(.input-component.shape-line input) {
-  // border-bottom: 1px solid $warning;
-  border-bottom-color:$warning;
+  // border-bottom: 1px solid var(--ion-color-warning);
+  border-bottom-color:var(--ion-color-warning);
   box-shadow: none;
   &:focus {
-    // border-bottom: 1px solid $warning;
-    border-bottom-color:$warning;
+    // border-bottom: 1px solid var(--ion-color-warning);
+    border-bottom-color:var(--ion-color-warning);
   }
   &:focus ~ label {
     color: var(--input-label);
@@ -46,7 +46,7 @@
     padding: 0 1.5rem 0;
     p {
       @include font-primary();
-      color: $warning;
+      color: var(--ion-color-warning);
       font-size: 0.75rem;
       text-align: left;
       width: 100%;
@@ -67,7 +67,7 @@
     padding: 0;
     p {
       @include font-primary();
-      color: $warning;
+      color: var(--ion-color-warning);
       font-size: 0.75rem;
       text-align: left;
       width: 100%;

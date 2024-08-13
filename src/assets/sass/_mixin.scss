@@ -18,13 +18,16 @@
     }
   }
 }
-@mixin font-third($color: null,$fw:400) {
+@mixin font-third($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
   font-family: "third", sans-serif;
-  font-weight: $fw;
-  @if ($color== "static") {
-    color: var(--font-color);
-  } @else {
-    color: var(--font-color);
+  color:$color;
+  font-size:$fs;
+  font-weight:$fw;
+  @if ($type== "parrafo") {
+    a {
+      cursor: pointer;
+      @include font-primary();
+    }
   }
 }
 @mixin font-fourth

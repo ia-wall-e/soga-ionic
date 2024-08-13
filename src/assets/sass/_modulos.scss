@@ -1,7 +1,7 @@
 //#Contenedores
 .modulo {
   position:relative;
-  border-radius:$radius-primary ;
+  border-radius:var(--type-modulo-rd) ;
   display:flex;
   flex-direction:column;
   .head-modulo {

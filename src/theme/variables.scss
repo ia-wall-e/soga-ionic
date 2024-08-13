@@ -3,7 +3,8 @@
 :root {
   --ion-background-color: rgb(255, 255, 255);
   --ion-background-color-step-150: white;
-  --ion-background-color-step-250:white;
+  --ion-background-color-step-250: white;
+  --ion-color-warning: rgb(236, 91, 98);
   // --ion-text-color: #323232;
   // --ion-text-black-static: #323232;
   // --text-white-static:white;
@@ -17,8 +18,7 @@
   // --black: rgb(77, 77, 77);
   --black: rgb(50, 50, 50);
   //*** Text size Base ***//
-  --text-sz-primary:0.85rem
-  --text-sz-secondary:1rem
+
   //***iuputs***/
   // --io-input-border: white;
   // --io-input-label:rgb(145, 145, 145);
@@ -27,21 +27,27 @@
   --input-border: var(--gray-soft);
   //***Fonts***/
   --font-white: white;
+  --font-black: black;
   --font-color1: var(--black);
   --font-color2: var(--gray-hard);
   --font-color3: var(--gray-medium);
   --font-color4: var(--gray-soft);
+  --font-size-m: 0.85rem;
+  --font-size-l: 0.95rem;
+  --font-size-xl: 1rem;
   //***Buttons***/
   --button-color1: var(--black);
   --button-color2: var(--gray-hard);
   --button-color3: var(--gray-medium);
   --button-color4: var(--gray-soft);
   --button-color5: var(--gray-tiny);
-  --button-text-sz: 1rem;
+  --button-font-sz-m: var(--font-size-m);
+  --button-font-sz-l: var(--font-size-l);
+  --button-radius: 30px;
   //***Radius***//
+  --type-modulo-rd: 20px;
   //***Icon***//
-  --icon-color:var(--black);
-  
+  --icon-color: var(--black);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -167,6 +173,11 @@
     --button-color4: var(--gray-hard);
     --button-color5: var(--gray-hard);
     //***Icon***//
-    --icon-color:var(--gray-tiny);
+    --icon-color: var(--gray-tiny);
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    --button-font-sz-l: var(--font-size-xl);
   }
 }
