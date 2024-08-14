@@ -8,9 +8,10 @@
   display: flex;
   align-items: center;
   input {
-    @include font-third;
+    @include font-third();
     outline: none;
     background: rgba(241,244,246);
+    // background:rgb(232,240,254);
     border: 2px solid transparent;
     font-size: 1.1rem;
     font-weight: bold;
@@ -37,7 +38,7 @@
   }
   label {
     // @include font-primary($color: var(--input-label), $fw: 500);
-    @include font-third($fw:500,$color:gray);
+    @include font-third($fw:400,$color:rgb(131,142,157));
     position: absolute;
     z-index: 4;
     // left: 1rem;

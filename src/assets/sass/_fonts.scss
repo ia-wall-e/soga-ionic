@@ -62,110 +62,79 @@
 //   font-style: medium;
 // }
 //#endregion
-//#region PRIMARY ROBOTO
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/Roboto/Roboto-Bold.ttf") format('woff2');
-//   font-weight: 700; 
-//   font-style: bold;
-// }
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/Roboto/Roboto-Medium.ttf") format('woff2');
-//   font-weight: 500; 
-//   font-style: medium;
-// }
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/Roboto/Roboto-Regular.ttf") format('woff2');
-//   font-weight: 400;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/Roboto/Roboto-Light.ttf") format('woff2');
-//   font-weight: 300; 
-//   font-style: light;
-// }
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/Roboto/Roboto-Thin.ttf") format('woff2');
-//   font-weight: 100; 
-//   font-style: thin;
-// }
-//#endregion
-//#region FOUTH ROBOTO
+//#region SECONDARY OPEN-SANS
 @font-face {
   font-family: "secondary";
-  src: url("../fonts/Roboto/Roboto-Bold.ttf") format('woff2');
+  src: url("../fonts/OpenSans/OpenSans-ExtraBold.ttf") format('woff2');
+  font-weight: 800; 
+  font-style: bold;
+}
+@font-face {
+  font-family: "secondary";
+  src: url("../fonts/OpenSans/OpenSans-Bold.ttf") format('woff2');
   font-weight: 700; 
   font-style: bold;
 }
 @font-face {
   font-family: "secondary";
-  src: url("../fonts/Roboto/Roboto-Medium.ttf") format('woff2');
+  src: url("../fonts/OpenSans/OpenSans-SemiBold.ttf") format('woff2');
+  font-weight: 600; 
+  font-style: thin;
+}
+@font-face {
+  font-family: "secondary";
+  src: url("../fonts/OpenSans/OpenSans-Medium.ttf") format('woff2');
   font-weight: 500; 
   font-style: medium;
 }
 @font-face {
   font-family: "secondary";
-  src: url("../fonts/Roboto/Roboto-Regular.ttf") format('woff2');
+  src: url("../fonts/OpenSans/OpenSans-Regular.ttf") format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "secondary";
-  src: url("../fonts/Roboto/Roboto-Light.ttf") format('woff2');
-  font-weight: 300; 
-  font-style: light;
-}
-@font-face {
-  font-family: "secondary";
-  src: url("../fonts/Roboto/Roboto-Thin.ttf") format('woff2');
-  font-weight: 100; 
-  font-style: thin;
-}
-//#endregion
-//#region SECONDARY OPEN-SANS
-@font-face {
-//   font-family: "secondary";
-//   src: url("../fonts/OpenSans/OpenSans-ExtraBold.ttf") format('woff2');
-//   font-weight: 800; 
-//   font-style: bold;
-// }
-// @font-face {
-//   font-family: "secondary";
-//   src: url("../fonts/OpenSans/OpenSans-Bold.ttf") format('woff2');
-//   font-weight: 700; 
-//   font-style: bold;
-// }
-// @font-face {
-//   font-family: "secondary";
-//   src: url("../fonts/OpenSans/OpenSans-SemiBold.ttf") format('woff2');
-//   font-weight: 600; 
-//   font-style: thin;
-// }
-// @font-face {
-//   font-family: "secondary";
-//   src: url("../fonts/OpenSans/OpenSans-Medium.ttf") format('woff2');
-//   font-weight: 500; 
-//   font-style: medium;
-// }
-// @font-face {
-//   font-family: "secondary";
-//   src: url("../fonts/OpenSans/OpenSans-Regular.ttf") format('woff2');
-//   font-weight: 400;
-//   font-style: normal;
-// }
-// @font-face {
   font-family: "secondary";
   src: url("../fonts/OpenSans/OpenSans-Light.ttf") format('woff2');
   font-weight: 300; 
   font-style: light;
 }
 //#endregion
-//#region THIRD ASAP
+//#region THIRD ROBOTO
 @font-face {
-  font-family:'third' ;
+  font-family: "third";
+  src: url("../fonts/Roboto/Roboto-Bold.ttf") format('woff2');
+  font-weight: 700; 
+  font-style: bold;
+}
+@font-face {
+  font-family: "third";
+  src: url("../fonts/Roboto/Roboto-Medium.ttf") format('woff2');
+  font-weight: 500; 
+  font-style: medium;
+}
+@font-face {
+  font-family: "third";
+  src: url("../fonts/Roboto/Roboto-Regular.ttf") format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "third";
+  src: url("../fonts/Roboto/Roboto-Light.ttf") format('woff2');
+  font-weight: 300; 
+  font-style: light;
+}
+@font-face {
+  font-family: "third";
+  src: url("../fonts/Roboto/Roboto-Thin.ttf") format('woff2');
+  font-weight: 100; 
+  font-style: thin;
+}
+//#endregion
+//#region FOURTH ASAP
+@font-face {
+  font-family:'fourththird' ;
   src: url('../fonts/Asap/KFO9CniXp96a4Tc2DaTeuDAoKsE615hJW34.woff2') format('woff2');
 }
+//#endregion
