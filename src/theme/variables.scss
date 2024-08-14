@@ -5,9 +5,6 @@
   --ion-background-color-step-150: white;
   --ion-background-color-step-250: white;
   --ion-color-warning: rgb(236, 91, 98);
-  // --ion-text-color: #323232;
-  // --ion-text-black-static: #323232;
-  // --text-white-static:white;
   //***Colores Base***/
   --ion-color-primary: rgb(0, 84, 233);
   --gray-hard: gray;
@@ -19,12 +16,11 @@
   --black: rgb(50, 50, 50);
   //*** Text size Base ***//
 
-  //***iuputs***/
-  // --io-input-border: white;
-  // --io-input-label:rgb(145, 145, 145);
+  //***inputs***/
   --input-label: rgb(145, 145, 145);
-  // --input-border: rgb(145, 145, 145);
-  --input-border: var(--gray-soft);
+  --input-border: var(--gray-soft)
+  --input-shape-round-bg:
+  --input-shape-round-border: var(--gray-soft);
   //***Fonts***/
   --font-white: white;
   --font-black: black;
