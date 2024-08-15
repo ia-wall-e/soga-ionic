@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: '**',//Ruta comodin-siempre va de ultimo
     loadChildren: () => import('./pages/error/error/error.module').then( m => m.ErrorPageModule)
+  },  {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
+
 ];
 
 @NgModule({
