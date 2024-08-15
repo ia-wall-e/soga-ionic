@@ -20,7 +20,7 @@ $font-input:$font-standar;
   font-size:$fs;
   font-weight:$fw;
 }
-@mixin font-input($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
+@mixin font-input($type: null,$fs:1rem,$fw:500,$color:var(--font-color1)) {
   font-family: $font-input, sans-serif;
   color:$color;
   font-size:$fs;
