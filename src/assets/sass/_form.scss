@@ -38,13 +38,13 @@
     margin:1rem 0 0 0;
     .textDown-wrapper {
       cursor:pointer;
-      @include font-primary();
+      @include font-standar();
       color: var(--font-color1);
       width: 100%;
       font-size: 0.85rem;
       text-align: center;
       a {
-        @include font-primary($color: var(--ion-color-primary));
+        @include font-standar($color: var(--ion-color-primary));
       }
       &:hover{
         text-decoration: underline;

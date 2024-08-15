@@ -7,7 +7,7 @@
   --ion-color-warning: rgb(236, 91, 98);
   //***Colores Base***/
   --ion-color-primary: rgb(0, 84, 233);
-  --gray-hard: gray;
+  --gray-hard: rgb(146,146,146);
   --gray-medium: rgb(199, 199, 199);
   --gray-soft: rgb(218, 221, 225);
   --gray-tiny: rgb(232, 234, 237);
@@ -17,10 +17,10 @@
   //*** Text size Base ***//
 
   //***inputs***/
-  --input-label: rgb(145, 145, 145);
-  --input-border: var(--gray-soft)
-  --input-shape-round-bg:
-  --input-shape-round-border: var(--gray-soft);
+  --input-label: rgb(131,142,157);
+  --input-solid-bd:rgba(241,244,246);
+  --input-solid-bg:rgba(241,244,246);
+  --input-line-bd:rgb(131,142,157);
   //***Fonts***/
   --font-white: white;
   --font-black: black;
@@ -39,11 +39,15 @@
   --button-color5: var(--gray-tiny);
   --button-font-sz-m: var(--font-size-m);
   --button-font-sz-l: var(--font-size-l);
+  --button-solid-second-bg:rgb(241,244,246);
+  --button-solid-second-cl:var(--black);
   --button-radius: 30px;
   //***Radius***//
   --type-modulo-rd: 20px;
   //***Icon***//
   --icon-color: var(--black);
+   //**Componentes**//
+   --type-head-p-cl:rgb(126,137,153);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -112,9 +116,13 @@
     // --ion-text-color-rgb: 255, 255, 255;
     // --ion-background-color-step-50: #1e1e1e;
     // --ion-background-color-step-100: #2a2a2a;
+    /**/
     --ion-background-color-step-150: #363636;
-    // --ion-background-color-step-200: #414141;
+    /**/
+    --ion-background-color-step-200: #414141;
+    /**/
     --ion-background-color-step-250: #4d4d4d;
+    /**/
     // --ion-background-color-step-300: #595959;
     // --ion-background-color-step-350: #656565;
     // --ion-background-color-step-400: #717171;
@@ -154,8 +162,10 @@
     // --ion-card-background: #1e1e1e;
     //**Custom
     //***inputs***/
-    --input-label: var(--gray-hard);
-    --input-border: var(--gray-hard);
+    --input-label:var(--gray-hard);
+    --input-solid-bd:gray;
+    --input-solid-bg:none;
+    --input-line-bd:var(--gray-hard);
     //***text***//
     --font-white: white;
     --font-color1: var(--white);
@@ -168,8 +178,13 @@
     --button-color3: var(--gray-hard);
     --button-color4: var(--gray-hard);
     --button-color5: var(--gray-hard);
+    --button-solid-second-bg:#4d4d4d;
+    --button-solid-second-cl:gray;
     //***Icon***//
     --icon-color: var(--gray-tiny);
+    //**Componentes**//
+    --type-head-p-cl:rgb(241, 241, 241);
+    --type-button-base-cl:var(--gray-hard);
   }
 }
 @media (max-width: 600px) {

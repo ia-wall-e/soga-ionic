@@ -8,10 +8,9 @@
   display: flex;
   align-items: center;
   input {
-    @include font-third();
+    @include font-input();
     outline: none;
-    background: rgba(241,244,246);
-    // background:rgb(232,240,254);
+    background:var(--input-solid-bg);
     border: 2px solid transparent;
     font-size: 1.1rem;
     font-weight: bold;
@@ -25,8 +24,8 @@
     text-align: center;
     &:focus ~ {
       label {
+        color:var(--ion-color-primary);
         z-index: 3;
-        color: var(--input-label);
       }
     }
   }
@@ -38,7 +37,7 @@
   }
   label {
     // @include font-primary($color: var(--input-label), $fw: 500);
-    @include font-third($fw:400,$color:rgb(131,142,157));
+    @include font-input($fw:400,$color:var(--input-label));
     position: absolute;
     z-index: 4;
     // left: 1rem;
@@ -60,6 +59,7 @@
       border-radius: 30px;
       input {
         border-radius: 30px;
+        border-color:var(--input-solid-bd);
         &:focus{
           border-color:var(--ion-color-primary);
         }
@@ -70,7 +70,8 @@
     }
     &-line {
       input {
-        border-bottom: 2px solid var(--input-border);
+        background:none;
+        border-bottom: 2px solid var(--input-line-bd);
         padding-top: 25px;
         &:focus {
           outline: none;

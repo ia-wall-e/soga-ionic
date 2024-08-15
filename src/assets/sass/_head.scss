@@ -19,7 +19,7 @@
   }
   .title {
     // background:yellow;
-    @include font-primary();
+    @include font-title();
     width: 100%;
     &.margin-unset{
       margin:unset;
@@ -28,7 +28,7 @@
   .subtitle {
     // background:rgb(161, 161, 255);
     // @include font-secondary('parrafo');
-    @include font-third();
+    @include font-standar($fw:400,$color:var(--type-head-p-cl));
   }
   .logo-section {
     height: 4rem;

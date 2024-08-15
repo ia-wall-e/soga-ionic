@@ -3,7 +3,7 @@
   cursor: pointer;
   text-transform: none;
   letter-spacing: unset;
-  @include font-primary();
+  @include font-button();
   position: relative;
   border:none;
   box-sizing: border-box;
@@ -54,8 +54,8 @@
         color: var(--font-white);
       }
       &-second{
-        background:rgb(241,244,246);
-        color:var(--black);
+        background:var(--button-solid-second-bg);
+        color:var(--button-solid-second-cl);
       }
       &-blue{}
      

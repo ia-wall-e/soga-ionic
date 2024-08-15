@@ -12,7 +12,7 @@
   max-width: 100%;
   flex: 1;
   .otp {
-    @include font-third();
+    @include font-standar();
     font-size: 2rem;
     color: var(--text-black);
     width: 4rem;

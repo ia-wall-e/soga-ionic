@@ -24,18 +24,18 @@ ion-header {
 .io-label {
   // @include font-secondary();
   // @include font-primary();
-  @include font-third();
+  @include font-standar();
   // font-size:var(--button-text-sz);
   font-size: 1rem;
   color: var(--icon-color);
   .io-h {
-    @include font-primary();
+    @include font-standar();
     font-size: 1rem;
     font-weight: bold;
     // color:var(--io-button-secondary);
   }
   .io-p {
-    @include font-primary();
+    @include font-standar();
     font-size: 0.8rem;
     // color:var(--io-button-secondary);
   }

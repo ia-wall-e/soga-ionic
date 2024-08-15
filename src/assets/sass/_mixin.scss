@@ -1,48 +1,28 @@
 @import "./fonts";
-
-@mixin font-primary($color: var(--font-color1), $fw:800, $fs: "") {
-  font-family: "primary", sans-serif;
+$font-standar:"poppins";
+$font-button:$font-standar;
+$font-input:$font-standar;
+@mixin font-title($color: var(--font-color1), $fw:800, $fs: "") {
+  font-family: "ubuntu", sans-serif;
   color: $color;
-  font-weight: $fw;
   font-size: $fs;
+  font-weight: $fw;
 }
-@mixin font-secondary($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
-  font-family: "secondary", sans-serif;
+@mixin font-standar($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
+  font-family: $font-standar, sans-serif;
   color:$color;
   font-size:$fs;
   font-weight:$fw;
-  @if ($type== "parrafo") {
-    a {
-      cursor: pointer;
-      @include font-primary();
-    }
-  }
 }
-@mixin font-third($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
-  font-family: "third", sans-serif;
+@mixin font-button($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
+  font-family: $font-button, sans-serif;
   color:$color;
   font-size:$fs;
   font-weight:$fw;
-  @if ($type== "parrafo") {
-    a {
-      cursor: pointer;
-      @include font-primary();
-    }
-  }
 }
-@mixin font-fourth
-($color: var(--font-color1), $fw:800, $fs: "") {
-  font-family: "primary", sans-serif;
-  color: $color;
-  font-weight: $fw;
-  font-size: $fs;
-}
-@mixin borderRadius($type) {
-  @if $type== "primary" {
-    border-radius: 20px;
-  } @else if$type== "secundary" {
-    border-radius: 15px;
-  } @else {
-    border-radius: 20px;
-  }
+@mixin font-input($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
+  font-family: $font-input, sans-serif;
+  color:$color;
+  font-size:$fs;
+  font-weight:$fw;
 }

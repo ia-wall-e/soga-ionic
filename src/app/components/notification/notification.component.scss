@@ -1,14 +1,14 @@
 @import "../../../assets/sass/mixin";
 .io-label {
-  @include font-secondary();
-  @include font-primary($fs: 0.85rem);
+  @include font-title();
+  @include font-standar($fs: 0.85rem);
 
   //   color: gray;
   .io-h {
-    @include font-primary($fs: 1rem);
+    @include font-standar($fs: 1rem);
   }
   .io-p {
-    @include font-primary();
+    @include font-standar();
     font-size: 0.8rem;
   }
 }
@@ -40,7 +40,7 @@
   //*Texto
   //titulo
   ion-label strong {
-    @include font-primary($color: white,$fs:0.85rem);
+    @include font-standar($color: white,$fs:0.85rem);
     display: block;
     max-width: calc(100% - 60px);
     overflow: hidden;
@@ -48,11 +48,11 @@
   }
   //subtitulo
   ion-text {
-    @include font-primary($color: white,$fs:0.85rem,$fw:'');
+    @include font-standar($color: white,$fs:0.85rem,$fw:'');
   }
   //mensaje
   ion-label ion-note {
-    @include font-secondary($fs:0.85rem);
+    @include font-standar($fs:0.85rem);
     // color:red;
 
   }
@@ -64,7 +64,7 @@
       display: flex;
       align-items: center;
       ion-note{
-        @include font-secondary($fs:0.75rem);
+        @include font-standar($fs:0.75rem);
       }
     }
 }

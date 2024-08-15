@@ -1,140 +1,188 @@
-//#region PRIMARY UBUNTU MAIN
+//#region UBUNTU MAIN
 @font-face {
-  font-family: "primary";
+  font-family: "ubuntu";
   src: url("../fonts/Ubuntu_/4iCs6KVjbNBYlgoKfw72.woff2") format('woff2');
 }
 //#endregion
-//#region PRIMARY UBUNTU-SANS
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/UbuntuSans/UbuntuSans-ExtraBold.ttf") format('woff2');
-//   font-weight: 800; 
-//   font-style: bold;
-// }
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/UbuntuSans/UbuntuSans-Bold.ttf") format('woff2');
-//   font-weight: 700; 
-//   font-style: bold;
-// }
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/UbuntuSans/UbuntuSans-Medium.ttf") format('woff2');
-//   font-weight: 500;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/UbuntuSans/UbuntuSans-Regular.ttf") format('woff2');
-//   font-weight: 400; 
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/UbuntuSans/UbuntuSans-Light.ttf") format('woff2');
-//   font-weight: 300; 
-//   font-style: medium;
-// }
-//#endregion
-//#region PRIMARY UBUNTU
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/Ubuntu/Ubuntu-Bold.ttf") format('woff2');
-//   font-weight: 700; 
-//   font-style: bold;
-// }
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/Ubuntu/Ubuntu-Medium.ttf") format('woff2');
-//   font-weight: 500;
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/Ubuntu/Ubuntu-Regular.ttf") format('woff2');
-//   font-weight: 400; 
-//   font-style: normal;
-// }
-// @font-face {
-//   font-family: "primary";
-//   src: url("../fonts/Ubuntu/Ubuntu-Light.ttf") format('woff2');
-//   font-weight: 300; 
-//   font-style: medium;
-// }
-//#endregion
-//#region SECONDARY OPEN-SANS
+//#region UBUNTU-SANS
+/*
 @font-face {
-  font-family: "secondary";
+    font-family: "ubuntu";
+    src: url("../fonts/UbuntuSans/UbuntuSans-ExtraBold.ttf") format('woff2');
+    font-weight: 800; 
+    font-style: bold;
+  }
+  @font-face {
+    font-family: "ubuntu";
+    src: url("../fonts/UbuntuSans/UbuntuSans-Bold.ttf") format('woff2');
+    font-weight: 700; 
+    font-style: bold;
+  }
+  @font-face {
+    font-family: "ubuntu";
+    src: url("../fonts/UbuntuSans/UbuntuSans-Medium.ttf") format('woff2');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "ubuntu";
+    src: url("../fonts/UbuntuSans/UbuntuSans-Regular.ttf") format('woff2');
+    font-weight: 400; 
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "ubuntu";
+    src: url("../fonts/UbuntuSans/UbuntuSans-Light.ttf") format('woff2');
+    font-weight: 300; 
+    font-style: medium;
+  }
+   */
+//#endregion
+//#region UBUNTU
+/*
+@font-face {
+  font-family: "ubuntu";
+  src: url("../fonts/Ubuntu/Ubuntu-Bold.ttf") format('woff2');
+  font-weight: 700; 
+  font-style: bold;
+}
+@font-face {
+  font-family: "ubuntu";
+  src: url("../fonts/Ubuntu/Ubuntu-Medium.ttf") format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ubuntu";
+  src: url("../fonts/Ubuntu/Ubuntu-Regular.ttf") format('woff2');
+  font-weight: 400; 
+  font-style: normal;
+}
+@font-face {
+  font-family: "ubuntu";
+  src: url("../fonts/Ubuntu/Ubuntu-Light.ttf") format('woff2');
+  font-weight: 300; 
+  font-style: medium;
+}
+ */
+//#endregion
+//#region OPEN-SANS
+@font-face {
+  font-family: "open-sans";
   src: url("../fonts/OpenSans/OpenSans-ExtraBold.ttf") format('woff2');
   font-weight: 800; 
   font-style: bold;
 }
 @font-face {
-  font-family: "secondary";
+  font-family: "open-sans";
   src: url("../fonts/OpenSans/OpenSans-Bold.ttf") format('woff2');
   font-weight: 700; 
   font-style: bold;
 }
 @font-face {
-  font-family: "secondary";
+  font-family: "open-sans";
   src: url("../fonts/OpenSans/OpenSans-SemiBold.ttf") format('woff2');
   font-weight: 600; 
   font-style: thin;
 }
 @font-face {
-  font-family: "secondary";
+  font-family: "open-sans";
   src: url("../fonts/OpenSans/OpenSans-Medium.ttf") format('woff2');
   font-weight: 500; 
   font-style: medium;
 }
 @font-face {
-  font-family: "secondary";
+  font-family: "open-sans";
   src: url("../fonts/OpenSans/OpenSans-Regular.ttf") format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "secondary";
+  font-family: "open-sans";
   src: url("../fonts/OpenSans/OpenSans-Light.ttf") format('woff2');
   font-weight: 300; 
   font-style: light;
 }
 //#endregion
-//#region THIRD ROBOTO
+//#!region ROBOTO
 @font-face {
-  font-family: "third";
+  font-family: "roboto";
   src: url("../fonts/Roboto/Roboto-Bold.ttf") format('woff2');
   font-weight: 700; 
   font-style: bold;
 }
 @font-face {
-  font-family: "third";
+  font-family: "roboro";
   src: url("../fonts/Roboto/Roboto-Medium.ttf") format('woff2');
   font-weight: 500; 
   font-style: medium;
 }
 @font-face {
-  font-family: "third";
+  font-family: "roboro";
   src: url("../fonts/Roboto/Roboto-Regular.ttf") format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "third";
+  font-family: "roboro";
   src: url("../fonts/Roboto/Roboto-Light.ttf") format('woff2');
   font-weight: 300; 
   font-style: light;
 }
 @font-face {
-  font-family: "third";
+  font-family: "roboro";
   src: url("../fonts/Roboto/Roboto-Thin.ttf") format('woff2');
   font-weight: 100; 
   font-style: thin;
 }
 //#endregion
-//#region FOURTH ASAP
+//#!region  ASAP
 @font-face {
-  font-family:'fourththird' ;
+  font-family:'asap' ;
   src: url('../fonts/Asap/KFO9CniXp96a4Tc2DaTeuDAoKsE615hJW34.woff2') format('woff2');
+}
+//#endregion
+//#region POPPINS
+@font-face {
+  font-family: "poppins";
+  src: url("../fonts/Poppins/Poppins-Bold.ttf") format('woff2');
+  font-weight: 700; 
+  font-style: bold;
+}
+@font-face {
+  font-family: "poppins";
+  src: url("../fonts/Poppins/Poppins-SemiBold.ttf") format('woff2');
+  font-weight: 600; 
+  font-style: "semibold";
+}
+@font-face {
+  font-family: "poppins";
+  src: url("../fonts/Poppins/Poppins-Medium.ttf") format('woff2');
+  font-weight: 500; 
+  font-style: medium;
+}
+@font-face {
+  font-family: "poppins";
+  src: url("../fonts/Poppins/Poppins-Regular.ttf") format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "poppins";
+  src: url("../fonts/Poppins/Poppins-Light.ttf") format('woff2');
+  font-weight: 300; 
+  font-style: light;
+}
+@font-face {
+  font-family: "poppins";
+  src: url("../fonts/Poppins/Poppins-ExtraLight.ttf") format('woff2');
+  font-weight: 200; 
+  font-style: "ExtraLight";
+}
+@font-face {
+  font-family: "poppins";
+  src: url("../fonts/Poppins/Poppins-Thin.ttf") format('woff2');
+  font-weight: 100; 
+  font-style: thin;
 }
 //#endregion

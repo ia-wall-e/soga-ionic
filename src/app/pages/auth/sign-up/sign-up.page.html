@@ -11,7 +11,7 @@
           </ion-buttons> -->
           <ion-buttons slot="end">
             <ion-button routerLink="/entry">
-              <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+              <ion-icon class="icon-head" slot="icon-only" name="close-outline"></ion-icon>
             </ion-button>
           </ion-buttons>
         </ion-toolbar>
@@ -25,7 +25,7 @@
             </div>
           </div>
           <div class="inputs-section">
-            <div class="input-component shape-round"
+            <div class="input-component shape-round label-static"
               [ngClass]="{'isInvalid':controlState(emailControl)}">
               <input type="text" formControlName="email" />
               <label>Correo Electronico</label>
@@ -38,9 +38,9 @@
       </div>
       <div class="footer-modulo">
         <div class="buttons-section button-double">
-          <ion-button class="button-io fill-none shape-round size-medium" routerLink="/login">
+          <ion-button class="button-io fill-clear shape-round size-medium" routerLink="/login">
             Iniciar sesion</ion-button>
-          <!-- <ion-button class="button-io fill-none shape-round size-medium" routerLink="/entry">
+          <!-- <ion-button class="button-io fill-clear shape-round size-medium" routerLink="/entry">
             <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
             Volver</ion-button> -->
         </div>

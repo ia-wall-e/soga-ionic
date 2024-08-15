@@ -48,7 +48,7 @@ background:red;
 }
 .custom-alert {
   // --background:rgb(128, 128, 128);
-  @include font-primary;
+  @include font-title;
 }
 .custom-alert .alert-button-group {
   // background:violet;
@@ -58,7 +58,7 @@ ion-alert.custom-alert button.alert-button {
   border-radius: 30px;
   padding: 10px 30px;
   text-transform: none;
-  @include font-primary;
+  @include font-title;
   border: 2px solid gray;
   color: gray;
 }
