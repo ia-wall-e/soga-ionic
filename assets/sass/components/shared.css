@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -10,18 +11,114 @@
   font-family: "Ubuntu";
   src: url("../../fonts/Ubuntu/4iCs6KVjbNBYlgoKfw72.woff2") format("woff2");
 }
-@font-face {
-  font-family: "Open sans";
-  src: url("../../fonts/Open-sans/opensans.woff2") format("woff2");
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
 }
-@font-face {
-  font-family: "Asap";
-  src: url("../../fonts/Asap/KFO9CniXp96a4Tc2DaTeuDAoKsE615hJW34.woff2") format("woff2");
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
 }
-@font-face {
-  font-family: "Roboto";
-  src: url(../../fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
 .button-io {
   cursor: pointeR;
   font-family: "Ubuntu", sans-serif;
@@ -133,6 +230,13 @@
   font-size: 0.8rem;
   */
 }
+.input-component input::-moz-placeholder {
+  color: rgb(211, 211, 211);
+  font-family: "Open sans", sans-serif;
+  font-size: 0.85rem;
+  font-weight: light;
+  text-align: left;
+}
 .input-component input::placeholder {
   color: rgb(211, 211, 211);
   font-family: "Open sans", sans-serif;
@@ -141,7 +245,7 @@
   text-align: left;
 }
 .input-component label {
-  font-family: "Open sans", sans-serif;
+  font-family: "poppins", sans-serif;
   color: rgb(50, 50, 50);
   font-weight: light;
   font-size: 0.95rem;
@@ -278,7 +382,7 @@
   width: 100%;
 }
 .head-component .subtitle {
-  font-family: "Open sans", sans-serif;
+  font-family: "poppins", sans-serif;
   color: rgb(50, 50, 50);
   font-size: 0.85rem;
 }
@@ -299,7 +403,8 @@
   width: 100%;
   height: 100%;
   border-radius: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .head-component.border {
@@ -353,7 +458,7 @@
   padding: 0.5rem 0 0;
 }
 .info-section p {
-  font-family: "Open sans", sans-serif;
+  font-family: "poppins", sans-serif;
   color: rgb(50, 50, 50);
   font-size: 0.85rem;
 }
@@ -400,7 +505,7 @@
   padding: 2rem 0;
 }
 .wrapper-center .subtitle-wrapper {
-  font-family: "Open sans", sans-serif;
+  font-family: "poppins", sans-serif;
   color: rgb(50, 50, 50);
   color: rgb(50, 50, 50);
   width: 100%;
@@ -491,4 +596,160 @@
 }
 .modulo.shadow {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/** style **/
+.card-mini {
+  margin: 5rem auto;
+  background: red;
+  height: 16.65rem;
+  max-height: 16.65rem;
+  max-width: 13rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--ion-color-step-950);
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  cursor: pointer;
+}
+.card-mini:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.card-mini .img-section-card {
+  background: rgb(255, 255, 255);
+  border-radius: 15px 15px 0 0;
+  position: relative;
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-mini .img-section-card .globo-promo {
+  background: color(bg-promo);
+  position: absolute;
+  top: 0;
+  left: -0.8em;
+  -webkit-clip-path: circle();
+          clip-path: circle();
+  padding: 0.625rem;
+  font-size: 1em;
+  font-weight: lighter;
+  font-family: "poppins", sans-serif;
+  color: rgb(50, 50, 50);
+  color: color(lt-white);
+}
+.card-mini .img-section-card .globo-combo {
+  background: color(bg-combo);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0.3125rem;
+  font-size: 0.7em;
+  font-weight: lighter;
+  font-family: "poppins", sans-serif;
+  color: rgb(50, 50, 50);
+  color: color(lt-white);
+  border-radius: 0 10px 0 10px;
+  z-index: 2;
+}
+.card-mini .img-section-card .-globo2x1 {
+  left: -0.5em;
+}
+.card-mini .img-section-card img {
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: 0.3125rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 15px 15px 0 0;
+}
+.card-mini .info-section-card {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  padding: 2px 5px 0 7px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0 0 15px 15px;
+}
+.card-mini .info-section-card .bx-name {
+  max-height: 2.9rem;
+  min-height: 2.9rem;
+  padding-top: 0.2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card-mini .info-section-card .bx-name h5 {
+  all: unset;
+  font-family: "poppins", sans-serif;
+  color: rgb(50, 50, 50);
+  width: 100%;
+  overflow: hidden;
+}
+.card-mini .info-section-card .bx-price {
+  padding: 4px 0 0 2px;
+  height: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+.card-mini .info-section-card .bx-price .price {
+  all: unset;
+  font-family: "poppins", sans-serif;
+  color: rgb(50, 50, 50);
+}
+.card-mini .info-section-card .bx-price .oldprice {
+  font-family: "poppins", sans-serif;
+  color: rgb(50, 50, 50);
+  text-decoration-line: line-through;
+  margin-left: 5px;
+}
+.card-mini .float-section-card {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  right: 4px;
+  bottom: 4px;
+  z-index: 2;
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+}
+.card-mini .float-section-card img {
+  height: 100%;
+  width: 100%;
+  -webkit-clip-path: circle();
+          clip-path: circle();
+  opacity: 0.6;
+}
+.card-mini .float-section-card button {
+  z-index: 4;
+  background: yellow;
+  border: none;
+  -webkit-clip-path: circle();
+          clip-path: circle();
+  height: 2em;
+  width: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: color(bt-main);
+  cursor: pointer;
+}
+.card-mini .float-section-card button span {
+  font-size: 1.8em;
+}
+.card-mini .float-section-card button:hover {
+  background: color(bt-main);
+  color: white;
+}
+.card-mini .float-section-card button:active {
+  background: color(bt-main);
+  color: white;
 }/*# sourceMappingURL=shared.css.map */

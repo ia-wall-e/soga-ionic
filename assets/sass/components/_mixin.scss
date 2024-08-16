@@ -5,7 +5,7 @@
   font-weight: bolder;
 }
 @mixin font-secondary($type:null){
-  font-family: "Open sans", sans-serif;
+  font-family: "poppins", sans-serif;
   color:$color-primary;
   @if($type=="parrafo"){
     font-size: 0.85rem;
