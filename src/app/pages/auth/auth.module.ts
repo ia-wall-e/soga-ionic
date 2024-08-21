@@ -18,6 +18,6 @@ import { FormModule } from '@myComponents/form/form.module';
     AuthRoutingModule,
     FormModule,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AuthModule {}

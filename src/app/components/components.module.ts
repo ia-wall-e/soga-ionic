@@ -6,15 +6,17 @@ import { RouterModule } from '@angular/router';
 import { NavDrawerComponent } from './nav-drawer/nav-drawer.component';
 import { HeaderComponent } from './header/header.component';
 import { NotificationComponent } from './notification/notification.component';
+import{MdCardMiniComponent}from'./modulos/md-card-mini/md-card-mini.component';
+import{CardMiniComponent}from'./cards/card-mini/card-mini.component';
 
 @NgModule({
-  declarations: [NavDrawerComponent,HeaderComponent,NotificationComponent],
+  declarations: [NavDrawerComponent,HeaderComponent,NotificationComponent,MdCardMiniComponent,CardMiniComponent],
   imports: [
     CommonModule,
     IonicModule,
     RouterModule
   ],
-  exports:[NavDrawerComponent,HeaderComponent,NotificationComponent],
+  exports:[NavDrawerComponent,HeaderComponent,NotificationComponent,MdCardMiniComponent,CardMiniComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ComponentsModule { }

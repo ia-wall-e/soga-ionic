@@ -26,3 +26,15 @@ $font-input:$font-standar;
   font-size:$fs;
   font-weight:$fw;
 }
+
+@mixin text-nowrap{
+  white-space: nowrap; 
+  overflow: hidden;  
+  text-overflow: ellipsis
+}
+
+@mixin mediaquery($size) {
+  @media screen and (max-width:#{$size}) {
+    @content;
+  }
+}

@@ -1,27 +1,16 @@
 @import "../../../../assets/sass/mixin";
 .modulo{
     overflow:hidden;
-}
-  
-
+} 
 .wrapper-entry-logo {
   position: relative;
   z-index:2;
-  background:var(--ion-background-color-step-150);
   width: 100%;
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-//   border-radius: 20px;
-//   .wallpaper {
-//     position: absolute;
-//     z-index: 1;
-//     top:0;
-//     width:100%;
-//     object-fit: cover;
-//   }
   .logo {
     // position:absolute;
     // top:30%;
@@ -34,8 +23,6 @@
 .wrapper-entry-center {
 //   position: absolute;
   z-index:3;
-//   bottom:0;
-  background:var(--ion-background-color-step-150);
   width: 100%;
   margin: auto;
   padding-bottom: 2rem;

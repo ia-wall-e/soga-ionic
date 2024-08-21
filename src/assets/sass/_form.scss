@@ -1,8 +1,7 @@
 .form-io{
-    // background:yellowgreen;
     min-height: 100%;
     width: 100%;
-    max-width: 18.75rem;
+    max-width: var(--type-form-mxwidth);
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -18,14 +17,14 @@
     .line {
       flex: 1;
       height: 1px;
-      background-color: var(--button-color3);
+      background-color: var(--type-form-separator-cl);
     }
     .circle {
       margin: 0 15px;
       width: 20px;
       height: 15px;
       border-radius: 50%;
-      color: var(--button-color3);
+      color: var(--type-form-separator-cl);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -33,15 +32,12 @@
       font-size: 14px;
     }
   }
-
   .footer-form{
-    margin:1rem 0 0 0;
+    margin:var(--type-form-footer-margin);
     .textDown-wrapper {
       cursor:pointer;
-      @include font-standar();
-      color: var(--font-color1);
+      @include font-standar($color:var(--type-form-footer-color),$fs:var(--type-form-footer-ft-sz));
       width: 100%;
-      font-size: 0.85rem;
       text-align: center;
       a {
         @include font-standar($color: var(--ion-color-primary));

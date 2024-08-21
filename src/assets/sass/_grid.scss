@@ -1,0 +1,22 @@
+%grid {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    display: grid;
+    column-gap: 0.8rem;
+    row-gap:1.35rem;
+  }
+  .grid {
+    &-card {
+      @extend %grid;
+      grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+      @include mediaquery(850px) {
+        grid-template-columns: repeat(auto-fill, minmax(11rem, 3fr));
+      }
+      @include mediaquery(650px) {
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 3fr));
+        column-gap: 0.312rem;
+        row-gap: 0.937rem;
+      }
+    }
+  }

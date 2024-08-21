@@ -1,46 +1,41 @@
-//#Contenedores
 .modulo {
-  position:relative;
-  border-radius:var(--type-modulo-rd) ;
-  display:flex;
-  flex-direction:column;
+  margin: auto;
+  width: 95%;
+  max-width: var(--type-modulo-mxwidth);
+  position: relative;
+  padding: var(--type-modulo-padding);
+  background: var(--type-modulo-color-i);
+  border-radius: var(--type-modulo-rd);
+  display: flex;
+  flex-direction: column;
   .head-modulo {
-    // background:violet;
-    // padding: 1.875rem 1.875rem 0;
     overflow: hidden;
-    ion-toolbar{
+    ion-toolbar {
       --background: none;
     }
   }
   .body-modulo {
-    // background:yellowgreen;
+    // background:violet;
     width: 100%;
-    flex:1;
+   
   }
   .footer-modulo {
-    // background:gray;
     width: 100%;
-    padding:0 1.857rem;
+    padding:var(--type-modulo-footer-pdd) ;
   }
 }
-//*atributos
+//#atributos
 .modulo {
   &.type {
-    &-full {
-    }
     &-form {
-      background:var(--ion-background-color-step-150);
-      box-sizing: border-box;
-      height:95vh;
-      width: 95%;
-      // max-width:28.125rem;
-      max-width: 26.25rem;
-      margin:auto;
+      height: 95vh;
+      max-width: var(--type-modulo-width-s);
     }
   }
   &.shadow {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; //5
+    box-shadow: var(--type-modulo-shadow);
+  }
+  .flex-one{
+    flex:1;
   }
 }
-//#Pages
-

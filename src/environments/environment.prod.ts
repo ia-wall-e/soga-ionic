@@ -1,5 +1,10 @@
 export const environment = {
   production: true,
+    /***Api´s Dev***/
+  // apiStore:"https://api.escuelajs.co/api/v1/products",
+  apiStore: 'https://fakestoreapi.com/products',
+  // apiStore:"https://dummyjson.com/products",
+  /***Firebase **/
   firebaseConfig :{
     apiKey: "AIzaSyA3pd0GbZeokCAZsLX6mGloI39XRyIGqHo",
     authDomain: "soga-50a48.firebaseapp.com",

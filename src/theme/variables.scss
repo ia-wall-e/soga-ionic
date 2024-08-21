@@ -2,26 +2,25 @@
 // http://ionicframework.com/docs/theming/
 :root {
   --ion-background-color: rgb(255, 255, 255);
-  --ion-background-color-step-150: white;
+  --ion-background-color-step-150: rgb(236, 236, 236);
   --ion-background-color-step-250: white;
   --ion-color-warning: rgb(236, 91, 98);
   //***Colores Base***/
   --ion-color-primary: rgb(0, 84, 233);
-  --gray-hard: rgb(146,146,146);
+  --gray-hard: rgb(146, 146, 146);
   --gray-medium: rgb(199, 199, 199);
   --gray-soft: rgb(218, 221, 225);
   --gray-tiny: rgb(232, 234, 237);
   --white: white;
   // --black: rgb(77, 77, 77);
   --black: rgb(50, 50, 50);
-  //*** Text size Base ***//
-
-  //***inputs***/
-  --input-label: rgb(131,142,157);
-  --input-solid-bd:rgba(241,244,246);
-  --input-solid-bg:rgba(241,244,246);
-  --input-line-bd:rgb(131,142,157);
-  //***Fonts***/
+  /*===Componentes==*/
+  /*inputs*/
+  --input-label: rgb(131, 142, 157);
+  --input-solid-bd: rgba(241, 244, 246);
+  --input-solid-bg: rgba(241, 244, 246);
+  --input-line-bd: rgb(131, 142, 157);
+  /*Fonts*/
   --font-white: white;
   --font-black: black;
   --font-color1: var(--black);
@@ -31,23 +30,48 @@
   --font-size-m: 0.85rem;
   --font-size-l: 0.95rem;
   --font-size-xl: 1rem;
-  //***Buttons***/
+  --text-black-static:rgb(50, 50, 50);
+  /*Buttons*/
   --button-color1: var(--black);
   --button-color2: var(--gray-hard);
   --button-color3: var(--gray-medium);
   --button-color4: var(--gray-soft);
   --button-color5: var(--gray-tiny);
+  /**/
   --button-font-sz-m: var(--font-size-m);
   --button-font-sz-l: var(--font-size-l);
-  --button-solid-second-bg:rgb(241,244,246);
-  --button-solid-second-cl:var(--black);
+  --button-solid-second-bg: rgb(241, 244, 246);
+  --button-solid-second-cl: var(--black);
   --button-radius: 30px;
-  //***Radius***//
-  --type-modulo-rd: 20px;
-  //***Icon***//
+  /*Box-Shadow*/
+  --box-shadow-i: rgba(0, 0, 0, 0.24) 0px 3px 8px; //5
+  /*Radius*/
+  --border-radius-i: 20px;
+  --border-radius-ii: 30px;
+  /*Icon*/
   --icon-color: var(--black);
-   //**Componentes**//
-   --type-head-p-cl:rgb(126,137,153);
+  /*===type===*/
+  /*head*/
+  --type-head-ft-cl-ii: rgb(126, 137, 153);
+  --type-head-margin-bottom: 0;
+  --type-head-border-cl: 1px solid rgb(224, 224, 224);
+  /*header*/
+  --type-header-margin-bottom: 1.5rem;
+  /*modulo*/
+  --type-modulo-color-i:white;
+  --type-modulo-color-ii:white; /*form*/
+  --type-modulo-rd: var(--border-radius-i);
+  --type-modulo-padding: 1.25rem; //20px
+  --type-modulo-mxwidth: 67.5rem; //1080
+  --type-modulo-footer-pdd: 0; //30px
+  --type-modulo-width-s: 26.25rem; //420px formulario
+  --type-modulo-shadow: var(--box-shadow-i);
+  /*formulario*/
+  --type-form-mxwidth:18.75rem; //300px
+  --type-form-separator-cl:var(--gray-medium);
+  --type-form-footer-margin: 1rem 0 0 0;
+  --type-form-footer-color: var(--black);
+  --type-form-footer-ft-sz: 0.85rem;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -161,30 +185,34 @@
     // --ion-tab-bar-background: #1f1f1f;
     // --ion-card-background: #1e1e1e;
     //**Custom
+    --black: white;
     //***inputs***/
-    --input-label:var(--gray-hard);
-    --input-solid-bd:gray;
-    --input-solid-bg:none;
-    --input-line-bd:var(--gray-hard);
+    --input-label: var(--gray-hard);
+    --input-solid-bd: gray;
+    --input-solid-bg: none;
+    --input-line-bd: var(--gray-hard);
     //***text***//
     --font-white: white;
     --font-color1: var(--white);
     --font-color2: var(--white);
     --font-color3: var(--white);
     --font-color4: var(--white);
+    --text-black-static:rgb(50, 50, 50);
     //***Buttons***//
     --button-color1: var(--gray-hard);
     --button-color2: var(--gray-hard);
     --button-color3: var(--gray-hard);
     --button-color4: var(--gray-hard);
     --button-color5: var(--gray-hard);
-    --button-solid-second-bg:#4d4d4d;
-    --button-solid-second-cl:gray;
+    --button-solid-second-bg: #4d4d4d;
+    --button-solid-second-cl: gray;
     //***Icon***//
     --icon-color: var(--gray-tiny);
     //**Componentes**//
-    --type-head-p-cl:rgb(241, 241, 241);
-    --type-button-base-cl:var(--gray-hard);
+    --type-head-p-cl: rgb(241, 241, 241);
+    --type-button-base-cl: var(--gray-hard);
+    --type-modulo-color-ii: var(--ion-background-color-step-150);
+    --type-modulo-color-i:var(--ion-background-color-step-150);
   }
 }
 @media (max-width: 600px) {

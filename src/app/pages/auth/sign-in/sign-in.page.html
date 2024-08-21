@@ -3,7 +3,6 @@
   <div class="container">
     <div class="modulo type-form shadow">
       <div class="head-modulo">
-        <ion-toolbar>
           <ion-toolbar>
             <ion-buttons slot="star">
               <ion-button>
@@ -16,9 +15,8 @@
               </ion-button>
             </ion-buttons>
           </ion-toolbar>
-        </ion-toolbar>
       </div>
-      <div class="body-modulo">
+      <div class="body-modulo flex-one">
         <form class="form-io" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
           <div class="head-component text-center">
             <div class="title-section">
