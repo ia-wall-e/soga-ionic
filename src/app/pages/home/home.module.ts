@@ -14,7 +14,8 @@ import { ComponentsModule } from '@myComponents/components.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    CommonModule,ComponentsModule
+    CommonModule,
+    ComponentsModule,
   ],
   declarations: [HomePage],
 })

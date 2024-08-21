@@ -12,4 +12,7 @@ export class CatalogService {
   apiTest(params?:any, options?: any):Observable<any>{
    return this.http.get(environment.apiStore,{ params: new HttpParams({ fromObject: params })})
   }
+   apiTest2(params?:any, option?:any):Observable<any>{
+    return this.http.get(environment.apiStore2,{params: new HttpParams({fromObject:params})})
+   }
 }

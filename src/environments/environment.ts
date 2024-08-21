@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
   /***Api´s Dev***/
-  // apiStore:"https://api.escuelajs.co/api/v1/products",
+  apiStore2:"https://api.escuelajs.co/api/v1/products",
   apiStore: 'https://fakestoreapi.com/products',
-  // apiStore:"https://dummyjson.com/products",
+  apiStore3:"https://dummyjson.com/products",
   /***Firebase **/
   firebaseConfig: {
     apiKey: 'AIzaSyA3pd0GbZeokCAZsLX6mGloI39XRyIGqHo',

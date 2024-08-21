@@ -86,7 +86,7 @@ export class AuthService {
   }
   /*** ***/
   authState(): Observable<UserCredentials | null> {
-    console.log('AuthState ejecutandose');
+    // console.log('AuthState ejecutandose');
     return (this.authState$ = this.fireSvc.authState().pipe(
       map((auth) => {
         this.userState = auth;

@@ -8,6 +8,7 @@
   border-radius: var(--type-modulo-rd);
   display: flex;
   flex-direction: column;
+  margin-bottom:var(--type-modulo-margin-bottom);
   .head-modulo {
     overflow: hidden;
     ion-toolbar {
@@ -34,6 +35,11 @@
   }
   &.shadow {
     box-shadow: var(--type-modulo-shadow);
+  }
+  &.bg{
+    &-none{
+      background:none;
+    }
   }
   .flex-one{
     flex:1;

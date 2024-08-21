@@ -11,9 +11,7 @@ export class CardMiniComponent  implements OnInit {
   @Output() itemCartOut = new EventEmitter<void>();
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.item)
-  }
+  ngOnInit() {}
 
   outOfCart() {
    this.itemCartOut.emit();

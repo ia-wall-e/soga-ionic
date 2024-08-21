@@ -33,9 +33,7 @@ export class NavDrawerComponent implements OnInit {
   ];
   departments=['Electronico','Moda','Belleza y cuidado personal']
   user$:Observable<UserCredentials | null>=this.authSvc.authState();
-  constructor(private authSvc:AuthService) {
-    this.authSvc.authState().subscribe(r=>console.log(r))
-  }
+  constructor(private authSvc:AuthService) {}
   ngOnInit() {
     // this.user$.pipe(map(value=> Object.keys(value).map(key => ({ key, value })))).subscribe(v=>console.log(v))
   }
