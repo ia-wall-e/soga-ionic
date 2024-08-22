@@ -24,6 +24,7 @@
     ],
     "useDefineForClassFields": false,
     "paths": {
+      "@icons/*":["src/assets/icon/*"],
       "@myServices/*": ["src/app/services/*"],
       "@myComponents/*": ["src/app/components/*"],
       "@myGuards/*": ["src/app/guards/*"],

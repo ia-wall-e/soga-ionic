@@ -1,5 +1,33 @@
 <ion-header>
   <ion-toolbar>
+    <div class="logo-head" slot="start">
+      <!-- Título del header -->
+      <ion-title>Soga-io</ion-title>
+    </div>
+    <div class="buttons-head">
+      <!-- <ion-buttons slot="primary">
+        <ion-button>Inicio</ion-button>
+        <ion-button>Perfil</ion-button>
+      </ion-buttons> -->
+    </div>
+    <div class="search-head">
+      <!-- <ion-searchbar placeholder="Buscar..."></ion-searchbar> -->
+    </div>
+    <ion-buttons slot="end">
+      <ion-button class="button-io fill-icon-gray">
+        <ion-icon slot="icon-only" src="../../../assets/icon/search.svg"></ion-icon>
+      </ion-button>
+      <ion-button class="button-io fill-icon-gray" (click)="menuNotification()">
+        <ion-icon slot="icon-only" src="../../../assets/icon/notification.svg"></ion-icon>
+      </ion-button>
+      <ion-button class="button-io fill-icon-gray">
+        <ion-icon slot="icon-only" src="../../../assets/icon/bag.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!-- <ion-header>
+  <ion-toolbar>
     <ion-buttons slot="secondary">
       <ion-button class="button-io fill-icon-gray">
         <ion-icon slot="icon-only" name="search-outline"></ion-icon>
@@ -18,4 +46,4 @@
     </ion-buttons >
     <ion-menu-button  slot="start"></ion-menu-button>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->

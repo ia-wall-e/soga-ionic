@@ -1,14 +1,19 @@
-ion-header{
-    margin-bottom:var(--type-header-margin-bottom);
-    box-shadow: none;
+@import "../../../assets/sass/mixin";
+ion-header {
+  margin-bottom: var(--type-header-margin-bottom);
+  box-shadow: none;
+  border-bottom: 1px solid rgb(240, 244, 247);
+  ion-title {
+    @include font-standar($fs:1.2rem,$fw:600);
+  }
 }
-ion-toolbar{
-padding: 0 10px;
+ion-toolbar {
+  padding: 0 10px;
 }
-ion-avatar{
-    height:3rem;
-    width:3rem;
+ion-avatar {
+  height: 3rem;
+  width: 3rem;
 }
-ion-menu-button{
-    color:var(--icon-color);
+ion-menu-button {
+  color: var(--icon-color);
 }
