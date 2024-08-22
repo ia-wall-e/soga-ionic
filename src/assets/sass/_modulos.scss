@@ -1,14 +1,20 @@
 .modulo {
+  border-radius: var(--type-modulo-rd);
+  background: var(--type-modulo-color-i);
+  // background:violet;
+  box-sizing: border-box;
   margin: auto;
   width: 95%;
   max-width: var(--type-modulo-mxwidth);
   position: relative;
-  padding: var(--type-modulo-padding);
-  background: var(--type-modulo-color-i);
-  border-radius: var(--type-modulo-rd);
+  padding-top: var(--type-modulo-padding);
+  // padding-top:0;
+  padding-right: var(--type-modulo-padding);
+  padding-left: var(--type-modulo-padding);
+  padding-bottom: var(--type-modulo-padding);
   display: flex;
   flex-direction: column;
-  margin-bottom:var(--type-modulo-margin-bottom);
+  margin-bottom: var(--type-modulo-margin-bottom);
   .head-modulo {
     overflow: hidden;
     ion-toolbar {
@@ -18,11 +24,10 @@
   .body-modulo {
     // background:violet;
     width: 100%;
-   
   }
   .footer-modulo {
     width: 100%;
-    padding:var(--type-modulo-footer-pdd) ;
+    padding: var(--type-modulo-footer-pdd);
   }
 }
 //#atributos
@@ -32,16 +37,15 @@
       height: 95vh;
       max-width: var(--type-modulo-width-s);
     }
+    &-clear {
+      background: none;
+      padding-top: unset;
+    }
   }
   &.shadow {
     box-shadow: var(--type-modulo-shadow);
   }
-  &.bg{
-    &-none{
-      background:none;
-    }
-  }
-  .flex-one{
-    flex:1;
+  .flex-one {
+    flex: 1;
   }
 }

@@ -21,6 +21,7 @@ register();
     MdCardSlideComponent,
     CardMiniComponent,
     CardLightComponent,
+    
   ],
   imports: [CommonModule, IonicModule, RouterModule],
   exports: [

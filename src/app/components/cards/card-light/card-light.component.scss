@@ -39,9 +39,9 @@ $w_cardSlide:9rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; //6
   overflow:hidden;
   cursor: pointer;
-  &:hover {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; //3
-  }
+  // &:hover {
+  //   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; //3
+  // }
   .img-section-card {
     // background: rgb(255, 255, 255);
     background:none;

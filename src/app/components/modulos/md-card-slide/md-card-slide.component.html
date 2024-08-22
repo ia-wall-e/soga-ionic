@@ -1,9 +1,9 @@
 <!-- <div class="container full"> -->
-<div class="modulo bg-none">
+<div class="modulo type-clear">
   <div class="head-modulo">
     <div class="head-component margin-unset display-nowrap">
       <div class="title-section">
-        <h5 class="title">Tendencias</h5>
+        <h6 class="title">Tendencias</h6>
         <h6 class="subtitle">Subtitulo</h6>
       </div>
       <div class="logo-section">
@@ -13,14 +13,14 @@
       </div>
     </div>
   </div>
-  <div class="body-modulo bg-none">
-    <ng-content >
-      <swiper-container #swiper>
+  <div class="body-modulo" #container>
+    <!-- <ng-content> -->
+      <swiper-container init="false" #swiper>
         <swiper-slide *ngFor="let item of dataModulo">
           <app-card-light [item]="item"></app-card-light>
         </swiper-slide>
       </swiper-container>
-    </ng-content>
+    <!-- </ng-content> -->
   </div>
 </div>
 <!-- </div> -->

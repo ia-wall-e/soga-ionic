@@ -11,6 +11,7 @@ image?:string;
   constructor() { }
 
   ngOnInit() {
+  
     this.image= this.item.images[1]
     // console.log(this.item.images[0])
   }
