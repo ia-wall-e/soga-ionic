@@ -4,7 +4,7 @@
   // background:violet;
   box-sizing: border-box;
   margin: auto;
-  width: 95%;
+  width: var(--width-standar);
   max-width: var(--type-modulo-mxwidth);
   position: relative;
   padding-top: var(--type-modulo-padding);
@@ -37,9 +37,11 @@
       height: 95vh;
       max-width: var(--type-modulo-width-s);
     }
-    &-clear {
+    &-light {
       background: none;
-      padding-top: unset;
+      // width:100%;
+      padding: unset;
+      border-radius:unset;
     }
   }
   &.shadow {

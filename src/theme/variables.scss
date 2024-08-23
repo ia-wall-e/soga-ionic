@@ -74,6 +74,10 @@
   --type-form-footer-margin: 1rem 0 0 0;
   --type-form-footer-color: var(--black);
   --type-form-footer-ft-sz: 0.85rem;
+  /*Search*/
+  --type-search-hg:3rem;
+  /*medidas*/
+  --width-standar:98%;
 }
 @media (prefers-color-scheme: dark) {
   :root {

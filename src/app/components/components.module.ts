@@ -10,6 +10,7 @@ import { MdCardMiniComponent } from './modulos/md-card-mini/md-card-mini.compone
 import { CardMiniComponent } from './cards/card-mini/card-mini.component';
 import { CardLightComponent } from './cards/card-light/card-light.component';
 import { MdCardSlideComponent } from './modulos/md-card-slide/md-card-slide.component';
+import { SearchComponent } from './search/search.component';
 import { register } from 'swiper/element/bundle';
 register();
 @NgModule({
@@ -21,6 +22,7 @@ register();
     MdCardSlideComponent,
     CardMiniComponent,
     CardLightComponent,
+    SearchComponent
     
   ],
   imports: [CommonModule, IonicModule, RouterModule],
@@ -31,7 +33,8 @@ register();
     MdCardMiniComponent,
     MdCardSlideComponent,
     CardMiniComponent,
-    CardLightComponent
+    CardLightComponent,
+    SearchComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

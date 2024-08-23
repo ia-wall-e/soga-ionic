@@ -12,21 +12,25 @@ export class NavDrawerComponent implements OnInit {
     {
       route: '/cart',
       iconName: 'bag-handle-outline',
+      iconSvg:'src="../../../assets/icon/bag.svg',
       label: 'Bolsa De Compras',
     },
     {
       route: '/notificaciones',
       iconName: 'notifications-outline',
+      iconSvg:'src="../../../assets/icon/notification.svg',
       label: 'Notificaciones',
     },
     {
       route: '/catalogo',
       iconName: 'pricetags-outline',
+      iconSvg:'src="../../../assets/icon/search.svg',
       label: 'Mis compras',
     },
     {
       route: '',
       iconName: 'search-outline',
+      iconSvg:'src="../../../assets/icon/search.svg',
       label: 'Buscar por categoria',
     },
     

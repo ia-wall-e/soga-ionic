@@ -1,0 +1,38 @@
+@import '../../../assets/sass/mixin';
+.container {
+  &.home-center {
+    // background:yellowgreen;
+    grid-template-areas: "sideleft main sideright";
+    grid-template-columns: auto 700px auto;
+    grid-template-rows: auto;
+  }
+  //#Areas
+  .main {
+    // background:yellow;
+    grid-area: main;
+    width:var(--width-standar);
+    width:100%;
+  }
+  .side-left {
+    // background: violet;
+    grid-area: sideleft;
+    // min-width: 0;
+  }
+  .side-right {
+    // background: red;
+    grid-area: sideright;
+    // min-width: 0;
+  }
+  //#Componentes Areas
+}
+//!responsive
+@media (max-width: 720px) {
+ .container{
+  &.home-center {
+    grid-template-areas: "main" "sideleft"  "sideright";
+    grid-template-columns:100%;
+    grid-template-rows: auto;
+  }
+ } 
+}
+

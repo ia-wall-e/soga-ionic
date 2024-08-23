@@ -46,7 +46,7 @@
     <ion-list class="io-list" lines="none" *ngFor="let i of userNav">
       <ion-menu-toggle>
         <ion-item class="io-item" routerLink="i.route" button>
-          <ion-icon class="io-icon" slot="start" name="{{i.iconName}}"></ion-icon>
+          <ion-icon class="io-icon" slot="start" name="{{i.iconName}}" src="{{i.iconSvg}}"></ion-icon>
           <ion-label class="io-label">
             {{i.label}}
           </ion-label>

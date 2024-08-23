@@ -70,12 +70,12 @@ export class MdCardSlideComponent implements OnInit, AfterViewInit {
     swiper.initialize();
   }
   //#region - Ancho de pantalla
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event) {
-    const container =this.containerRef?.nativeElement;
-    console.log(container.offsetWidth)
-    this.screenWidth = window.innerWidth;
-    // console.log('Ancho de pantalla cambiado:', this.screenWidth);
-  }
+  // @HostListener('window:resize', ['$event'])
+  // onResize(event: Event) {
+  //   const container =this.containerRef?.nativeElement;
+  //   console.log(container.offsetWidth)
+  //   this.screenWidth = window.innerWidth;
+  //   console.log('Ancho de pantalla cambiado:', this.screenWidth);
+  // }
   //#endregion
 }

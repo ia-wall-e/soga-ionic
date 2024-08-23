@@ -12,7 +12,7 @@ image?:string;
 
   ngOnInit() {
   
-    this.image= this.item.images[1]
+    this.image= this.item.images[0]
     // console.log(this.item.images[0])
   }
 

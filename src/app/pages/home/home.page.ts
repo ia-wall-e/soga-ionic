@@ -5,7 +5,7 @@ import { CatalogService } from '@myServices/catalog.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  styleUrls: ['./home.page.scss','./head-main.scss'],
 })
 export class HomePage implements OnInit {
   params = {} as any;

@@ -1,0 +1,44 @@
+@import "../../../assets/sass/mixin";
+.head-main-area {
+    // background:red;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  row-gap: 1.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  .segment-section {
+    width: 50%;
+    ion-segment-button.md {
+      --color: #000;
+    }
+    ion-label {
+      text-transform: none;
+      @include font-standar($fw: bold);
+      text-align: left;
+    }
+  }
+  .search-section {
+    // background:rgb(124, 124, 124);
+    width:100%;
+    // display: grid;
+    // grid-template-columns:auto auto auto ;
+    display:flex;
+    flex-direction: flex-start;
+    justify-content: space-evenly;
+    align-items: center;
+    ion-avatar{
+        height:3rem;
+        width:3rem;
+        margin-right:0.5rem;
+    }
+    app-search{
+        flex:1;
+        width:100%;
+        margin-right:0.5rem;
+    }
+    .box-button{
+        display:flex;
+    }
+  }
+}
