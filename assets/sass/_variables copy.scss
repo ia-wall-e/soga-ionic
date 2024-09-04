@@ -1,0 +1,88 @@
+:root{
+   /***Colores Base***/
+   --ion-color-primary: rgb(0, 84, 233);
+   --ion-color-warning: rgb(236, 91, 98);
+   --gray-hard: rgb(146, 146, 146);
+   --gray-medium: rgb(199, 199, 199);
+   --gray-soft: rgb(218, 221, 225);
+   --gray-tiny: rgb(232, 234, 237);
+   --white: white;
+   // --black: rgb(77, 77, 77);
+   --black: rgb(50, 50, 50);
+   --black:rgb(34,37,41);
+  /*** Background ***/
+  --ion-background-color: rgb(255, 255, 255);
+  --ion-background-color-step-150: rgb(236, 236, 236);
+  --ion-background-color-step-250: white;
+  /*===Componentes==*/
+  /*inputs*/
+  --input-label: rgb(131, 142, 157);
+  --input-solid-bd: rgba(241, 244, 246);
+  --input-solid-bg: rgba(241, 244, 246);
+  --input-line-bd: rgb(131, 142, 157);
+  /*Fonts*/
+  --font-white: white;
+  --font-black: black;
+  --font-color1: var(--black);
+  --font-color2: var(--gray-hard);
+  --font-color3: var(--gray-medium);
+  --font-color4: var(--gray-soft);
+  --font-size-m: 0.85rem;
+  --font-size-l: 0.95rem;
+  --font-size-xl: 1rem;
+  --text-black-static:rgb(50, 50, 50);
+  /*Buttons*/
+  --button-color1: var(--black);
+  --button-color2: var(--gray-hard);
+  --button-color3: var(--gray-medium);
+  --button-color4: var(--gray-soft);
+  --button-color5: var(--gray-tiny);
+  /**/
+  --button-font-sz-m: var(--font-size-m);
+  --button-font-sz-l: var(--font-size-l);
+  --button-solid-second-bg: rgb(241, 244, 246);
+  --button-solid-second-cl: var(--black);
+  --button-radius: 30px;
+  /*Box-Shadow*/
+  --box-shadow-i: rgba(0, 0, 0, 0.24) 0px 3px 8px; //5
+  /*Radius*/
+  --border-radius-i: 20px;
+  --border-radius-ii: 30px;
+  /*Icon*/
+  --icon-color: var(--black);
+  /*===type===*/
+  /*container*/
+  --type-ctn-gap-column:10px;
+  /*head*/
+  --type-head-ft-cl-ii: rgb(126, 137, 153);
+  --type-head-margin-bottom: 0;
+  --type-head-border-cl: 1px solid rgb(224, 224, 224);
+  /*header*/
+  --type-header-margin-bottom: 1.5rem;
+  /*modulo*/
+  --type-modulo-color-i:white;
+  --type-modulo-color-ii:white; /*form*/
+  --type-modulo-bg-i:rgb(240,243,245);
+  --type-modulo-rd: var(--border-radius-ii);
+  --type-modulo-padding: 1.25rem; //20px
+  // --type-modulo-mxwidth: 67.5rem; //1080
+  --type-modulo-mxwidth: 100%; //1080
+  --type-modulo-footer-pdd: 0; //30px
+  --type-modulo-width-s: 26.25rem; //420px formulario
+  --type-modulo-shadow: var(--box-shadow-i);
+  --type-modulo-margin-bottom:0;
+  /*formulario*/
+  --type-form-mxwidth:18.75rem; //300px
+  --type-form-separator-cl:var(--gray-medium);
+  --type-form-footer-margin: 1rem 0 0 0;
+  --type-form-footer-color: var(--black);
+  --type-form-footer-ft-sz: 0.85rem;
+  /*Search*/
+  --type-search-hg:3rem;
+  /*separator*/
+  --type-separator-color:rgb(226, 226, 226);
+
+  /*medidas*/
+  --width-standar:98%;
+  --width-taste:800px;
+}

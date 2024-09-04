@@ -1,0 +1,101 @@
+.search-component {
+  position: relative;
+  width: 100%;
+  .input-search-section {
+    position: relative;
+    height: 3rem;
+    width: 100%;
+    z-index: 2;
+    > .input-search {
+      @include font-standar($color: rgb(77, 77, 77), $fs: 1rem, $fw: 500);
+      outline: none;
+      height: 100%;
+      width: 100%;
+      border: none;
+      background: var(--search-bg);
+      border-radius: var(--search-border-radius);
+      padding: var(--search-pdd);
+      &:focus {
+        box-shadow: none;
+      }
+      &::placeholder {
+        color: var(--search-placeholder-cl);
+      }
+    }
+    > .button-search {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 0 30px 30px 0;
+    }
+  }
+
+  .items-request-section {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    padding-top: 3.625rem;
+    background: white;
+    border-radius: var(--search-border-radius);
+    box-shadow: var(--search-bx-shadow);
+    overflow: hidden;
+    .item {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      .icon {
+        padding: var(--base-pdd);
+      }
+      .text {
+        flex: 1;
+        @include font-standar($fs: var(--base-ft-sz-m));
+      }
+    }
+  }
+}
+.search-component {
+  &.active {
+    position: absolute;
+    width: var(--base-width-m);
+    .input-search-section {
+      .input-search {
+        background: white;
+      }
+    }
+    .items-request-section {
+      display: flex;
+    }
+  }
+}
+//!NOTA: responsive en el 720px
+@include mediaquery(var(--base-width-max)) {
+  .search-component {
+    &.active {
+      //
+      margin: 0;
+      //
+      background: white;
+      position: fixed;
+      top: 0;
+      z-index: 5;
+      height: 100vh;
+      border-radius: 0;
+      .items-request-section {
+        flex: 1;
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+  }
+}

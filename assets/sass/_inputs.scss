@@ -1,0 +1,125 @@
+//#contenedores
+.input-component {
+  position: relative;
+  background: none;
+  width: 100%;
+  max-width: 18.75rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  input {
+    @include font-input();
+    outline: none;
+    background:var(--input-solid-bg);
+    border: 2px solid transparent;
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 3.5rem;
+    min-height: 3.5rem;
+    max-height: 3.5rem;
+    padding: 13px 12px 10px 10px;
+    text-align: center;
+    &:focus ~ {
+      label {
+        color:var(--ion-color-primary);
+        z-index: 3;
+      }
+    }
+  }
+  input::placeholder {
+    color: var(--input-label);
+    font-size: 0.85rem;
+    font-weight: light;
+    text-align: left;
+  }
+  label {
+    // @include font-primary($color: var(--input-label), $fw: 500);
+    @include font-input($fw:400,$color:var(--input-label));
+    position: absolute;
+    z-index: 4;
+    // left: 1rem;
+    transition: top 0.3s ease;
+  }
+  .button-io {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    bottom: 0;
+    right: 0.3em;
+    margin: auto;
+  }
+}
+//#atributos
+.input-component {
+  &.shape {
+    &-round {
+      border-radius: 30px;
+      input {
+        border-radius: 30px;
+        border-color:var(--input-solid-bd);
+        &:focus{
+          border-color:var(--ion-color-primary);
+        }
+      }
+      label {
+        left: 1.7rem;
+      }
+    }
+    &-line {
+      input {
+        background:none;
+        // background:gray;
+        border-bottom: 2px solid var(--input-line-bd);
+        padding: 16px 12px 3px 10px;
+        &:focus {
+          outline: none;
+          border-bottom: 2px solid var(--ion-color-primary);
+        }
+      }
+      label {
+        // background:red;
+        left: 0;
+        top: 0;
+        // bottom:unset;
+      }
+    }
+    &-square {
+      border-radius: 8px;
+      input {
+        border: 1px solid var(--input-border);
+        border-radius: 8px;
+        &:focus {
+          border: 2px solid var(--ion-color-primary);
+          box-shadow: none;
+          outline: none;
+        }
+      }
+    }
+  }
+  &.shadow {
+    input {
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    }
+  }
+  &.text {
+    &-center {
+      input {
+        text-align: left;
+      }
+    }
+    &-big {
+      input {
+        font-size: 1.4rem;
+      }
+    }
+  }
+  &.label-static {
+    label {
+      top: 3px;
+      font-size: 0.8rem;
+    }
+  }
+}
+

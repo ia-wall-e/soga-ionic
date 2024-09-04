@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./assets/sass/shared.css">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soga UI</title>
+    
+</head>
+<body>
+    <div class="container" id="mod1"></div>
+    <div class="container" id="mod2"></div>
+    <div class="container" id="mod3"></div>
+    <script>
+        // Función para cargar el contenido del archivo HTML externo
+        async function cargarContenido() {
+            try {
+                // Usamos la API Fetch para obtener el contenido del archivo HTML
+                const mod1 = await fetch('./components-complex/modulos/md-card-mini.html');
+                if (!mod1.ok) {
+                    throw new Error('Error al cargar el contenido');
+                }
+                const mod2 = await fetch('./components-complex/modulos/md-card-light.html');
+                if (!mod2.ok) {
+                    throw new Error('Error al cargar el contenido');
+                }
+                const mod3 = await fetch('./components-complex/modulos/md-card-light.html');
+                if (!mod3.ok) {
+                    throw new Error('Error al cargar el contenido');
+                }
+                // Insertamos el contenido en el elemento con id "contenido-externo"
+                const contenido = await mod1.text();
+                const contenido2 = await mod2.text();
+                const contenido3 = await mod3.text();
+                document.getElementById('mod1').innerHTML = contenido;
+                document.getElementById('mod2').innerHTML = contenido2;
+                document.getElementById('mod3').innerHTML = contenido3;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+        window.onload = cargarContenido;
+    </script>
+     
+</body>
+</html>

@@ -1,0 +1,239 @@
+//#region -----variables-----
+$pdd-img: 10px;
+//#endregion
+//#region -----Extends-----
+%fill {
+  &.fill {
+    &-solid {
+      &-main {
+        background: var(--ion-color-primary);
+        color: var(--white-regular);
+      }
+      &-second {
+        background: var(--btn-solid-second-bg);
+        color: var(--btn-solid-second-cl);
+      }
+      &-warning {
+        background: var(--ion-color-warning);
+        color: var(--white-regular);
+      }
+      &-black {
+        background: var(--black-regular);
+        color: var(--white-regular);
+      }
+    }
+    &-outline {
+      &-main {
+        background: none;
+        color: var(--ion-color-primary);
+        border: 2px solid var(--ion-color-primary);
+      }
+      &-black {
+        background: none;
+        color: var(--black-regular);
+        border: 2px solid var(--black-regular);
+      }
+      &-warning {
+        background: none;
+        color: var(--ion-color-warning);
+        border: 2px solid var(--ion-color-warning);
+      }
+    }
+    &-clear {
+      background: none;
+      color: var(--btn-color-black);
+    }
+  }
+}
+%shape {
+  &.shape {
+    &-round {
+      border-radius: var(--btn-shape-round);
+    }
+    &-square {
+      border-radius: var(--btn-shape-square);
+    }
+  }
+}
+%color {
+  &.color {
+    &-main {
+      color: var(--ion-color-primary);
+    }
+    &-black {
+      color: var(--btn-color-black);
+    }
+    &-gray {
+      color: var(--btn-color-gray);
+    }
+  }
+}
+//#endregion
+//#region -----btn BUTTON-----
+//#structure
+.btn-io {
+  position: relative;
+  // text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: unset;
+  @include font-button();
+  border: none;
+  padding: var(--btn-pdd);
+  // width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+  }
+  span {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .text,
+  p {
+    // background: #f7b7b7;
+    @include txt-ellipsis;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+//#Attribute
+.btn-io {
+  @extend %fill;
+  @extend %shape;
+  @extend %color;
+  &.type {
+    &-signup {
+      background-color: rgb(252, 250, 166);
+      padding: var(--base-pdd-s);
+      > .text {
+        background: rgb(255, 187, 0);
+        @include center;
+        border-radius: var(--btn-shape-round);
+        font-weight: bold;
+        padding: 0 var(--base-pdd);
+      }
+      span,
+      img {
+        background: rgb(226, 226, 226);
+        @include center;
+        border-radius: 100%;
+        margin-left: var(--base-pdd-s);
+        width: calc(var(--btn-size-l) - $pdd-img);
+        height: calc(var(--btn-size-l) - $pdd-img);
+      }
+    }
+  }
+  &.size {
+    &-xl {
+      height: min(var(--btn-size-xl), var(--btn-size-xl));
+      font-size: var(--btn-ft-sz-m);
+      span {
+        font-size: var(--btn-icon-sz-xl);
+      }
+      img {
+        width: calc(var(--btn-size-l) - $pdd-img);
+        height: calc(var(--btn-size-l) - $pdd-img);
+      }
+    }
+    &-l {
+      height: min(var(--btn-size-l), var(--btn-size-l));
+      font-size: var(--btn-ft-sz-m);
+      span {
+        font-size: var(--btn-icon-sz-l);
+      }
+      img {
+        width: calc(var(--btn-size-l) - $pdd-img);
+        height: calc(var(--btn-size-l) - $pdd-img);
+      }
+    }
+    &-m {
+      height: min(var(--btn-size-m), var(--btn-size-m));
+      font-size: var(--btn-ft-sz-xs);
+      span {
+        font-size: var(--btn-icon-sz-m);
+      }
+    }
+    &-s {
+      height: min(var(--btn-size-s), var(--btn-size-s));
+      font-size: var(--btn-ft-sz-s);
+      span {
+        font-size: var(--btn-icon-sz-s);
+      }
+    }
+  }
+  &.expand {
+    &-full {
+      width: 100%;
+    }
+    &-regular {
+      width: min(18.75rem, 18.75rem);
+    }
+  }
+  &.add-icon {
+    &-left {
+      .text,
+      p {
+        margin-left: var(--btn-margin);
+      }
+    }
+    &-right {
+      .text,
+      p {
+        margin-right: var(--btn-margin);
+      }
+    }
+  }
+}
+//#endregion
+//#region -----btn ICON-----
+//#Structure
+.btn-icon {
+  cursor: pointer;
+  border: none;
+  padding: unset;
+  height: min(var(--btn-size-l), var(--btn-size-l));
+  width: min(var(--btn-size-l), var(--btn-size-l));
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+//#Attribute
+.btn-icon {
+  @extend %fill;
+  @extend %shape;
+  @extend %color;
+  &.size {
+    &-xl {
+      height: min(var(--btn-size-xl), var(--btn-size-xl));
+      width: min(var(--btn-size-xl), var(--btn-size-xl));
+      span {
+        font-size: 2rem;
+      }
+    }
+    &-l {
+      height: min(var(--btn-size-l), var(--btn-size-l));
+      width: min(var(--btn-size-l), var(--btn-size-l));
+    }
+    &-m {
+      height: min(var(--btn-size-m), var(--btn-size-m));
+      width: min(var(--btn-size-m), var(--btn-size-m));
+    }
+    &-s {
+      height: min(var(--btn-size-s), var(--btn-size-s));
+      width: min(var(--btn-size-s), var(--btn-size-s));
+    }
+  }
+}
+//#endregion

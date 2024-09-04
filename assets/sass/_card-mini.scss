@@ -1,0 +1,76 @@
+.card-mini{
+    height:var(--card-mini-height);
+    width:var(--card-mini-width);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--card-mini-bg);
+    border-radius: var( --card-mini-bd-radius);
+    box-shadow: var(--card-mini-bx-shadow);
+    cursor: pointer;
+    &:hover {
+      box-shadow:var(--card-mini-bx-shadow-hv);
+    }
+    .img-section-card {
+      border-radius: var(--card-mini-img-section-pdd);
+      position: relative;
+      width: 100%;
+      height: 10rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        border: none;
+        width: 100%;
+        height: 100%;
+        padding: var(--base-pdd-s);
+        object-fit: cover;
+        border-radius: var(--base-radius-i);
+      }
+    }
+    .info-section-card {
+      flex: 1;
+      width: 100%;
+      overflow: hidden;
+      padding: 2px 5px 0 7px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-radius:var(--card-mini-info-section-pdd);
+      .bx-name {
+
+        height:var(--card-mini-bxname-hg);
+        padding-top: var( --card-mini-bxname-pdd);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h5 {
+          all: unset;
+          @include font-standar($color:var(--black-regular));
+          width: 100%;
+          overflow: hidden;
+        }
+      }
+      .bx-price {
+        // background:violet;
+        padding:var(--card-mini-bxprice-pdd);
+        height: var(--card-mini-bxprice-hg);
+        display: flex;
+        align-items: center;
+        .price {
+          all: unset;
+          @include font-standar($fs:var(--base-ft-sz-m),$color:var(--black-regular-static));
+        }
+        .oldprice {
+          @include font-standar($fs:var(--base-ft-sz-xxs),$color:var(--gray-old));
+          text-decoration-line: line-through;
+          padding-left:var(--base-pdd-s);
+        }
+      }
+    }
+  }
+  
+
+  

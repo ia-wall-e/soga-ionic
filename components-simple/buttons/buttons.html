@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Buttons</title>
+        <link rel="stylesheet" href="../../assets/sass/shared.css">
+        <!--icons -->
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    </head>
+    <style>
+.wrapper-buttons{
+    /* background:violet; */
+    padding:2rem;
+    width:100;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.wrapper-buttons .title{
+    /* background:red; */
+    width:100;
+    /* text-align: left; */
+    /* margin-bottom:1rem; */
+}
+.wrapper-buttons .title label{
+/* background:rgb(21, 255, 0); */
+  font-size:0.8rem;
+  text-decoration: underline;
+font-family:'ubuntu','sans-serif';
+font-weight:bold;
+color:rgb(190, 190, 190);
+}
+.wrapper-buttons .ctn-buttons{
+    /* background:yellow;  */
+    display:flex;
+    align-items: center;
+    width:100%;
+
+}
+.wrapper-buttons .ctn-buttons button{
+   margin: 0 0.625rem;
+
+}
+</style>
+    <body>
+        <!-- # signup -->
+        <div class="wrapper-buttons">
+            <div class="ctn-buttons">
+                <button class="btn-io type-signup  shape-round size-m">
+                    <p class="text">Registrate</p>
+                    <span class="material-symbols-rounded">
+                        account_circle
+                    </span>
+                </button>
+                <button class="btn-io type-signup  shape-round size-l ">
+                    <p class="text">Registrate</p>
+                    <img src="../../assets/img/utils/google-thumbnail.png" alt>
+                </button>
+            </div>
+        </div>
+        <!-- # solids-->
+        <div class="wrapper-buttons">
+            <div class="ctn-buttons">
+                <button
+                    class="btn-io  fill-solid-main shape-square size-xl ">
+                    Text De Prueba
+                </button>
+                <button
+                    class="btn-io  fill-solid-warning shape-square size-xl ">
+                    Text De Prueba
+                </button>
+                <button
+                    class="btn-io fill-solid-black shape-round size-l ">
+                    Text De Prueba
+                </button>
+            </div>
+        </div>
+        <!-- # -->
+        <div class="wrapper-buttons">
+            <div class="ctn-buttons">
+                <button class="btn-io fill-solid-second shape-round">Text De
+                    Prueba</button>
+            </div>
+        </div>
+        <!-- # outline-->
+        <div class="wrapper-buttons">
+            <div class="ctn-buttons">
+                <button class="btn-io fill-outline-main">Text De Prueba</button>
+                <button class="btn-io fill-outline-black">Text De
+                    Prueba</button>
+                <button class="btn-io fill-outline-warning">Text De
+                    Prueba</button>
+            </div>
+        </div>
+        <!-- # -->
+        <div class="wrapper-buttons">
+            <div class="ctn-buttons">
+                <button class="btn-io fill-clear">Text De Prueba</button>
+                <button class="btn-io fill-clear color-main">Text De
+                    Prueba</button>
+                <button class="btn-io fill-clear color-gray">Text De
+                    Prueba</button>
+            </div>
+        </div>
+        <!-- # icon-->
+        <div class="wrapper-buttons">
+            <div class="ctn-buttons">
+                <button
+                    class="btn-io fill-solid-main shape-round size-m icon-add-left">
+                    <span class="material-symbols-rounded">
+                        shopping_bag
+                    </span>
+                    <p class="text">size medium</p>
+                </button>
+                <button
+                    class="btn-io fill-solid-main shape-round size-l icon-add-left">
+                    <span class="material-symbols-rounded">
+                        shopping_bag
+                    </span>
+                    <p class="text">size large</p>
+                </button>
+                <button
+                    class="btn-io fill-solid-second shape-round size-xl icon-add-left">
+                    <span class="material-symbols-rounded">
+                        shopping_bag
+                    </span>
+                    <p class="text">size-xl</p>
+                </button>
+                <button
+                    class="btn-io fill-clear shape-round size-s icon-add-left">
+                    <span class="material-symbols-rounded">
+                        shopping_bag
+                    </span>
+                    <p class="text">size-small</p>
+                </button>
+                <button
+                    class="btn-io fill-outline-main shape-round size-s icon-add-left">
+                    <span class="material-symbols-rounded">
+                        shopping_bag
+                    </span>
+                    <p class="text">Bolsa de compras</p>
+                </button>
+            </div>
+        </div>
+        <!-- # img-->
+        <div class="wrapper-buttons">
+            <div class="ctn-buttons">
+                <button
+                    class="btn-io fill-solid-second size-l shape-round icon-add-left ">
+                    <img src="../../assets/img/entry/google-logo.jpg"
+                        alt="logo google">
+                    <p class="text">size-large</p>
+                </button>
+                <button
+                    class="btn-io fill-solid-main size-xl shape-round icon-add-left ">
+                    <img src="../../assets/img/entry/google-logo.jpg" alt>
+                    <p class="text">size xl</p>
+                </button>
+            </div>
+        </div>
+        <!-- # icon-->
+        <div class="wrapper-buttons">
+            <div class="ctn-buttons" style="flex-direction: column;">
+                <button
+                    class="btn-io fill-solid-main size-l  shape-round expand-regular" style="margin-bottom:0.5rem;">
+                  size medium
+                </button>
+                <button
+                    class="btn-io fill-solid-main size-l  shape-round icon-add-left">
+                    <span class="material-symbols-rounded">
+                        shopping_bag
+                    </span>
+                    <p class="text">size large</p>
+                </button>
+            </div>
+        </div>
+        <!-- # -->
+        <div class="wrapper-buttons">
+            <div class="ctn-buttons">
+                <button class="btn-icon fill-solid-second size-s">
+                    <span class="material-symbols-rounded">
+                        chevron_right
+                    </span>
+                </button>
+                <button class="btn-icon fill-solid-main size-xl">
+                    <span class="material-symbols-rounded">
+                        arrow_forward
+                    </span>
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

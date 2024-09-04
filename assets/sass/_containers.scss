@@ -1,0 +1,96 @@
+.container {
+  display: grid;
+  width: 100%;
+}
+//#Attributes
+.container {
+  &.content {
+    &-full {
+      height: 100vh;
+    }
+  }
+}
+//#areas
+.container {
+  &.area{
+    &-center {
+      // background:yellowgreen;
+      grid-template-areas: "sideleft main sideright";
+      grid-template-columns: var(--ctn-home-grid-columns);
+      grid-template-rows: auto;
+      row-gap: var(--ctn-gap-row-m);
+      column-gap: 0.625rem;
+    }
+    &-left{
+      
+      margin:auto;
+      grid-template-areas: "main sideright";
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: auto;
+      row-gap: var(--ctn-gap-row-m);
+      column-gap: 0.625rem;
+    }
+    //#Areas
+    .side-left,
+    .main,
+    .side-right {
+      display: grid; /* Convertir en una cuadrícula interna */
+      row-gap: var(--ctn-gap-row-m);
+    }
+  
+    .main {
+      // background:yellow;
+      grid-area: main;
+      width: var(--width-standar);
+      width: 100%;
+    }
+    .side-left {
+      // background: violet;
+      grid-area: sideleft;
+      // min-width: 0;
+    }
+    .side-right {
+      // background: red;
+      grid-area: sideright;
+      // min-width: 0;
+      // box-sizing: border-box;
+    }
+    //#test-eliminar
+    .test {
+      width: 100%;
+      // background:yellowgreen;
+    }
+  }
+  &.align{
+    &-center{
+      justify-content: center; /* Centra horizontalmente */
+      align-content: center;   /* Centra verticalmente */
+    }
+  }
+}
+
+//**Entry - el codigo se tralado al scss de componente  entryPage
+
+//**page OTP
+// .wrapper-otp {
+//   display: flex;
+//   justify-content: center;
+//   max-width: 100%;
+//   flex: 1;
+//   .otp {
+//     @include font-standar();
+//     font-size: 2rem;
+//     color: var(--text-black);
+//     width: 4rem;
+//     height: 4rem;
+//     text-align: center;
+//     outline: none;
+//     padding: 2rem 1rem;
+//     margin: 0 0.3rem;
+//     border-radius: 8px;
+//     border: 2px solid var(--input-border);
+//     &:focus {
+//       border-color: var(--ion-color-primary);
+//     }
+//   }
+// }

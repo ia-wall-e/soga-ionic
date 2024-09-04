@@ -1,0 +1,83 @@
+//*** ***//
+.ng-touched.ng-invalid:is(.input-component.shape-round input),
+.ng-dirty.ng-invalid:is(.input-component.shape-round input) {
+  border-color: var(--ion-color-warning);
+  box-shadow: none;
+  &:focus {
+    border-color: var(--ion-color-warning);
+  }
+  &:focus ~ label {
+    color: var(--input-label);
+  }
+}
+.ng-touched.ng-valid:is(.input-component.shape-round input),
+.ng-dirty.ng-valid:is(.input-component.shape-round input) {
+  border-color: var(--input-border);
+  box-shadow: none;
+  &:focus {
+    border-color: var(--input-border);
+  }
+  &:focus ~ label {
+    color: var(--input-label);
+  }
+}
+//*** ***//
+.ng-touched.ng-invalid:is(.input-component.shape-line input),
+.ng-dirty.ng-invalid:is(.input-component.shape-line input) {
+  // border-bottom: 1px solid var(--ion-color-warning);
+  border-bottom-color:var(--ion-color-warning);
+  box-shadow: none;
+  &:focus {
+    // border-bottom: 1px solid var(--ion-color-warning);
+    border-bottom-color:var(--ion-color-warning);
+  }
+  &:focus ~ label {
+    color: var(--input-label);
+  }
+}
+//***Error-Container ***//
+.input-component.shape-round {
+  .error-control {
+    position: absolute;
+    z-index: 5;
+    top: calc(100% + 3px);
+    left: 0;
+    width: 100%;
+    padding: 0 1.5rem 0;
+    p {
+      @include font-standar();
+      color: var(--ion-color-warning);
+      font-size: 0.75rem;
+      text-align: left;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+.input-component.shape-line {
+  .error-control {
+    // background:violet;
+    position: absolute;
+    z-index: 5;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    padding: 0;
+    p {
+      @include font-standar();
+      color: var(--ion-color-warning);
+      font-size: 0.75rem;
+      text-align: left;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+.isInvalid {
+  margin-bottom: 0.9rem;
+}
+//*** ***//

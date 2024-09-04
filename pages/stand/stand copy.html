@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stand producto</title>
+    <link rel="stylesheet" href="../../assets/sass/shared.css">
+</head>
+<body>
+    <!-- #component -->
+    <div class="stand-component">
+        <div class="description-section">
+            <!-- #imagen -->
+            <div class="image" *ngIf="product.image; else noImage">
+                <a *ngIf="product.logo">
+                    <img src="{{product.logo}}" class="logo" alt="Logo" />
+                </a>
+                <img src="{{ product.image }}" alt="Product image" />
+            </div>
+            <ng-template #noImage>
+                <div class="image">
+                    <ion-skeleton-text [animated]="true" style="width: 100%;height: 100%;"></ion-skeleton-text>
+                </div>
+            </ng-template>
+            <!--#data-->
+            <div class="data" *ngIf="product; else noData">
+                <div class="info">
+                    <h3>{{ product.title | titlecase }}</h3>
+                    <p>{{ product.description }}</p>
+                </div>
+                <div class="price">
+                    <div class="price-old" *ngIf="product.promo">
+                        <h4>{{8500 | currency:"USD"}}</h4>
+                    </div>
+                    <div class="price-current">
+                        <!-- <span>{{ product.price | currency: 'EUR' : 'symbol-narrow' : '4.0-2'}}</span><sup>-20%</sup> -->
+                        <span>${{ product.price}}</span><sup>-20%</sup>
+                    </div>
+                </div>
+            </div>
+            <ng-template #noData>
+                <div class="data" style="border:none;">
+                    <div class="info">
+                        <ion-skeleton-text [animated]="true" style="width: 100%;height: 1.5rem;"></ion-skeleton-text>
+                        <ion-skeleton-text [animated]="true" style="width: 100%;height: 0.9rem;"></ion-skeleton-text>
+                        <ion-skeleton-text [animated]="true" style="width: 100%;height: 0.9rem;"></ion-skeleton-text>
+                        <ion-skeleton-text [animated]="true" style="width: 100%;height: 0.9rem;"></ion-skeleton-text>
+    
+                    </div>
+                    <div class="price">
+                        <div class="price-current">
+                            <ion-skeleton-text [animated]="true" style="width: 30%;height: 2rem"></ion-skeleton-text>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+        <div class="stand-section">
+            <div class="capsule-title">
+                <div class="title-section">
+                    <h5 class="title">Opciones de Compra</h5>
+                </div>
+            </div>
+            <!-- <ng-container *ngIf="product.addOns.length > 0"> -->
+            <!-- <app-select-standard [optItem]="product.addOns"></app-select-standard> -->
+            <!-- </ng-container> -->
+            <ng-container *ngIf="product.type!=='food'">
+                <app-select-size></app-select-size>
+                <!-- <app-select-color></app-select-color> -->
+                <!-- <app-select-standard></app-select-standard> -->
+            </ng-container>
+        </div>
+        <div class="stand-section">
+            <div class="capsule-title">
+                <div class="title-section">
+                    <h5 class="title">Caracteristicas del producto</h5>
+                </div>
+            </div>
+            <ion-grid>
+                <ion-row class="row-feature">
+                  <ion-col class="feature">Marca</ion-col>
+                  <ion-col class="value-feature">25</ion-col>
+                </ion-row>
+                <ion-row class="row-feature">
+                  <ion-col class="feature">Temporada</ion-col>
+                  <ion-col class="value-feature">30</ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        <!-- <ion-fab  slot="fixed" vertical="bottom" horizontal="end">
+            <ion-fab-button size="small">
+              <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+          </ion-fab> -->
+        <!-- <ion-fab  slot="fixed" vertical="bottom" horizontal="start">
+            <ion-chip color="primary">
+                <ion-icon name="pin" color="white"></ion-icon>
+                <ion-label>Compra rapida</ion-label>
+              </ion-chip>
+          </ion-fab> -->
+        <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+            <ion-fab-button size="small">
+                <ion-icon name="add"></ion-icon>
+            </ion-fab-button>
+            <!-- <ion-fab-list side="start">
+                <ion-chip color="primary">
+                    <ion-label>Comprar</ion-label>
+                </ion-chip>
+                <ion-chip color="primary">
+                    <ion-label>Carrito</ion-label>
+                </ion-chip>
+            </ion-fab-list> -->
+            <ion-fab-list side="top">
+                <ion-fab-button size="large">
+                    <ion-icon name="journal"></ion-icon>
+                </ion-fab-button>
+                <ion-fab-button (click)="addCart()">
+                    <ion-icon name="bag-handle"></ion-icon>
+                </ion-fab-button>
+            </ion-fab-list>
+        </ion-fab>
+    </div>
+    
+     <!-- #end -->
+</body>
+</html>

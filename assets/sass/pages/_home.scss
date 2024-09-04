@@ -1,0 +1,116 @@
+@import '../../../assets/sass/mixin';
+.container {
+  &.home-center {
+    // background:yellowgreen;
+    grid-template-areas:"sideleft main sideright";
+    grid-template-columns: var( --ctn-home-grid-columns);
+    grid-template-rows: auto;
+    // column-gap: var(--type-ctn-gap-column);
+    row-gap:var(--ctn-gap-row-m); 
+    column-gap: 0.625rem;
+  }
+  //#Areas
+  .side-left, .main, .side-right {
+    display: grid; /* Convertir en una cuadrícula interna */
+    row-gap:var(--ctn-gap-row-m);
+  }
+  
+  .main {
+    // background:yellow;
+    grid-area: main;
+    width:var(--width-standar);
+    width:100%;
+   
+  }
+  .side-left {
+    // background: violet;
+    grid-area: sideleft;
+    // min-width: 0;
+  }
+  .side-right {
+    // background: red;
+    grid-area: sideright;
+    // min-width: 0;
+    // box-sizing: border-box;
+  }
+  //#test-eliminar
+  .test{
+    width:100%;
+    // background:yellowgreen;
+  }
+}
+//!responsive
+@media (max-width: 720px) {
+ .container{
+  &.home-center {
+    grid-template-areas: "main" "sideleft"  "sideright";
+    grid-template-columns:100%;
+    grid-template-rows: auto;
+  }
+ } 
+}
+
+//#region Header
+#header{
+//  background-color: aquamarine;
+  display:grid;
+  grid-template-areas: "sideleft_ main_ sideright_";
+  grid-template-columns: var(--header-grid-columns);
+  grid-template-rows: auto;
+  padding:0.625rem 0;
+  margin-bottom:0.625rem;
+  column-gap: 0.625rem;
+  // box-sizing: border-box;
+  .main-header{
+    // background: rgb(255, 195, 195);
+    grid-area:main_;
+    width:var(--width-standar);
+    width:100%;
+  }
+  .side-left-header{
+    // background: rgb(197, 255, 189);
+    grid-area:sideleft_;
+  }
+  .side-right-header{
+    // background: rgb(185, 245, 255);
+    grid-area:sideright_;
+  }
+  .options-section_ {
+    width:content;
+    // background:red;
+    // padding:0.625rem 0;
+    // flex:1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    button {
+      margin-left: 0.625rem;
+    }
+  }
+}
+//#endregion
+//#region -----head-search-component-----
+//#structure
+.head-search-component{
+  box-sizing: border-box;
+  // background:violet;
+  display:flex;
+  height:min-content;
+  // padding:0.625rem 0;
+  .avatar-component{
+    // background:red;
+    // width:3rem;
+   height:content;
+    margin-right:0.625rem;
+  }
+  #search{
+    // max-width:100%;
+  }
+  .options-section{
+    display:flex;
+    button{
+      margin-left:0.625rem;
+    }
+  }
+}
+//#endregion

@@ -1,0 +1,95 @@
+@import "./fonts";
+$font-standar: "poppins";
+$font-button: $font-standar;
+$font-input: $font-standar;
+
+@mixin font-title(
+  $color: var(--black-regular),
+  $fw: 800,
+  $fs: "",
+  $family: var(--mx-title-family-select)
+) {
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+  @if $family== main {
+    font-family: var(--mx-title-family-main);
+  } @else {
+    font-family: var(--mx-title-family-second);
+  }
+}
+@mixin font-standar(
+  $fs: 0.85rem,
+  $fw: 400,
+  $color: var(--black-regular),
+  $family: var(--mx-standar-family-select)
+) {
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+  @if $family== main {
+    font-family: var(--mx-standar-family-main);
+  } @else {
+    font-family: var(--mx-standar-family-second);
+  }
+}
+@mixin font-button(
+  $fs: 1rem,
+  $fw: 400,
+  $color: var(--black-regular)
+) {
+  font-family: $font-button, sans-serif;
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+}
+@mixin font-input(
+  $fs: 1rem,
+  $fw: 500,
+  $color: var(--black-regular)
+) {
+  font-family: $font-input, sans-serif;
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+}
+
+@mixin txt-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin center() {
+  // background:red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin mediaquery($size) {
+  @media screen and (max-width:#{$size}) {
+    @content;
+  }
+}
+
+@mixin separator() {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  .line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--type-separator-color);
+  }
+  .circle {
+    margin: 0 15px;
+    width: 20px;
+    height: 15px;
+    border-radius: 50%;
+    color: var(--type-separator-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
