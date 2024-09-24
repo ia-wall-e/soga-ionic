@@ -1,8 +1,12 @@
+//#variables
+.modulo{
+--mod-base-pdd:var(--pdd-m);
+--mod-type-form-wd:min(95%,28.125rem);
+--mod-type-plain-pdd: 0.625rem 0 0 0;
+--mod-type-card-pdd: 1.25rem 0.625rem 1.25rem;
+
+}
 .modulo {
-  //
-  // width: var(--width-taste);
-  // background:rgb(182, 182, 182);
-  //
   box-sizing: border-box;
   margin: unset;
   width: 100%;
@@ -11,7 +15,6 @@
   display: flex;
   flex-direction: column;
   .head-modulo {
-    // background: rgb(252, 165, 165);
     width: 100%;
     ion-toolbar {
       --background: none;
@@ -28,33 +31,31 @@
     padding: 0.625rem;
   }
   .separator-modulo {
-   @include separator();
+    @include separator();
   }
 }
 //#atributos
 .modulo {
-  &.type{
+  &.type {
     &-form {
-      background:rgb(255, 255, 255);
+      // background:red;
       box-sizing: border-box;
-      height:95vh;
-      width: 95%;
-      max-width:28.125rem;
-      // max-width: 67.5rem;
-      margin:auto;
+      height: 95vh;
+      // width: 95%;
+      // max-width: 28.125rem;
+      width:var(--mod-type-form-wd);
+      margin: auto;
     }
-    &-clear {
-      .separator-modulo{
-        padding: 0.625rem 0 0 0;
+    &-plain {
+      .separator-modulo {
+        padding:var(--mod-plain-pdd) ;
       }
     }
-    &-capsule {
-      background: var(--type-modulo-bg-i);
-      padding: 1.25rem 0.625rem 1.25rem;
-      // margin: 0.625rem 0;
-      border-radius: var(--type-modulo-rd);
+    &-card {
+      padding:var(--mod-type-card-pdd) ;
+      border-radius: var(--modulo-radius);
       .head-modulo {
-        padding: 0 0.625rem;
+        padding: 0 var(--mod-base-ppd);
       }
       .separator-modulo {
         display: none;
@@ -62,16 +63,29 @@
     }
   }
   &.shadow {
-    box-shadow: var(--modulo-shadow);
+    box-shadow: var(--shadow-5);
   }
   &.separator {
     .separator-modulo {
       display: flex;
     }
   }
-  &.shape{
-    &-round{
-      border-radius: var(--type-modulo-rd);
+  &.shape {
+    &-round {
+      border-radius: var(--modulo-radius);
+    }
+  }
+  &.fill {
+    &-clear {
+     
+    }
+    &-solid {
+      &-gray {
+        background: var(--modulo-bg-gray);
+      }
+      &-white {
+        background: var(--modulo-bg-white);
+      }
     }
   }
   .flex-one {

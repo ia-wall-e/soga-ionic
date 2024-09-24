@@ -1,7 +1,4 @@
-//#region -----variables-----
-$pdd-img: 10px;
-//#endregion
-//#region -----Extends-----
+//#region --- EXTENDS
 %fill {
   &.fill {
     &-solid {
@@ -41,17 +38,17 @@ $pdd-img: 10px;
     }
     &-clear {
       background: none;
-      color: var(--btn-color-black);
+      color: var(--black-regular);
     }
   }
 }
 %shape {
   &.shape {
     &-round {
-      border-radius: var(--btn-shape-round);
+      border-radius: var(--btn-radius);
     }
     &-square {
-      border-radius: var(--btn-shape-square);
+      border-radius: var(--radius-square);
     }
   }
 }
@@ -61,16 +58,21 @@ $pdd-img: 10px;
       color: var(--ion-color-primary);
     }
     &-black {
-      color: var(--btn-color-black);
+      color: var(--black-regular);
     }
     &-gray {
       color: var(--btn-color-gray);
     }
   }
 }
+%shadow{
+  &.shadow{
+    box-shadow:rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;//6 search;
+  }
+}
 //#endregion
-//#region -----btn BUTTON-----
-//#structure
+//#region --- BUTTON
+//*structure
 .btn-io {
   position: relative;
   // text-align: center;
@@ -107,15 +109,16 @@ $pdd-img: 10px;
     justify-content: center;
   }
 }
-//#Attribute
+//*Attribute
 .btn-io {
   @extend %fill;
   @extend %shape;
   @extend %color;
+  @extend %shadow;
   &.type {
     &-signup {
       background-color: rgb(252, 250, 166);
-      padding: var(--base-pdd-s);
+      padding: var(--pdd-s);
       > .text {
         background: rgb(255, 187, 0);
         @include center;
@@ -128,45 +131,45 @@ $pdd-img: 10px;
         background: rgb(226, 226, 226);
         @include center;
         border-radius: 100%;
-        margin-left: var(--base-pdd-s);
-        width: calc(var(--btn-size-l) - $pdd-img);
-        height: calc(var(--btn-size-l) - $pdd-img);
+        margin-left: var(--pdd-s);
+        width: calc(var(--size-l) - var(--pdd-m));
+        height: calc(var(--size-l) - var(--pdd-m));
       }
     }
   }
   &.size {
     &-xl {
-      height: min(var(--btn-size-xl), var(--btn-size-xl));
-      font-size: var(--btn-ft-sz-m);
+      height: min(var(--size-xl), var(--size-xl));
+      font-size: var(--ft-sz-r);
       span {
         font-size: var(--btn-icon-sz-xl);
       }
       img {
-        width: calc(var(--btn-size-l) - $pdd-img);
-        height: calc(var(--btn-size-l) - $pdd-img);
+        width: calc(var(--size-l) - var(--pdd-m));
+        height: calc(var(--size-l) - var(--pdd-m));
       }
     }
     &-l {
-      height: min(var(--btn-size-l), var(--btn-size-l));
-      font-size: var(--btn-ft-sz-m);
+      height: min(var(--size-l), var(--size-l));
+      font-size: var(--ft-sz-m);
       span {
         font-size: var(--btn-icon-sz-l);
       }
       img {
-        width: calc(var(--btn-size-l) - $pdd-img);
-        height: calc(var(--btn-size-l) - $pdd-img);
+        width: calc(var(--size-l) - var(--pdd-m));
+        height: calc(var(--size-l) - var(--pdd-m));
       }
     }
     &-m {
-      height: min(var(--btn-size-m), var(--btn-size-m));
-      font-size: var(--btn-ft-sz-xs);
+      height: min(var(--size-m), var(--size-m));
+      font-size: var(--ft-sz-xs);
       span {
         font-size: var(--btn-icon-sz-m);
       }
     }
     &-s {
-      height: min(var(--btn-size-s), var(--btn-size-s));
-      font-size: var(--btn-ft-sz-s);
+      height: min(var(--size-s), var(--size-s));
+      font-size: var(--ft-sz-s);
       span {
         font-size: var(--btn-icon-sz-s);
       }
@@ -196,43 +199,44 @@ $pdd-img: 10px;
   }
 }
 //#endregion
-//#region -----btn ICON-----
-//#Structure
+//#region --- BUTTON ICON
+//*Structure
 .btn-icon {
   cursor: pointer;
   border: none;
   padding: unset;
-  height: min(var(--btn-size-l), var(--btn-size-l));
-  width: min(var(--btn-size-l), var(--btn-size-l));
+  height: min(var(--size-l), var(--size-l));
+  width: min(var(--size-l), var(--size-l));
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-//#Attribute
+//*Attribute
 .btn-icon {
   @extend %fill;
   @extend %shape;
   @extend %color;
+  @extend %shadow;
   &.size {
     &-xl {
-      height: min(var(--btn-size-xl), var(--btn-size-xl));
-      width: min(var(--btn-size-xl), var(--btn-size-xl));
+      height: min(var(--size-xl), var(--size-xl));
+      width: min(var(--size-xl), var(--size-xl));
       span {
         font-size: 2rem;
       }
     }
     &-l {
-      height: min(var(--btn-size-l), var(--btn-size-l));
-      width: min(var(--btn-size-l), var(--btn-size-l));
+      height: min(var(--size-l), var(--size-l));
+      width: min(var(--size-l), var(--size-l));
     }
     &-m {
-      height: min(var(--btn-size-m), var(--btn-size-m));
-      width: min(var(--btn-size-m), var(--btn-size-m));
+      height: min(var(--size-m), var(--size-m));
+      width: min(var(--size-m), var(--size-m));
     }
     &-s {
-      height: min(var(--btn-size-s), var(--btn-size-s));
-      width: min(var(--btn-size-s), var(--btn-size-s));
+      height: min(var(--size-s), var(--size-s));
+      width: min(var(--size-s), var(--size-s));
     }
   }
 }

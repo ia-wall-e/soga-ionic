@@ -30,7 +30,7 @@
     text-align: right;
     .price {
       label {
-        @include font-standar($fw:600);
+        @include font-standar(medium-bold);
       }
     }
   }

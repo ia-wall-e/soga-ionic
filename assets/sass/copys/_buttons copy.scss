@@ -1,0 +1,136 @@
+//#contenedores
+.btn-io {
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: unset;
+  @include font-button();
+  position: relative;
+  border:none;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  justify-content: center;
+  --padding: 0 20px;
+  font-size: 0.85rem;
+  width: fit-content;
+  --background:none;
+  background:none;
+  --color:gray;
+  color:gray;
+  border:none;
+  --background-hover:rgb(211,220,226);
+  img {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    bottom: 0;
+    left: 0.3em;
+    cursor: pointer;
+    // background: $border;
+    border: none;
+    margin: auto;
+    height: min(2.5rem, 2.5rem);
+    width: min(2.5rem, 2.5rem);
+    border-radius: 30px;
+  }
+  .icon {
+    &-start {
+      margin-right: 5px;
+    }
+    &-end {
+      margin-left: 5px;
+    }
+  }
+}
+//#Atributos
+.btn-io {
+  &.fill {
+    &-solid {
+      &-main{
+        background: var(--ion-color-primary);
+        color: var(--font-white);
+      }
+      &-second{
+        background:var(--button-solid-second-bg);
+        color:var(--button-solid-second-cl);
+      }
+    }
+    &-outline {
+      &-main{
+        color: var(--ion-color-primary);
+        background: none;
+        border: 2px solid var(--ion-color-primary);
+      }
+     
+    }
+    &-clear {
+      background: none;
+      --background: none;
+      color: var(--button-color2);
+    }
+    &-gray {
+      // background: none;
+      --background: none;
+      color: var(--button-color2);
+      --color: var(--button-color2);
+      border: 2px solid var(--button-color5);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+      &:hover {
+        border-color: var(--button-color3);
+      }
+    }
+    &-icon-gray {
+      border:none;
+      color: var(--icon-color);
+      --color: var(--icon-color);
+    }
+  }
+  &.shape {
+    &-round {
+      border-radius: var(--button-radius);
+      --border-radius: var(--button-radius);
+    }
+    &-square {
+      border-radius: 8px;
+    }
+    &-icon {
+      // cursor: pointer;
+      padding: unset;
+      // --background: $border;
+      // color: $border;
+      height: 3rem;
+      min-height: 3rem;
+      width: 3rem;
+      min-width: 3rem;
+      --border-radius: 100%;
+      --box-shadow: none;
+    }
+  }
+  &.size {
+    &-xlarge {
+      height: min(3.5rem, 3.5rem);
+      font-size:var(--button-font-sz-l)
+    }
+    &-large {
+      height: min(3rem, 3rem);
+      font-size:var(--button-font-sz-l)
+    }
+    &-medium {
+      height: min(2.5rem, 2.5rem);
+    }
+    &-small {
+      font-size: 0.8rem;
+      height: min(2rem, 2rem);
+    }
+    // &-tiny{}
+  }
+  &.expand {
+    &-full {
+      width: 100%;
+    }
+    &-medium {
+      width: min(18.75rem, 18.75rem);
+    }
+  }
+}

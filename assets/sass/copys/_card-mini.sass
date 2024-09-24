@@ -1,21 +1,24 @@
 .card-mini{
-    height:var(--card-mini-height);
-    width:var(--card-mini-width);
+    background:red;
+    height: 16.65rem;
+    max-height: 16.65rem;
+    max-width: 13rem;
     position: relative;
     display: flex;
     flex-direction: column;
-    background: var(--card-mini-bg);
-    border-radius: var( --card-mini-bd-radius);
-    box-shadow: var(--card-mini-bx-shadow);
+    background: var(--ion-color-step-950);
+    border-radius: 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; //6
     cursor: pointer;
     &:hover {
-      box-shadow:var(--card-mini-bx-shadow-hv);
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; //3
     }
     .img-section-card {
-      border-radius: var(--card-mini-img-section-pdd);
+      background: rgb(255, 255, 255);
+      border-radius: 15px 15px 0 0;
       position: relative;
       width: 100%;
-      height: var(--card-mini-img-section-hg);
+      height: 10rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -23,12 +26,14 @@
         border: none;
         width: 100%;
         height: 100%;
-        padding: var(--card-mini-img-pdd);
-        object-fit: cover;
-        border-radius: var(--card-mini-img-radius);
+        padding: 0.3125rem;
+        object-fit: contain;
+        // object-fit: cover;
+        border-radius: 15px 15px 0 0;
       }
     }
     .info-section-card {
+      background:white;
       flex: 1;
       width: 100%;
       overflow: hidden;
@@ -36,11 +41,12 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      border-radius:var(--card-mini-info-section-pdd);
+      border-radius: 0 0 15px 15px;
       .bx-name {
-
-        height:var(--card-mini-bxname-hg);
-        padding-top: var( --card-mini-bxname-pdd);
+        // max-height: 2.9rem;
+        // min-height: 2.9rem;
+        height:minmax(2.9rem,2.9rem);
+        padding-top: 0.2rem;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -48,29 +54,29 @@
         align-items: center;
         h5 {
           all: unset;
-          @include font-standar();
+          @include font-standar($color:var(--text-black-static));
           width: 100%;
           overflow: hidden;
         }
       }
       .bx-price {
         // background:violet;
-        padding:var(--card-mini-bxprice-pdd);
-        height: var(--card-mini-bxprice-hg);
+        padding: 4px 0 0 2px;
+        height: 1.4rem;
         display: flex;
         align-items: center;
+        // margin-top: 7px;
         .price {
           all: unset;
-          @include font-standar(large-regular);
+          @include font-standar($color:var(--text-black-static) );
         }
         .oldprice {
-          @include font-standar(small-regular,$color:var(--gray-old));
+          @include font-standar($color:var(--text-black-static));
           text-decoration-line: line-through;
-          padding-left:var(--pdd-s);
+          margin-left: 5px;
         }
       }
     }
   }
-  
 
   

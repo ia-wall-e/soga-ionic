@@ -1,3 +1,9 @@
+//#region --- varibales
+.search-component{
+
+}
+//#endregion
+//#region --- structure
 .search-component {
   position: relative;
   width: 100%;
@@ -7,19 +13,24 @@
     width: 100%;
     z-index: 2;
     > .input-search {
-      @include font-standar($color: rgb(77, 77, 77), $fs: 1rem, $fw: 500);
+      @include font-standar(
+        $color: rgb(77, 77, 77),
+        $fs: 1rem,
+        $fw: 500,
+      );
       outline: none;
       height: 100%;
       width: 100%;
       border: none;
       background: var(--search-bg);
-      border-radius: var(--search-border-radius);
+      border-radius: var(--search-radius);
       padding: var(--search-pdd);
       &:focus {
         box-shadow: none;
       }
       &::placeholder {
         color: var(--search-placeholder-cl);
+        font-weight: 600;
       }
     }
     > .button-search {
@@ -47,30 +58,53 @@
     height: 50vh;
     padding-top: 3.625rem;
     background: white;
-    border-radius: var(--search-border-radius);
-    box-shadow: var(--search-bx-shadow);
+    border-radius: var(--radius-iii);
+    box-shadow: var(--search-shadow);
     overflow: hidden;
     .item {
       cursor: pointer;
       display: flex;
       align-items: center;
       .icon {
-        padding: var(--base-pdd);
+        padding: var(--pdd-m);
       }
       .text {
         flex: 1;
-        @include font-standar($fs: var(--base-ft-sz-m));
+        @include font-standar($fs: var(--ft-sz-m), $family: main);
       }
     }
   }
 }
+//#endregion
+//#region --- attribute
+.search-component {
+  &.fill {
+    &-solid {
+      &-white {
+      }
+      &-gray {
+      }
+    }
+    &-outline {
+      .input-search-section{
+        .input-search{
+          background:none;
+          border: 1px solid rgb(165, 165, 165)
+        }
+      }
+     ;
+    }
+  }
+}
+//#endregion
+//#region --- action-active
 .search-component {
   &.active {
     position: absolute;
     width: var(--base-width-m);
     .input-search-section {
       .input-search {
-        background: white;
+        background: var(--search-bg-active);
       }
     }
     .items-request-section {
@@ -78,8 +112,10 @@
     }
   }
 }
+//#endregion
+//#region --- RESPONSIVE
 //!NOTA: responsive en el 720px
-@include mediaquery(var(--base-width-max)) {
+@include mediaquery(720px) {
   .search-component {
     &.active {
       //
@@ -99,3 +135,4 @@
     }
   }
 }
+//#endregion

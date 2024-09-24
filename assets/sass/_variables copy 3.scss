@@ -1,0 +1,151 @@
+:root {
+  //#region ion variables
+  --ion-color-primary: rgb(35, 118, 241);
+  --ion-color-warning: rgb(236, 91, 98);
+  //#endregion
+  //#region Base
+  //*border
+  --base-border-color: var(--gray-soft);
+  //*box-shadow
+  --base-bx-shadow-6: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --base-bx-shadow-3: rgba(0, 0, 0, 0.35) 0px 5px 15px; //hover
+  //*colors
+  //gray
+  --gray-hard: rgb(146, 146, 146);
+  --gray-regular: rgb(126, 137, 153);
+  --gray-soft: rgb(226, 226, 226);
+  //special gray
+  --gray-old: rgb(155, 155, 155);
+  --gray-bg-modulo: rgb(240, 243, 245);
+  --gray-bg-input: rgb(240, 244, 247);
+  --gray-label:rgb(131, 142, 157);//inputs
+  //black
+  --black-regular: rgb(34, 37, 41);
+  --black-regular-static: rgb(34, 37, 41);
+  //white
+  --white-regular: rgb(255, 255, 255);
+  //*font-size
+  --base-ft-sz-m: 1rem;
+  --base-ft-sz-s: 0.9rem;
+  --base-ft-sz-xs: 0.85rem;
+  --base-ft-sz-xxs: 0.8rem;
+  //*padding
+  --pdd-xl:2rem;
+  --pdd-l: 1.25rem;
+  --pdd-r: 0.625rem;
+  --pdd-s: 0.3125rem;
+  --pdd-wd-r:0 0.625rem;
+  --pdd-hg-r:0.625rem 0;
+  //*radius
+  --base-radius-square: 8px;
+  --base-radius-i: 15px;
+  --base-radius-ii: 20px;
+  --base-radius-iii: 30px;
+  //*size (Buttons-inputs)
+  --size-xl: 3.5rem;
+  --size-l: 3rem;
+  --size-m: 2.5rem;
+  --size-s: 2rem;
+  //*width base
+  --base-width-max: 720px;
+  --base-width-m: min(720px, 100%);
+  //* grid base
+  --base-template-columns-x3: 1fr 2fr 1fr;
+  //#endregion
+  //#region Component
+  //*buttons - btn
+  //size
+  --btn-size-xl: var(--size-xl);//3.5
+  --btn-size-l: var(--size-l);//3
+  --btn-size-m: var(--size-m);//2.5
+  --btn-size-s: var(--size-s);//2
+  //----font
+  --btn-ft-sz-l: 1.1rem;
+  // --btn-ft-sz-l: 1rem;
+  // --btn-ft-sz-m: 0.9rem;
+  // --btn-ft-sz-s: 0.85rem;
+  --btn-ft-sz-m: var(--base-ft-sz-m); //1
+  --btn-ft-sz-s: var(--base-ft-sz-s); //0.9
+  --btn-ft-sz-xs: var(--base-ft-sz-xs); //0.85
+  //----icon
+  --btn-icon-sz-xl: 1.5rem;
+  --btn-icon-sz-l: 1.4rem;
+  --btn-icon-sz-m: 1.4em;
+  --btn-icon-sz-s: 0.99rem;
+  //----structure
+  --btn-pdd: 0 var(--base-pdd-l);
+  --btn-margin: var(--base-pdd-s);
+  --btn-pdd-img: var(--base-pdd-s);
+  --btn-pdd-txt: 0 var(--base-pdd);
+  --btn-shape-round: var(--base-radius-iii);
+  --btn-shape-square: var(--base-radius-square);
+  //style
+  --btn-solid-second-bg: rgb(241, 244, 246);
+  --btn-solid-second-cl: var(--black-regular);
+  --btn-color-gray:var(--gray-hard);
+  --btn-color-black:var(--black-regular);
+  //*card-mini
+  --card-mini-bg: var(--white-regular);
+  --card-mini-width: min(12rem, 12rem);
+  --card-mini-height: min(16.65rem, 16.65rem);
+  --card-mini-bx-shadow: var(--base-bx-shadow-6);
+  --card-mini-bx-shadow-hv: var(--base-bx-shadow-3);
+  --card-mini-bd-radius: var(--base-radius-i);
+  --card-mini-img-section-pdd: var(--base-radius-i) var(--base-radius-i) 0 0;
+  --card-mini-info-section-pdd: var(--base-radius-i);
+  --card-mini-bxname-hg: min(2.9rem, 2.9rem);
+  --card-mini-bxname-pdd: 0.2rem 0 0 0;
+  --card-mini-bxprice-hg: 1.4rem;
+  --card-mini-bxprice-pdd: 4px 0 0 2px;
+  //*card-light
+  --card-light-width: min(9rem, 9rem);
+  --card-light-height: min(13.5rem, 13.5rem);
+  --card-light-img-height: 12rem;
+  --card-light-bd-radius: var(--base-radius-i);
+  --card-light-bx-shadow: var(--base-bx-shadow-6);
+  //*fonts
+  //structure
+  --font-sz-m: var(--base-font-sz);
+  --font-sz-l: var(--base-font-sz);
+  --font-sz-xl: var(--base-font-sz);
+  --font-sz-xxl: var(--base-font-sz);
+  //style
+  --font-color-ii: var(--gray-regular);
+  //*form
+  --form-mxwidth:min(18.75rem,100%); //300px
+  //*head-title
+  --type-head-line-height: 1.2; ////1.3
+  //*header
+  --header-grid-columns: var(--base-template-columns-x3);
+  //*inputs
+ //// --input-label:var(--gray-label) ;
+  ////--input-solid-bd: rgb(241, 244, 246);
+  ////--input-solid-bg: rgb(241, 244, 246);
+ //// --input-line-bd: rgb(131, 142, 157);
+  //*search
+ //// --search-placeholder-cl: rgb(131, 142, 157);
+  --search-border-radius: var(--base-radius-iii);
+  --search-bg: var(--gray-bg-input);
+  --search-pdd: 0 55px 0 20px;
+  --search-bx-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  //*containers
+  --ctn-home-grid-columns: var(--base-template-columns-x3);
+  --ctn-gap-row-m: calc(var(--base-pdd) * 2);
+  //*modulo
+  --type-modulo-bg-i: var(--gray-bg-modulo);
+  --type-modulo-rd: var(--base-radius-ii);
+  --modulo-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; //5
+  //*otros
+  --type-separator-color: var(--base-border-color);
+  //*mixin
+  //mx-title
+  --mx-title-family-select:"";
+  --mx-title-family-main:"ubuntu", sans-serif;
+  --mx-title-family-second:"poppins", sans-serif;
+  //mx-standar
+  --mx-standar-family-select:"";
+  --mx-standar-family-main:"open-sans", sans-serif;
+  --mx-standar-family-second:"poppins", sans-serif;
+  //#endregion
+}
+

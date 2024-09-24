@@ -1,0 +1,17 @@
+.texto-con-borde {
+    font-size: 48px;
+    /* Tamaño del texto */
+    color: white;
+    /* Color del texto */
+    /* text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black; */
+    /* -webkit-text-stroke: 1px black; */
+    text-shadow:
+        -1px -1px 0 rgb(243, 99, 99),
+        1px -1px 0 rgb(61, 243, 16),
+        -1px 1px 0 rgb(23, 110, 240),
+        1px 1px 0 rgb(252, 12, 212);
+}

@@ -1,47 +1,47 @@
-//#contenedores
+//#variables
+.input-component {
+  --input-width: 18.75rem; //300px
+  --input-hg-xl: 3.5rem;
+  --input-hg-l: 3rem;
+  --input-hg-m: 2.5rem;
+  --input-line-bd:var(--gray-ii);
+  --input-pdd: 13px 12px 10px 10px;
+  --input-pdd-line:16px 12px 3px 10px;
+}
+//#structure
 .input-component {
   position: relative;
-  background: none;
-  width: 100%;
-  max-width: 18.75rem;
-  position: relative;
-  display: flex;
-  align-items: center;
-  input {
+  box-sizing: border-box;
+  height: content;
+  input,select {
     @include font-input();
     outline: none;
-    background:var(--input-solid-bg);
-    border: 2px solid transparent;
-    position: relative;
-    z-index: 3;
     width: 100%;
-    height: 3.5rem;
-    min-height: 3.5rem;
-    max-height: 3.5rem;
-    padding: 13px 12px 10px 10px;
-    text-align: center;
+    border: 2px solid transparent;
+    padding: var(--input-pdd);
+    z-index: 1;
     &:focus ~ {
       label {
         color:var(--ion-color-primary);
-        z-index: 3;
       }
     }
-  }
-  input::placeholder {
-    color: var(--input-label);
-    font-size: 0.85rem;
-    font-weight: light;
-    text-align: left;
+    &::placeholder {
+      @include font-input($fw: 400, $color:var(--input-label));
+      text-align: left;
+    }
   }
   label {
-    // @include font-primary($color: var(--input-label), $fw: 500);
-    @include font-input($fw:400,$color:var(--input-label));
+    @include font-input($fw: 400, $color: var(--input-label));
+    transition: top 0.3s ease;
+    pointer-events: none;
     position: absolute;
-    z-index: 4;
-    // left: 1rem;
+    top: 50%;
+    left:0.625rem;
+    transform: translateY(-50%);
+    z-index:2;
     transition: top 0.3s ease;
   }
-  .button-io {
+  button {
     position: absolute;
     z-index: 4;
     top: 0;
@@ -50,14 +50,44 @@
     margin: auto;
   }
 }
-//#atributos
+
+//#attribute
 .input-component {
+  &.fill {
+    &-solid{
+      input{
+        background:var(--input-solid-cl);
+        border-color:var(--input-solid-cl);
+      }
+    }
+    &-outline{
+      input{
+        border-color:var(--input-outline-cl);
+        background: none;
+      }
+      select{
+        border:1px solid var(--input-outline-cl);
+        background: none;
+      }
+    }
+    &-line{
+      input{
+        border-bottom: 2px solid var(--input-line-bd);
+        padding:var(--input-pdd-line);
+        &:focus {
+          border-bottom: 2px solid var(--ion-color-primary);
+        }
+      }
+      label {
+        left: 0;
+        top: 0;
+      }
+    }
+  }
   &.shape {
-    &-round {
-      border-radius: 30px;
-      input {
-        border-radius: 30px;
-        border-color:var(--input-solid-bd);
+    &-round{
+      input{
+        border-radius:var(--radius-iii);
         &:focus{
           border-color:var(--ion-color-primary);
         }
@@ -66,60 +96,56 @@
         left: 1.7rem;
       }
     }
-    &-line {
-      input {
-        background:none;
-        // background:gray;
-        border-bottom: 2px solid var(--input-line-bd);
-        padding: 16px 12px 3px 10px;
-        &:focus {
-          outline: none;
-          border-bottom: 2px solid var(--ion-color-primary);
+    &-square{
+      input,select{
+        border-radius:var(--radius-square);
+        &:focus{
+          border-color:var(--ion-color-primary);
         }
       }
       label {
-        // background:red;
-        left: 0;
-        top: 0;
-        // bottom:unset;
+        left: 0.625rem;
       }
     }
-    &-square {
-      border-radius: 8px;
+   
+  }
+  &.size {
+    &-xl {
       input {
-        border: 1px solid var(--input-border);
-        border-radius: 8px;
-        &:focus {
-          border: 2px solid var(--ion-color-primary);
-          box-shadow: none;
-          outline: none;
-        }
+        height: min(var(--input-hg-xl), var(--input-hg-xl));
+      }
+    }
+    &-l {
+      input {
+        height: min(var(--input-hg-l), var(--input-hg-l));
+      }
+    }
+    &-m {
+      input {
+        height: min(var(--input-hg-m), var(--input-hg-m));
       }
     }
   }
-  &.shadow {
-    input {
-      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  &.expand {
+    &-full {
+      width: 100%;
+    }
+    &-regular {
+      width: var(--input-width);
     }
   }
-  &.text {
-    &-center {
-      input {
-        text-align: left;
-      }
-    }
-    &-big {
-      input {
-        font-size: 1.4rem;
+  &.text-align{
+    &-center{
+      input{
+        text-align:center;
       }
     }
   }
   &.label-static {
     label {
-      top: 3px;
       font-size: 0.8rem;
+      transform: unset;
+      top: 3px;
     }
   }
 }
-
