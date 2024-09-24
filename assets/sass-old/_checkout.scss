@@ -1,0 +1,83 @@
+//#region-EXTENDS
+//©table
+%table-chkout {
+  table {
+    width: 100%;
+    tr {
+      width: 100%;
+    }
+    td {
+      width: 50%;
+    }
+    td:nth-child(2) {
+      text-align: end;
+    }
+  }
+}
+// ©section
+%section-chkout {
+  width: 100%;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding: 0.4375rem 0;
+}
+//#endregion
+//#region-COMPONENT
+.checkout-cart {
+  width: 100%;
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  //©SECTIONS
+  .option-section {
+    @extend %section-chkout;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    .radio-group-cart{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .radio-cart {
+
+      @include ft-primary($color: var(--lt-color-static), $size: "medium");
+      &::part(label) {
+        margin:unset;
+        margin-left: 0.3125rem;
+
+      }
+      &::part(container){
+        --color:color: var(--lt-color-static);
+      }
+    }
+    
+  }
+  .info-price-section {
+    @extend %section-chkout;
+    @extend %table-chkout;
+    @include ft-secundary($color: var(--lt-color-static), $size: "tiny");
+  }
+  .total-price-section {
+    @extend %section-chkout;
+    @extend %table-chkout;
+    @include ft-secundary($color: var(--lt-color-static), $weight: bolder);
+  }
+  .button-section {
+    @extend %section-chkout;
+    // background:red;
+    border: none;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-section {
+    @include ft-secundary($color: var(--lt-color-static));
+    border: none;
+    font-size: 0.7rem;
+    color: rgb(167, 167, 167);
+  }
+}

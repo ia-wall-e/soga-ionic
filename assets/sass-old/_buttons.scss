@@ -1,0 +1,88 @@
+//#region-DEFAULT
+.button-ia {
+  height: 3rem;
+  text-transform: none;
+}
+//#endregion
+//#region-ELEMENTOS INTERNOS
+.button-ia {
+  .icon-ia {
+    font-size: 1.5rem;
+    font-weight: lighter;
+  }
+  .badge-ia {
+    position: absolute;
+    background: red;
+    top: 0;
+    right: 0;
+  }
+  label {
+    cursor:pointer;
+    @include ft-primary();
+  }
+}
+//#endregion
+//#SIZE Y EXPAND
+.button-ia{
+  &.size{
+    &-large{
+     height:3.5rem;
+    }
+    &-small{
+      height: 2.5rem;
+      label{
+        font-size:0.85rem;
+      }
+    }
+  }
+  &.expand{
+    &-large{
+      width:18.75rem;
+      max-width:18.75rem ;
+    }
+  }
+}
+//#region-TIPO/ESTILOS - BUTTONS
+.button-ia {
+  &.type {
+    &-icon {
+      --border-radius: 100%;
+      --padding-bottom: 0%;
+      --padding-end: 0%;
+      --padding-start: 0%;
+      --padding-top: 0%;
+      width: 3rem;
+    }
+  }
+  &.style {
+    &-dinamic {
+      --color: var(--bt-color-dinamic);
+      --background: var(--bt-bg-dinamic);
+    }
+    &-secondary {
+      --color: var(--ion-color-primary);
+      --background: var(--bt-bg-gray);
+    }
+    &-gray {
+      --color: var(--bt-color-gray);
+      --background: var(--bt-bg-gray);
+    }
+    &-none {
+      --color: var(--bt-color-gray);
+      --background: none;
+    }
+    &-icon {
+      --border-radius: 100%;
+      --padding-bottom: 0%;
+      --padding-end: 0%;
+      --padding-start: 0%;
+      --padding-top: 0%;
+      height: unset;
+      --width: $default;
+    }
+  }
+  &.shadow-none {
+    --box-shadow: none;
+  }
+}
+//#endregion
