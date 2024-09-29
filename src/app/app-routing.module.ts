@@ -12,10 +12,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: '**',//Ruta comodin-siempre va de ultimo
-    loadChildren: () => import('./pages/error/error/error.module').then( m => m.ErrorPageModule)
+    path: 'buttons',
+    loadChildren: () => import('./pages/componentsUI/buttons/buttons.module').then( m => m.ButtonsPageModule)
+  },  {
+    path: 'stand',
+    loadChildren: () => import('./pages/stand/stand.module').then( m => m.StandPageModule)
   },
- 
+
+  // {
+  //   path: '**',//Ruta comodin-siempre va de ultimo
+  //   loadChildren: () => import('./pages/error/error/error.module').then( m => m.ErrorPageModule)
+  // },
 
 ];
 

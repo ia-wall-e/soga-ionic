@@ -1,0 +1,30 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title slot="start">{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title slot="start">
+      Descripcion
+    </ion-title> -->
+    <ion-buttons slot="end">
+      <ion-button class="btn-icon fill-clear size-m" (click)="cancel()">
+        <mat-icon svgIcon="close"></mat-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ng-container [ngSwitch]="dataSection.section">
+    <app-description *ngSwitchCase="'description'" [data]="dataSection.data"></app-description>
+    <app-features *ngSwitchCase="'features'" [data]="dataSection.data"></app-features>
+    <app-size-chart *ngSwitchCase="'sizeChart'" [data]="dataSection.data"></app-size-chart>
+  </ng-container>
+</ion-content>
+<!-- <p>
+  HOla Soy UN MOdal
+</p> -->

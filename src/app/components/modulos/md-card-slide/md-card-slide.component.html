@@ -1,14 +1,42 @@
-<!-- <div class="container full"> -->
-<div class="modulo type-light">
+
+<!-- <div class="modulo type-light">
   <div class="head-modulo">
     <div class="head-component margin-unset display-nowrap">
       <div class="title-section">
-        <h6 class="title">Tendencias</h6>
+        <h6 class="title">Modulo slide</h6>
         <h6 class="subtitle">Subtitulo</h6>
       </div>
       <div class="logo-section">
         <ion-button class="button-io fill-icon-gray">
           <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+  <div class="body-modulo" #container>
+   <ng-content> 
+      <swiper-container init="false" #swiper>
+        <swiper-slide *ngFor="let item of dataModulo">
+          <app-card-light [item]="item"></app-card-light>
+        </swiper-slide>
+      </swiper-container>
+    </ng-content>
+  </div>
+</div> -->
+<!-- #Component -->
+<div class="modulo type-plain  separator">
+  <div class="head-modulo">
+    <div class="head-component margin-unset display-nowrap">
+      <div class="title-section">
+        <h6 class="title margin-unset">Modulo slide</h6>
+        <h6 class="subtitle margin-unset">Subtitulo</h6>
+      </div>
+      <div class="button-section">
+        <ion-button class="btn-io fill-solid-second shape-round size-m">
+          ver mas
+        </ion-button>
+        <ion-button class="btn-icon fill-solid-second shape-round size-m">
+       <ion-icon name=""></ion-icon>
         </ion-button>
       </div>
     </div>
@@ -22,5 +50,7 @@
       </swiper-container>
     <!-- </ng-content> -->
   </div>
+  <div class="separator-modulo">
+    <div class="line"></div>
+  </div>
 </div>
-<!-- </div> -->

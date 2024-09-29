@@ -12,7 +12,6 @@ export class HomePage implements OnInit {
   items: Product[] = [];
   items2:Product[]=[];
   constructor(private catalogSvc:CatalogService) { }
-
   ngOnInit() {
     this.moduloTest();
     this.moduloTestSlide();

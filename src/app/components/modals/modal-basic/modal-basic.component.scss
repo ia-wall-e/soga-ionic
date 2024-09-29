@@ -1,0 +1,13 @@
+@import'../../../../assets/sass/mixin';
+ion-content{
+    --padding-bottom:2rem;
+    // --background: #000;
+}
+ion-header{
+    box-shadow:none;
+}
+ion-buttons{
+    ion-button{
+        --border-radius:100%;
+    }
+}

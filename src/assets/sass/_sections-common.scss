@@ -1,9 +1,10 @@
-.inputs-section, .form-section{
-    // background:violet;
+.inputs-section-common, .form-section-common{
+    // background:rgb(247, 188, 247);
     width: 100%;
-    padding: 1rem 0;
+    // padding: 1rem 0;
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
     grid-row-gap: 1rem;
     align-items: center;
     justify-content: center;
@@ -11,10 +12,10 @@
         padding:0;   
     }
 }
-.buttons-section{
-    // background:violet;
+.buttons-section-common{
+    // background:rgb(255, 207, 255);
     width: 100%;
-    padding: 1rem 0;
+    // padding: 1rem 0;
     &.button{
         &-unique{
             display: flex;
@@ -32,12 +33,12 @@
             padding:unset;
             display:grid;
             grid-template-columns: 1fr;
-            row-gap: 0.8rem;
+            grid-row-gap: 0.65rem;
             justify-items: center;
         }
     }
 }
-.info-section {
+.info-sectio-common {
     // background: rgb(252, 124, 124);
     width: 100%;
     display: flex;

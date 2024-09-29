@@ -1,148 +1,332 @@
-//#contenedores
-.button-io {
+//#region --- EXTENDS
+%fill {
+  &.fill {
+    &-solid {
+      &-main {
+        --background: var(--ion-color-primary);
+        color: var(--white-regular);
+       mat-icon,.icon{
+          svg{
+            fill:white;
+          }
+        }
+      }
+
+      &-second {
+        --background: var(--btn-solid-second-bg);
+        color: var(--btn-solid-second-cl);
+        mat-icon,.icon{
+          svg{
+            fill:var(--btn-solid-second-cl);
+          }
+        }
+      }
+
+      &-warning {
+        --background: var(--ion-color-warning);
+        color: var(--white-regular);
+      }
+
+      &-black {
+        --background: var(--black-regular);
+        color: var(--white-regular);
+      }
+    }
+
+    &-outline {
+      &-main {
+        --background: none;
+        color: var(--ion-color-primary);
+        border: 2px solid var(--ion-color-primary);
+      }
+
+      &-black {
+        --background: none;
+        color: var(--black-regular);
+        border: 2px solid var(--black-regular);
+      }
+
+      &-warning {
+        --background: none;
+        color: var(--ion-color-warning);
+        border: 2px solid var(--ion-color-warning);
+      }
+    }
+
+    &-clear {
+      --background: none;
+      background:none;
+      color: var(--black-regular);
+    }
+  }
+}
+
+%shape {
+  &.shape {
+    &-round {
+      --border-radius: var(--btn-radius);
+      border-radius: var(--btn-radius);
+    }
+
+    &-square {
+      --border-radius: var(--radius-square);
+      border-radius: var(--btn-radius);
+    }
+  }
+}
+
+%color {
+  &.color {
+    &-main {
+      color: var(--ion-color-primary);
+      svg{
+
+        fill:var(--ion-color-primary);
+      }
+    }
+
+    &-black {
+      color: var(--black-regular);
+      mat-icon,.icon{
+        svg{
+          fill:white;
+        }
+      }
+    }
+
+    &-gray {
+      color: var(--btn-color-gray);
+    }
+  }
+}
+
+%shadow {
+  &.shadow {
+    --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; //6 search;
+  }
+}
+
+//#endregion
+//#region --- BUTTON
+//*structure
+.btn-io {
+  position: relative;
+  box-sizing: border-box;
   cursor: pointer;
   text-transform: none;
   letter-spacing: unset;
   @include font-button();
-  position: relative;
-  border:none;
-  box-sizing: border-box;
+  border: none;
+  --padding: var(--btn-pdd);
   display: flex;
   align-items: center;
-  overflow: hidden;
   justify-content: center;
-  --padding: 0 20px;
-  font-size: 0.85rem;
-  width: fit-content;
-  --background:none;
-  background:none;
-  --color:gray;
-  color:gray;
-  border:none;
-  --background-hover:rgb(211,220,226);
+  --box-shadow: none; //+ionic
+
   img {
-    position: absolute;
-    z-index: 4;
-    top: 0;
-    bottom: 0;
-    left: 0.3em;
-    cursor: pointer;
-    // background: $border;
-    border: none;
-    margin: auto;
-    height: min(2.5rem, 2.5rem);
-    width: min(2.5rem, 2.5rem);
-    border-radius: 30px;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    margin-right: 0.625rem;
   }
-  .icon {
-    &-start {
-      margin-right: 5px;
-    }
-    &-end {
-      margin-left: 5px;
-    }
+
+  span {
+    height: 100%;
+    display: flex;
+    align-items: center;
   }
+
+  .text,
+  p {
+    @include txt-ellipsis;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon{
+    // background:violet;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    // color: red;
+    font-size: 1rem;
+  }
+  // mat-icon svg {
+  //   fill: #ff0000; /* Change the fill color to red */
+  // }
 }
-//#Atributos
-.button-io {
-  &.fill {
-    &-solid {
-      &-main{
-        background: var(--ion-color-primary);
-        color: var(--font-white);
+
+//*Attribute
+.btn-io {
+  @extend %fill;
+  @extend %shape;
+  @extend %color;
+  @extend %shadow;
+
+  &.type {
+    &-signup {
+      background-color: rgb(252, 250, 166);
+      padding: var(--pdd-s);
+
+      >.text {
+        background: rgb(255, 187, 0);
+        @include center;
+        border-radius: var(--btn-shape-round);
+        font-weight: bold;
+        padding: 0 var(--base-pdd);
       }
-      &-second{
-        background:var(--button-solid-second-bg);
-        color:var(--button-solid-second-cl);
+
+      span,
+      img {
+        background: rgb(226, 226, 226);
+        @include center;
+        border-radius: 100%;
+        margin-left: var(--pdd-s);
+        width: calc(var(--size-l) - var(--pdd-m));
+        height: calc(var(--size-l) - var(--pdd-m));
       }
-    }
-    &-outline {
-      &-main{
-        color: var(--ion-color-primary);
-        background: none;
-        border: 2px solid var(--ion-color-primary);
-      }
-     
-    }
-    &-clear {
-      background: none;
-      --background: none;
-      color: var(--button-color2);
-    }
-    &-gray {
-      // background: none;
-      --background: none;
-      color: var(--button-color2);
-      --color: var(--button-color2);
-      border: 2px solid var(--button-color5);
-      transition: border-color 0.3s ease, transform 0.3s ease;
-      &:hover {
-        border-color: var(--button-color3);
-      }
-    }
-    &-icon-gray {
-      border:none;
-      color: var(--icon-color);
-      --color: var(--icon-color);
     }
   }
-  &.shape {
-    &-round {
-      border-radius: var(--button-radius);
-      --border-radius: var(--button-radius);
-    }
-    &-square {
-      border-radius: 8px;
-    }
-    &-icon {
-      // cursor: pointer;
-      padding: unset;
-      // --background: $border;
-      // color: $border;
-      height: 3rem;
-      min-height: 3rem;
-      width: 3rem;
-      min-width: 3rem;
-      --border-radius: 100%;
-      --box-shadow: none;
-    }
-  }
+
   &.size {
-    &-large {
-      height: min(3.5rem, 3.5rem);
-      font-size:var(--button-font-sz-l)
+    &-xl {
+      height: min(var(--size-xl), var(--size-xl));
+      font-size: var(--ft-sz-r);
+
+      span {
+        font-size: var(--btn-icon-sz-xl);
+      }
+
+      img {
+        width: calc(var(--size-l) - var(--pdd-m));
+        height: calc(var(--size-l) - var(--pdd-m));
+      }
     }
-    &-large {
-      height: min(3rem, 3rem);
-      font-size:var(--button-font-sz-l)
+
+    &-l {
+      height: min(var(--size-l), var(--size-l));
+      font-size: var(--ft-sz-m);
+
+      span {
+        font-size: var(--btn-icon-sz-l);
+      }
+
+      img {
+        width: calc(var(--size-l) - var(--pdd-m));
+        height: calc(var(--size-l) - var(--pdd-m));
+      }
     }
-    &-medium {
-      height: min(2.5rem, 2.5rem);
+
+    &-m {
+      height: min(var(--size-m), var(--size-m));
+      font-size: var(--ft-sz-xs);
+
+      ion-icon {
+        fill: "currentColor";
+
+      }
     }
-    &-small {
-      font-size: 0.8rem;
-      height: min(2rem, 2rem);
+
+    &-s {
+      height: min(var(--size-s), var(--size-s));
+      font-size: var(--ft-sz-s);
+
+      span {
+        font-size: var(--btn-icon-sz-s);
+      }
     }
-    // &-tiny{}
   }
+
   &.expand {
     &-full {
       width: 100%;
     }
-    &-medium {
+
+    &-regular {
       width: min(18.75rem, 18.75rem);
     }
   }
-  &.text {
-    &-medium {
-      font-size: 0.8rem;
+
+  &.icon-add {
+    &-left {
+      ion-icon {
+        // color:red;
+        margin-right: 0.3125rem;
+      }
     }
-    &-normal{
-      font-size:0.95rem;
-    }
-    &-test{
-      // font-size: 1rem;
+
+    &-right {
+
+      .text,
+      p {
+        margin-right: var(--btn-icon-mg);
+      }
     }
   }
-
 }
+
+//#endregion
+//#region --- BUTTON ICON
+//*Structure
+.btn-icon {
+  cursor: pointer;
+  // padding: unset;
+  border: none;
+  height: min(var(--size-l), var(--size-l));
+  width: min(var(--size-l), var(--size-l));
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*---*/
+  --border-radius: var(--btn-radius);
+  border-radius: var(--btn-radius);
+  --box-shadow:none;
+  mat-icon{
+    // background:red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // min-height: var(--size-l);
+    min-height: minmax(var(--size-l),var(--size-l));
+    min-width: var(--size-l);
+  }
+}
+
+//*Attribute
+.btn-icon {
+  @extend %fill;
+  @extend %shape;
+  @extend %color;
+  @extend %shadow;
+  &.size {
+    &-xl {
+      height: min(var(--size-xl), var(--size-xl));
+      width: min(var(--size-xl), var(--size-xl));
+      span {
+        font-size: 2rem;
+      }
+    }
+
+    &-l {
+      height: min(var(--size-l), var(--size-l));
+      width: min(var(--size-l), var(--size-l));
+    }
+
+    &-m {
+      height: min(var(--size-m), var(--size-m));
+      width: min(var(--size-m), var(--size-m));
+    }
+
+    &-s {
+      height: min(var(--size-s), var(--size-s));
+      width: min(var(--size-s), var(--size-s));
+    }
+  }
+}
+
+//#endregion

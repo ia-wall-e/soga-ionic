@@ -12,6 +12,9 @@
     grid-area: main;
     width:var(--width-standar);
     width:100%;
+    // display:grid;
+    // grid-template-columns: 1fr;
+    // row-gap: 0.625rem;
   }
   .side-left {
     // background: violet;

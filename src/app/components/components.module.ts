@@ -6,34 +6,46 @@ import { RouterModule } from '@angular/router';
 import { NavDrawerComponent } from './nav-drawer/nav-drawer.component';
 import { HeaderComponent } from './header/header.component';
 import { NotificationComponent } from './notification/notification.component';
-import { MdCardMiniComponent } from './modulos/md-card-mini/md-card-mini.component';
-import { CardMiniComponent } from './cards/card-mini/card-mini.component';
+
 import { CardLightComponent } from './cards/card-light/card-light.component';
+import { CardBasicComponent } from './cards/card-basic/card-basic.component';
 import { MdCardSlideComponent } from './modulos/md-card-slide/md-card-slide.component';
-import { SearchComponent } from './search/search.component';
+import { MdCardCapsuleComponent } from './modulos/md-card-capsule/md-card-capsule.component';
+import { ModalBasicComponent } from './modals/modal-basic/modal-basic.component';
 import { register } from 'swiper/element/bundle';
+import { SearchComponent } from './search/search.component';
+//stand
+import { DescriptionComponent } from './stand/description/description.component';
+import { FeaturesComponent } from './stand/features/features.component';
+import { SizeChartComponent } from './stand/size-chart/size-chart.component';
+//icon
+import { IconModule } from '../core/icon/icon.module';
 register();
 @NgModule({
   declarations: [
     NavDrawerComponent,
     HeaderComponent,
     NotificationComponent,
-    MdCardMiniComponent,
     MdCardSlideComponent,
-    CardMiniComponent,
+    MdCardCapsuleComponent,
     CardLightComponent,
-    SearchComponent
-    
+    CardBasicComponent,
+    SearchComponent,
+    ModalBasicComponent,
+    DescriptionComponent,
+    FeaturesComponent,
+    SizeChartComponent,
+   
   ],
-  imports: [CommonModule, IonicModule, RouterModule],
+  imports: [CommonModule, IonicModule, RouterModule, IconModule],
   exports: [
     NavDrawerComponent,
     HeaderComponent,
     NotificationComponent,
-    MdCardMiniComponent,
     MdCardSlideComponent,
-    CardMiniComponent,
+    MdCardCapsuleComponent,
     CardLightComponent,
+    CardBasicComponent,
     SearchComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

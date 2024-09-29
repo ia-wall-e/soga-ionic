@@ -1,55 +1,20 @@
-@import "../../../../assets/sass/mixin";
-/*
-:root{
-  --type-cardmini-height:,
-  --type-cardmini-mxheight:,
-  --type-cardmini-bg:,
---type-cardmini-bdr-radius:,
---type-cardmini-bdr-shadow:,
---type-cardmini-bdr-shadow-hv:,
---type-cardmini-imgCtn-height:,
---type-cardmini-imgCtn-width:,
---type-cardmini-imgCtn-bdr-radius:,
---type-cardmini-img-pdd:,
-}
-*/
-// $w_cardSlide:16.65rem;
-// $h_cardSlide:13rem;
-$h_cardSlide:12rem;
-$w_cardSlide:9rem;
+@import '../../../../assets/sass/mixin';
 .card-light {
-  // margin:5rem auto;
-  //!Older
-  // height: 18rem;
-  // max-height: 18rem;
-  // height: 18.5rem;
-  // max-height: 18.5rem;
-  // max-width: 14.5rem;
-  //!
-  background: red;
-  height:$h_cardSlide;
-  height: minmax($h_cardSlide,$h_cardSlide); 
-  width:$w_cardSlide;
-  width:minmax($w-cardSlide,$w-cardSlide);
+  height:var(--card-light-height);
+  width: var(--card-light-width);
   position: relative;
   display: flex;
   flex-direction: column;
   background: var(--ion-color-step-950);
-  border-radius: 15px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; //6
-  overflow:hidden;
   cursor: pointer;
-  // &:hover {
-  //   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; //3
-  // }
   .img-section-card {
-    // background: rgb(255, 255, 255);
-    background:none;
-    border-radius: 15px 15px 0 0;
+    border-radius: var(--card-light-bd-radius);
+    overflow: hidden;
+    box-shadow: var(--card-light-bx-shadow);
+    background: none;
     position: relative;
+    height: var(--card-light-img-height);
     width: 100%;
-    //   height: 10rem;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,73 +22,18 @@ $w_cardSlide:9rem;
       border: none;
       width: 100%;
       height: 100%;
-    //   padding: 0.3125rem;
       object-fit: cover;
-      // object-fit: cover;
-      border-radius: 15px 15px 0 0;
+      border-radius: var(--card-light-bd-radius);
     }
   }
-  .info-section-card {
-    background: white;
-    flex: 1;
-    width: 100%;
-    overflow: hidden;
-    padding: 2px 5px 0 7px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: 0 0 15px 15px;
-    .bx-name {
-      // max-height: 2.9rem;
-      // min-height: 2.9rem;
-      height: minmax(2.9rem, 2.9rem);
-      padding-top: 0.2rem;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      h5 {
-        all: unset;
-        @include font-standar($color: var(--text-black-static));
-        width: 100%;
-        overflow: hidden;
-      }
-    }
-    .bx-price {
-      // background:violet;
-      padding: 4px 0 0 2px;
-      height: 1.4rem;
-      display: flex;
-      align-items: center;
-      // margin-top: 7px;
-      .price {
-        all: unset;
-        @include font-standar($color: var(--text-black-static));
-      }
-      .oldprice {
-        @include font-standar($color: var(--text-black-static));
-        text-decoration-line: line-through;
-        margin-left: 5px;
+  .content-section-card {
+    padding: 0.3rem 1rem 0 0;
+    text-align: right;
+    .price {
+      label {
+        @include font-standar(medium-bold);
       }
     }
   }
 }
-//!RESPONSIVE
-//   @include mediaQuery(650px) {
-//     .card-mini {
-//       height: 16.3rem;
-//       .bx-img {
-//         height: 10rem;
-//         .globo-promo {
-//           font-size: 0.8rem;
-//           padding: 10px;
-//         }
-//       }
-//       .bx-data {
-//         .name-section {
-//           max-height: 2.7rem;
-//         }
-//       }
-//     }
-//   }
+

@@ -1,39 +1,148 @@
-@import "../../../assets/sass/mixin";
-/**style**/
+@import'../../../assets/sass/mixin';
+//#region --- variabes
+.search-component {}
+
+//#endregion
+//#region --- structure
 .search-component {
-  // background: reD;
-  width: 100%;
-  height: var(--type-search-hg);
   position: relative;
-  // box-sizing: border-box;
-  > .input-search {
-    @include font-standar($color: rgb(77, 77, 77), $fs: 1rem, $fw: 500);
-    outline: none;
-    height: 100%;
+  width: 100%;
+
+  .input-search-section {
+    // display:none;
+    position: relative;
+    height: 3rem;
     width: 100%;
-    border: none;
-    background: rgb(240, 244, 247);
-    border-radius: 30px;
-    padding: 0 55px 0 20px;
-    &:focus {
-      box-shadow: none;
+    z-index: 4;
+
+    >.input-search {
+      @include font-standar($color: rgb(77, 77, 77),
+        $fs: 1rem,
+        $fw: 500,
+      );
+      outline: none;
+      height: 100%;
+      width: 100%;
+      border: none;
+      background: var(--search-bg);
+      border-radius: var(--search-radius);
+      padding: var(--search-pdd);
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &::placeholder {
+        color: var(--search-placeholder-cl);
+        font-weight: 600;
+      }
     }
-    &::placeholder {
-      color: var(--input-label);
+
+    >.button-search {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      // border-radius: 0 30px 30px 0;
     }
   }
-  > .button-section {
+
+  .items-request-section {
+    background: white;
     // background:red;
+    display: none;
+    flex-direction: column;
     position: absolute;
+    z-index: 3;
     top: 0;
-    right: 0;
-    height: 100%;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    padding-top: 3.625rem;
+    border-radius: var(--radius-iii);
+    box-shadow: var(--search-shadow);
     overflow: hidden;
-    border-radius: 0 30px 30px 0;
-    padding: 0 4px;
+
+    .item {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      .icon {
+        padding: var(--pdd-m);
+      }
+
+      .text {
+        flex: 1;
+        @include font-standar($fs: var(--ft-sz-m), $family: main);
+      }
+    }
   }
 }
+
+//#endregion
+//#region --- attribute
+.search-component {
+  &.fill {
+    &-solid {
+      &-white {}
+
+      &-gray {}
+    }
+
+    &-outline {
+      .input-search-section {
+        .input-search {
+          background: none;
+          border: 1px solid rgb(165, 165, 165)
+        }
+      }
+
+      ;
+    }
+  }
+}
+
+//#endregion
+//#region --- active
+.active {
+  .input-search-section {
+    .input-search {
+      background: none;
+    }
+  }
+
+  .items-request-section {
+    display: flex;
+  }
+}
+
+//#endregion
+//#region --- RESPONSIVE
+//!NOTA: responsive en el 720px
+@include mediaquery(720px) {
+  .search-component {
+
+    &.active {
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      min-height: 100vh;
+      border-radius: 0;
+
+
+      .items-request-section {
+        flex: 1;
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+//#endregion

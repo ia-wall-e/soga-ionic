@@ -1,36 +1,164 @@
+// @import "./fonts";
+// $font-standar:"poppins";
+// $font-button:$font-standar;
+// $font-input:$font-standar;
+// @mixin font-title($color: var(--font-color1), $fw:800, $fs: "") {
+//   font-family: "ubuntu", sans-serif;
+//   color: $color;
+//   font-size: $fs;
+//   font-weight: $fw;
+// }
+// @mixin font-standar($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
+//   font-family: $font-standar, sans-serif;
+//   color:$color;
+//   font-size:$fs;
+//   font-weight:$fw;
+// }
+// @mixin font-button($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
+//   font-family: $font-button, sans-serif;
+//   color:$color;
+//   font-size:$fs;
+//   font-weight:$fw;
+// }
+// @mixin font-input($type: null,$fs:1rem,$fw:500,$color:var(--font-color1)) {
+//   font-family: $font-input, sans-serif;
+//   color:$color;
+//   font-size:$fs;
+//   font-weight:$fw;
+// }
+
+// @mixin text-nowrap{
+//   white-space: nowrap; 
+//   overflow: hidden;  
+//   text-overflow: ellipsis
+// }
+
+// @mixin mediaquery($size) {
+//   @media screen and (max-width:#{$size}) {
+//     @content;
+//   }
+// }
+//#region --- NEW MIXIN
 @import "./fonts";
-$font-standar:"poppins";
-$font-button:$font-standar;
-$font-input:$font-standar;
-@mixin font-title($color: var(--font-color1), $fw:800, $fs: "") {
-  font-family: "ubuntu", sans-serif;
+
+@mixin font-title($type: "",
+  $fs: "",
+  $fw: 800,
+  $color: var(--black-regular),
+  $family: null) {
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+  font-family: null;
+
+  @if ($type ==h1) {
+    font-size: var(--headline-sz-h1);
+  }
+
+  @else if($type ==h2) {
+    font-size: var(--headline-sz-h2);
+  }
+
+  @else if($type ==h3) {
+    font-size: var(--headline-sz-h3);
+  }
+
+  @else if($type ==h4) {
+    font-size: var(--headline-sz-h4);
+  }
+
+  @else if($type ==h5) {
+    font-size: var(--headline-sz-h5);
+  }
+
+  @else if($type ==h6) {
+    font-size: var(--headline-sz-h6);
+  }
+
+  @if ($family==null) {
+    font-family: var(--mx-title-family);
+  }
+
+  @else if($family==second) {
+    font-family: var(--mx-title-family-second);
+  }
+}
+
+@mixin font-standar($type: medium-regular,
+  $fs: 0.85rem,
+  $fw: 400,
+  $color: var(--black-regular),
+  $family: null) {
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+  font-family: var(--mx-standar-family);
+
+  @if ($type ==xlarge) {
+    font-size: 1.85rem;
+    font-weight: 400;
+  }
+  @else if($type ==xlarge-bold) {
+    font-size: 1.85rem;
+    font-weight: 600;
+  }
+  @else if ($type ==large) {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  @else if ($type ==large-bold) {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  @else if($type ==medium) {
+    font-size: 0.85;
+    font-weight: 400;
+  }
+  @else if($type ==medium-bold) {
+    font-size: 0.85;
+    font-weight: 600;
+  }
+  @else if($type ==small) {
+    font-size: var(--ft-sz-xxs);
+    font-weight: 200;
+  }
+  @else if($type ==small-bold) {
+    font-size: var(--ft-sz-xxs);
+    font-weight: 600;
+  }
+  @if ($family==null) {
+    font-family: var(--mx-standar-family);
+  }
+  @else if($family==second) {
+    font-family: var(--mx-standar-family-second);
+  }
+}
+
+@mixin font-button($fs: 1rem, $fw: 600, $color: var(--black-regular)) {
+  font-family: var(--mx-button-family);
   color: $color;
   font-size: $fs;
   font-weight: $fw;
 }
-@mixin font-standar($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
-  font-family: $font-standar, sans-serif;
-  color:$color;
-  font-size:$fs;
-  font-weight:$fw;
-}
-@mixin font-button($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
-  font-family: $font-button, sans-serif;
-  color:$color;
-  font-size:$fs;
-  font-weight:$fw;
-}
-@mixin font-input($type: null,$fs:1rem,$fw:500,$color:var(--font-color1)) {
-  font-family: $font-input, sans-serif;
-  color:$color;
-  font-size:$fs;
-  font-weight:$fw;
+
+@mixin font-input($fs: 1rem, $fw: 500, $color: var(--black-regular)) {
+  font-family: var(--mx-input-family);
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
 }
 
-@mixin text-nowrap{
-  white-space: nowrap; 
-  overflow: hidden;  
-  text-overflow: ellipsis
+@mixin txt-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  // text-overflow: ellipsis;
+}
+
+@mixin center() {
+  // background:red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @mixin mediaquery($size) {
@@ -38,3 +166,30 @@ $font-input:$font-standar;
     @content;
   }
 }
+
+@mixin separator($line: var(--separator-color), $text: var(--separator-color)) {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .line {
+    flex: 1;
+    height: 1px;
+    background-color: $line;
+  }
+
+  .circle {
+    margin: 0 15px;
+    width: 20px;
+    height: 15px;
+    border-radius: 50%;
+    color: $text;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
+
+//#endregion

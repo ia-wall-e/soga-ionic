@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { MdCardMiniComponent } from './md-card-mini.component';
+import { FeaturesComponent } from './features.component';
 
-describe('MdCardMiniComponent', () => {
-  let component: MdCardMiniComponent;
-  let fixture: ComponentFixture<MdCardMiniComponent>;
+describe('FeaturesComponent', () => {
+  let component: FeaturesComponent;
+  let fixture: ComponentFixture<FeaturesComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MdCardMiniComponent ],
+      declarations: [ FeaturesComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MdCardMiniComponent);
+    fixture = TestBed.createComponent(FeaturesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

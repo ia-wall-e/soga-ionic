@@ -1,0 +1,30 @@
+.container {
+  display: grid;
+  width: 100%;
+ 
+}
+//**Entry - el codigo se tralado al scss de componente  entryPage
+
+//**page OTP
+.wrapper-otp {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  flex: 1;
+  .otp {
+    @include font-standar();
+    font-size: 2rem;
+    color: var(--text-black);
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+    outline: none;
+    padding: 2rem 1rem;
+    margin: 0 0.3rem;
+    border-radius: 8px;
+    border: 2px solid var(--input-border);
+    &:focus {
+      border-color: var(--ion-color-primary);
+    }
+  }
+}

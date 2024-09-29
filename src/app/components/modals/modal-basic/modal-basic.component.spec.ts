@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { CardMiniComponent } from './card-mini.component';
+import { ModalBasicComponent } from './modal-basic.component';
 
-describe('CardMiniComponent', () => {
-  let component: CardMiniComponent;
-  let fixture: ComponentFixture<CardMiniComponent>;
+describe('ModalBasicComponent', () => {
+  let component: ModalBasicComponent;
+  let fixture: ComponentFixture<ModalBasicComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CardMiniComponent ],
+      declarations: [ ModalBasicComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CardMiniComponent);
+    fixture = TestBed.createComponent(ModalBasicComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

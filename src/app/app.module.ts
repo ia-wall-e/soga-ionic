@@ -8,11 +8,14 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 /*firebase*/
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+/*icons*/
+import { IconModule } from './core/icon/icon.module';
 /*rutas y modulos*/
 import { AuthModule } from './pages/auth/auth.module';
 import { ComponentsModule } from '@myComponents/components.module';
 /*otro*/
 import { AppRoutingModule } from './app-routing.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 /**/
 @NgModule({
   declarations: [AppComponent],
@@ -23,8 +26,9 @@ import { AppRoutingModule } from './app-routing.module';
     ComponentsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AppRoutingModule,
+    IconModule
   ],
-  providers: [provideHttpClient(withInterceptorsFromDi()),{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [provideHttpClient(withInterceptorsFromDi()),{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

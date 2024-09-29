@@ -4,10 +4,9 @@ import {
   ElementRef,
   Input,
   OnInit,
-  ViewChild,
-  HostListener,
+  ViewChild
 } from '@angular/core';
-import {Swiper, SwiperOptions} from 'swiper/types';
+import {SwiperOptions} from 'swiper/types';
 
 
 @Component({
@@ -25,7 +24,6 @@ export class MdCardSlideComponent implements OnInit, AfterViewInit {
   constructor() {
     this.screenWidth = window.innerWidth;
   }
-
   ngOnInit() {}
   ngAfterViewInit() {
     const swiper =this.swiperRef?.nativeElement;

@@ -1,8 +1,48 @@
-<div class="search-component">
+<!-- <div class="search-component">
     <input class="input-search" type="text" name="search" [attr.placeholder]="placeholder ?? 'Buscar'" autocomplete="off">
     <div class="button-section">
       <ion-button class="button-io fill-icon-gray">
         <ion-icon slot="icon-only" src="../../../assets/icon/search.svg"></ion-icon>
       </ion-button>
     </div>
-</div>
+</div> -->
+
+         <!-- #component search-->
+         <div class="search-component" [ngClass]="{'active': isActive, 'inactive': !isActive}">
+          <div class="input-search-section">
+            <input class="input-search" type="text" name="search" placeholder="de que tienes antojos"
+              autocomplete="off" (focus)="searchActive($event)" (blur)="searchActive($event)">
+            <div class="button-search">
+              <ion-button class="btn-icon fill-clear shape-round">
+                <ion-icon name="search"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+          <div class="items-request-section">
+            <div class="item">
+              <div class="icon">
+                <ion-icon name="search"></ion-icon>
+              </div>
+              <div class="text">
+                traductor
+              </div>
+            </div>
+            <div class="item">
+              <div class="icon">
+                <ion-icon name="search"></ion-icon>
+              </div>
+              <div class="text">
+                zapatillas nike
+              </div>
+            </div>
+            <div class="item">
+              <div class="icon">
+                <ion-icon name="search"></ion-icon>
+              </div>
+              <div class="text">
+                camisetas alvarado
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- #component end -->
