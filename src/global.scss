@@ -74,7 +74,7 @@ $app-theme: mat.define-theme((
 
 //*** Scss Personalizado***/
 @import "./assets/sass/shared.scss";
-//#region ---  ALERTCONTROLLER - IONIC
+//#region ---  AlertController
 ion-alert.custom-alert {
   // background:yellow;
   --backdrop-opacity: 0.7;
@@ -129,8 +129,20 @@ ion-alert.custom-alert button.alert-button {
   background: #555;
 }
 //#endregion
-
-
-
+//#region --- Ion-Buttons
+// ion-buttons{
+//   .icon-head,ion-button{
+//     --border-radius:100%;
+//     border-radius:100%;
+//   }
+// }
+//#endregion
+//#region --- Skeleton
+ion-skeleton-text {
+  // --border-radius: 30px;
+  // --background: rgba(188, 0, 255, 0.065);
+  // --background-rgb: 141, 141, 141;
+}
+// #endregion
 // html, body { height: 100%; }
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

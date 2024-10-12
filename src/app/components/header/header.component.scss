@@ -1,19 +1,31 @@
 @import "../../../assets/sass/mixin";
+
 ion-header {
   margin-bottom: var(--type-header-margin-bottom);
   box-shadow: none;
-  border-bottom: 1px solid rgb(240, 244, 247);
+  --border-bottom: 1px solid rgb(240, 244, 247);
+
   ion-title {
-    @include font-standar($fs:1.2rem,$fw:600);
+    @include font-standar($fs: 1.2rem, $fw: 600);
+  }
+
+  ion-buttons {
+    ion-button {
+      border-radius: 100%;
+      --border-radius: 100%;
+
+    }
   }
 }
+
 ion-toolbar {
   padding: 0 10px;
 }
-ion-avatar {
-  height: 3rem;
-  width: 3rem;
-}
-ion-menu-button {
-  color: var(--icon-color);
-}
+
+// ion-avatar {
+//   height: 3rem;
+//   width: 3rem;
+// }
+// ion-menu-button {
+//   color: var(--black-regular);
+// }

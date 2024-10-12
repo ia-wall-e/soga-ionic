@@ -12,7 +12,7 @@ export class NavDrawerComponent implements OnInit {
     {
       route: '/cart',
       iconName: 'bag-handle-outline',
-      iconSvg:'src="../../../assets/icon/bag.svg',
+      iconSvg:'',
       label: 'Bolsa De Compras',
     },
     {

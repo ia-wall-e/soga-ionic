@@ -48,5 +48,23 @@ export class IconModule {
     this.matIconRegistry.addSvgIcon(
       'ruler_light',this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/icon/ruler_2.svg')
     );
+    this.matIconRegistry.addSvgIcon(
+      'chevron_right',this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/icon/chevron_right_5.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
+      'chevron_left',this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/icon/chevron_left_5.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tune',this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/icon/tune_5.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
+      'search',this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/icon/search_5.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
+      'bag',this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/icon/bag_5.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
+      'notification',this.sanitizer.bypassSecurityTrustResourceUrl('../../assets/icon/notifications_5.svg')
+    );
   }
  }

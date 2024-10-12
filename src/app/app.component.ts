@@ -8,12 +8,12 @@ import { AuthService } from '@myServices/auth.service';
 export class AppComponent implements OnInit, OnDestroy {
   constructor(private authSvc: AuthService) {}
   ngOnInit() {
-    this.authSvc.authState().subscribe({
-      next: (v) => {
-        v ? console.log('On-Line') : console.log('OffLine');
-      },
-      error:(e)=>console.log(e)
-    });
+    // this.authSvc.authState().subscribe({
+    //   next: (v) => {
+    //     v ? console.log('On-Line') : console.log('OffLine');
+    //   },
+    //   error:(e)=>console.log(e)
+    // });
   }
   ngOnDestroy() {
     console.log('Hook Destroy App');

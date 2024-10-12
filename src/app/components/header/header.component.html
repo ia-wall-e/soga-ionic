@@ -1,21 +1,17 @@
 <ion-header>
   <ion-toolbar>
     <div class="logo-head" slot="start">
-      <!-- Título del header -->
       <ion-title>Soga-io</ion-title>
     </div>
-    <div class="search-head">
-      <!-- <app-search></app-search> -->
-    </div>
     <ion-buttons slot="end">
-      <ion-button class="button-io fill-icon-gray">
-        <ion-icon slot="icon-only" src="../../../assets/icon/search.svg" color="primary"></ion-icon>
+      <ion-button class="btn-icon fill-clear shape-round size-m">
+        <mat-icon svgIcon="search"></mat-icon>
       </ion-button>
-      <ion-button class="button-io fill-icon-gray" (click)="menuNotification()">
-        <ion-icon slot="icon-only" src="../../../assets/icon/notification.svg"></ion-icon>
+      <ion-button class="btn-icon fill-clear shape-round size-m" (click)="menuNotification()">
+        <mat-icon svgIcon="notification"></mat-icon>
       </ion-button>
-      <ion-button class="button-io fill-icon-gray">
-        <ion-icon slot="icon-only" src="../../../assets/icon/bag.svg"></ion-icon>
+      <ion-button class="btn-icon fill-clear icon-head size-m">
+       <mat-icon svgIcon="bag"></mat-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -23,18 +19,18 @@
 <!-- <ion-header>
   <ion-toolbar>
     <ion-buttons slot="secondary">
-      <ion-button class="button-io fill-icon-gray">
+      <ion-button class="btn-icon fill-solid-second shape-round size-m"></ion-button>
         <ion-icon slot="icon-only" name="search-outline"></ion-icon>
       </ion-button>
-      <ion-button class="button-io fill-icon-gray" (click)="menuNotification()">
+      <ion-button class="btn-icon shape-round fill-solid-clear" (click)="menuNotification()">
         <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
       </ion-button>
-      <ion-button class="button-io fill-icon-gray">
+      <ion-button class="btn-icon fill-solid-second shape-round size-m"></ion-button>
         <ion-icon slot="icon-only" name="bag-handle-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="primary">
-      <ion-button class="button-io fill-icon-gray">
+      <ion-button class="btn-icon fill-solid-second shape-round size-m"></ion-button>
         <ion-icon  slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
       </ion-button>
     </ion-buttons >

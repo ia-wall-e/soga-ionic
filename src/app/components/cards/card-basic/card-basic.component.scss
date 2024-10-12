@@ -1,74 +1,99 @@
 @import'../../../../assets/sass/mixin';
-.card-basic{
-    height:var(--card-mini-height);
-    width:var(--card-mini-width);
+//#region - Component 
+.card-basic {
+  height: var(--card-mini-height);
+  width: var(--card-mini-width);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-mini-bg);
+  border-radius: var(--card-mini-bd-radius);
+  box-shadow: var(--card-mini-bx-shadow);
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: var(--card-mini-bx-shadow-hv);
+  }
+
+  .img-section-card {
+    border-radius: var(--card-mini-img-section-pdd);
     position: relative;
+    width: 100%;
+    height: var(--card-mini-img-section-hg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--card-mini-img-pdd);
+
+    img {
+      border: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--card-mini-img-radius);
+    }
+  }
+
+  .info-section-card {
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+    padding: 2px 5px 0 7px;
     display: flex;
     flex-direction: column;
-    background: var(--card-mini-bg);
-    border-radius: var( --card-mini-bd-radius);
-    box-shadow: var(--card-mini-bx-shadow);
-    cursor: pointer;
-    &:hover {
-      box-shadow:var(--card-mini-bx-shadow-hv);
-    }
-    .img-section-card {
-      border-radius: var(--card-mini-img-section-pdd);
-      position: relative;
-      width: 100%;
-      height: var(--card-mini-img-section-hg);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      img {
-        border: none;
-        width: 100%;
-        height: 100%;
-        padding: var(--card-mini-img-pdd);
-        object-fit: cover;
-        border-radius: var(--card-mini-img-radius);
-      }
-    }
-    .info-section-card {
-      flex: 1;
-      width: 100%;
+    overflow: hidden;
+    border-radius: var(--card-mini-info-section-pdd);
+
+    .bx-name {
+
+      height: var(--card-mini-bxname-hg);
+      padding-top: var(--card-mini-bxname-pdd);
       overflow: hidden;
-      padding: 2px 5px 0 7px;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
-      border-radius:var(--card-mini-info-section-pdd);
-      .bx-name {
+      justify-content: center;
+      align-items: center;
 
-        height:var(--card-mini-bxname-hg);
-        padding-top: var( --card-mini-bxname-pdd);
+      h5 {
+        all: unset;
+        @include font-standar();
+        width: 100%;
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        h5 {
-          all: unset;
-          @include font-standar();
-          width: 100%;
-          overflow: hidden;
-        }
       }
-      .bx-price {
-        // background:violet;
-        padding:var(--card-mini-bxprice-pdd);
-        height: var(--card-mini-bxprice-hg);
-        display: flex;
-        align-items: center;
-        .price {
-          all: unset;
-          @include font-standar(large-regular);
-        }
-        .oldprice {
-          @include font-standar(small-regular,$color:var(--gray-old));
-          text-decoration-line: line-through;
-          padding-left:var(--pdd-s);
-        }
+    }
+
+    .bx-price {
+      // background:violet;
+      padding: var(--card-mini-bxprice-pdd);
+      height: var(--card-mini-bxprice-hg);
+      display: flex;
+      align-items: center;
+
+      .price {
+        all: unset;
+        @include font-standar(large-bold);
+      }
+
+      .oldprice {
+        @include font-standar(small-regular, $color: var(--gray-old));
+        text-decoration-line: line-through;
+        padding-left: var(--pdd-s);
       }
     }
   }
+}
+
+//#endregion
+//#region - Skeleton
+.card-basic {
+  &.skeleton {
+    box-shadow:none;
+    .img-section-card {
+      ion-skeleton-text {
+        margin-top: 0.625rem;
+      }
+    }
+  }
+}
+
+//#endregion 

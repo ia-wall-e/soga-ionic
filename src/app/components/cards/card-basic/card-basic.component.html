@@ -1,16 +1,37 @@
-<div class="card-basic">
-  <div class="img-section-card">
-      <img
-          src="https://milanelo.com/cdn/shop/files/PXMJL006001_1cdf0c0b-a6f5-438b-b028-8cf184232bd2.jpg?v=1703253173"
-          alt="imagen product">
-  </div>
-  <div class="info-section-card">
-      <div class="bx-name">
-          <h5>Titulo de prueba del proeduco</h5>
-      </div>
-      <div class="bx-price">
-          <p class="price">$157.750</p>
-          <p class="oldprice">$117.777</p>
-      </div>
-  </div>
+<!-- #region - Component -->
+<div class="card-basic" *ngIf="stateComponent; else skeleton">
+    <div class="img-section-card">
+        <img [src]="image"
+            alt="imagen product" appImageHandler>
+    </div>
+    <div class="info-section-card">
+        <div class="bx-name">
+            <h5>{{title}} prueba de titulo, para ver cuantas lineas puede ocupar</h5>
+        </div>
+        <div class="bx-price">
+            <p class="price">$124.562</p>
+            <!-- <p class="price">${{price}}</p> -->
+            <p class="oldprice">${{discount}}</p>
+        </div>
+    </div>
 </div>
+<!-- #endregion -->
+<!-- #region - Skeleton -->
+ <ng-template #skeleton>
+    <div class="card-basic skeleton">
+        <div class="img-section-card">
+            <ion-skeleton-text [animated]="true" style="border-radius: 15px;"></ion-skeleton-text>
+        </div>
+        <div class="info-section-card">
+            <div class="bx-name">
+                <!-- <h5><ion-skeleton-text [animated]="true" style="border-radius: 30px;"></ion-skeleton-text></h5> -->
+                <h5><ion-skeleton-text [animated]="true"  style="border-radius: 30px;height:1rem;"></ion-skeleton-text></h5>
+            </div>
+            <div class="bx-price">
+                <ion-skeleton-text [animated]="true" style="width: 50%; border-radius: 30px;"></ion-skeleton-text>
+                
+            </div>
+        </div>
+    </div>
+ </ng-template>
+<!-- #endregion -->

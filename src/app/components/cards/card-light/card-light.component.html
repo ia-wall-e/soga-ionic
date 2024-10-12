@@ -1,21 +1,28 @@
-<!-- #Card-old -->
-<!-- <div class="card-light">
+<!--#region Card-new -->
+<div class="card-light" (click)="toStand()" *ngIf="stateComponent; else skeleton" @fadeInOut>
   <div class="img-section-card">
-    <img
-      src="{{image}}"
-      alt="imagen product">
-  </div>
-</div> -->
-<!-- #Card-new -->
-<div class="card-light">
-  <div class="img-section-card">
-    <img
-      src="{{image}}"
-      alt="imagen product">
+    <img [src]="image"  alt="imagen product" appImageHandler>
   </div>
   <div class="content-section-card">
     <div class="price">
-      <label>$156.785</label>
+      <label appTest>${{price}}</label>
     </div>
   </div>
 </div>
+<!-- #endregion -->
+<!--#region  Skeleton -->
+<ng-template #skeleton>
+  <div class="card-light skeleton">
+    <div class="img-section-card">
+      <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+    </div>
+    <div class="content-section-card">
+      <div class="price">
+        <label>
+          <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+        </label>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!-- #endregion -->

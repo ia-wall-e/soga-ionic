@@ -1,3 +1,43 @@
+// @import "./fonts";
+// $font-standar:"poppins";
+// $font-button:$font-standar;
+// $font-input:$font-standar;
+// @mixin font-title($color: var(--font-color1), $fw:800, $fs: "") {
+//   font-family: "ubuntu", sans-serif;
+//   color: $color;
+//   font-size: $fs;
+//   font-weight: $fw;
+// }
+// @mixin font-standar($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
+//   font-family: $font-standar, sans-serif;
+//   color:$color;
+//   font-size:$fs;
+//   font-weight:$fw;
+// }
+// @mixin font-button($type: null,$fs:0.85rem,$fw:400,$color:var(--font-color1)) {
+//   font-family: $font-button, sans-serif;
+//   color:$color;
+//   font-size:$fs;
+//   font-weight:$fw;
+// }
+// @mixin font-input($type: null,$fs:1rem,$fw:500,$color:var(--font-color1)) {
+//   font-family: $font-input, sans-serif;
+//   color:$color;
+//   font-size:$fs;
+//   font-weight:$fw;
+// }
+
+// @mixin text-nowrap{
+//   white-space: nowrap; 
+//   overflow: hidden;  
+//   text-overflow: ellipsis
+// }
+
+// @mixin mediaquery($size) {
+//   @media screen and (max-width:#{$size}) {
+//     @content;
+//   }
+// }
 //#region --- NEW MIXIN
 @import "./fonts";
 

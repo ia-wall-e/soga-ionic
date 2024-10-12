@@ -1,0 +1,28 @@
+.skeleton {
+    .title {
+        height: 1rem;
+        margin-bottom: 0.3125rem;
+        border-radius: 30px;
+    }
+
+    .subtitle {
+        border-radius: 30px;
+    }
+
+    .button-section {
+        ion-skeleton-text {
+            // min-width:2.5rem;
+            // min-height:2.5rem;
+            // --border-radius:100%;
+        }
+
+    }
+}
+
+.invisible {
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}

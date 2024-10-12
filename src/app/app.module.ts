@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
+/*Animaciones de angular para HTML*/ 
 /* HttpClient*/
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 /*firebase*/
@@ -17,6 +18,9 @@ import { ComponentsModule } from '@myComponents/components.module';
 import { AppRoutingModule } from './app-routing.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 /**/
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { apiProgressInterceptor } from 'src/app/interceptors/api-progress.interceptor';
+/**/
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -28,10 +32,19 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AppRoutingModule,
     IconModule
   ],
-  providers: [provideHttpClient(withInterceptorsFromDi()),{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideAnimationsAsync()],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    provideAnimationsAsync(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: apiProgressInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
 /*
 !NOTAS:
 ! - appRoutingModule, va de ultima entre las importacionde de modulos con rutas

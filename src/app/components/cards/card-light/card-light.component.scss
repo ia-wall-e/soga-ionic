@@ -7,22 +7,35 @@
   flex-direction: column;
   background: var(--ion-color-step-950);
   cursor: pointer;
+ 
   .img-section-card {
+    // background: red;
     border-radius: var(--card-light-bd-radius);
     overflow: hidden;
-    box-shadow: var(--card-light-bx-shadow);
-    background: none;
+    // box-shadow: var(--card-light-bx-shadow);
+    // box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+      // box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; //6
+      // box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;//22
+  // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;//5
+  // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background: rgb(243, 243, 243);
+//     background: rgb(190,190,190);
+// background: linear-gradient(90deg, rgba(190,190,190,1) 0%, rgba(240,243,245,1) 45%);
     position: relative;
     height: var(--card-light-img-height);
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    &:hover {
+      box-shadow: var(--card-mini-bx-shadow-hv);
+    }
     img {
       border: none;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      // object-fit: contain;
       border-radius: var(--card-light-bd-radius);
     }
   }
@@ -37,3 +50,18 @@
   }
 }
 
+//#region --- Skeleton
+.card-light{
+  &.skeleton{
+    .img-section-card{
+      box-shadow:none;
+    }
+    .price{
+      width:3rem;
+      label{
+        width:2rem;
+      }
+    }
+  }
+}
+//#emdregion

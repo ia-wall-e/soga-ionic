@@ -1,52 +1,87 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
+import { modulo } from '@myInterfaces/modulo';
 import { Product } from '@myInterfaces/product';
 import { CatalogService } from '@myServices/catalog.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss','./head-main.scss'],
+  styleUrls: ['./home.page.scss', './head-main.scss'],
 })
 export class HomePage implements OnInit {
-  params = {} as any;
-  items: Product[] = [];
-  items2:Product[]=[];
-  constructor(private catalogSvc:CatalogService) { }
+  //#region - Propiedades
+  sellerID: string = "seller";
+  seller = signal<modulo>({ state: false, headline: { title: '', subtitle: '' } });
+  storeID:string="store";
+  store= signal<modulo>({ state: false, headline: { title: '', subtitle: '' } });
+  //#endregion
+  constructor(private catalogSvc: CatalogService) { }
+  //#region - Lifecycle
   ngOnInit() {
-    this.moduloTest();
-    this.moduloTestSlide();
+    this.apiResource();
+    this.testCategory();
   }
- moduloTest(){
-  this.params = {
-    limit: '5',
-  };
-  this.catalogSvc.apiTest(this.params).subscribe({
-    next: (res: any[]) => {
-      // console.log(res)
-      // console.log('http catalogo ejecutandose')
-      this.items.push(...res);
-    },
-    error: (error: any) => {
-      console.error(error)
-    },
-    complete: () => {}
-  });
- }
- moduloTestSlide(){
-  this.builderModule(this.params, this.items2);
- }
- /*commons*/
- private builderModule(params: any, targetArray: Product[]) {
-  this.catalogSvc.apiTest2(params).subscribe({
-    next: (data: any[]) => {
-      // console.log(data);
-      // console.log('http catalogo ejecutandose')
-      targetArray.push(...data);
-    },
-    error: (error: any) => {
-      console.error(error)
-    },
-    complete: () => {}
-  });
-}
+  //#endregion
+  //#region - Metodos component
+  testCategory() {
+    const params = {
+      limit: 200
+    }
+    const category = "sports-accessories";
+    this.catalogSvc.apiCategory(category).subscribe({
+      next: (data: any) => {
+        console.log(data)
+        if (data.ok) {
+          let items;
+          if (data.body.products) { items = data.body.products } else { items = data.body }
+          this.store.set({
+            state: true,
+            headline: {
+              title: 'Independent Art', subtitle: 'Todo en productos deportivos'
+            },
+            products: items
+          })
+
+        }
+      },
+      error: (error: any) => {
+        console.error(error);
+      },
+      complete: () => { }
+    });
+    console.log(this.store())
+  }
+  apiResource() {
+    const params = {
+      limit: 200
+    }
+    this.builderReq(params)
+  }
+  private builderReq(params?: any, headline?: any, mod?: string) {
+    this.catalogSvc.apiProducts(params).subscribe({
+      next: (data: any) => {
+        console.log(data)
+        if (data.ok) {
+          let items;
+          if (data.body.products) { items = data.body.products } else { items = data.body }
+          this.seller.set({
+            state: true,
+            headline: {
+              title: 'Lo mas vendido', subtitle: 'Productos que han sido tendencia esta semana'
+            },
+            products: items
+          })
+
+        }
+      },
+      error: (error: any) => {
+        console.error(error);
+      },
+      complete: () => { }
+    });
+    // console.log(this.seller())
+  }
+  //#endregion
+  //#region - DEV
+  //#endregion
 }

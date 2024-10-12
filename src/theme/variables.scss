@@ -64,12 +64,13 @@
   --card-mini-bx-shadow: var(--shadow-6);
   --card-mini-bx-shadow-hv: var(--shadow-3);
   --card-mini-bd-radius: var(--radius-i);
-  --card-mini-img-section-pdd: var(--radius-i) var(--radius-i) 0 0;
+  --card-mini-img-section-pdd:var(--pdd-s);
   --card-mini-img-section-hg:10rem;
   --card-mini-img-pdd:var(--pdd-s);
   --card-mini-img-radius:var(--radius-i);
   --card-mini-info-section-pdd: var(--radius-i);
-  --card-mini-bxname-hg: min(2.9rem, 2.9rem);
+  // --card-mini-bxname-hg: min(2.9rem, 2.9rem);
+  --card-mini-bxname-hg: min(2.5rem, 2.5rem);
   --card-mini-bxname-pdd: 0.2rem 0 0 0;
   --card-mini-bxprice-hg: 1.4rem;
   --card-mini-bxprice-pdd: 4px 0 0 2px;
@@ -96,6 +97,9 @@
   // --input-bd: var(--gray-ii);//outline
   --input-solid-cl: var(--gray-i);
   --input-outline-cl: var(--gray-ii);
+  //*Skeleton
+  --skeleton-bg:var(--gray-iv);
+  --skeleton-radius:30px;
   //*Modulo
   --modulo-bg-gray:var(--gray-iv);
   --modulo-bg-white:var(--white-regular);
@@ -121,10 +125,12 @@
   --mx-title-family-third: "open-sans", sans-serif;
   //standar
   --mx-standar-family: "open-sans", sans-serif;
+  // --mx-standar-family: "ubuntu", sans-serif;
   // --mx-standar-family: "poppins", sans-serif;
   --mx-standar-family-second: "poppins", sans-serif;
   //button
   --mx-button-family: "open-sans", sans-serif;
+  // --mx-button-family: "poppins", sans-serif;
   //input
   --mx-input-family: "poppins", sans-serif;
 }

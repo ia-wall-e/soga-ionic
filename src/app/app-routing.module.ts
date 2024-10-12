@@ -14,7 +14,8 @@ const routes: Routes = [
   {
     path: 'buttons',
     loadChildren: () => import('./pages/componentsUI/buttons/buttons.module').then( m => m.ButtonsPageModule)
-  },  {
+  },
+  {
     path: 'stand',
     loadChildren: () => import('./pages/stand/stand.module').then( m => m.StandPageModule)
   },

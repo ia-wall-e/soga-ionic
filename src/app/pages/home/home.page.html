@@ -6,7 +6,7 @@
     <!-- # -->
     <div class="main">
       <div class="head-main-area">
-        <div class="segment-section">
+        <!-- <div class="segment-section">
           <ion-segment value="default">
             <ion-segment-button value="default" routerLink="/buttons">
               <ion-label>Tendencias</ion-label>
@@ -18,7 +18,7 @@
               <ion-label>Segment</ion-label>
             </ion-segment-button>
           </ion-segment>
-        </div>
+        </div> -->
         <div class="search-section">
           <ion-avatar slot="start">
             <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
@@ -26,17 +26,17 @@
           <app-search></app-search>
           <div class="box-button">
             <ion-button class="btn-icon  fill-solid-second shape-round">
-              <ion-icon slot="icon-only" src="../../../assets/icon/notification.svg"></ion-icon>
+              <mat-icon svgIcon="tune"></mat-icon>
             </ion-button>
             <ion-button class="btn-icon fill-solid-second shape-round">
-              <ion-icon slot="icon-only" src="../../../assets/icon/bag.svg"></ion-icon>
+              <mat-icon svgIcon="bag"></mat-icon>
             </ion-button>
           </div>
         </div>
       </div>
-      <app-md-card-slide [dataModulo]="items2"></app-md-card-slide>
-      <app-md-card-capsule></app-md-card-capsule>
-      <app-md-card-slide [dataModulo]="items2"></app-md-card-slide>
+      <app-md-card-slide [dataModulo]="seller()" [prefix]="sellerID"></app-md-card-slide>
+      <app-md-card-capsule [dataModulo]="store()"></app-md-card-capsule>
+      <!-- <app-md-card-slide [dataModulo]="seller()" [prefix]="bestID"></app-md-card-slide> -->
     </div>
     <!-- # -->
     <div class="side-right"></div>

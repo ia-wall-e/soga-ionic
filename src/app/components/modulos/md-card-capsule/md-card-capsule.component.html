@@ -1,26 +1,47 @@
-<!-- #component Modulo-basic -->
-<div class="modulo type-card fill-solid-gray">
+<!-- #region - Component -->
+<div class="modulo type-card fill-solid-gray" *ngIf="stateComponent; else skeleton">
   <div class="head-modulo">
-      <div class="head-component margin-unset display-nowrap">
-          <div class="logo-section slot-start">
-              <img
-                  src="https://blancfestival.com/wp-content/uploads/2022/05/Nike_1985_cuadrado_rojo.png"
-                  alt>
-          </div>
-          <div class="title-section">
-              <h3 class="title">Promociones</h3>
-              <h6 class="subtitle">Este es un lugar para mostrar subtitulos</h6>
-          </div>
-          <div class="button-section">
-              <ion-button class="btn-io fill-solid-second shape-round size-m">
-                ver mas
-              </ion-button>
-            </div>
+    <div class="head-component margin-unset display-nowrap">
+      <div class="logo-section slot-start">
+        <img src="https://blancfestival.com/wp-content/uploads/2022/05/Nike_1985_cuadrado_rojo.png" alt>
       </div>
+      <div class="title-section">
+        <h3 class="title">{{title}}</h3>
+        <h6 class="subtitle">{{subtitle}}</h6>
+      </div>
+      <div class="button-section">
+        <ion-button class="btn-io fill-solid-second shape-round size-m">
+          ver mas
+        </ion-button>
+      </div>
+    </div>
   </div>
   <div class="body-modulo grid-card">
-       <app-card-basic></app-card-basic>
+    <ng-content *ngFor="let item of items">
+      <app-card-basic [item]="item"></app-card-basic>
+    </ng-content>
   </div>
-
 </div>
-<!-- #component end -->
+<!-- #endregion -->
+<!-- #region - Skeleton -->
+ <ng-template #skeleton>
+  <div class="modulo type-card skeleton">
+    <div class="head-modulo">
+      <div class="head-component margin-unset display-nowrap">
+        <div class="logo-section slot-start">
+          <ion-skeleton-text [animated]="true" style="width:3rem;height:3rem;border-radius:100%;"></ion-skeleton-text>
+        </div>
+        <div class="title-section">
+          <h3 class="title"><ion-skeleton-text [animated]="true" style="width:30%;height:1rem;border-radius:30px; margin-bottom:0.625rem;"></ion-skeleton-text></h3>
+          <h6 class="subtitle"><ion-skeleton-text [animated]="true" style="width:20%;;border-radius:30px;"></ion-skeleton-text></h6>
+        </div>
+      </div>
+    </div>
+    <div class="body-modulo grid-card">
+      <ng-content *ngFor="let item of items">
+        <app-card-basic></app-card-basic>
+      </ng-content>
+    </div>
+  </div>
+ </ng-template>
+<!-- #endregion -->

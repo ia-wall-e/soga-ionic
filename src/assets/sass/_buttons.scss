@@ -56,7 +56,14 @@
     &-clear {
       --background: none;
       background:none;
-      color: var(--black-regular);
+      // color: var(--black-regular);
+      color: var(--btn-solid-second-cl);
+      mat-icon,.icon{
+        svg{
+          fill:var(--btn-solid-second-cl);
+        }
+      }
+      
     }
   }
 }
@@ -273,6 +280,7 @@
 //#region --- BUTTON ICON
 //*Structure
 .btn-icon {
+  // background:rgb(255, 200, 200);
   cursor: pointer;
   // padding: unset;
   border: none;
@@ -324,7 +332,8 @@
 
     &-s {
       height: min(var(--size-s), var(--size-s));
-      width: min(var(--size-s), var(--size-s));
+      width:var(--size-s);
+      min-width:var(--size-s) ;
     }
   }
 }
