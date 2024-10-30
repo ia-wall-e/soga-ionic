@@ -23,10 +23,10 @@
     }
     .subtitle {
       // background:rgb(161, 161, 255);
-      @include font-standar($color: var( --headline-subtitle-cl));
+      @include font-standar($color: var( --headline-subtitle-cl),$fw:500);
     }
   }
-  .logo-section {
+  >.logo-section {
     // background:red;
     height: var(--headline-logo-hg);
     display: flex;
@@ -40,7 +40,7 @@
       object-fit: cover;
     }
   }
-  .button-section{
+  >.button-section{
     display:flex;
     justify-content: space-around;
     align-items: center;

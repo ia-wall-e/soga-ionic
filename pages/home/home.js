@@ -35,9 +35,9 @@ async function cargarContenido() {
         // document.getElementById('header').innerHTML = header_;
         // document.getElementById('search').innerHTML = search;
         document.getElementById('ctn_1').innerHTML = contenido;
-        document.getElementById('ctn_2').innerHTML = contenido2;
+        // document.getElementById('ctn_2').innerHTML = contenido2;
         document.getElementById('ctn_3').innerHTML = contenido3;
-        document.getElementById('ctn_4').innerHTML = contenido4;
+        // document.getElementById('ctn_4').innerHTML = contenido4;
     } catch (error) {
         console.error('Error:', error);
     }

@@ -48,8 +48,9 @@
         align-items: center;
         h5 {
           all: unset;
-          @include font-standar();
+          @include font-standar($color: var( --headline-subtitle-cl),$fw:500);
           width: 100%;
+          // line-height: 1;
           overflow: hidden;
         }
       }
@@ -61,7 +62,7 @@
         align-items: center;
         .price {
           all: unset;
-          @include font-standar(large-regular);
+          @include font-standar(large-bold,$color: var(--black-regular))
         }
         .oldprice {
           @include font-standar(small-regular,$color:var(--gray-old));

@@ -1,21 +1,23 @@
 //#variables
-.modulo{
---mod-base-pdd:var(--pdd-m);
---mod-type-form-wd:min(95%,28.125rem);
---mod-type-plain-pdd: 0.625rem 0 0 0;
---mod-type-card-pdd: 1.25rem 0.625rem 1.25rem;
-
+.modulo {
+  --mod-base-pdd: var(--pdd-m);
+  --mod-type-form-wd: min(95%, 28.125rem);
+  --mod-type-plain-pdd: 0.625rem 0 0 0;
+  --mod-type-card-pdd: 1.25rem 0.625rem 1.25rem;
 }
 .modulo {
+  // background: violet;
   box-sizing: border-box;
-  margin: unset;
   width: 100%;
-  max-width: var(--type-modulo-mxwidth);
+  height: min-content;
+  // max-width: var(--type-modulo-mxwidth);
   position: relative;
   display: flex;
   flex-direction: column;
+  padding: 0.625rem 0;
   .head-modulo {
     width: 100%;
+    padding: 0.625rem 0;
     ion-toolbar {
       --background: none;
     }
@@ -43,22 +45,22 @@
       height: 95vh;
       // width: 95%;
       // max-width: 28.125rem;
-      width:var(--mod-type-form-wd);
+      width: var(--mod-type-form-wd);
       margin: auto;
     }
     &-plain {
-      .separator-modulo {
-        padding:var(--mod-plain-pdd) ;
+      // background: violet;
+      padding:0;
+      .head-modulo {
+        padding: 0;
       }
     }
     &-card {
-      padding:var(--mod-type-card-pdd) ;
+      padding: var(--mod-type-card-pdd);
       border-radius: var(--modulo-radius);
+      // background:rgb(255, 204, 255);
       .head-modulo {
         padding: 0 var(--mod-base-ppd);
-      }
-      .separator-modulo {
-        display: none;
       }
     }
   }
@@ -77,7 +79,6 @@
   }
   &.fill {
     &-clear {
-     
     }
     &-solid {
       &-gray {
@@ -92,3 +93,14 @@
     flex: 1;
   }
 }
+//#region - Style de prueba(Eliminar)
+.test-body-modulo {
+  // width:fit-content;
+  // background: darkorange;
+  overflow: hidden;
+  display: flex;
+  & > * {
+    margin-right: 0.625rem;
+  }
+}
+//#endregion
