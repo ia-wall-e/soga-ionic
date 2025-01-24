@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      HOME
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button (click)="logWithGoo()">Google</ion-button>
+  <form [formGroup]="loginForm" (ngSubmit)="logWithEmail(loginForm)">
+    <input type="text" placeholder="email" formControlName="email">
+    <input type="text" placeholder="password" formControlName="password">
+    <ion-button type="submit"></ion-button>
+  </form>
+</ion-content>

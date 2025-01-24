@@ -1,0 +1,40 @@
+.-bg-gray{
+    background:  var(--background-secondary);
+//   background: #D9EAFD;
+    // background: #e1e9ec;
+    // background: #e7f2f7;
+    // background:#F1F0E8;
+}
+.-bg-white{
+    background:  var(--white-regular);
+}
+.-bg-gray-xsoft{
+    background:  var(--gray-xsoft);
+    // background: #F8FAFC;
+    // background: #ececec;
+    // background: #f6f6f6;
+    background: white;
+}
+.-pdd-m-hg{
+    padding-top:0.625rem;;
+    padding-bottom:0.625rem;
+}
+.-pdd-l-hg{
+    padding-top:1.25rem;;
+    padding-bottom:1.25rem;
+}
+.-pdd-l-top{
+    padding-top:1.25rem;;
+}
+.-pdd-m-bottom{
+    padding-bottom:0.625rem;
+}
+.-pdd-l-bottom{
+    padding-bottom:1.25rem;
+}
+.-over-hidden{
+    overflow:hidden;
+}
+.-hidden{
+    display:none;
+}

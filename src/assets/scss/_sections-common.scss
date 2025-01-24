@@ -1,0 +1,23 @@
+.buttons-section-common {
+    width: 100%;
+    display: flex;
+
+    &.button {
+        &-unique {
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-double {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+
+        &-column {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-row-gap: 0.65rem;
+            justify-items: center;
+        }
+    }
+}

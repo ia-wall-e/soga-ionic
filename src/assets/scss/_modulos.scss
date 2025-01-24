@@ -1,0 +1,81 @@
+//#region - Structure
+.modulo, .panel {
+    // background: yellow;
+    // border:2px solid  gray;
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // max-width: 49.25rem;
+    max-width:51.075rem;
+    // max-width: 73.25rem;
+    max-width: 75rem;
+    margin: 0 auto;
+    box-sizing: border-box; 
+    // overflow:hidden;
+    .body-modulo {
+        width: 100%;
+    }
+}
+//#endregion
+//#region - Attribute
+//#endregion
+//#region - Extends
+.modulo {
+    &.type {
+        &-card {
+            box-sizing: border-box;
+            background: var(--bg-modulo-primary);
+            border-radius: var(--rd-modulo);
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;//opcional
+            .head-modulo {
+                padding: 1.25rem 0.625rem 0.625rem 1.25rem;
+            }
+            .body-modulo{
+                padding: 0.3125rem  0.625rem;
+            }
+            .footer-modulo{
+                border-top:2px solid var(--gray-iv);
+                padding: 0.625rem 1.25rem 0.625rem;
+            }
+        }
+    }
+    &.size{
+        &-390{
+            // height:385px;
+            min-height:387px;
+            box-sizing: border-box;
+        }
+    }
+}
+//#region - grid
+.panel{
+    &.grid-4-panel{
+        // background: #000;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 0.625rem;
+    }
+}
+//#endregion
+//#endregion
+//#region - Responsive
+// @include mediaquery(520px) {
+//     .modulo {
+//         &.type {
+//             &-card {
+//                 .body-modulo {
+//                     padding: inherit 0.3125rem;
+//                     display: grid;
+//                     grid-template-columns: repeat(2, 1fr);
+//                     // justify-items: center;//! <=genera problemas al responsive del skeleton de los card-basic
+//                     grid-template-rows: auto;
+//                     gap: 0.625rem;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+//#endregion
