@@ -1,0 +1,27 @@
+<ion-menu class="cart-sd" side="end" menuId="first" contentId="{{content()}}">
+  <ion-header>
+      <div class="head">
+          <ion-title>You've Got Great Taste</ion-title>
+          <ion-button class="bt-icon size-m fill-clear shape-rounded">
+              <span class="material-symbols-outlined">close</span>
+          </ion-button>
+      </div>
+  </ion-header>
+  <ion-content [fullscreen]="true">
+      <div class="content">
+          <div class="items-section">
+              <ion-list *ngFor="let item of items$ | async">
+                  <app-item-basic [item]="item"></app-item-basic>
+              </ion-list>
+          </div>
+          <div class="shopping-buttons-section">
+              <div class="subtotal-box">
+                  <span class="subtotal">Subtotal</span>
+                  <span class="price">${{total$ | async}}</span>
+              </div>
+              <ion-button class="bt-io fill-solid-primary size-l" routerLink="/checkout">Proceder a
+                  pagar</ion-button>
+          </div>
+      </div>
+  </ion-content>
+</ion-menu>

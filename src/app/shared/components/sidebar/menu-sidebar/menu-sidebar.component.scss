@@ -1,0 +1,75 @@
+@use '/src/assets/scss/mixin' as mixin;
+// %test {
+//   --background: rgb(248, 88, 248);
+//   background: rgb(248, 88, 248);
+// }
+// %background {
+//   background: white;
+//   --background: white;
+// }
+ion-header {
+  // @extend %background;
+  box-shadow: none;
+}
+
+.ion-padding {
+  ion-list {
+    padding: unset;
+  }
+}
+.io-icon {
+  margin-right: 20px;
+  color: var(--icon-color);
+}
+.io-label {
+  // @include mixin.font-secondary();
+  // @include mixin.font-primary();
+  @include mixin.font-standar();
+  // font-size:var(--button-text-sz);
+  font-size: 1rem;
+  color: var(--icon-color);
+  .io-h {
+    @include mixin.font-standar();
+    font-size: 1rem;
+    font-weight: bold;
+    // color:var(--io-button-secondary);
+  }
+  .io-p {
+    @include mixin.font-standar();
+    font-size: 0.8rem;
+    // color:var(--io-button-secondary);
+  }
+}
+/***Acordion***/
+.io-item-accordion {
+  --detail-icon-color:red;
+  ion-icon {
+    margin-right: 20px;
+    font-size: 1rem;
+    color: var(--icon-color);
+  }
+}
+ion-accordion ion-list {
+  all: unset;
+}
+ion-accordion ion-item[slot="header"]{
+  background:red;
+  --detail-icon-color:red;
+}
+ion-accordion.accordion-expanding ion-item[slot="header"],
+ion-accordion.accordion-expanded ion-item[slot="header"] {
+  background: var(--ion-background-color-step-250);
+  --background: var(--ion-background-color-step-250);
+}
+ion-accordion.accordion-expanding ion-item,
+ion-accordion.accordion-expanded ion-item {
+  background: var(--ion-background-color-step-250);
+  --background: var(--ion-background-color-step-250);
+}
+/*** ***/
+ion-note {
+  // background:red;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}

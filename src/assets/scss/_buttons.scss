@@ -1,3 +1,4 @@
+@use './mixin' as mixin;
 //#region - VARIABLES
 .bt-io,
 .bt-icon {
@@ -150,7 +151,7 @@
 //#region - BUTTON
 //*structure
 .bt-io {
-    @include font-button();
+    @include mixin.font-button();
     // display: flex;
     // align-items: center;
     // justify-content: center;
@@ -329,7 +330,7 @@
         max-width: 4.3rem;
         overflow: hidden;
         text-overflow: ellipsis;
-        @include font-standar($fs: 0.85rem, $fw: 300, $color: var(--black-regular));
+        @include mixin.font-standar($fs: 0.85rem, $fw: 300, $color: var(--black-regular));
         transition: border 0.3s ease, color 0.3s ease;
         display: flex;
         justify-content: center;
@@ -353,14 +354,14 @@
             .line-primary {
                 font-size: 0.8rem;
                 font-weight: 300;
-                @include txt-ellipsis;
+                @include mixin.txt-ellipsis;
                 height: 18px;
             }
 
             .line-secondary {
                 font-size: 0.85rem;
                 height: 15px;
-                @include txt-ellipsis;
+                @include mixin.txt-ellipsis;
             }
         }
     }

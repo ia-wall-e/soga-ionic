@@ -7,10 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button (click)="logWithGoo()">Google</ion-button>
-  <form [formGroup]="loginForm" (ngSubmit)="logWithEmail(loginForm)">
-    <input type="text" placeholder="email" formControlName="email">
-    <input type="text" placeholder="password" formControlName="password">
-    <ion-button type="submit"></ion-button>
-  </form>
+  <ion-button routerLink="/signin" >Log</ion-button>
+  <ion-button routerLink="/signup" >Crear cuenta</ion-button>
+  <ion-button routerLink="/store-a">Store-a</ion-button>
 </ion-content>

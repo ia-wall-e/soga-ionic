@@ -1,0 +1,561 @@
+<app-header-minor></app-header-minor>
+<ion-content [fullscreen]="true">
+  <div class="stand-component">
+    <!-- * -->
+    <div class="stand-section showcase">
+      <div class="box-image">
+        <div class="image">
+          <swiper-container init="false" #swiper>
+            <swiper-slide *ngFor="let img of product?.images">
+              <img [src]="img" alt="" loading="lazy" *ngIf="available, else imageSK">
+              <ng-template #imageSK>
+                <ion-skeleton-text [animated]="true" style="width:100%;height:100%;"></ion-skeleton-text>
+              </ng-template>
+              <!-- <img src="https://zshopp.com/wp-content/uploads/2023/12/Adidas-Ogiy-Mujer-azul1.webp" alt=""> -->
+            </swiper-slide>
+          </swiper-container>
+        </div>
+      </div>
+      <div class="wrapper wrapper-head">
+        <div class="box-title">
+          <span *ngIf="available, else titleSK">{{product?.title}}
+            | CUBOT Celular A10, Android 14 Smartphone Desbloqueado con Batería de 5100mAh,12(4+8
+            Extendido) GB RAM 128GB ROM,6.56" HD+ Pantalla Teléfono 48MP Principal Cámara,90Hz/5G WiFi/Face ID
+          </span>
+          <ng-template #titleSK>
+            <ion-skeleton-text [animated]="true" style="width:100%;height:1.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true" style="width:100%;height:1.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true" style="width:100%;height:1.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true" style="width:50%;height:1.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+          </ng-template>
+        </div>
+        <div class="box-rating">
+          <app-rating [data]="rating()"></app-rating>
+        </div>
+      </div>
+      <div class="wrapper wrapper-price" *ngIf="available, else priceSK">
+        <div class="box-price">
+          <div class="price">
+            <span class="current">${{product?.price}}</span>
+            <!-- <span class="discount">${{product?.discountPercentage}}</span> -->
+          </div>
+          <div class="info-price">
+            <span>Precio de lista:</span><span>$25.4520</span>
+          </div>
+        </div>
+      </div>
+      <ng-template #priceSK>
+        <div class="wrapper wrapper-price">
+          <div class="box-price">
+            <div class="price">
+              <ion-skeleton-text [animated]="true" style="width:25%;height:2rem;"></ion-skeleton-text>
+            </div>
+            <div class="info-price">
+              <ion-skeleton-text [animated]="true" style="width:3rem;height:0.85rem;"></ion-skeleton-text>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <div class="wrapper wrapper-options" *ngIf="available, else optionsSK">
+        <div class="required-options">
+          <div class="option-component opt-t">
+            <div class="headline">
+              <span class="title">Talla</span>
+            </div>
+            <div class="options">
+              <div class="item">
+                <span>l</span>
+              </div>
+              <div class="item">
+                <span>xl</span>
+              </div>
+              <div class="item">
+                <span>m</span>
+              </div>
+            </div>
+          </div>
+          <div class="option-component opt-m">
+            <div class="headline">
+              <span class="title">Modelo</span>
+            </div>
+            <div class="options">
+              <div class="item" *ngFor="let img of product?.images">
+                <img [src]="img" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #optionsSK>
+        <div class="wrapper wrapper-options">
+          <div class="required-options">
+            <div class="option-component opt-t">
+              <div class="headline">
+                <ion-skeleton-text [animated]="true"
+                  style="width:3rem; height:0.82rem;;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              </div>
+              <div class="options">
+                <div class="item" style="border:none;">
+                  <ion-skeleton-text [animated]="true" style="width:100%;height:100%;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                </div>
+              </div>
+            </div>
+            <div class="option-component opt-m">
+              <div class="headline">
+                <ion-skeleton-text [animated]="true"
+                  style="width:3rem; height:0.82rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              </div>
+              <div class="options">
+                <div class="item" style="background: none;">
+                  <ion-skeleton-text [animated]="true" style="width:100%;height:100%"></ion-skeleton-text>
+                </div>
+                <div class="item" style="background: none;">
+                  <ion-skeleton-text [animated]="true" style="width:100%;height:100%"></ion-skeleton-text>
+                </div>
+                <div class="item" style="background: none;">
+                  <ion-skeleton-text [animated]="true" style="width:100%;height:100%"></ion-skeleton-text>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <div class="wrapper wrapper-buttons" *ngIf="available, else buttonsSK">
+        <div class="bx-button button-shop">
+          <ion-button class="bt-io fill-solid-primary  size-l" (click)="handlerAddToCart(product)">Agregar al
+            carrito</ion-button>
+        </div>
+        <div class="bx-button buttons-info">
+          <!-- <swiper-container>
+            <swiper-slide>   <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m"
+              (click)="genericModal('feature')">Características</ion-button></swiper-slide>
+            <swiper-slide><ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m"
+              (click)="genericModal('description')">Descripción</ion-button></swiper-slide>
+            <swiper-slide> <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m">Detalles</ion-button></swiper-slide>
+            <swiper-slide> <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m">Garantía</ion-button></swiper-slide>
+          </swiper-container> -->
+          <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m"
+            (click)="genericModal('feature')">Características</ion-button>
+          <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m"
+            (click)="genericModal('description')">Descripción</ion-button>
+          <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m">Detalles</ion-button>
+          <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m">Garantía</ion-button>
+        </div>
+      </div>
+      <ng-template #buttonsSK>
+        <div class="wrapper wrapper-buttons">
+          <div class="bx-button button-shop">
+            <ion-skeleton-text [animated]="true" style="width:10rem; height:2.5rem;margin-right:0.625rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+          </div>
+          <div class="bx-button buttons-info">
+            <ion-skeleton-text [animated]="true" style="width:10rem; height:2.5rem;margin-right:0.625rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true" style="width:10rem; height:2.5rem;margin-right:0.625rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true" style="width:10rem; height:2.5rem;margin-right:0.625rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <!-- * -->
+    <div class="stand-section customer-reviews-product" *ngIf="available, else reviewsSK">
+      <span class="title-section">Opiniones del producto</span>
+      <div class="box-generic overall">
+        <div class="wrapper">
+          <span class="score">{{rating()}}</span>
+          <div class="rating-section">
+            <app-rating [data]="rating()" seeRating="false"></app-rating>
+            <span class="rating-text">10
+              calificaciones</span>
+          </div>
+        </div>
+      </div>
+      <div class="box-generic features">
+        <span class="title">Calificacion de caracteristicas</span>
+        <div class="rating-section">
+          <span class="rating-text">Relacion precio/calidad</span>
+          <app-rating [data]="rating()" seeRating="false"></app-rating>
+        </div>
+        <div class="rating-section">
+          <span class="rating-text">Calidad del producto</span>
+          <app-rating [data]="rating()" seeRating="false"></app-rating>
+        </div>
+      </div>
+      <div class="box-generic reviews">
+        <span class="title">Opiniones destacadas</span>
+        <div class="review-section" *ngFor="let review of product?.reviews">
+          <div class="data-review">
+            <div class="rating">
+              <app-rating seeRating="false"></app-rating>
+            </div>
+            <div class="date">
+              {{review.date}}
+            </div>
+          </div>
+          <p class="comment">
+            {{review.comment}}
+            Me gusto mucho esta mochila se ve muy bonita y tiene unos colores muy vivos cuenta con una capacidad muy
+            amplia, perfecta para llevar todo lo necesario ya sea para la escuela o para el trabajo. Cuenta con
+            múltiples bolsillos ayudan a mantener todo organizado, desde la laptop hasta lápices. El material se siente
+            resistente y de alta calidad, lo que la hace ideal para uso diario. Las correas acolchadas son cómodas
+            gracias a esto alivia la carga en los hombros. Sin duda, es una mochila que recomendaría para estudiantes.
+          </p>
+          <div class="buttons-section-common button-double">
+            <ion-button class="bt-icon fill-solid-gray size-m">
+              <span class="material-symbols-outlined">flag</span>
+            </ion-button>
+            <div class="group-buttons">
+              <ion-button class="bt-icon fill-solid-gray size-m">
+                <span class="material-symbols-outlined">thumb_up</span>
+              </ion-button>
+              <!-- <ion-button class="bt-icon fill-solid-gray size-m">
+                <span class="material-symbols-outlined">thumb_down</span>
+              </ion-button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #reviewsSK>
+      <div class="stand-section customer-reviews-product">
+        <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+        <div class="box-generic overall">
+          <div class="wrapper">
+            <span class="score"> <ion-skeleton-text [animated]="true" style="width:4rem;height:3.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text></span>
+            <div class="rating-section">
+              <app-rating [data]="rating()" seeRating="false"></app-rating>
+              <span class="rating-text"> <ion-skeleton-text [animated]="true" style="width:8rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text></span>
+            </div>
+          </div>
+        </div>
+        <div class="box-generic features">
+          <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+          <div class="rating-section">
+            <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <app-rating [data]="rating()" seeRating="false"></app-rating>
+          </div>
+          <div class="rating-section">
+            <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <app-rating [data]="rating()" seeRating="false"></app-rating>
+          </div>
+        </div>
+        <div class="box-generic reviews">
+          <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+          <div class="review-section">
+            <div class="data-review">
+              <div class="rating">
+                <app-rating seeRating="false"></app-rating>
+              </div>
+              <div class="date">
+                <ion-skeleton-text [animated]="true" style="width:10rem;height:0.85rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              </div>
+            </div>
+            <p class="comment">
+              <ion-skeleton-text [animated]="true" style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true" style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true" style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true" style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true" style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true" style="width:50%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            </p>
+            <div class="buttons-section-common button-double">
+              <!-- <ion-button class="bt-icon fill-solid-gray size-m"> -->
+                <ion-skeleton-text [animated]="true" style="width:2rem;height:2rem;border-radius:100%;"></ion-skeleton-text>
+              <!-- </ion-button> -->
+              <div class="group-buttons">
+                <ion-skeleton-text [animated]="true" style="width:2rem;height:2rem;border-radius:100%;"></ion-skeleton-text>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!-- * -->
+    <ng-template #feature>
+      <div class="stand-section features-product">
+        <span class="title-section">Caracteristicas</span>
+        <div class="features">
+          <table class="cuadricula">
+            <tbody>
+              <tr>
+                <td>Marca</td>
+                <td>maxwell</td>
+              </tr>
+              <tr>
+                <td>Color</td>
+                <td>Negro</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </ng-template>
+    <!-- * -->
+    <ng-template #description>
+      <div class="stand-section description-product">
+        <span class="title-section">Sobre este producto</span>
+        <ul class="description">
+          <li>Compatibilidad multiplataforma: los auriculares
+            inalámbricos X3 para juegos están equipados con
+            modos duales inalámbricos y Bluetooth de 2.4 GHz, lo
+            que permite la conexión inalámbrica a los
+            controladores Xbox (Tenga en cuenta que el
+            transmisor X3 solo admite los controladores
+            oficiales en lugar de los terceros) así como
+            compatibilidad perfecta con PC, PS5, computadoras
+            portátiles, Mac y Nintendo Switch. Simplemente
+            conecta y usa para una inmersión instantánea en los
+            juegos
+          </li>
+          <li>
+            Calidad de sonido excepcional: Sumérgete en el juego con nuestros altavoces de 1.969 in y la
+            tecnología de sonido envolvente 3D de vanguardia. Captura todos los matices y sumérgete en efectos
+            de sonido de juego realistas. El micrófono con cancelación de ruido garantiza una comunicación
+            nítida con tus compañeros de equipo, fomentando el trabajo en equipo sin problemas durante sesiones
+            de juego de alto octanaje.
+          </li>
+          <li>
+            <p>Batería de larga duración y latencia mínima: Disfruta de juegos ininterrumpidos gracias a hasta
+              50
+              horas de juego sin interrupciones con una sola carga, con una recarga completa rápida en solo
+              2,5
+              horas. Nuestros auriculares inalámbricos cuentan con tecnología de baja latencia (<20 ms), que ofrece
+                retroalimentación de audio instantánea con retrasos imperceptibles, lo que permite reacciones más
+                rápidas y una jugabilidad mejorada.</p>
+          </li>
+          <li>
+            Fantástico diseño humanizado con materiales de primera calidad: fabricado ergonómicamente para una
+            comodidad superior, con lujosas almohadillas de proteína de aire. Las suaves almohadillas de cuero
+            sintético permiten sesiones de juego prolongadas sin causar fatiga. Las diademas ajustables y las
+            cómodas almohadillas de cuero sintético garantizan un uso prolongado sin molestias. Además, se
+            adapta a varias formas de cabeza sin problemas.
+          </li>
+          <li>
+            Control sin esfuerzo a su alcance: gestione sin problemas sus encuentros de juego con botones
+            convenientemente ubicados en nuestros auriculares. Ajusta el volumen, silencia el micrófono o ajusta
+            otros ajustes directamente desde los auriculares, asegurando un viaje de juego suave y sin
+            complicaciones.
+          </li>
+          <li>
+            ① Confirma que el receptor está insertado en el controlador o dispositivos de forma firme y
+            completa, y apaga el modo de monitoreo en la configuración de la consola Xbox, para evitar ruido o
+            ecos. ②. Asegúrese de que la consola Xbox esté configurada al máximo. Cuando se usan los auriculares
+            por primera vez, el volumen predeterminado en la consola es del 80%.
+          </li>
+          <li>
+            Para evitar que no haya sonido o sonido bajo del micrófono: confirma la configuración de la consola
+            Xbox, ya sea que el sonido del micrófono esté al máximo en el ? Si lo subes al máximo, ajusta el
+            sonido del juego y el sonido del chat al centro para que estén equilibrados. Además, asegúrate de
+            que el micrófono esté correctamente enchufado.
+          </li>
+        </ul>
+      </div>
+    </ng-template>
+    <!-- * -->
+    <ng-template #sizeChart>
+      <div class="stand-section size-chart-product">
+        <span class="title-section">Tabla de tallas</span>
+        <div class="guide">
+          <div class="text">
+            Tree Tree Gliders come in half sizes to ensure the perfect fit for your run. They fit true to size
+            for
+            most customers. If you prefer a roomier fit in the toe box, we suggest going up a half size.
+            <br>
+            Did you know that our shoes are actually unisex? You can easily cross over to find shoes in your
+            size.
+          </div>
+        </div>
+        <div class="table">
+          <span class="title">Tabla de Tallas</span>
+          <table>
+            <thead>
+              <tr>
+                <th>US</th>
+                <th>cm</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>8</th>
+                <th>24</th>
+              </tr>
+              <tr>
+                <th>8</th>
+                <th>24</th>
+              </tr>
+              <tr>
+                <th>8</th>
+                <th>24</th>
+              </tr>
+              <tr>
+                <th>8</th>
+                <th>24</th>
+              </tr>
+              <tr>
+                <th>8</th>
+                <th>24</th>
+              </tr>
+              <th>8</th>
+              <th>24</th>
+            </tbody>
+          </table>
+        </div>
+        <div class="guide">
+          <div class="text">
+            <div class="title">Asi es como funciona:</div>
+            <p>
+              Sobre un papel, dibuja el contorno de tus pies descalzos. Mide desde el dedo más largo hasta la altura del
+              talón. Súmale 0,5 cm de holgura.
+            </p>
+          </div>
+          <div class="image">
+            <img src="https://d26lpennugtm8s.cloudfront.net/stores/126/578/rte/pie%20tallas%201.svg" alt="">
+            <!-- <img src="https://recykers.com/img/cms/como-tomar-medida-para-saber-tu-talla-de-zapato.jpg" alt=""> -->
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <!-- *gropu* -->
+    <div class="group-stand-section">
+      <!-- * -->
+      <div class="stand-section purchase-product" *ngIf="available, else purchaseSK">
+        <div class="title-section">Detalles del producto</div>
+        <div class="details-container">
+          <div class="item-detail">
+            <div class="info-text">
+              <span class="material-symbols-outlined icon-info">local_shipping</span>
+              <span class="primary">Envios a nivel nacional</span>
+              <span class="secondary">Conoce los tiempos y las formas de
+                envío.</span>
+            </div>
+          </div>
+          <div class="item-detail">
+            <div class="info-text">
+              <span class="material-symbols-outlined icon-info">redo</span>
+              <span class="primary">Devolucion</span>
+              <span class="secondary">{{product?.returnPolicy}}</span>
+            </div>
+          </div>
+          <div class="item-detail">
+            <div class="info-text">
+              <span class="material-symbols-outlined icon-info">verified</span>
+              <span class="primary">Garantia</span>
+              <span class="secondary">{{product?.warrantyInformation}}</span>
+            </div>
+          </div>
+          <div class="item-detail">
+            <div class="info-text">
+              <span class="material-symbols-outlined icon-info">shield</span>
+              <span class="primary">Compra protegida</span>
+              <span class="secondary">Tienes 30 dias desde que lo recibes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #purchaseSK>
+        <div class="stand-section purchase-product">
+          <div class="title-section">
+            <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+          </div>
+          <div class="details-container">
+            <div class="item-detail">
+              <div class="info-text">
+                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true" style="width:0.85rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              </div>
+            </div>
+            <div class="item-detail">
+              <div class="info-text">
+                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true" style="width:0.85rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              </div>
+            </div>
+            <div class="item-detail">
+              <div class="info-text">
+                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true" style="width:0.85rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              </div>
+            </div>
+            <div class="item-detail">
+              <div class="info-text">
+                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true" style="width:0.85rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <!-- * -->
+      <div class="stand-section  data-store" *ngIf="available, else dataStoreSK">
+        <div class="title-section">Detalles del producto</div>
+        <div class="details-container">
+          <div class="item-detail" *ngIf="product?.brand">
+            <div class="info-text">
+              <span class="material-symbols-outlined icon-info">verified</span>
+              <span class="primary">Marca <strong>{{product?.brand}}</strong></span>
+              <span class="secondary"></span>
+            </div>
+          </div>
+          <div class="item-detail">
+            <div class="info-text">
+              <span class="material-symbols-outlined icon-info">sell</span>
+              <span class="primary">+100 vendidos</span>
+            </div>
+          </div>
+          <div class="item-detail">
+            <div class="info-text">
+              <span class="material-symbols-outlined icon-info">volunteer_activism</span>
+              <span class="primary">Brinda buena atencion</span>
+            </div>
+          </div>
+          <div class="item-detail">
+            <div class="info-text">
+              <span class="material-symbols-outlined icon-info">timer</span>
+              <span class="primary">Entrega los productos a tiempo</span>
+            </div>
+          </div>
+          <div class="item-detail">
+            <div class="info-text">
+              <span class="material-symbols-outlined icon-info">thumb_up</span>
+              <span class="primary">99%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #dataStoreSK>
+        <div class="stand-section  data-store">
+          <div class="title-section">
+            <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+          </div>
+          <div class="details-container">
+            <div class="item-detail" *ngIf="product?.brand">
+              <div class="info-text">
+                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              </div>
+            </div>
+            <div class="item-detail">
+              <div class="info-text">
+                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              </div>
+            </div>
+            <div class="item-detail">
+              <div class="info-text">
+                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              </div>
+            </div>
+            <div class="item-detail">
+              <div class="info-text">
+                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              </div>
+            </div>
+            <div class="item-detail">
+              <div class="info-text">
+                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <!-- * -->
+    </div>
+  </div>
+</ion-content>

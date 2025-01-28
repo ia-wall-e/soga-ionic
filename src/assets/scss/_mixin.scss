@@ -1,7 +1,7 @@
-@import "./fonts";
+@use "./fonts";
 
 //#region - FONTS
-@mixin font-title($heading: "", $fs: "", $fw: 700, $color: var(--black-regular), $font: 1) {
+@mixin font-title($heading: "", $fs: "", $fw: 700, $color: var(--black-regular)) {
   font-family: var(--font-title-primary);
   font-size: $fs;
   font-weight: $fw;
@@ -24,16 +24,32 @@
     font-size: 0.8rem;
     font-weight: 400;
   }
-
-  @if($font==1) {
-    font-family: var(--font-title-primary);
-  }
-
-  @else if($font==2) {
-    font-family: var(--font-title-secondary);
-  }
 }
+@mixin font-title-2($heading: "", $fs: "", $fw: 700, $color: var(--black-regular)) {
+  font-family: var(--font-title-secondary);
+  font-size: $fs;
+  font-weight: $fw;
+  color: $color;
 
+  @if($heading==1) {
+    font-size: 1.5rem;
+  }
+
+  @else if ($heading==2) {
+    // font-size: 1.25rem;
+    font-size: 1.375rem;
+  }
+
+  @else if ($heading==3) {
+    font-size: 1.125rem;
+  }
+
+  @else if($heading=="text") {
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+
+}
 @mixin font-standar($type: "", $color: var(--black-regular), $fs: 0.875rem, $fw: 400) {
   font-family: var(--mx-button-standar);
   --font-family: var(--mx-button-standar);

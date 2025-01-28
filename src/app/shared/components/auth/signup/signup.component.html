@@ -1,0 +1,34 @@
+<form class="form-io" [formGroup]="signupForm" (ngSubmit)="regWithEmail(signupForm)">
+  <div class="body-form">
+    <div class="fielset-options">
+      <ion-button class="bt-icon fill-solid-secondary size-xl" (click)="logWithGoo()">
+        <img src="../../../../assets/img/utils/google-thumbnail.png" alt="">
+      </ion-button>
+      <ion-button class="bt-icon fill-solid-secondary size-xl">
+        <img src="../../../../assets/img/utils/facebook-thumbnail.jpg" alt="">
+      </ion-button>
+      <ion-button class="bt-icon fill-solid-secondary size-xl">
+        <img src="../../../../assets/img/utils/apple-thumbnail.png" alt="">
+      </ion-button>
+    </div>
+    <div class="divider"><span>O</span></div>
+    <div class="fieldset-group">
+      <legend>Registrate con tu correo electrónico</legend>
+      <div class="input-component fill-outline size-xl shape-squared label-static ">
+        <input type="text" name="email" formControlName="email" autocomplete="off" />
+        <label>Correo Electronico</label>
+        <!-- <app-alert-error [forControl]="emailControl"></app-alert-error> -->
+      </div>
+        <div class="input-component fill-outline size-xl shape-squared label-static ">
+          <input type="password" name="password" formControlName="password" />
+          <label>Contraseña</label>
+          <!-- <app-alert-error [forControl]="passControl"></app-alert-error> -->
+        </div>
+      <div class="buttons-section-common button-double">
+        <ion-button class="bt-io size-m txt-sz-m" type="submit">Continuar</ion-button>
+      </div>
+    </div>
+  </div>
+  <!-- <pre> {{signupForm.value |json}}</pre> -->
+  <!-- <pre> {{signupForm.status |json}}</pre> -->
+</form>

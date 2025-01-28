@@ -1,0 +1,28 @@
+<ion-content [fullscreen]="true">
+  <div class="container signup-page">
+    <div class="modulo type-card modulo-auth">
+      <ion-header>
+        <ion-toolbar>
+          <div class="container-toolbar">
+            <div class="side-right-header">
+            </div>
+            <div class="side-left-header">
+              <ion-button class="bt-icon fill-clear  shape-rounded size-m" (click)="back()">
+                <span class="material-symbols-outlined icon">arrow_back</span>
+              </ion-button>
+            </div>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+      <div class="body-modulo">
+        <div class="head-component">
+          <div class="title-section">
+            <span class="title">Iniciar Sesion</span>
+            <span class="subtitle">¿Eres usuario nuevo?<a>Crear una cuenta</a></span>
+          </div>
+        </div>
+        <app-signin-component></app-signin-component>
+      </div>
+    </div>
+  </div>
+</ion-content>

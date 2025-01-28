@@ -1,0 +1,22 @@
+@use"/src/assets/scss/mixin" as mixin;
+.wrapper-bt-cart {
+    // background: violet;
+    position: relative;
+    overflow: none;
+
+    .items-count {
+      background: var(--ion-color-primary);
+      position: absolute;
+      top:2px;
+      right:-3px;
+      // padding: 0.625rem;
+      width: 1.3rem;
+      height: 1.3rem;
+      // color:white;
+      border-radius:100%;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      @include mixin.font-standar($color:white,$fs:0.625rem);
+    }
+  }

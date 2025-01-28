@@ -1,0 +1,39 @@
+@use "/src/assets/scss/mixin" as mixin;
+.search-component{
+    .input-section {
+        position: relative;
+        height: 3rem;
+        max-height:3rem;
+        width: 100%;
+        z-index: 2;
+        > .input-search {
+         @include mixin.font-standar("text-input");
+          outline: none;
+          height: 100%;
+          width: 100%;
+          border: none;
+          background: var(--bg-second);
+          border-radius: 30px;
+          padding:0 55px 0 20px;;
+          &:focus {
+            box-shadow: none;
+          }
+          &::placeholder {
+            @include mixin.font-standar($fw:600,$color:var(--txt-color-second));
+          }
+        }
+        > .button-search {
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: fit-content;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          border-radius: 0 30px 30px 0;
+        }
+      }
+    
+}

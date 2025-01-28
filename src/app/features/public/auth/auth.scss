@@ -1,0 +1,98 @@
+@use"/src/assets/scss/mixin" as mixin;
+
+ion-content {
+    background: var(--gray-ii);
+
+}
+
+//#region - header
+ion-header {
+    box-shadow: none;
+    height: min-content;
+    // --background: green;
+}
+
+ion-toolbar {
+    // --background: green;
+    height: min-content;
+}
+
+.container-toolbar {
+    display: grid;
+    grid-template-areas: "sideleft_  main_  sideright_";
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto;
+    column-gap: 0.625rem;
+    padding: 0 0.625rem;
+
+    .main-header {
+        grid-area: main_;
+        width: 100%;
+        max-width: 620px;
+    }
+
+    .side-left-header {
+        grid-area: sideleft_;
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+
+    .side-right-header {
+        grid-area: sideright_;
+        display: grid;
+        grid-template-columns: 1fr auto auto auto;
+    }
+}
+
+//#endregion
+//#region - page
+.signup-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-image: url('../../../../assets/img/utils/bg-auth-001.jpg');
+    background-size: cover;
+    /* Ajusta la imagen para que cubra toda la pantalla */
+    background-position: center;
+    /* Centra la imagen */
+    background-repeat: no-repeat;
+    padding: 0.625rem 0;
+}
+
+.modulo-auth {
+    width: 100%;
+    max-width: 500px;
+    height: content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .body-modulo {
+        width: 100%;
+        max-width: 420px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+
+        .head-component {
+            padding: 0.625rem;
+
+            .title-section {
+                width: 100%;
+
+                .title {
+                    @include mixin.font-title-2($fs: 2rem)
+                }
+
+                .subtitle>a {
+                    cursor: pointer;
+                    font-weight: 600;
+                }
+            }
+        }
+
+    }
+}
+
+// //#endregion

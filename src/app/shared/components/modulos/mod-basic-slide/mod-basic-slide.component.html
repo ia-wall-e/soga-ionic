@@ -1,0 +1,32 @@
+<div class="modulo" [ngClass]="customClass">
+  <div class="head-modulo">
+      <div class="head-component">
+          <div class="title-section" >
+              <h4 class="title" *ngIf="state; else titleSK">
+                 {{data().headline.title}}
+              </h4>
+              <ng-template #titleSK>
+                  <h4 class="title">
+                      <ion-skeleton-text [animated]="true" style="height:0.85rem; width:30%; border-radius:30px;"></ion-skeleton-text>
+                   </h4>
+              </ng-template>
+          </div>
+          <div class="button-section" [ngClass]="{'visible':state,'invisible':!state}">
+              <ion-button class="bt-icon fill-solid-xsoft size-m {{prefix}}-prev" >
+                  <span class="material-symbols-outlined icon">keyboard_arrow_left</span>
+              </ion-button>
+              <ion-button class="bt-icon fill-solid-xsoft size-m {{prefix}}-next">
+                  <span class="material-symbols-outlined icon ">keyboard_arrow_right</span>
+              </ion-button>
+          </div>
+      </div>
+  </div>
+  <div class="body-modulo">
+      <swiper-container init="false" #swiper>
+          <swiper-slide *ngFor="let item of items">
+              <app-card-basic [item]="item"  cssCard="card-slide"></app-card-basic>
+          </swiper-slide>
+      </swiper-container>
+  </div>
+</div>
+

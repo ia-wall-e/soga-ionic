@@ -1,3 +1,4 @@
+@use './mixin' as mixin;
 //#region - Variables
 .container {
     --pdd-lateral: 1.25rem;
@@ -80,7 +81,7 @@
 
 //#endregion
 //! Respnsive
-@include mediaquery(452px) {
+@include mixin.mediaquery(452px) {
     .container {
         --pdd-lateral: 0.625rem;
     }

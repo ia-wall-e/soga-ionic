@@ -1,0 +1,27 @@
+<div class="modulo type-card size-390" [ngClass]="cssMod">
+  <div class="head-modulo">
+    <div class="head-component">
+      <div class="title-section">
+        <h4 class="title" *ngIf="available; else titleSK">
+          {{data().headline.title}}
+        </h4>
+        <ng-template #titleSK>
+          <h4 class="title">
+            <ion-skeleton-text [animated]="true"
+              style="height:0.85rem; width:30%; border-radius:30px;"></ion-skeleton-text>
+          </h4>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="body-modulo" [ngClass]="cssGrid()">
+    <ng-content *ngFor="let item of items">
+      <app-card-basic [item]="item" [cssCard]="cssCard()"></app-card-basic>
+    </ng-content>
+  </div>
+  <div class="footer-modulo"  *ngIf="data()?.link">
+    <div class="buttons-section-common button-double">
+      <ion-button class="bt-io fill-solid-soft txt-sz-m shape-rounded" routerLink="{{data().link}}">Ver mas</ion-button>
+    </div>
+  </div>
+</div>

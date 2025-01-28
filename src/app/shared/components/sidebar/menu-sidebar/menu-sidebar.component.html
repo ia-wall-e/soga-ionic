@@ -1,0 +1,61 @@
+<ion-menu contentId="{{content()}}">
+  <!-- #Header -->
+  <!-- user on -->
+  <ion-header class="nav-head">
+    <ion-list lines="none">
+      <!-- <ion-item>
+        <ion-avatar slot="start" button>
+          <img alt="Silhouette of a person's head" src="{{user.img || '../../../assets/img/logo/logo.png'}}" />
+        </ion-avatar>
+      </ion-item> -->
+      <ion-item button>
+        <ion-label class="io-label">
+          <h3 class="io-h">
+            user
+          </h3>
+          <p class="io-p">email</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-header>
+  <!-- user off -->
+  <ng-template #offUser>
+    <ion-header class="nav-head">
+      <ion-list lines="none">
+        <ion-item>
+          <ion-avatar slot="start" button>
+            <img alt="Silhouette of a person's head" src="../../../assets/img/logo/logo.png" />
+          </ion-avatar>
+        </ion-item>
+        <ion-item button>
+          <ion-label class="io-label">
+            <h3 class="io-h">
+              Registrate
+            </h3>
+            <p class="io-p">o crea una cuenta aqui</p>
+          </ion-label>
+          <!-- <ion-icon slot="end"name="chevron-forward-outline"></ion-icon> -->
+          <ion-icon slot="end" name="caret-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-header>
+  </ng-template>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-menu-toggle>
+        <ion-item class="io-item"  (click)="signOut()" button>
+          <ion-icon slot="end" name="log-out-outline"></ion-icon>
+          <ion-label class="io-label">
+            Cerrar Sesion
+          </ion-label>
+        </ion-item>
+        <ion-item class="io-item" button>
+          <ion-icon slot="end" name="log-in-outline"></ion-icon>
+          <ion-label class="io-label">
+            Iniciar Sesion
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-toolbar>
+  </ion-footer>
+</ion-menu>

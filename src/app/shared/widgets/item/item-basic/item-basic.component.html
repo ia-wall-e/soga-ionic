@@ -1,0 +1,40 @@
+<div class="item-basic">
+
+  <div class="body-item">
+      <!-- <div class="nav-item">
+          <ion-button class="bt-icon size-s fill-clear shape-rounded">
+              <span class="material-symbols-outlined">close</span>
+          </ion-button>
+      </div> -->
+      <div class="wrapper-item image-item">
+          <img [src]="item().thumbnail"
+              alt="imagen producto">
+      </div>
+      <div class="wrapper-item data-item">
+
+          <div class="title">
+              <h4>{{item().title}}</h4>
+          </div>
+          <div class="extras">
+              <table>
+                  <tr>
+                      <td>
+                          <!-- <ion-icon class="icon-check" name="checkmark-outline"></ion-icon> -->
+                          <p class="">Color: negro</p>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <!-- <ion-icon class="icon-check" name="checkmark-outline"></ion-icon> -->
+                          <p class="">Talla: xl</p>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+          <div class="price">
+              <h4 class="price-txt">${{item().price}}</h4>
+              <h4 class="quantity-txt">Cant:1</h4>
+          </div>
+      </div>
+  </div>
+</div>

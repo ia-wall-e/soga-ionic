@@ -1,0 +1,22 @@
+@use'/src/assets/scss/mixin' as mixin;
+.head {
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    // border-bottom:2px solid var(--gray-iv);
+
+}
+
+ion-header {
+    --box-shadow: none;
+    box-shadow: none;
+    border-bottom: 1px solid var(--gray-iv);
+    // padding:0 1.25rem;
+}
+
+ion-title {
+    @include mixin.font-title($heading: 2);
+    --color: var(--black-regular);
+    color: var(--black-regular);
+}

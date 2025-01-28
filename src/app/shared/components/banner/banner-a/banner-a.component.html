@@ -1,0 +1,26 @@
+<div class="banner-component-a">
+  <div class="banners">
+      <div class="banner-main">
+          <swiper-container init="false" #swiper>
+              <swiper-slide *ngFor="let item of items">
+                  <div class="item-main" *ngIf="available; else skeleton" routerLink="{{item.link}}">
+                      <img [src]="item.image" loading="lazy" alt="imagen banner">
+                  </div>
+              </swiper-slide>
+              <ng-template #skeleton>
+                  <ion-skeleton-text [animated]="true" style="width: 100%;height:30rem"></ion-skeleton-text>
+              </ng-template>
+          </swiper-container>
+          <ion-button class=" bt-icon fill-clear size-xl icon-size-xl txt-color-primary shadow nav-prev" [ngClass]="{'visible': available, 'invisible': !available}">
+              <span class="material-symbols-outlined icon">keyboard_arrow_left</span>
+          </ion-button>
+          <ion-button class=" bt-icon fill-clear size-xl icon-size-xl txt-color-primary shadow nav-next" [ngClass]="{'visible': available, 'invisible': !available}">
+              <span class="material-symbols-outlined icon ">keyboard_arrow_right</span>
+          </ion-button>
+      </div>
+  </div>
+</div>
+
+<!-- *ngIf="data; else skeleton"
+items =new Array(5).fill(null); 
+-->

@@ -1,0 +1,72 @@
+<app-header-minor></app-header-minor>
+<ion-content [fullscreen]="true">
+    <div class="container cart-page">
+        <div class="modulo center">
+            <ng-container>
+                <div class="head-modulo">
+                    <div class="capsule-title">
+                        <div class="title-section">
+                            <h1>Orden N° 5698123</h1>
+                            <h6>Almacenes Nike</h6>
+                        </div>
+                        <div class="logo-section">
+                            <div class="bx-logo">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK9KHQfSY-Wc8NK5cwfWz4URe57Lt_ugA2dAW9GJGmdQ&s"
+                                    alt="logo-tienda" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="body-modulo cart-areas">
+                    <div class="wraper grid-one" id="area-cart-item">
+                        <app-item-basic *ngFor="let item of products$ | async" [item]="item" (eventDelete)="removeProduct(item.id)"></app-item-basic>
+                    </div>
+                    <div class="wraper" id="area-checkout">
+
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <!-- #region-CHECKOUT -->
+        <div class="checkout-cart">
+            <div class="option-section">
+                <ion-radio-group class="radio-group-cart" value="strawberries">
+                    <ion-radio class="radio-cart" value="grapes" labelPlacement="end">Home
+                        Delivery</ion-radio>
+                    <ion-radio class="radio-cart" value="strawberries" labelPlacement="end">Click &
+                        Collect</ion-radio>
+                </ion-radio-group>
+            </div>
+            <div class="info-price-section">
+                <table>
+                    <tr>
+                        <td class="label">Subtotal</td>
+                        <td class="price">$7500</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Domicilio</td>
+                        <td class="price">$5000</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="total-price-section">
+                <table>
+                    <tr>
+                        <td class="label">Total</td>
+                        <td class="price">${{total$ | async}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="button-section">
+                <ion-button class="bt-io fill-solid-primary size-l">
+                    Proceder a pagar
+                </ion-button>
+            </div>
+            <div class="footer-section">
+                Compra segura, puede leer los terminos y condiciones y politica
+                del servicio
+            </div>
+        </div>
+        <!-- #endregion-CHECKOUT -->
+    </div>
+</ion-content>

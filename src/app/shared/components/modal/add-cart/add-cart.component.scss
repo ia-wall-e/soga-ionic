@@ -1,0 +1,127 @@
+@use '/src/assets/scss/mixin' as mixin;
+
+// .head {
+//     height: 3rem;
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-between;
+//     // border-bottom:2px solid var(--gray-iv);
+
+// }
+
+// ion-header {
+//     --box-shadow: none;
+//     box-shadow: none;
+//     border-bottom: 1px solid var(--gray-iv);
+//     // padding:0 1.25rem;
+// }
+
+// ion-title {
+//     @include mixin.font-title($heading: 2);
+//     --color: var(--black-regular);
+//     color: var(--black-regular);
+// }
+
+.content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    grid-template-areas: "product buttons" "suggestions suggestions";
+    row-gap: 0.625rem;
+    column-gap: 1.25rem;
+    padding: 0 1.25rem;
+    overflow: hidden;
+}
+
+.product-section {
+    // background: rgb(247, 174, 174);
+    grid-area: product;
+padding:0.625rem 0;
+    .card-product {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 10rem 1fr;
+        column-gap: 0.605rem;
+
+        .image-card {
+            width: 100%;
+            height: 10rem;
+            background: var(--gray-xsoft);
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: var(--rd-image);
+                object-fit: cover;
+            }
+        }
+
+        .data-card {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            // justify-content: ;
+            align-content: flex-start;
+            row-gap: 0.3125rem;
+
+            .title {
+                @include mixin.font-title($fw: 800);
+            }
+
+            .color {
+                @include mixin.font-standar();
+            }
+
+            .size {
+                @include mixin.font-standar();
+            }
+
+            .price {
+                @include mixin.font-standar('price');
+            }
+        }
+    }
+}
+
+.shopping-buttons-section {
+    // background: yellow;
+    grid-area: buttons;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 0.625rem;
+    align-content: flex-start;
+    justify-content: center;
+    padding:0.625rem 0;
+    .subtotal-box {
+        // background: violet;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 0.625rem 0;
+
+        .subtotal {
+            @include mixin.font-title($fw: 800)
+        }
+
+        .price {
+            @include mixin.font-standar('price')
+        }
+    }
+}
+
+
+.suggested-products-section {
+    width: 100%;
+    // background: orange;
+    grid-area: suggestions;
+    overflow: hidden;
+    // padding:1.25rem;
+}
+@include mixin.mediaquery(820px){
+    .content{
+        grid-template-columns: 1fr;
+        grid-template-areas: "product" "buttons""suggestions";
+    }
+}

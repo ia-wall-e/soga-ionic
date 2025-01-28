@@ -1,0 +1,18 @@
+<app-header-main></app-header-main>
+
+<ion-content [fullscreen]="true">
+  <!-- #region - container Banner - nav -->
+  <div class="container grid-1 bg-gray container-gradient pdd-2 bg-white">
+    <app-banner-a [data]="signals.banner_A()"></app-banner-a>
+  </div>
+  <div class="container grid-1 bg-gray  gap-2 pdd-1">
+    <ng-content *ngFor="let props of signals.statics()?.mods">
+      <app-mod-basic-static [data]="props"></app-mod-basic-static>
+    </ng-content>
+  </div>
+  <div class="container grid-1 bg-gray pdd-2 gap-1">
+    <ng-content *ngFor="let item of signals.slides()?.mods">
+      <app-mod-basic-slide [data]="item"></app-mod-basic-slide>
+    </ng-content>
+  </div>
+</ion-content>

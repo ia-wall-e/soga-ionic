@@ -1,0 +1,31 @@
+
+<app-header-modal></app-header-modal>
+<ion-content>
+  <div class="content">
+    <div class="product-section">
+      <div class="card-product">
+        <div class="image-card">
+          <img [src]="product.thumbnail" alt="">
+        </div>
+        <div class="data-card">
+          <span class="title">{{product.title }} | hola</span>
+          <span class="color">Natural Black/Basin Blue (Blizzard Sole)</span>
+          <span class="size">Talla: 10</span>
+          <span class="price">${{product.price}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="shopping-buttons-section">
+      <div class="subtotal-box">
+        <span class="subtotal">Subtotal</span>
+        <span class="price">${{product.price}}</span>
+      </div>
+      <ion-button class="bt-io fill-solid-primary size-l" routerLink="/checkout">Proceder a pagar</ion-button>
+      <ion-button class="bt-io fill-outline-primary size-l" routerLink="/cart-page">Continuar comprando</ion-button>
+    </div>
+    <!-- <div class="suggested-products-section">
+      <app-mod-basic-static [data]="mod()" cssGrid="grid-6"></app-mod-basic-static>
+    </div> -->
+  </div>
+</ion-content>
+

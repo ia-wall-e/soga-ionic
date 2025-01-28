@@ -1,0 +1,44 @@
+<div class="card-basic" *ngIf="available; else skeleton" [ngClass]="cssCard()" (click)="showcase(item().id)">
+  <div class="card-image">
+    <img [src]="item().thumbnail" alt="">
+    <div class="bookmark"></div>
+    <div class="sign-component" >
+      <div class="discount-sign"> 
+        <span class="material-symbols-rounded">bookmark</span>
+        <span class="text">10<small>%</small></span>
+      </div>
+    </div>
+  </div>
+  <div class="card-info">
+    <div class="box-info title">
+      <span class="txt-primary"> 
+        {{item().title}}
+      </span>
+    </div>
+    <div class="box-info price">
+      <span class="price-current">${{item().price}}</span>
+      <span class="txt-secondary" >Ahorra $12.450</span>
+    </div>
+    <div class="box-info shipping-info">
+      <div class="sign-green">
+        <span>Envio gratis</span>
+      </div>
+     
+    </div>
+  </div> 
+</div>
+<!-- #Skeleton -->
+<ng-template #skeleton>
+  <div class="card-basic" style="width:100%; max-width:12rem;">
+    <div class="card-image" style="padding-top:0.625rem; width:100%">
+      <ion-skeleton-text [animated]="true" style="padding:0.625rem; border-radius:15px"></ion-skeleton-text>
+    </div>
+    <div class="card-info">
+      <h4  style="height:1rem;">
+        <ion-skeleton-text [animated]="true" style="width:100%;border-radius:30px;"></ion-skeleton-text>
+      </h4>
+      <h4> <ion-skeleton-text [animated]="true" style="width:50%;border-radius:30px;"></ion-skeleton-text>
+      </h4>
+    </div>
+  </div>
+</ng-template>

@@ -1,3 +1,4 @@
+@use './mixin' as mixin;
 .grid-6 {
    display: grid;
    grid-template-columns: repeat(6, 12.3rem);
@@ -8,27 +9,27 @@
    grid-template-columns: repeat(4, 12.3rem);
    justify-content: center;
 }
-@include mediaquery(1240px) {
+@include mixin.mediaquery(1240px) {
    .grid-6 {
       grid-template-columns: repeat(5, 12.3rem);
    }
 }
-@include mediaquery(1044px) {
+@include mixin.mediaquery(1044px) {
    .grid-6 {
       grid-template-columns: repeat(4, 12.3rem);
    }
 }
-@include mediaquery(843px) {
+@include mixin.mediaquery(843px) {
    .grid-6 {
       grid-template-columns: repeat(3, 12.3rem);
    }
 }
-@include mediaquery(650px) {
+@include mixin.mediaquery(650px) {
    .grid-6 {
     grid-template-columns: repeat(2, 12.3rem);
  }
 }
- @include mediaquery(452px) {
+ @include mixin.mediaquery(452px) {
    .grid-6 {
     grid-template-columns: repeat(2, 1fr);
  }

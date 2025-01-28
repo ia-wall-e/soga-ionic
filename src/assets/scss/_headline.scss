@@ -1,3 +1,4 @@
+@use './mixin' as mixin;
 //#region - head-modulos
 .head-component {
     // background: violet;
@@ -16,14 +17,14 @@
         align-content: center;
 
         .title {
-            @include font-title($heading:2);
+            @include mixin.font-title($heading:2);
             width: 100%;
             text-decoration: none;
             margin: unset;
         }
 
         .subtitle {
-            @include font-standar($color: var(--gray-ii), $fw: 500);
+            @include mixin.font-standar($color: var(--gray-ii), $fw: 500);
         }
     }
 
@@ -80,7 +81,7 @@
         }
 
         .title {
-            @include font-title($fs: 1.5rem, $color: var(--black-regular));
+            @include mixin.font-title($fs: 1.5rem, $color: var(--black-regular));
             width: 100%;
             text-decoration: none;
             margin: unset;
@@ -97,7 +98,7 @@
         }
 
         .subtitle {
-            @include font-standar($color: var(--gray-iii), $fw: 500);
+            @include mixin.font-standar($color: var(--gray-iii), $fw: 500);
         }
     }
 }

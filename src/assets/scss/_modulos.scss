@@ -1,3 +1,4 @@
+@use'/src/assets/scss/mixin' as mixin;
 //#region - Structure
 .modulo, .panel {
     // background: yellow;
@@ -17,8 +18,6 @@
         width: 100%;
     }
 }
-//#endregion
-//#region - Attribute
 //#endregion
 //#region - Extends
 .modulo {
@@ -61,6 +60,24 @@
 //#endregion
 //#endregion
 //#region - Responsive
+// @include mediaquery(520px) {
+//     .modulo {
+//         &.type {
+//             &-card {
+//                 .body-modulo {
+//                     padding: inherit 0.3125rem;
+//                     display: grid;
+//                     grid-template-columns: repeat(2, 1fr);
+//                     // justify-items: center;//! <=genera problemas al responsive del skeleton de los card-basic
+//                     grid-template-rows: auto;
+//                     gap: 0.625rem;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+//#endregion
 // @include mediaquery(520px) {
 //     .modulo {
 //         &.type {

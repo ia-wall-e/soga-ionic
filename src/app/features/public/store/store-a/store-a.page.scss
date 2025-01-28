@@ -1,0 +1,64 @@
+@use"/src/assets/scss/mixin" as mixin;
+
+//#region - Gradient Container
+.container-gradient {
+  // --container-bg-gradiente:rgb(79, 171, 233);
+  --container-bg-gradiente: rgb(255, 255, 255, 1);
+  position: relative;
+  background: var(--container-bg-gradiente);
+
+  &::after {
+    // border: 2px solid red;
+    content: "";
+    position: absolute;
+    // top: -4.25rem;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    min-height: 50%;
+    background: linear-gradient(to bottom, var(--container-bg-gradiente), rgba(255, 255, 255, 0));
+    pointer-events: none;
+  }
+
+  &::before {
+    // border: 2px solid red;
+    content: "";
+    position: absolute;
+    // top: -4.25rem;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    min-height: 50%;
+    background: linear-gradient(to top, var(--container-bg-gradiente), rgba(255, 255, 255, 0));
+    pointer-events: none;
+  }
+}
+
+//#endregion
+//#region - panel-showcase
+.modulo{
+  &.mod-showcase{
+    .body-modulo{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2,8rem);
+      gap:0.3125rem;
+    }
+    .section-showcase{
+      cursor:pointer;
+      // background: violet;
+      width:100%;
+      height:100%;
+      img{
+        width:100%;
+        height:6rem;
+        object-fit: cover;
+        border-radius:12px 12px 12px 0;
+      }
+      .title{
+        @include mixin.font-title($heading:3,$color:var(--gray-txt));
+      }
+    }
+  }
+}
+//#endregion

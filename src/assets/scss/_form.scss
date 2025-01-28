@@ -1,3 +1,4 @@
+@use'./mixin'as mixin;
 .form-io {
   // background: yellowgreen;
   height: 100%;
@@ -37,11 +38,11 @@
     align-items: flex-end;
 
     span {
-      @include font-standar();
+      @include mixin.font-standar();
 
       a {
         cursor: pointer;
-        @include font-title($fs: 1rem, $font: 2, $color: var(--ion-color-primary));
+        @include mixin.font-title($fs: 1rem,$color: var(--ion-color-primary));
 
       }
     }
@@ -61,7 +62,7 @@
     row-gap: 1rem;
 
     legend {
-      @include font-standar($color: var(--gray-ii), $fw: 600);
+      @include mixin.font-standar($color: var(--gray-ii), $fw: 600);
     }
 
     .fieldset {

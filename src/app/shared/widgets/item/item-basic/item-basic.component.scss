@@ -1,0 +1,172 @@
+@use '/src/assets/scss/mixin' as mixin;
+
+//#region-CART-ITEM*/
+.item-basic {
+    // background: rgb(243, 185, 185);
+    width: 100%;
+
+    min-width: 100%;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    // width:320px;
+    // min-width:20rem;
+    // margin: auto;
+    // padding: 0.3125rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    // border-radius: 15px;
+    // border-radius:8px;
+    // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+
+    &:hover {
+        // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    //©RESETS
+    h4,
+    p {
+        all: unset;
+    }
+
+
+
+    //©SECTIONS
+    >.body-item {
+        // background:violet;
+        width: 100%;
+        max-height: 9rem;
+        height: 9rem;
+        display: grid;
+        grid-template-columns: 8rem 1fr;
+        grid-template-areas: "imagen data";
+
+        // padding: 0.625rem 0;
+        .wrapper-item {
+            padding: 1rem 0.625rem;
+        }
+
+        .nav-item {
+            // background: orange;
+            width: 100%;
+            height: 2rem;
+            display: flex;
+            flex-direction: row-reverse;
+            overflow: hidden;
+            // position: absolute;
+            // top: 0;
+            // right: 0;
+        }
+
+        .image-item {
+            // background: yellow;
+            grid-area: imagen;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+
+            img {
+                background: var(--bg-image);
+                object-fit: cover;
+                // height: 6rem;
+                // width: 6rem;
+                border-radius:var(--rd-image);
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .data-item {
+            // background: violet;
+            grid-area: data;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            // padding-top:2rem;
+            // padding: 0.5rem 0.5rem 0 0.5rem;
+
+            .title {
+                // padding-right: 0.625rem;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                // font-size: 1rem;
+                // max-height: 2rem;
+                // padding-bottom: 0.3rem;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+
+                // margin: 0.5rem 0 0 0.3rem;
+                h4 {
+                    // @include ft-primary(var(--lt-color-static));
+                    @include mixin.font-title();
+                    line-height: 1;
+                }
+            }
+
+            .extras {
+                // background:yellow;
+                width: 100%;
+                // flex: 1;
+
+                table {
+                    // background:violet;
+                    width: 100%;
+
+                    td {
+                        // background:red;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        .icon-check {
+                            color: rgb(1, 191, 93);
+                            margin-right: 0.3rem;
+                        }
+
+                        p {
+                            @include mixin.font-standar($fs: 0.8rem);
+                            // color: rgb(160, 160, 160);
+                        }
+                    }
+                }
+            }
+
+            .price {
+                // background:violet;
+flex:1;
+                // padding: 0.3125rem 0;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: row-reverse;
+
+                .quantity-txt {
+                    // @include ft-primary;
+                    // color:rgb(253,117,34);
+                    // font-size:0.95rem;
+                    // font-weight:bold;
+                    @include mixin.font-standar($color: var(--lt-color-static),
+                    );
+                }
+
+                .price-txt {
+                    // @include mixin.font-standar(
+                    //   $color: var(--lt-color-static),
+                    //   $size: "large",
+                    //   $weight: bolder
+                    // );
+                    @include mixin.font-standar($fs: 0.875rem, $fw: 500);
+                }
+            }
+        }
+    }
+}
+
+//#endregion*/

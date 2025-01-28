@@ -1,0 +1,117 @@
+@use'/src/assets/scss/mixin' as mixin;
+
+ion-header {
+    --box-shadow: none;
+    box-shadow: none;
+    border-bottom: 1px solid var(--gray-iv);
+    // padding:0 1.25rem;
+}
+.cart-sd{
+    max-height:100vh;
+    overflow: hidden;
+    --width:100%;
+    --max-width:480px;
+   --padding:0 1.25rem ;
+    .head {
+        height: 3rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        // border-bottom:2px solid var(--gray-iv);
+       
+        
+        ion-title {
+            @include mixin.font-title($heading: 2);
+            --color: var(--black-regular);
+            color: var(--black-regular);
+        }
+    }
+    
+  
+    .content{
+        position:relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width:100%;
+        padding:0 0.625rem;
+    }
+    ion-list{
+        padding:0;
+        --padding:0;
+    }
+    .items-section{
+        // background: yellow;
+       
+        overflow-y: auto;
+        flex:1;
+    }
+    .shopping-buttons-section {
+        background: var(--white-regular);
+        // background: yellow;
+        width:100%;
+        border-top: 1px solid rgb(224, 224, 224);
+        grid-area: buttons;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 0.625rem;
+        align-content: flex-start;
+        justify-content: center;
+        padding:0.625rem;
+        .subtotal-box {
+            // background: violet;
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.625rem 0;
+    
+            .subtotal {
+                @include mixin.font-title($fw:800,$fs:1rem)
+            }
+    
+            .price {
+                // @include mixin.font-standar($fs:0.98rem,$fw:500)
+                @include mixin.font-standar('price');
+            }
+        }
+    }
+}
+/* Mostrar una barra de desplazamiento personalizada */
+::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra */
+  }
+  
+  /* Estilos para el track (fondo de la barra) */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Estilos para el thumb (parte que se desplaza) */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+/* OLD:
+ion-list{
+    // background: #000;
+    --width:100%;
+    // --background: violet;
+    padding:unset;
+    --padding:unset;
+    --margin:unset;
+    ion-item{
+        --width:100%;
+    //    --background: violet;
+       padding:unset;
+       --padding:unset;
+       --margin:unset;
+    }
+}
+.cart-component{
+    background: violet;
+    width:520px;
+    height: 80%;;
+}
+*/

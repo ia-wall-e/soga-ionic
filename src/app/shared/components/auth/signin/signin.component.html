@@ -1,0 +1,31 @@
+<form class="form-io" [formGroup]="loginForm" (ngSubmit)="logWithEmail(loginForm)">
+  <div class="body-form">
+    <div class="fieldset-group">
+      <div class="input-component fill-outline size-xl shape-squared label-static ">
+        <input type="email" formControlName="email" />
+        <label>Correo Electronico</label>
+        <app-alert-error [forControl]="emailControl"></app-alert-error>
+      </div>
+      <div class="input-component fill-outline size-xl shape-squared label-static ">
+        <input type="password" formControlName="password" />
+        <label>Contraseña</label>
+        <app-alert-error [forControl]="passControl"></app-alert-error>
+      </div>
+      <ion-button type="submit" class="bt-io size-xl">Iniciar sesión</ion-button>
+    </div>
+    <div class="divider"><span>O</span></div>
+    <div class="fielset-options">
+      <ion-button class="bt-icon fill-solid-secondary size-xl">
+        <img src="../../../../assets/img/utils/google-thumbnail.png" alt="">
+      </ion-button>
+      <ion-button class="bt-icon fill-solid-secondary size-xl">
+        <img src="../../../../assets/img/utils/facebook-thumbnail.jpg" alt="">
+      </ion-button>
+      <ion-button class="bt-icon fill-solid-secondary size-xl">
+        <img src="../../../../assets/img/utils/apple-thumbnail.png" alt="">
+      </ion-button>
+    </div>
+  </div>
+</form>
+
+

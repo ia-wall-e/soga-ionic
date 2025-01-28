@@ -7,6 +7,9 @@ import { Auth,signInWithPopup,GoogleAuthProvider } from '@angular/fire/auth';
 export class FirebaseService {
 
   constructor(private auth$ : Auth) { }
+  signUpWithEmail(){
+    
+  }
   signInWithGoogle(){
     const provider= new GoogleAuthProvider();
     return signInWithPopup(this.auth$, provider);
