@@ -34,7 +34,18 @@
         min-height: 100%;
         @include mixin.font-standar($fw: 400, $color: var(--ion-color-primary));
       }
+      
     }
   }
   
   //#endregion
+  .rating-component{
+    &.rating-sk{
+      .rating{
+        span{
+          color:rgb(224, 224, 224);
+        }
+      }
+    
+    }
+  }

@@ -17,7 +17,8 @@ import { SwiperOptions } from 'swiper/types';
 })
 export class ShowcasePage implements OnInit {
   available: boolean = false;
-  @ViewChild('swiper') swiperRef?: ElementRef;
+  @ViewChild('swiperImg') swiperRef?: ElementRef;
+  @ViewChild('swiperFt') swiperFtRef?: ElementRef;
   @ViewChild('feature') featureRef?: TemplateRef<any>;
   @ViewChild('description') descriptionRef?: TemplateRef<any>;
   id?: any;
@@ -32,6 +33,17 @@ export class ShowcasePage implements OnInit {
   }
   //#region - Hooks
   ngOnInit() {
+   this.getData();
+  }
+  ngAfterViewInit(): void {
+  this.swiperImg();
+  this.swiperFeatures();
+  }
+  ngOnDestroy() {
+    this.sub$?.unsubscribe()
+  }
+  //#Metodos
+  getData(){
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.sub$ = this.catalogSvc.getProductId(this.id).subscribe({
       next: (data) => {
@@ -44,21 +56,36 @@ export class ShowcasePage implements OnInit {
       error: (error) => { console.error(error) }
     })
   }
-  ngAfterViewInit(): void {
+  swiperImg(){
     const swiperEl = this.swiperRef?.nativeElement;
     const params: SwiperOptions = {
       pagination: true,
-      on: {
-        init() {
-          console.log('swiper inicializado -  stand')
-        }
-      }
+      // navigation:true,
+      // on: {
+      //   init() {
+      //     console.log('swiper inicializado -  stand')
+      //   }
+      // }
     }
     Object.assign(swiperEl, params);
     swiperEl.initialize();
   }
-  ngOnDestroy() {
-    this.sub$?.unsubscribe()
+  swiperFeatures(){
+    // console.log(this.swiperFtRef)
+    const swiperFt = this.swiperFtRef?.nativeElement;
+    const paramsFt: SwiperOptions = {
+      slidesPerView: 'auto',
+      spaceBetween:0,
+      resizeObserver: true,
+      
+      // on: {
+      //   init() {
+      //     console.log('swiper inicializado - buttons features')
+      //   }
+      // }
+    }
+    Object.assign(swiperFt, paramsFt);
+    swiperFt.initialize();
   }
   //#endregion
   //#region - Add to Cart

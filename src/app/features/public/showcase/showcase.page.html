@@ -5,7 +5,7 @@
     <div class="stand-section showcase">
       <div class="box-image">
         <div class="image">
-          <swiper-container init="false" #swiper>
+          <swiper-container init="false" #swiperImg>
             <swiper-slide *ngFor="let img of product?.images">
               <img [src]="img" alt="" loading="lazy" *ngIf="available, else imageSK">
               <ng-template #imageSK>
@@ -23,10 +23,14 @@
             Extendido) GB RAM 128GB ROM,6.56" HD+ Pantalla Teléfono 48MP Principal Cámara,90Hz/5G WiFi/Face ID
           </span>
           <ng-template #titleSK>
-            <ion-skeleton-text [animated]="true" style="width:100%;height:1.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-            <ion-skeleton-text [animated]="true" style="width:100%;height:1.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-            <ion-skeleton-text [animated]="true" style="width:100%;height:1.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-            <ion-skeleton-text [animated]="true" style="width:50%;height:1.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true"
+              style="width:100%;height:1.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true"
+              style="width:100%;height:1.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true"
+              style="width:100%;height:1.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true"
+              style="width:50%;height:1.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
           </ng-template>
         </div>
         <div class="box-rating">
@@ -96,7 +100,8 @@
               </div>
               <div class="options">
                 <div class="item" style="border:none;">
-                  <ion-skeleton-text [animated]="true" style="width:100%;height:100%;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                  <ion-skeleton-text [animated]="true"
+                    style="width:100%;height:100%;border-radius:var(--radius-sk);"></ion-skeleton-text>
                 </div>
               </div>
             </div>
@@ -120,37 +125,46 @@
           </div>
         </div>
       </ng-template>
-      <div class="wrapper wrapper-buttons" *ngIf="available, else buttonsSK">
+      <div class="wrapper wrapper-buttons">
         <div class="bx-button button-shop">
-          <ion-button class="bt-io fill-solid-primary  size-l" (click)="handlerAddToCart(product)">Agregar al
+          <ion-button class="bt-io fill-solid-primary size-l" (click)="handlerAddToCart(product)">Agregar al
             carrito</ion-button>
         </div>
+
         <div class="bx-button buttons-info">
-          <!-- <swiper-container>
-            <swiper-slide>   <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m"
-              (click)="genericModal('feature')">Características</ion-button></swiper-slide>
+          <swiper-container init="false" #swiperFt>
+            <swiper-slide> <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m"
+                (click)="genericModal('feature')">Características</ion-button></swiper-slide>
             <swiper-slide><ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m"
-              (click)="genericModal('description')">Descripción</ion-button></swiper-slide>
-            <swiper-slide> <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m">Detalles</ion-button></swiper-slide>
-            <swiper-slide> <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m">Garantía</ion-button></swiper-slide>
-          </swiper-container> -->
-          <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m"
-            (click)="genericModal('feature')">Características</ion-button>
-          <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m"
-            (click)="genericModal('description')">Descripción</ion-button>
-          <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m">Detalles</ion-button>
-          <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m">Garantía</ion-button>
+                (click)="genericModal('description')">Descripción</ion-button></swiper-slide>
+            <swiper-slide> <ion-button
+                class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m">Detalles</ion-button></swiper-slide>
+            <swiper-slide> <ion-button
+                class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m">Garantía</ion-button></swiper-slide>
+            <swiper-slide> <ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m"
+                (click)="genericModal('feature')">Características</ion-button></swiper-slide>
+            <swiper-slide><ion-button class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m"
+                (click)="genericModal('description')">Descripción</ion-button></swiper-slide>
+            <swiper-slide> <ion-button
+                class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m">Detalles</ion-button></swiper-slide>
+            <swiper-slide> <ion-button
+                class="bt-io fill-solid-soft shape-rounded  size-l txt-sz-m">Garantía</ion-button></swiper-slide>
+          </swiper-container>
         </div>
       </div>
       <ng-template #buttonsSK>
         <div class="wrapper wrapper-buttons">
           <div class="bx-button button-shop">
-            <ion-skeleton-text [animated]="true" style="width:10rem; height:2.5rem;margin-right:0.625rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true"
+              style="width:10rem; height:2.5rem;margin-right:0.625rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
           </div>
           <div class="bx-button buttons-info">
-            <ion-skeleton-text [animated]="true" style="width:10rem; height:2.5rem;margin-right:0.625rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-            <ion-skeleton-text [animated]="true" style="width:10rem; height:2.5rem;margin-right:0.625rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-            <ion-skeleton-text [animated]="true" style="width:10rem; height:2.5rem;margin-right:0.625rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true"
+              style="width:10rem; height:2.5rem;margin-right:0.625rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true"
+              style="width:10rem; height:2.5rem;margin-right:0.625rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true"
+              style="width:10rem; height:2.5rem;margin-right:0.625rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
           </div>
         </div>
       </ng-template>
@@ -216,52 +230,68 @@
     </div>
     <ng-template #reviewsSK>
       <div class="stand-section customer-reviews-product">
-        <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+        <ion-skeleton-text [animated]="true"
+          style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
         <div class="box-generic overall">
           <div class="wrapper">
-            <span class="score"> <ion-skeleton-text [animated]="true" style="width:4rem;height:3.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text></span>
+            <span class="score"> <ion-skeleton-text [animated]="true"
+                style="width:4rem;height:3.5rem;border-radius:var(--radius-sk);"></ion-skeleton-text></span>
             <div class="rating-section">
               <app-rating [data]="rating()" seeRating="false"></app-rating>
-              <span class="rating-text"> <ion-skeleton-text [animated]="true" style="width:8rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text></span>
+              <span class="rating-text"> <ion-skeleton-text [animated]="true"
+                  style="width:8rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text></span>
             </div>
           </div>
         </div>
         <div class="box-generic features">
-          <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+          <ion-skeleton-text [animated]="true"
+            style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
           <div class="rating-section">
-            <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true"
+              style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
             <app-rating [data]="rating()" seeRating="false"></app-rating>
           </div>
           <div class="rating-section">
-            <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true"
+              style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
             <app-rating [data]="rating()" seeRating="false"></app-rating>
           </div>
         </div>
         <div class="box-generic reviews">
-          <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+          <ion-skeleton-text [animated]="true"
+            style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
           <div class="review-section">
             <div class="data-review">
               <div class="rating">
                 <app-rating seeRating="false"></app-rating>
               </div>
               <div class="date">
-                <ion-skeleton-text [animated]="true" style="width:10rem;height:0.85rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:10rem;height:0.85rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
               </div>
             </div>
             <p class="comment">
-              <ion-skeleton-text [animated]="true" style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-              <ion-skeleton-text [animated]="true" style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-              <ion-skeleton-text [animated]="true" style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-              <ion-skeleton-text [animated]="true" style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-              <ion-skeleton-text [animated]="true" style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-              <ion-skeleton-text [animated]="true" style="width:50%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true"
+                style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true"
+                style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true"
+                style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true"
+                style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true"
+                style="width:100%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true"
+                style="width:50%;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
             </p>
             <div class="buttons-section-common button-double">
               <!-- <ion-button class="bt-icon fill-solid-gray size-m"> -->
-                <ion-skeleton-text [animated]="true" style="width:2rem;height:2rem;border-radius:100%;"></ion-skeleton-text>
+              <ion-skeleton-text [animated]="true"
+                style="width:2rem;height:2rem;border-radius:100%;"></ion-skeleton-text>
               <!-- </ion-button> -->
               <div class="group-buttons">
-                <ion-skeleton-text [animated]="true" style="width:2rem;height:2rem;border-radius:100%;"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:2rem;height:2rem;border-radius:100%;"></ion-skeleton-text>
 
               </div>
             </div>
@@ -454,31 +484,40 @@
       <ng-template #purchaseSK>
         <div class="stand-section purchase-product">
           <div class="title-section">
-            <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true"
+              style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
           </div>
           <div class="details-container">
             <div class="item-detail">
               <div class="info-text">
-                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-                <ion-skeleton-text [animated]="true" style="width:0.85rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:0.85rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
               </div>
             </div>
             <div class="item-detail">
               <div class="info-text">
-                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-                <ion-skeleton-text [animated]="true" style="width:0.85rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:0.85rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
               </div>
             </div>
             <div class="item-detail">
               <div class="info-text">
-                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-                <ion-skeleton-text [animated]="true" style="width:0.85rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:0.85rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
               </div>
             </div>
             <div class="item-detail">
               <div class="info-text">
-                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
-                <ion-skeleton-text [animated]="true" style="width:0.85rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:0.85rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
               </div>
             </div>
           </div>
@@ -524,32 +563,38 @@
       <ng-template #dataStoreSK>
         <div class="stand-section  data-store">
           <div class="title-section">
-            <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+            <ion-skeleton-text [animated]="true"
+              style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
           </div>
           <div class="details-container">
             <div class="item-detail" *ngIf="product?.brand">
               <div class="info-text">
-                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
               </div>
             </div>
             <div class="item-detail">
               <div class="info-text">
-                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
               </div>
             </div>
             <div class="item-detail">
               <div class="info-text">
-                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
               </div>
             </div>
             <div class="item-detail">
               <div class="info-text">
-                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
               </div>
             </div>
             <div class="item-detail">
               <div class="info-text">
-                <ion-skeleton-text [animated]="true" style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
+                <ion-skeleton-text [animated]="true"
+                  style="width:10rem;height:1rem;border-radius:var(--radius-sk);"></ion-skeleton-text>
               </div>
             </div>
           </div>

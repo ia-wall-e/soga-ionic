@@ -7,18 +7,16 @@ import { Component, effect, input, OnInit } from '@angular/core';
   standalone:false
 })
 export class RatingComponent  implements OnInit {
-
+available:boolean=false;
   data = input<any>(null);
   seeRating=input<any>(null);
   showRating:boolean=true;
   rating: any;
   constructor() {
     effect(()=>{
-      
-      this.rating = this.round(this.data())
-      if(this.seeRating()=="false"){
-        this.showRating=false
-      }
+      (this.data())?this.rating = this.round(this.data()):null;
+      (this.seeRating()=="false")?this.showRating=false:null;
+      (this.data())?this.available=true:null;
     })
    }
 

@@ -24,19 +24,20 @@ const routes: Routes = [
     loadChildren: () => import('./features/public/shopping-cart/shopping-cart.module').then( m => m.ShoppingCartPageModule)
   },
   {
+    path: 'checkout',
+    loadChildren: () => import('./features/public/checkout/checkout.module').then( m => m.CheckoutPageModule)
+  },
+  {
     path: 'auth',
     loadChildren: () => import('./features/public/auth/auth.module').then( m => m.AuthModule)
   },
-  { path: 'signin', redirectTo: '/auth/signin', pathMatch: 'full' },//child-auth 
+  { path: 'login', redirectTo: '/auth/signin', pathMatch: 'full' },//child-auth 
   { path: 'signup', redirectTo: '/auth/signup', pathMatch: 'full' },//child-auth  
   {
     path: '**',
     loadChildren: () => import('./features/public/error/error.module').then( m => m.ErrorPageModule)
   },
-  {
-    path: 'checkout',
-    loadChildren: () => import('./features/public/checkout/checkout.module').then( m => m.CheckoutPageModule)
-  },
+ 
 
  
  

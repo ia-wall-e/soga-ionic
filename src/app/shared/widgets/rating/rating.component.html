@@ -1,4 +1,4 @@
-<div class="rating-component">
+<div class="rating-component" *ngIf="available, else skeleton">
   <div class="rating">
     <span class="material-symbols-outlined">star</span>
     <span class="material-symbols-outlined">star</span>
@@ -8,3 +8,14 @@
   </div>
   <div class="qualify" *ngIf="showRating"><span>({{rating}})</span></div>
 </div>
+<ng-template #skeleton>
+  <div class="rating-component rating-sk">
+    <div class="rating">
+      <span class="material-symbols-outlined">star</span>
+      <span class="material-symbols-outlined">star</span>
+      <span class="material-symbols-outlined">star</span>
+      <span class="material-symbols-outlined">star</span>
+      <span class="material-symbols-outlined">star</span>
+    </div>
+  </div>
+</ng-template>
