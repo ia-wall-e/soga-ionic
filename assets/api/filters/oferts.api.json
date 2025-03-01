@@ -1,0 +1,163 @@
+{
+  "phone": [
+    {
+      "key": "brand",
+      "label": "Marcas",
+      "type": "select",
+      "options": ["Samsung", "Apple", "Xiaomi", "Motorola"],
+      "+options": [
+        "AGM",
+        "Alan",
+        "Apple",
+        "Asus",
+        "AT&T",
+        "Auto Parts",
+        "BlackBerry",
+        "Blackview",
+        "BlueDreamer",
+        "Genérica",
+        "Google",
+        "Huawei"
+      ]
+    },
+    {
+      "key": "screen-size",
+      "label": "Dimensiones de Pantalla",
+      "type": "select",
+      "options": ["5.5", "6.1", "6.7"]
+    },
+    {
+      "key": "processor",
+      "label": "Procesador",
+      "type": "select",
+      "options": ["Snapdragon", "Exynos", "MediaTek"]
+    },
+    {
+      "key": "ram",
+      "label": "RAM",
+      "type": "select",
+      "options": ["4GB", "6GB", "8GB", "12GB"]
+    },
+    {
+      "key": "storage",
+      "label": "Almacenamiento",
+      "type": "select",
+      "options": ["64GB", "128GB", "256GB", "512GB"]
+    },
+    {
+      "key": "features",
+      "label": "Caracteristicas",
+      "type": "select",
+      "options": [
+        "Con acelerómetro",
+        "Con Bluetooth",
+        "Con brújula",
+        "Con carga rápida",
+        "Con conector USB",
+        "Con cámara",
+        "Con giroscopio",
+        "Con GPS",
+        "Con lector de huella digital",
+        "Con pantalla táctil",
+        "Con reconocimiento facial",
+        "Con sensor de proximidad",
+        "Es resistente al agua"
+      ]
+    },
+    {
+      "key": "front-camera",
+      "label": "Camara frontal",
+      "type": "select",
+      "options": ["13 Mpx", "49 Mpx", "63 Mpx", "64 Mpx"]
+    },
+    {
+      "key": "serie",
+      "label": "Serie",
+      "type": "select",
+      "options": ["13 Mpx", "49 Mpx", "63 Mpx", "64 Mpx"]
+    },
+    {
+      "key": "model",
+      "label": "Modelo",
+      "type": "select",
+      "options": ["13 Mpx", "49 Mpx", "63 Mpx", "64 Mpx"]
+    },
+    {
+      "key": "color",
+      "label": "Color",
+      "type": "color",
+      "options": ["13 Mpx", "49 Mpx", "63 Mpx", "64 Mpx"]
+    }
+  ],
+  "shoes": [
+    {
+      "key": "gender",
+      "label": "Genero",
+      "type": "select",
+      "options": ["Hombre", "Mujer", "Niño", "Niña"]
+    },
+    {
+      "key": "size",
+      "label": "Tallá",
+      "type": "select",
+      "options": ["38", "39", "40", "41", "42", "43"]
+    },
+    {
+      "key": "brand",
+      "label": "Marca",
+      "type": "select",
+      "options": ["Nike", "Puma ", "Adidas", "Converse"],
+      "+options": [
+        "adidas",
+        "Airwalk",
+        "Alan",
+        "Alan Eaton",
+        "Alcon",
+        "Alexander Mcqueen",
+        "Alpine Swiss",
+        "Altra",
+        "Amiri",
+        "AND1",
+        "Anry",
+        "AOC",
+        "Asics",
+        "Avia",
+        "Avmzvo"
+      ]
+    },
+    {
+      "key": "color",
+      "label": "Color",
+      "type": "select",
+      "options": ["Negro", "Blanco", "Rojo", "Azul", "Verde"]
+    },
+    {
+      "key": "materials",
+      "label": "Material",
+      "type": "select",
+      "options": [
+        "Tejido",
+        "Cuero",
+        "Poliéster",
+        "Malla",
+        "Cuero sintético",
+        "Lona",
+        "Sintético",
+        "Gamuza",
+        "Microfibra"
+      ]
+    },
+    {
+      "key": "features",
+      "label": "Caracteristicas",
+      "type": "select",
+      "options": [
+        "Con suela antideslizante",
+        "Con cuello acolchado",
+        "Con lengüeta acolchada",
+        "Con plataforma",
+        "Con materiales reciclados"
+      ]
+    }
+  ]
+}

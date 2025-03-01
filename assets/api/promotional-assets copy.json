@@ -1,0 +1,37 @@
+{
+    "banner": {
+      "available": true,
+      "items": [
+        {
+          "image": "https://img.freepik.com/vector-premium/plantilla-diseno-banner-venta-moda-verano_2239-1174.jpg",
+          "link": "/shopping-cart"
+        },
+        {
+          "image": "https://http2.mlstatic.com/storage/splinter-admin/o:f_webp,q_auto:low/1728625033522-llegoelotonoenmodamobile.jpg",
+          "link": "/home"
+        },
+        {
+          "image": "https://http2.mlstatic.com/storage/splinter-admin/o:f_webp,q_auto:low/1721344714022-msmodamobile3.jpg",
+          "link": "/home"
+        },
+        {
+          "image":"https://m.media-amazon.com/images/I/711NdF5k91L._SX3000_.jpg",
+          "link":"/mall"
+        }
+      ],
+      "minor": [
+        {
+          "image": "https://img.freepik.com/vector-gratis/diseno-banner-ventas-compras_23-2150254422.jpg",
+          "link": "/home"
+        },
+        {
+          "image": "https://static.vecteezy.com/system/resources/previews/008/174/590/non_2x/fashion-advertising-web-banner-illustration-vector.jpg",
+          "link": "/home"
+        },
+        {
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT22yv1g-p_mZZ4-CvXR9JQVByU3SVDVJXv4A&s",
+          "link": "/home"
+        }
+      ]
+    }
+}
